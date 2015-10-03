@@ -1,5 +1,140 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div#wrapper.clearfix
+    header#header.full-header
+      div#header-wrap
+        div.container.clearfix
+          //- MENU TRIGGER
+          div#primary-menu-trigger
+            i.icon-reorder
+
+          //- LOGO
+          div#logo
+            a(href='/', class='standard-logo', data-dark-logo='/img/logo/logo-dark.png')
+              img(src='/img/logo/logo.png', alt='Canvas Logo')
+            a(href='/', class='retina-logo', data-dark-logo='/img/logo/logo-dark@2x.png')
+              img(src='/img/logo/logo.png', alt='Canvas Logo')
+
+          //- PRIMARY NAV
+          nav#primary-menu
+            ul.sf-js-enabled(style='touch-action: pan-y')
+              li
+                a(href='/bausparen')
+                  div Bausparen
+              li
+                a(href='/investieren')
+                  div Investieren
+              li
+                a(href='/kreditkarten')
+                  div Kreditkarten
+              li
+                a(href='/blog')
+                  div Blog
+
+    section#slider.slider-parallax(style='height: 670px; transform: translate(0px, 0px); background: url(/img/landing/landing-back-01-large.jpg);', data-height-lg='670', data-height-md='500' data-height-sm='400' data-height-xs='250' data-height-xxs='200')
+      div.container.clearfix
+        div.vertical-middle.center(style='position: absolute; top: 50%; width: 100%; margin-top: -14px; opacity: 1.99896;')
+          div.heading-block.nobottomborder.center
+            h1
+              div.text-rotater(data-separator='|', data-rotate='flipInX', data-speed='3500') Antworten auf Ihre Finanzfragen
+
+
+    section#content
+      div.content-wrap
+        div.promo.promo-light.promo-full.bottommargin-lg.header-stick.notopborder.center
+          div.container.clearfix
+            h3 Bessere Finanzentscheidungen durch personalisierte und interaktive Tools und Rechner.
+        div.container.clearfix
+          div.col_one_third
+            div.feature-box.fbox-effect
+              div.fbox-icon
+                a(href='/')
+                  i.icon-screen.i-alt
+              h3 Bausparen
+              p Text
+          div.col_one_third
+            div.feature-box.fbox-effect
+              div.fbox-icon
+                a(href='/')
+                  i.icon-screen.i-alt
+              h3 Investieren
+              p Text
+          div.col_one_third.col_last
+            div.feature-box.fbox-effect
+              div.fbox-icon
+                a(href='/')
+                  i.icon-screen.i-alt
+              h3 Kreditkarten
+              p Text
+          div.clear
+          div.line
+
+          div.col_half
+            div.feature-box.fbox-effect
+              div.fbox-icon
+                a(href='/')
+                  i.icon-screen.i-alt
+              h3 Bausparen
+              p Text
+          div.col_half.col_last
+            p Bild
+          div.clear
+          div.line
+
+          div.col_half
+            div.feature-box.fbox-effect
+              div.fbox-icon
+                a(href='/')
+                  i.icon-screen.i-alt
+              h3 Investieren
+              p Text
+          div.col_half.col_last
+            p Bild
+          div.clear
+          div.line
+
+          div.col_half
+            div.feature-box.fbox-effect
+              div.fbox-icon
+                a(href='/')
+                  i.icon-screen.i-alt
+              h3 Kreditkarten
+              p Text
+          div.col_half.col_last
+            p Bild
+
+    footer#footer.dark
+
+      div#copyrights
+        div.container.clearfix
+          div.col_half
+            Copyrights © 2014 All Rights Reserved by SimplyFi Analytics UG
+            br
+            div.copyright-links
+              a(href='/') Impressum
+              a(href='/') Datenschutzerklärung
+          div.col_half.col_last.tright
+            div.fright.clearfix
+              a(href='/').social-icon.si-small.si-borderless.si-facebook
+                i.icon-facebook
+                i.icon-facebook
+              a(href='/').social-icon.si-small.si-borderless.si-twitter
+                i.icon-twitter
+                i.icon-twitter
+              a(href='/').social-icon.si-small.si-borderless.si-pinterest
+                i.icon-pinterest
+                i.icon-pinterest
+              a(href='/').social-icon.si-small.si-borderless.si-linkedin
+                i.icon-linkedin
+                i.icon-linkedin
+            div.clear
+            i.icon-envelope2
+            | info@simplyfi
+            span.middot
+            i.icon-headphones
+            | +49 176 85703860
+            span.middot
+            i.icon-skype2
+            | simplyskype
+
