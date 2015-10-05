@@ -1,0 +1,49 @@
+//
+   Created by benjamintanz on 05.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    //- Page-title
+    section#page-title
+      div.container.clearfix
+        h1 Mieten oder Kaufen
+        span Der Rechner zur Entscheidungshilfe
+        ol.breadcrumb
+          li
+            a(href='/') Home
+          li
+            a(href='/hauskauf') Hauskauf
+          li.active Mieten oder Kaufen
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- sidebar left
+          div.sidebar.nobottommargin.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Eingaben
+                label(for='price') Kaufpreis
+                input(type='number', id='price', name='price', value='150000', class='sm-form-control')
+
+
+          //- main content
+          div.postcontent.bothsidebar.nobottommargin.clearfix
+            div.single-post.nobottommargin
+              div.single-post
+                h4 Ergebnis
+
+          //- sidebar right
+          div.sidebar.nobottommargin.col_last.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Mehr von FinBob
+                p (links)
+              div.widget.clearfix
+                h4 Share
+              div.widget.clearfix
+                h4 Newsletter
+              div.widget.clearfix
+                h4 Werbung
