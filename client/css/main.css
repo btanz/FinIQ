@@ -1,0 +1,45 @@
+/* helper classes */
+.notopmargin {
+  margin-top: 0;
+}
+
+
+.nobottompadding {
+  padding-bottom: 0;
+}
+.xxsbottommargin {
+  margin-bottom: 5px;
+}
+.xsbottommargin {
+  margin-bottom: 10px;
+}
+.xsbottommargin {
+  margin-bottom: 15px;
+}
+
+/* content wrapper */
+.content-wrap-topics {
+  padding-top: 40px;
+}
+
+/* entry elements */
+.entry-button {
+  display: block;
+  text-align: center;
+}
+
+.entry{
+  margin: 0 0 30px;
+  padding: 0 0 20px;
+}
+
+.small-thumbs .entry-image{
+  width: 150px;
+}
+
+
+/* custom heading styling */
+h4.fb {
+  font-weight: 400;
+  font-size: 22px;
+}
