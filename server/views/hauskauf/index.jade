@@ -1,0 +1,57 @@
+//
+   Created by benjamintanz on 05.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    //- Page-title
+    section#page-title
+      div.container.clearfix
+        h1 Hauskauf
+        span Der Guide zum Hauskauf
+        ol.breadcrumb
+          li
+            a(href='/') Home
+          li.active Hauskauf
+
+
+    section#content
+      div.content-wrap
+        div.container.clearfix
+          div.postcontent.nobottommargin.clearfix
+            div#posts.small-thumbs.alt
+              div.entry.clearfix
+                div.entry-image
+                  a(href='img/hauskauf/img01.jpg', data-lightbox='image')
+                    img(class='image_fade', src='img/hauskauf/img01.jpg', alt='Standard Post with Image')
+                div.entry-c
+                  div.entry-title
+                    h2
+                      a(href='/') Standard-Post mit Preview
+                  ul.entry-meta.clearfix
+                    li
+                      i.icon-calendar3 &nbsp; 05.10.2015
+                  div.entry-content
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
+                    a(href='/').more-link Weiterlesen ...
+
+          div.sidebar.nobottommargin.col_last.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Mehr von FinBob
+                p (links)
+              div.widget.clearfix
+                h4 Share
+              div.widget.clearfix
+                h4 Newsletter
+              div.widget.clearfix
+                h4 Werbung
+
+
+
+
+
+
+
+    include ../_includes/footer

@@ -6,17 +6,18 @@
 
 
 /** B. External dependencies */
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+var express       = require('express');
+var path          = require('path');
+var favicon       = require('serve-favicon');
+var logger        = require('morgan');
+var cookieParser  = require('cookie-parser');
+var bodyParser    = require('body-parser');
 
 
 /** C. Internal dependencies / Routes */
-var routes = require('./../server/routes/index');
-var users = require('./../server/routes/users');
+var routes        = require('./../server/routes/index');
+var hauskaufRoutes= require('./../server/routes/hauskauf/index');
+var users         = require('./../server/routes/users');
 
 /** D. Init */
 var app = express();
@@ -67,6 +68,7 @@ app.use(express.static(path.join(__dirname, './../client')));
  * 7. ROUTES
  */
 app.use('/', routes);
+app.use('/hauskauf', hauskaufRoutes);
 app.use('/users', users);
 
 /** robots txt route */

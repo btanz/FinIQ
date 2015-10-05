@@ -1,0 +1,34 @@
+//-
+   Created by benjamintanz on 05.10.15.
+header#header.full-header
+  div#header-wrap
+    div.container.clearfix
+      //- MENU TRIGGER
+      div#primary-menu-trigger
+        i.icon-reorder
+
+      //- LOGO
+      div#logo
+        a(href='/', class='standard-logo', data-dark-logo='/img/logo/logo-dark.png')
+          img(src='/img/logo/logo.png', alt='Canvas Logo')
+        a(href='/', class='retina-logo', data-dark-logo='/img/logo/logo-dark@2x.png')
+          img(src='/img/logo/logo.png', alt='Canvas Logo')
+
+      //- PRIMARY NAV
+      nav#primary-menu
+        ul.sf-js-enabled(style='touch-action: pan-y')
+          li
+            a(href='/bausparen')
+              div Bausparen
+          li
+            a(href='/hauskauf')
+              div Hauskauf
+          li
+            a(href='/investieren')
+              div Investieren
+          li
+            a(href='/kreditkarten')
+              div Kreditkarten
+          li
+            a(href='/blog')
+              div Blog
