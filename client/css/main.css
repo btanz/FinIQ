@@ -1,4 +1,4 @@
-/* helper classes */
+/* **************** helper classes **************** */
 .notopmargin {
   margin-top: 0;
 }
@@ -13,8 +13,11 @@
 .xsbottommargin {
   margin-bottom: 10px;
 }
-.xsbottommargin {
+.sbottommargin {
   margin-bottom: 15px;
+}
+.mbottommargin {
+  margin-bottom: 20px;
 }
 
 /* content wrapper */
@@ -22,7 +25,11 @@
   padding-top: 40px;
 }
 
-/* entry elements */
+.text-right{
+  text-align: right;
+}
+
+/* **************** entry elements **************** */
 .entry-button {
   display: block;
   text-align: center;
@@ -43,3 +50,60 @@ h4.fb {
   font-weight: 400;
   font-size: 22px;
 }
+
+/* **************** input elements **************** */
+/* slider*/
+rzslider {
+  margin: 15px 0 10px 0;
+}
+
+rzslider span.rz-pointer{
+  top: -7px;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #009CDE;
+}
+
+rzslider span.rz-pointer:after{
+  top: 6px;
+  left: 6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+rzslider span.rz-bar{
+  background: #DDDDDD;
+  height: 3px;
+}
+
+.sm-form-control{
+  padding: 5px 7px;
+}
+.fb-input-row{
+  margin-bottom: -15px;
+}
+
+/* toggleable panel */
+.panel{
+  border: 0;
+  margin-top: 10px;
+}
+.panel-default>.panel-heading{
+  border-color: transparent;
+  background-color: transparent;
+  color: transparent;
+  letter-spacing: 1px;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 10px 5px 10px 2px;
+  border-top: 2px solid #DDD;
+}
+
+.panel-body{
+  padding: 15px 0 15px 0;
+}
+
+

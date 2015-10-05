@@ -3,7 +3,7 @@
 
 extends ../layout
 block content
-  div#wrapper.clearfix
+  div#wrapper.clearfix(ng-app='MietenOderKaufen')
     include ../_includes/navheader
     //- Page-title
     section#page-title
@@ -16,17 +16,97 @@ block content
           li
             a(href='/hauskauf') Hauskauf
           li.active Mieten oder Kaufen
-    section#content
+
+    //-page-content
+    section#content(ng-controller='MietenOderKaufenController as controller')
       div.content-wrap.content-wrap-topics
         div.container.clearfix
 
-          //- sidebar left
+          //- sidebar left (INPUTS)
           div.sidebar.nobottommargin.clearfix
             div.sidebar-widgets-wrap
               div.widget.clearfix
-                h4 Eingaben
-                label(for='price') Kaufpreis
-                input(type='number', id='price', name='price', value='150000', class='sm-form-control')
+                h4
+                  i.icon-pencil
+                  | &nbsp; Eingaben
+
+                //- main inputs
+                label.xxsbottommargin(for='price') Kaufpreis
+                div.input-group
+                  input(type='number', id='price', name='price', ng-model='price', class='sm-form-control')
+                  span.input-group-addon €
+                rzslider(rz-slider-model='price', rz-slider-ceil='4000000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                div.divider.notopmargin.mbottommargin
+
+                label.xxsbottommargin(for='rent') Monatsmiete
+                div.input-group
+                  input(type='number', id='rent', name='rent', ng-model='rent', class='sm-form-control')
+                  span.input-group-addon €
+                rzslider(rz-slider-model='rent', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                div.divider.notopmargin.mbottommargin
+
+                label.xxsbottommargin(for='rent') Eigenkapital
+                div.row
+                  div.col-md-6
+                    div.input-group
+                      input(type='number', id='equity', name='equity', ng-model='equity', class='sm-form-control')
+                      span.input-group-addon %
+                  div.col-md-6
+                    p.nobottommargin.text-right {{calcEquity()}}
+                rzslider(rz-slider-model='equity', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                div.divider.notopmargin.mbottommargin
+
+                label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
+                div.input-group
+                  input(type='number', id='income', name='income', ng-model='income', class='sm-form-control')
+                  span.input-group-addon €
+                rzslider(rz-slider-model='income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                //- input toggles
+                div.panel-group.nobottommargin.accordion
+                  div.panel.panel-default
+                    div.panel-heading
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='false', class='collapsed')
+                        i.fa.fa-angle-right.fa-lg
+                        |  Details Kaufen
+                    div#collapseOne.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
+                      div.panel-body
+                        label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
+                        div.input-group
+                          input(type='number', id='income', name='income', ng-model='income', class='sm-form-control')
+                          span.input-group-addon €
+                        rzslider(rz-slider-model='income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                  div.panel.panel-default
+                    div.panel-heading
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', class='collapsed')
+                        i.fa.fa-angle-right.fa-lg
+                        |  Details Mieten
+                    div#collapseTwo.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
+                      div.panel-body
+                        label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
+                        div.input-group
+                          input(type='number', id='income', name='income', ng-model='income', class='sm-form-control')
+                          span.input-group-addon €
+                        rzslider(rz-slider-model='income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                  div.panel.panel-default
+                    div.panel-heading
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', class='collapsed')
+                        i.fa.fa-angle-right.fa-lg
+                        |  Mehr Details
+                    div#collapseThree.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
+                      div.panel-body
+                        label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
+                        div.input-group
+                          input(type='number', id='income', name='income', ng-model='income', class='sm-form-control')
+                          span.input-group-addon €
+                        rzslider(rz-slider-model='income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+
 
 
           //- main content
@@ -34,6 +114,7 @@ block content
             div.single-post.nobottommargin
               div.single-post
                 h4 Ergebnis
+                p {{result()}}
 
           //- sidebar right
           div.sidebar.nobottommargin.col_last.clearfix
@@ -47,3 +128,5 @@ block content
                 h4 Newsletter
               div.widget.clearfix
                 h4 Werbung
+
+    include ../_includes/footer
