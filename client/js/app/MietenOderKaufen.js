@@ -27,20 +27,19 @@
 
 
     /** initialize values */
-    $scope.price          = 250000;
-    $scope.rent           = 1400;
-    $scope.equity         = 30;
-    $scope.income         = 1800;
-    $scope.priceaddon     = 7.5;
+    $scope.price            = 250000;
+    $scope.rent             = 1400;
+    $scope.equity           = 30;
+    $scope.income           = 1800;
+    $scope.priceaddon       = 7.5;
     $scope.maintenancePercent = 1.25;
-    $scope.valuedynamic   = 2;
-    $scope.rentdynamic    = 2;
-    $scope.costdynamic    = 1.5;
-    $scope.equityinterest = 1.5;
-    $scope.debtinterest   = 3;
-    $scope.debtpay        = 100;
+    $scope.valuedynamic     = 2;
+    $scope.rentdynamic      = 2;
+    $scope.costdynamic      = 1.5;
+    $scope.equityinterest   = 1.5;
+    $scope.debtinterest     = 3;
+    $scope.debtpay          = 100;
 
-    //console.log($scope.calcMaintenance());
 
 
     /** slider settings */
@@ -60,13 +59,12 @@
 
 
 
-
-
-
-
     /** run calculations */
-    $scope.result = function(){
+    $scope.result1 = function(){
       return $scope.price * 0.5;
+    };
+    $scope.result2 = function(){
+      return 500000 - $scope.price * 0.5;
     };
 
 

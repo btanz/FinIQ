@@ -183,10 +183,9 @@ block content
 
           //- main content
           div.postcontent.bothsidebar.nobottommargin.clearfix
-            div.single-post.nobottommargin
-              div.single-post
-                h4 Ergebnis
-                p {{result() | currency:" €":2}}
+            h4.widget_h4 Ergebnis
+            p {{result1() | currency:" €":2}}
+            p {{result2() | currency:" €":2}}
 
           //- sidebar right
           div.sidebar.nobottommargin.col_last.clearfix
