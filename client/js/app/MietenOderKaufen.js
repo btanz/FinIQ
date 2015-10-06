@@ -3,6 +3,8 @@
  */
 
 (function(){
+
+  /** ********************** BEGIN ANGULAR CODE ********************************************* */
   var MietenOderKaufen = angular.module('MietenOderKaufen', ['rzModule']);
 
   MietenOderKaufen.controller('MietenOderKaufenController', function($scope, $rootScope){
@@ -68,7 +70,47 @@
     };
 
 
+    $('#chart-container').highcharts({
+      chart: {
+        type: 'bar'
+      },
+      title: {
+        text: 'Fruit Consumption'
+      },
+      xAxis: {
+        categories: ['Apples', 'Bananas', 'Oranges']
+      },
+      yAxis: {
+        title: {
+          text: 'Fruit eaten'
+        }
+      },
+      series: [{
+        name: 'Jane',
+        data: [$scope.rentdynamic + 1, 0, 4]
+      }, {
+        name: 'John',
+        data: [5, 7, 3]
+      }]
+    });
+
+
+
+
   });
+  /** ********************** END ANGULAR CODE ********************************************* */
+
+  /** ********************** BEGIN JQUERY CODE ******************************************** */
+  $( document ).ready(function() {
+
+  });
+
+
+
+  /** ********************** END JQUERY CODE ********************************************* */
+
+
+
 
 
 }());
