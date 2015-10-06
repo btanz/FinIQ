@@ -53,8 +53,8 @@ block content
                     div.input-group
                       input(type='number', id='equity', name='equity', ng-model='equity', class='sm-form-control')
                       span.input-group-addon %
-                  div.col-md-6
-                    p.nobottommargin.text-right {{calcEquity()}}
+                  div.col-md-6.noleftpadding
+                    p.nobottommargin.text-right {{calcEquity() | currency:" €":2 }}
                 rzslider(rz-slider-model='equity', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                 div.divider.notopmargin.mbottommargin
@@ -74,11 +74,52 @@ block content
                         |  Details Kaufen
                     div#collapseOne.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
-                        label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
-                        div.input-group
-                          input(type='number', id='income', name='income', ng-model='income', class='sm-form-control')
-                          span.input-group-addon €
-                        rzslider(rz-slider-model='income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                        label.xxsbottommargin(for='rent') Kaufnebenkosten
+                        div.row
+                          div.col-md-6
+                            div.input-group
+                              input(type='number', id='priceaddon', name='priceaddon', ng-model='priceaddon', class='sm-form-control')
+                              span.input-group-addon %
+                          div.col-md-6.noleftpadding
+                            p.nobottommargin.text-right {{calcPriceaddon() | currency:" €":2 }}
+                        rzslider(rz-slider-model='priceaddon', rz-slider-ceil='40', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                        div.divider.notopmargin.mbottommargin
+
+                        label.xxsbottommargin(for='rent') Laufende Kosten
+                        div.row
+                          div.col-md-6
+                            div.input-group
+                              input(type='number', id='maintenancePercent', name='maintenancePercent', ng-model='maintenancePercent', class='sm-form-control')
+                              span.input-group-addon %
+                          div.col-md-6.noleftpadding
+                            p.nobottommargin.text-right {{calcMaintenanceYear() | currency:" €":2 }}/Jahr
+                            p.nobottommargin.text-right {{calcMaintenanceMonth() | currency:" €":2 }}/Mt.
+                        rzslider(rz-slider-model='maintenancePercent', rz-slider-ceil='25', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                        div.divider.notopmargin.mbottommargin
+
+                        label.xxsbottommargin(for='rent') Wertsteigerung Immobilie
+                        div.row
+                          div.col-md-7
+                            div.input-group
+                              input(type='number', id='valuedynamic', name='valuedynamic', ng-model='valuedynamic', class='sm-form-control')
+                              span.input-group-addon % p. a.
+                          div.col-md-5.noleftpadding
+                        rzslider(rz-slider-model='valuedynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                        div.divider.notopmargin.mbottommargin
+
+                        label.xxsbottommargin(for='rent') Steigerung laufende Kosten
+                        div.row
+                          div.col-md-7
+                            div.input-group
+                              input(type='number', id='costdynamic', name='costdynamic', ng-model='costdynamic', class='sm-form-control')
+                              span.input-group-addon % p. a.
+                          div.col-md-5.noleftpadding
+                        rzslider(rz-slider-model='costdynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
 
                   div.panel.panel-default
                     div.panel-heading
@@ -87,25 +128,56 @@ block content
                         |  Details Mieten
                     div#collapseTwo.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
-                        label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
-                        div.input-group
-                          input(type='number', id='income', name='income', ng-model='income', class='sm-form-control')
-                          span.input-group-addon €
-                        rzslider(rz-slider-model='income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                        label.xxsbottommargin(for='rent') Mietkostensteigerung
+                        div.row
+                          div.col-md-7
+                            div.input-group
+                              input(type='number', id='rentdynamic', name='rentdynamic', ng-model='rentdynamic', class='sm-form-control')
+                              span.input-group-addon % p. a.
+                          div.col-md-5.noleftpadding
+                        rzslider(rz-slider-model='rentdynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
 
                   div.panel.panel-default
                     div.panel-heading
                       a(data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', class='collapsed')
                         i.fa.fa-angle-right.fa-lg
-                        |  Mehr Details
+                        |  Details Finanzierung
                     div#collapseThree.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
-                        label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
-                        div.input-group
-                          input(type='number', id='income', name='income', ng-model='income', class='sm-form-control')
-                          span.input-group-addon €
-                        rzslider(rz-slider-model='income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
+                        label.xxsbottommargin(for='rent') Zinssatz Geldanlage
+                        div.row
+                          div.col-md-7
+                            div.input-group
+                              input(type='number', id='equityinterest', name='equityinterest', ng-model='equityinterest', class='sm-form-control')
+                              span.input-group-addon % p. a.
+                          div.col-md-5.noleftpadding
+                        rzslider(rz-slider-model='equityinterest', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                        div.divider.notopmargin.mbottommargin
+
+                        label.xxsbottommargin(for='rent') Zinssatz Darlehen
+                        div.row
+                          div.col-md-7
+                            div.input-group
+                              input(type='number', id='debtinterest', name='debtinterest', ng-model='debtinterest', class='sm-form-control')
+                              span.input-group-addon % p. a.
+                          div.col-md-5.noleftpadding
+                        rzslider(rz-slider-model='debtinterest', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+
+                        div.divider.notopmargin.mbottommargin
+
+                        label.xxsbottommargin(for='rent') Monatliche Rückzahlungsrate - Eingabe als Anteil des monatlich zur Darlehenstilgung verfügbaren freien Einkommens
+                        div.row
+                          div.col-md-6
+                            div.input-group
+                              input(type='number', id='debtpay', name='debtpay', ng-model='debtpay', class='sm-form-control')
+                              span.input-group-addon %
+                          div.col-md-6.noleftpadding
+                            p.nobottommargin.text-right {{calcDebtpay() | currency:" €":2 }}/Mt.
+                        rzslider(rz-slider-model='debtpay', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
 
 
@@ -114,7 +186,7 @@ block content
             div.single-post.nobottommargin
               div.single-post
                 h4 Ergebnis
-                p {{result()}}
+                p {{result() | currency:" €":2}}
 
           //- sidebar right
           div.sidebar.nobottommargin.col_last.clearfix

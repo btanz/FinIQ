@@ -19,6 +19,9 @@
 .mbottommargin {
   margin-bottom: 20px;
 }
+.noleftpadding{
+  padding-left: 0;
+}
 
 /* content wrapper */
 .content-wrap-topics {
@@ -76,6 +79,10 @@ rzslider span.rz-pointer:after{
 rzslider span.rz-bar{
   background: #DDDDDD;
   height: 3px;
+}
+
+.input-group-addon{
+  padding: 4px 8px;
 }
 
 .sm-form-control{
