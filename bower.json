@@ -7,6 +7,7 @@
     "angular": "~1.4.7",
     "angularjs-slider": "~0.1.34",
     "font-awesome": "fontawesome#~4.4.0",
-    "highcharts": "highcharts-release#~4.1.8"
+    "highcharts": "highcharts-release#~4.1.8",
+    "highcharts-ng": "~0.0.11"
   }
 }

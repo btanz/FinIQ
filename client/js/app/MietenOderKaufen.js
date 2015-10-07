@@ -5,7 +5,8 @@
 (function(){
 
   /** ********************** BEGIN ANGULAR CODE ********************************************* */
-  var MietenOderKaufen = angular.module('MietenOderKaufen', ['rzModule']);
+  var MietenOderKaufen = angular.module('MietenOderKaufen', ['rzModule','highcharts-ng']);
+
 
   MietenOderKaufen.controller('MietenOderKaufenController', function($scope, $rootScope){
 
@@ -93,6 +94,25 @@
         data: [5, 7, 3]
       }]
     });
+
+    $scope.chartConfig = {
+      options: {
+        chart: {
+          type: 'bar'
+        }
+      },
+      series: [{
+        name: 'Jane',
+        data: [$scope.rentdynamic, 0, 4]
+      }, {
+        name: 'John',
+        data: [5, 7, 3]
+      }],
+      title: {
+        text: 'Fruit Consumption'
+      }
+
+    }
 
 
 
