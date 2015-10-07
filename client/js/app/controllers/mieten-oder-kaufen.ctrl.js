@@ -5,10 +5,7 @@
 (function(){
 
   /** ********************** BEGIN ANGULAR CODE ********************************************* */
-  var MietenOderKaufen = angular.module('MietenOderKaufen', ['rzModule','highcharts-ng']);
-
-
-  MietenOderKaufen.controller('MietenOderKaufenController', function($scope, $rootScope){
+  angular.module('app').controller('MietenOderKaufenCtrl', function($scope, $rootScope){
 
     /** *** CALCULATION FUNCTIONS *** */
     $scope.calcEquity = function(){
@@ -120,14 +117,6 @@
   });
   /** ********************** END ANGULAR CODE ********************************************* */
 
-  /** ********************** BEGIN JQUERY CODE ******************************************** */
-  $( document ).ready(function() {
-
-  });
-
-
-
-  /** ********************** END JQUERY CODE ********************************************* */
 
 
 

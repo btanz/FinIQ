@@ -3,7 +3,7 @@
 
 extends ../layout
 block content
-  div#wrapper.clearfix(ng-app='MietenOderKaufen')
+  div#wrapper.clearfix
     include ../_includes/navheader
     //- Page-title
     section#page-title
@@ -18,7 +18,7 @@ block content
           li.active Mieten oder Kaufen
 
     //-page-content
-    section#content(ng-controller='MietenOderKaufenController as controller')
+    section#content(ng-controller='MietenOderKaufenCtrl as controller')
       div.content-wrap.content-wrap-topics
         div.container.clearfix
 
