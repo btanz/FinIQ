@@ -31,39 +31,11 @@ block content
                   | &nbsp; Eingaben
 
                 //- main inputs
-                label.xxsbottommargin(for='price') Kaufpreis
-                div.input-group
-                  input(type='number', id='price', name='price', ng-model='inputs.price', class='sm-form-control')
-                  span.input-group-addon €
-                rzslider(rz-slider-model='inputs.price', rz-slider-ceil='4000000', rz-slider-precision="1",  rz-slider-step="5000", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                sf-slider(description='Kaufpreis',    value='inputs.price', addon='€', id='price',  options='{"floor": "0", "ceil": "4000000", "precision": "1", "step": "5000"}')
+                sf-slider(description='Monatsmiete', value='inputs.rent',  addon='€', id='rent',   options='{"floor": "0", "ceil": "12000", "precision": "1", "step": "50"}')
+                sf-slider(description='Eigenkapital', type='frac', value='inputs.equity',addon='%', id='equity', options='{"floor": "0", "ceil": "100", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.equity)')
+                sf-slider(description='Monatlich verfügbares Einkommen zum Wohnen',  value='inputs.income',  addon='€', id='income',   options='{"floor": "0", "ceil": "20000", "precision": "1", "step": "50"}')
 
-                div.divider.notopmargin.mbottommargin
-
-                label.xxsbottommargin(for='rent') Monatsmiete
-                div.input-group
-                  input(type='number', id='rent', name='rent', ng-model='inputs.rent', class='sm-form-control')
-                  span.input-group-addon €
-                rzslider(rz-slider-model='inputs.rent', rz-slider-ceil='12000', rz-slider-precision="1",  rz-slider-step="50", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
-
-                div.divider.notopmargin.mbottommargin
-
-                label.xxsbottommargin(for='rent') Eigenkapital
-                div.row
-                  div.col-md-6
-                    div.input-group
-                      input(type='number', id='equity', name='equity', ng-model='inputs.equity', class='sm-form-control')
-                      span.input-group-addon %
-                  div.col-md-6.noleftpadding
-                    p.nobottommargin.text-right {{calcEquity() | currency:" €":2 }}
-                rzslider(rz-slider-model='inputs.equity', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
-
-                div.divider.notopmargin.mbottommargin
-
-                label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
-                div.input-group
-                  input(type='number', id='income', name='income', ng-model='inputs.income', class='sm-form-control')
-                  span.input-group-addon €
-                rzslider(rz-slider-model='inputs.income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                 //- input toggles
                 div.panel-group.nobottommargin.accordion
@@ -75,17 +47,8 @@ block content
                     div#collapseOne.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-                        label.xxsbottommargin(for='rent') Kaufnebenkosten
-                        div.row
-                          div.col-md-6
-                            div.input-group
-                              input(type='number', id='priceaddon', name='priceaddon', ng-model='inputs.priceaddon', class='sm-form-control')
-                              span.input-group-addon %
-                          div.col-md-6.noleftpadding
-                            p.nobottommargin.text-right {{calcPriceaddon() | currency:" €":2 }}
-                        rzslider(rz-slider-model='inputs.priceaddon', rz-slider-ceil='40', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
-                        div.divider.notopmargin.mbottommargin
+                        sf-slider(description='Kaufnebenkosten', type='frac',  value='inputs.priceaddon',  addon='%', id='priceaddon',   options='{"floor": "0", "ceil": "40", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.priceaddon)')
 
                         label.xxsbottommargin(for='rent') Laufende Kosten
                         div.row
@@ -100,16 +63,7 @@ block content
 
                         div.divider.notopmargin.mbottommargin
 
-                        label.xxsbottommargin(for='rent') Wertsteigerung Immobilie
-                        div.row
-                          div.col-md-7
-                            div.input-group
-                              input(type='number', id='valuedynamic', name='valuedynamic', ng-model='inputs.valuedynamic', class='sm-form-control')
-                              span.input-group-addon % p. a.
-                          div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='inputs.valuedynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
-
-                        div.divider.notopmargin.mbottommargin
+                        sf-slider(description='Wertsteigerung Immobilie', value='inputs.valuedynamic',  addon='% p. a.', id='valuedynamic',   options='{"floor": "0", "ceil": "20", "precision": "2", "step": "0.25"}')
 
                         label.xxsbottommargin(for='rent') Steigerung laufende Kosten
                         div.row

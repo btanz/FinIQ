@@ -8,6 +8,10 @@
   angular.module('app').controller('MietenOderKaufenCtrl', function($scope, $rootScope, $interval, chartConfig, hauskaufCalculator){
 
     /** *** CALCULATION FUNCTIONS *** */
+    $scope.calcAbsolute = function(basis, percentage){
+      return (percentage / 100) * basis;
+    };
+
     $scope.calcEquity = function(){
       return ($scope.inputs.equity / 100) * $scope.inputs.price;
     };

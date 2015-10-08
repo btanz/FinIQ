@@ -183,3 +183,36 @@ rzslider .rz-ticks .tick .tick-value{
 }
 
 
+
+
+
+/* **************** header styles **************** */
+
+#header,
+#header-wrap,
+#logo,
+#logo img,
+#primary-menu:not(.style-2),
+#primary-menu:not(.style-2) > ul,
+#primary-menu,
+#primary-menu ul,
+#primary-menu ul li a { height: 60px; }
+
+#primary-menu ul li a { line-height: 60px; }
+
+#primary-menu ul li i { line-height: 59px; }
+
+#primary-menu ul ul,
+#primary-menu ul li .mega-menu-content,
+#primary-menu ul li.mega-menu .mega-menu-content { top: 60px; }
+
+#primary-menu.sub-title ul li a { padding: 27px 20px 32px; }
+
+#top-search,
+#top-cart { margin: 40px 0 40px 15px; }
+
+@media (max-width: 991px) {
+  #primary-menu-trigger { top: 5px; }
+  #top-search a { margin-top: 20px; }
+  #top-search form { height: 60px !important; }
+}
