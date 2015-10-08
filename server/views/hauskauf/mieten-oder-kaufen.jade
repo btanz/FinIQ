@@ -33,17 +33,17 @@ block content
                 //- main inputs
                 label.xxsbottommargin(for='price') Kaufpreis
                 div.input-group
-                  input(type='number', id='price', name='price', ng-model='price', class='sm-form-control')
+                  input(type='number', id='price', name='price', ng-model='inputs.price', class='sm-form-control')
                   span.input-group-addon €
-                rzslider(rz-slider-model='price', rz-slider-ceil='4000000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                rzslider(rz-slider-model='inputs.price', rz-slider-ceil='4000000', rz-slider-precision="1",  rz-slider-step="5000", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                 div.divider.notopmargin.mbottommargin
 
                 label.xxsbottommargin(for='rent') Monatsmiete
                 div.input-group
-                  input(type='number', id='rent', name='rent', ng-model='rent', class='sm-form-control')
+                  input(type='number', id='rent', name='rent', ng-model='inputs.rent', class='sm-form-control')
                   span.input-group-addon €
-                rzslider(rz-slider-model='rent', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                rzslider(rz-slider-model='inputs.rent', rz-slider-ceil='12000', rz-slider-precision="1",  rz-slider-step="50", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                 div.divider.notopmargin.mbottommargin
 
@@ -51,19 +51,19 @@ block content
                 div.row
                   div.col-md-6
                     div.input-group
-                      input(type='number', id='equity', name='equity', ng-model='equity', class='sm-form-control')
+                      input(type='number', id='equity', name='equity', ng-model='inputs.equity', class='sm-form-control')
                       span.input-group-addon %
                   div.col-md-6.noleftpadding
                     p.nobottommargin.text-right {{calcEquity() | currency:" €":2 }}
-                rzslider(rz-slider-model='equity', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                rzslider(rz-slider-model='inputs.equity', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                 div.divider.notopmargin.mbottommargin
 
                 label.xxsbottommargin(for='rent') Monatlich verfügbares Einkommen zum Wohnen
                 div.input-group
-                  input(type='number', id='income', name='income', ng-model='income', class='sm-form-control')
+                  input(type='number', id='income', name='income', ng-model='inputs.income', class='sm-form-control')
                   span.input-group-addon €
-                rzslider(rz-slider-model='income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                rzslider(rz-slider-model='inputs.income', rz-slider-ceil='20000', rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                 //- input toggles
                 div.panel-group.nobottommargin.accordion
@@ -79,11 +79,11 @@ block content
                         div.row
                           div.col-md-6
                             div.input-group
-                              input(type='number', id='priceaddon', name='priceaddon', ng-model='priceaddon', class='sm-form-control')
+                              input(type='number', id='priceaddon', name='priceaddon', ng-model='inputs.priceaddon', class='sm-form-control')
                               span.input-group-addon %
                           div.col-md-6.noleftpadding
                             p.nobottommargin.text-right {{calcPriceaddon() | currency:" €":2 }}
-                        rzslider(rz-slider-model='priceaddon', rz-slider-ceil='40', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        rzslider(rz-slider-model='inputs.priceaddon', rz-slider-ceil='40', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                         div.divider.notopmargin.mbottommargin
 
@@ -91,12 +91,12 @@ block content
                         div.row
                           div.col-md-6
                             div.input-group
-                              input(type='number', id='maintenancePercent', name='maintenancePercent', ng-model='maintenancePercent', class='sm-form-control')
+                              input(type='number', id='maintenancePercent', name='maintenancePercent', ng-model='inputs.maintenancePercent', class='sm-form-control')
                               span.input-group-addon %
                           div.col-md-6.noleftpadding
                             p.nobottommargin.text-right {{calcMaintenanceYear() | currency:" €":2 }}/Jahr
                             p.nobottommargin.text-right {{calcMaintenanceMonth() | currency:" €":2 }}/Mt.
-                        rzslider(rz-slider-model='maintenancePercent', rz-slider-ceil='25', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        rzslider(rz-slider-model='inputs.maintenancePercent', rz-slider-ceil='25', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                         div.divider.notopmargin.mbottommargin
 
@@ -104,10 +104,10 @@ block content
                         div.row
                           div.col-md-7
                             div.input-group
-                              input(type='number', id='valuedynamic', name='valuedynamic', ng-model='valuedynamic', class='sm-form-control')
+                              input(type='number', id='valuedynamic', name='valuedynamic', ng-model='inputs.valuedynamic', class='sm-form-control')
                               span.input-group-addon % p. a.
                           div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='valuedynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        rzslider(rz-slider-model='inputs.valuedynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                         div.divider.notopmargin.mbottommargin
 
@@ -115,10 +115,10 @@ block content
                         div.row
                           div.col-md-7
                             div.input-group
-                              input(type='number', id='costdynamic', name='costdynamic', ng-model='costdynamic', class='sm-form-control')
+                              input(type='number', id='costdynamic', name='costdynamic', ng-model='inputs.costdynamic', class='sm-form-control')
                               span.input-group-addon % p. a.
                           div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='costdynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        rzslider(rz-slider-model='inputs.costdynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
 
                   div.panel.panel-default
@@ -133,10 +133,10 @@ block content
                         div.row
                           div.col-md-7
                             div.input-group
-                              input(type='number', id='rentdynamic', name='rentdynamic', ng-model='rentdynamic', class='sm-form-control')
+                              input(type='number', id='rentdynamic', name='rentdynamic', ng-model='inputs.rentdynamic', class='sm-form-control')
                               span.input-group-addon % p. a.
                           div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='rentdynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        rzslider(rz-slider-model='inputs.rentdynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
 
                   div.panel.panel-default
@@ -151,10 +151,10 @@ block content
                         div.row
                           div.col-md-7
                             div.input-group
-                              input(type='number', id='equityinterest', name='equityinterest', ng-model='equityinterest', class='sm-form-control')
+                              input(type='number', id='equityinterest', name='equityinterest', ng-model='inputs.equityinterest', class='sm-form-control')
                               span.input-group-addon % p. a.
                           div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='equityinterest', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        rzslider(rz-slider-model='inputs.equityinterest', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                         div.divider.notopmargin.mbottommargin
 
@@ -162,10 +162,10 @@ block content
                         div.row
                           div.col-md-7
                             div.input-group
-                              input(type='number', id='debtinterest', name='debtinterest', ng-model='debtinterest', class='sm-form-control')
+                              input(type='number', id='debtinterest', name='debtinterest', ng-model='inputs.debtinterest', class='sm-form-control')
                               span.input-group-addon % p. a.
                           div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='debtinterest', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        rzslider(rz-slider-model='inputs.debtinterest', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
                         div.divider.notopmargin.mbottommargin
 
@@ -173,21 +173,103 @@ block content
                         div.row
                           div.col-md-6
                             div.input-group
-                              input(type='number', id='debtpay', name='debtpay', ng-model='debtpay', class='sm-form-control')
+                              input(type='number', id='debtpay', name='debtpay', ng-model='inputs.debtpay', class='sm-form-control')
                               span.input-group-addon %
                           div.col-md-6.noleftpadding
                             p.nobottommargin.text-right {{calcDebtpay() | currency:" €":2 }}/Mt.
-                        rzslider(rz-slider-model='debtpay', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        rzslider(rz-slider-model='inputs.debtpay', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
 
 
 
           //- main content
           div.postcontent.bothsidebar.nobottommargin.clearfix
             h4.widget_h4 Ergebnis
-            p {{result1() | currency:" €":2}}
-            p {{result2() | currency:" €":2}}
-            div#chart-container(style='width:100%; height:400px;')
-            //highchart(id='chart1', config='chartConfig')
+            h3 Wenn Sie
+              span(ng-class="{orange: !buyIsBest}")  {{inputs.period}} Jahre
+              |  in diesem Haus oder dieser Eigenstumswohnung bleiben ist
+              span(ng-class="{orange: !buyIsBest}") {{calcBestAlternative()}}
+              |  die bessere Alternative.
+
+
+            label.xxsbottommargin Jahr ab Kauf
+            rzslider(rz-slider-model='inputs.period', rz-slider-floor='1', rz-slider-ceil='30', rz-slider-show-ticks-value='true', style='margin-top: 30px;')
+            div.divider.notopmargin.lbottommargin
+            table.table
+              thead
+                tr
+                  th Jahr {{inputs.period}}
+                  th.text-right Mieten
+                  th.text-right Kaufen
+                  th.text-right Differenz
+              tbody
+                tr
+                  td Endvermögen
+                  td.text-right.orange {{result.rentFinalWealth | currency:" €":2}}
+                  td.text-right.lightblue {{result.buyFinalWealth | currency:" €":2}}
+                  td.text-right {{result.rentFinalWealth - result.buyFinalWealth | currency:" €":2}}
+
+            highchart(id='chart1', config='chartConfig')
+            div.divider.notopmargin.mbottommargin
+            h4.nobottommargin Details zum Endvermögen
+            p.xsbottommargin.stext Angaben in €
+            table.table
+              thead
+                tr
+                  th Jahr {{inputs.period}}
+                  th.text-right Mieten
+                  th.text-right Kaufen
+                  th.text-right Differenz
+              tbody
+                tr.active
+                  td Endvermögen
+                  td.text-right {{result.rentFinalWealth | currency:"":2}}
+                  td.text-right {{result.buyFinalWealth | currency:"":2}}
+                  td.text-right {{result.rentFinalWealth - result.buyFinalWealth | currency:"":2}}
+                tr
+                  td &nbsp; Eigenkapital
+                  td.text-right {{result.rentEquity | currency:"":2}}
+                  td.text-right {{result.buyEquity | currency:"":2}}
+                  td.text-right {{result.rentEquity - result.buyEquity | currency:"":2}}
+                tr
+                  td &nbsp; Wohneinkommen
+                  td.text-right {{result.rentFinalIncome | currency:"":2}}
+                  td.text-right {{result.buyFinalIncome | currency:"":2}}
+                  td.text-right {{result.rentFinalIncome - result.buyFinalIncome | currency:"":2}}
+                tr
+                  td &nbsp; Mietkosten
+                  td.text-right {{result.rentFinalCost | currency:"":2}}
+                  td.text-right {{0 | currency:"":2}}
+                  td.text-right {{result.rentFinalCost  | currency:"":2}}
+                tr
+                  td &nbsp; Zinsertrag
+                  td.text-right {{result.rentFinalInterest | currency:"":2}}
+                  td.text-right {{result.buyInterestSave | currency:"":2}}
+                  td.text-right {{result.rentFinalInterest - result.buyInterestSave | currency:"":2}}
+                tr
+                  td &nbsp; Zinsaufwand
+                  td.text-right {{0 | currency:"":2}}
+                  td.text-right {{result.buyInterestLoan | currency:"":2}}
+                  td.text-right {{0 - result.buyInterestLoan | currency:"":2}}
+                tr
+                  td &nbsp; Laufende Kosten
+                  td.text-right {{0 | currency:"":2}}
+                  td.text-right {{result.buyMaintenance | currency:"":2}}
+                  td.text-right {{0 - result.buyMaintenance | currency:"":2}}
+                tr
+                  td &nbsp; Darlehenstilgung
+                  td.text-right {{0 | currency:"":2}}
+                  td.text-right {{result.buyRepay | currency:"":2}}
+                  td.text-right {{0 - result.buyRepay | currency:"":2}}
+                tr
+                  td &nbsp; Darlehensrestschuld
+                  td.text-right {{0 | currency:"":2}}
+                  td.text-right {{result.buyResidual | currency:"":2}}
+                  td.text-right {{0 - result.buyResidual | currency:"":2}}
+                tr
+                  td &nbsp; Immobilienwert
+                  td.text-right {{0 | currency:"":2}}
+                  td.text-right {{result.buyPropValue | currency:"":2}}
+                  td.text-right {{0 - result.buyPropValue | currency:"":2}}
 
 
           //- sidebar right
