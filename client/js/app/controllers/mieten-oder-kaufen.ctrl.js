@@ -11,12 +11,11 @@
     $scope.calcAbsolute = function(basis, percentage){
       return (percentage / 100) * basis;
     };
-
-    $scope.calcEquity = function(){
-      return ($scope.inputs.equity / 100) * $scope.inputs.price;
+    $scope.calcMonthlyDebt = function(debtPercentage, maintenancePercentage, income, price){
+      return (debtPercentage / 100) * (income - ((maintenancePercentage / 100) * price) / 12);
     };
-    $scope.calcPriceaddon = function(){
-      return ($scope.inputs.priceaddon / 100) * $scope.inputs.price;
+    $scope.calcMonthlyMaintenance = function(maintenancePercentage, price){
+      return (maintenancePercentage / 100) * price / 12;
     };
     $scope.calcDebtpay = function(){
       return ($scope.inputs.debtpay / 100) * ($scope.inputs.income - ($scope.inputs.maintenancePercent / 100) * ($scope.inputs.price) / 12);
@@ -43,13 +42,13 @@
       rent: 1000,
       equity: 20,
       income: 1200,
-      priceaddon: 7.5,
+      priceaddon: 10,
       maintenancePercent: 1.25,
-      valuedynamic: 2,
-      rentdynamic: 2,
-      costdynamic: 1.5,
-      equityinterest: 1.5,
-      debtinterest: 3,
+      valuedynamic: 1.1,
+      rentdynamic: 2.2,
+      costdynamic: 2.2,
+      equityinterest: 1.6,
+      debtinterest: 2.2,
       debtpay: 100,
       period: 15,
       incomedynamic: 0
@@ -78,7 +77,7 @@
 
     /** watch inputs and re-compute on change */
     $scope.$watchCollection('inputs', function(){
-      var inputObj = {price: $scope.inputs.price, priceaddon: $scope.calcPriceaddon(), maintenance: $scope.calcMaintenanceMonth(), rent: $scope.inputs.rent, equity: $scope.calcEquity(), income: $scope.inputs.income, equityinterest: $scope.inputs.equityinterest, debtinterest: $scope.inputs.debtinterest, debtpay: $scope.calcDebtpay(), period: $scope.inputs.period, incomcedynamic: $scope.inputs.incomedynamic, rentdynamic: $scope.inputs.rentdynamic, valuedynamic: $scope.inputs.valuedynamic, costdynamic: $scope.inputs.costdynamic};
+      var inputObj = {price: $scope.inputs.price, priceaddon: $scope.calcAbsolute($scope.inputs.price, $scope.inputs.priceaddon), maintenance: $scope.calcMaintenanceMonth(), rent: $scope.inputs.rent, equity: $scope.calcAbsolute($scope.inputs.price, $scope.inputs.equity), income: $scope.inputs.income, equityinterest: $scope.inputs.equityinterest, debtinterest: $scope.inputs.debtinterest, debtpay: $scope.calcDebtpay(), period: $scope.inputs.period, incomcedynamic: $scope.inputs.incomedynamic, rentdynamic: $scope.inputs.rentdynamic, valuedynamic: $scope.inputs.valuedynamic, costdynamic: $scope.inputs.costdynamic};
       $scope.result = hauskaufCalculator.buyrent(inputObj);
       $scope.buyIsBest = ($scope.result.buyFinalWealth >= $scope.result.rentFinalWealth);
       $scope.chartConfig.series[0].data = [{y: $scope.result.rentFinalWealth, color:'#F38200'}, $scope.result.buyFinalWealth];

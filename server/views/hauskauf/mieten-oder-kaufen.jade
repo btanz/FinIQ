@@ -22,7 +22,7 @@ block content
       div.content-wrap.content-wrap-topics
         div.container.clearfix
 
-          //- sidebar left (INPUTS)
+          //- ********** sidebar left (INPUTS) ***********
           div.sidebar.nobottommargin.clearfix
             div.sidebar-widgets-wrap
               div.widget.clearfix
@@ -30,14 +30,13 @@ block content
                   i.icon-pencil
                   | &nbsp; Eingaben
 
-                //- main inputs
+                //- primary inputs
                 sf-slider(description='Kaufpreis',    value='inputs.price', addon='€', id='price',  options='{"floor": "0", "ceil": "4000000", "precision": "1", "step": "5000"}')
                 sf-slider(description='Monatsmiete', value='inputs.rent',  addon='€', id='rent',   options='{"floor": "0", "ceil": "12000", "precision": "1", "step": "50"}')
                 sf-slider(description='Eigenkapital', type='frac', value='inputs.equity',addon='%', id='equity', options='{"floor": "0", "ceil": "100", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.equity)')
                 sf-slider(description='Monatlich verfügbares Einkommen zum Wohnen',  value='inputs.income',  addon='€', id='income',   options='{"floor": "0", "ceil": "20000", "precision": "1", "step": "50"}')
 
-
-                //- input toggles
+                //- secondary inputs
                 div.panel-group.nobottommargin.accordion
                   div.panel.panel-default
                     div.panel-heading
@@ -47,33 +46,10 @@ block content
                     div#collapseOne.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-
-                        sf-slider(description='Kaufnebenkosten', type='frac',  value='inputs.priceaddon',  addon='%', id='priceaddon',   options='{"floor": "0", "ceil": "40", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.priceaddon)')
-
-                        label.xxsbottommargin(for='rent') Laufende Kosten
-                        div.row
-                          div.col-md-6
-                            div.input-group
-                              input(type='number', id='maintenancePercent', name='maintenancePercent', ng-model='inputs.maintenancePercent', class='sm-form-control')
-                              span.input-group-addon %
-                          div.col-md-6.noleftpadding
-                            p.nobottommargin.text-right {{calcMaintenanceYear() | currency:" €":2 }}/Jahr
-                            p.nobottommargin.text-right {{calcMaintenanceMonth() | currency:" €":2 }}/Mt.
-                        rzslider(rz-slider-model='inputs.maintenancePercent', rz-slider-ceil='25', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
-
-                        div.divider.notopmargin.mbottommargin
-
-                        sf-slider(description='Wertsteigerung Immobilie', value='inputs.valuedynamic',  addon='% p. a.', id='valuedynamic',   options='{"floor": "0", "ceil": "20", "precision": "2", "step": "0.25"}')
-
-                        label.xxsbottommargin(for='rent') Steigerung laufende Kosten
-                        div.row
-                          div.col-md-7
-                            div.input-group
-                              input(type='number', id='costdynamic', name='costdynamic', ng-model='inputs.costdynamic', class='sm-form-control')
-                              span.input-group-addon % p. a.
-                          div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='inputs.costdynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
-
+                        sf-slider(description='Kaufnebenkosten', type='frac',  value='inputs.priceaddon',         addon='%', id='priceaddon',           options='{"floor": "0", "ceil": "20", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.priceaddon)')
+                        sf-slider(description='Laufende Kosten', type='frac',  value='inputs.maintenancePercent', addon='%', id='maintenancePercent',   options='{"floor": "0", "ceil": "15", "precision": "2", "step": "0.25", "secondaddon": " €/Mt."}', fun='calcMonthlyMaintenance(inputs.maintenancePercent, inputs.price)')
+                        sf-slider(description='Wertsteigerung Immobilie',   value='inputs.valuedynamic',  addon='% p. a.', id='valuedynamic',  options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Steigerung laufende Kosten', value='inputs.costdynamic',   addon='% p. a.', id='costdynamic',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
 
                   div.panel.panel-default
                     div.panel-heading
@@ -83,15 +59,7 @@ block content
                     div#collapseTwo.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-                        label.xxsbottommargin(for='rent') Mietkostensteigerung
-                        div.row
-                          div.col-md-7
-                            div.input-group
-                              input(type='number', id='rentdynamic', name='rentdynamic', ng-model='inputs.rentdynamic', class='sm-form-control')
-                              span.input-group-addon % p. a.
-                          div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='inputs.rentdynamic', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
-
+                        sf-slider(description='Mietkostensteigerung', value='inputs.rentdynamic',   addon='% p. a.', id='rentdynamic',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
 
                   div.panel.panel-default
                     div.panel-heading
@@ -101,132 +69,169 @@ block content
                     div#collapseThree.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-                        label.xxsbottommargin(for='rent') Zinssatz Geldanlage
-                        div.row
-                          div.col-md-7
-                            div.input-group
-                              input(type='number', id='equityinterest', name='equityinterest', ng-model='inputs.equityinterest', class='sm-form-control')
-                              span.input-group-addon % p. a.
-                          div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='inputs.equityinterest', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
-
-                        div.divider.notopmargin.mbottommargin
-
-                        label.xxsbottommargin(for='rent') Zinssatz Darlehen
-                        div.row
-                          div.col-md-7
-                            div.input-group
-                              input(type='number', id='debtinterest', name='debtinterest', ng-model='inputs.debtinterest', class='sm-form-control')
-                              span.input-group-addon % p. a.
-                          div.col-md-5.noleftpadding
-                        rzslider(rz-slider-model='inputs.debtinterest', rz-slider-ceil='20', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
-
-                        div.divider.notopmargin.mbottommargin
-
-                        label.xxsbottommargin(for='rent') Monatliche Rückzahlungsrate - Eingabe als Anteil des monatlich zur Darlehenstilgung verfügbaren freien Einkommens
-                        div.row
-                          div.col-md-6
-                            div.input-group
-                              input(type='number', id='debtpay', name='debtpay', ng-model='inputs.debtpay', class='sm-form-control')
-                              span.input-group-addon %
-                          div.col-md-6.noleftpadding
-                            p.nobottommargin.text-right {{calcDebtpay() | currency:" €":2 }}/Mt.
-                        rzslider(rz-slider-model='inputs.debtpay', rz-slider-ceil='100', rz-slider-precision="2", rz-slider-step="0.25", rz-slider-hide-limit-labels='true', rz-slider-translate='sliderTranslate')
+                        sf-slider(description='Zinssatz Geldanlage',  value='inputs.equityinterest',  addon='% p. a.', id='equityinterest', options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Zinssatz Darlehen',    value='inputs.debtinterest',    addon='% p. a.', id='debtinterest',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Monatliche Rückzahlungsrate - Eingabe als Anteil des monatlich zur Darlehenstilgung verfügbaren freien Einkommens', type='frac',  value='inputs.debtpay',  addon='%', id='debtpay',   options='{"floor": "0", "ceil": "100", "precision": "2", "step": "0.25"}', fun='calcMonthlyDebt(inputs.debtpay, inputs.maintenancePercent, inputs.income, inputs.price)')
+          //- </div> ********** END sidebar left (INPUTS) **********
 
 
-
-          //- main content
+          //- ********** page center - main content **********
           div.postcontent.bothsidebar.nobottommargin.clearfix
-            h4.widget_h4 Ergebnis
-            h3 Wenn Sie
-              span(ng-class="{orange: !buyIsBest}")  {{inputs.period}} Jahre
-              |  in diesem Haus oder dieser Eigenstumswohnung bleiben ist
-              span(ng-class="{orange: !buyIsBest}") {{calcBestAlternative()}}
-              |  die bessere Alternative.
+            div.col_full
+              h4.widget_h4 Ergebnis
+              h3 Wenn Sie
+                span(ng-class="{orange: !buyIsBest}")  {{inputs.period}} Jahre
+                |  in diesem Haus oder dieser Wohnung bleiben ist
+                span(ng-class="{orange: !buyIsBest}") {{calcBestAlternative()}}
+                |  die bessere Alternative.
 
 
-            label.xxsbottommargin Jahr ab Kauf
-            rzslider(rz-slider-model='inputs.period', rz-slider-floor='1', rz-slider-ceil='30', rz-slider-show-ticks-value='true', style='margin-top: 30px;')
-            div.divider.notopmargin.lbottommargin
-            table.table
-              thead
-                tr
-                  th Jahr {{inputs.period}}
-                  th.text-right Mieten
-                  th.text-right Kaufen
-                  th.text-right Differenz
-              tbody
-                tr
-                  td Endvermögen
-                  td.text-right.orange {{result.rentFinalWealth | currency:" €":2}}
-                  td.text-right.lightblue {{result.buyFinalWealth | currency:" €":2}}
-                  td.text-right {{result.rentFinalWealth - result.buyFinalWealth | currency:" €":2}}
+              label.xxsbottommargin Jahr ab Kauf
+              rzslider(rz-slider-model='inputs.period', rz-slider-floor='1', rz-slider-ceil='30', rz-slider-show-ticks-value='true', style='margin-top: 30px;')
+              div.divider.notopmargin.lbottommargin
+              table.table
+                thead
+                  tr
+                    th Jahr {{inputs.period}}
+                    th.text-right Mieten
+                    th.text-right Kaufen
+                    th.text-right Differenz
+                tbody
+                  tr
+                    td Endvermögen
+                    td.text-right.orange {{result.rentFinalWealth | currency:" €":2}}
+                    td.text-right.lightblue {{result.buyFinalWealth | currency:" €":2}}
+                    td.text-right {{result.rentFinalWealth - result.buyFinalWealth | currency:" €":2}}
 
-            highchart(id='chart1', config='chartConfig')
-            div.divider.notopmargin.mbottommargin
-            h4.nobottommargin Details zum Endvermögen
-            p.xsbottommargin.stext Angaben in €
-            table.table
-              thead
-                tr
-                  th Jahr {{inputs.period}}
-                  th.text-right Mieten
-                  th.text-right Kaufen
-                  th.text-right Differenz
-              tbody
-                tr.active
-                  td Endvermögen
-                  td.text-right {{result.rentFinalWealth | currency:"":2}}
-                  td.text-right {{result.buyFinalWealth | currency:"":2}}
-                  td.text-right {{result.rentFinalWealth - result.buyFinalWealth | currency:"":2}}
-                tr
-                  td &nbsp; Eigenkapital
-                  td.text-right {{result.rentEquity | currency:"":2}}
-                  td.text-right {{result.buyEquity | currency:"":2}}
-                  td.text-right {{result.rentEquity - result.buyEquity | currency:"":2}}
-                tr
-                  td &nbsp; Wohneinkommen
-                  td.text-right {{result.rentFinalIncome | currency:"":2}}
-                  td.text-right {{result.buyFinalIncome | currency:"":2}}
-                  td.text-right {{result.rentFinalIncome - result.buyFinalIncome | currency:"":2}}
-                tr
-                  td &nbsp; Mietkosten
-                  td.text-right {{result.rentFinalCost | currency:"":2}}
-                  td.text-right {{0 | currency:"":2}}
-                  td.text-right {{result.rentFinalCost  | currency:"":2}}
-                tr
-                  td &nbsp; Zinsertrag
-                  td.text-right {{result.rentFinalInterest | currency:"":2}}
-                  td.text-right {{result.buyInterestSave | currency:"":2}}
-                  td.text-right {{result.rentFinalInterest - result.buyInterestSave | currency:"":2}}
-                tr
-                  td &nbsp; Zinsaufwand
-                  td.text-right {{0 | currency:"":2}}
-                  td.text-right {{result.buyInterestLoan | currency:"":2}}
-                  td.text-right {{0 - result.buyInterestLoan | currency:"":2}}
-                tr
-                  td &nbsp; Laufende Kosten
-                  td.text-right {{0 | currency:"":2}}
-                  td.text-right {{result.buyMaintenance | currency:"":2}}
-                  td.text-right {{0 - result.buyMaintenance | currency:"":2}}
-                tr
-                  td &nbsp; Darlehenstilgung
-                  td.text-right {{0 | currency:"":2}}
-                  td.text-right {{result.buyRepay | currency:"":2}}
-                  td.text-right {{0 - result.buyRepay | currency:"":2}}
-                tr
-                  td &nbsp; Darlehensrestschuld
-                  td.text-right {{0 | currency:"":2}}
-                  td.text-right {{result.buyResidual | currency:"":2}}
-                  td.text-right {{0 - result.buyResidual | currency:"":2}}
-                tr
-                  td &nbsp; Immobilienwert
-                  td.text-right {{0 | currency:"":2}}
-                  td.text-right {{result.buyPropValue | currency:"":2}}
-                  td.text-right {{0 - result.buyPropValue | currency:"":2}}
+              highchart(id='chart1', config='chartConfig')
+              div.divider.notopmargin.mbottommargin
+
+              h4 Berechnungsdetails
+              div.tabs.tabs-tb.tabs-bordered.clearfix.ui-tabs.ui-widget.ui-widget-content.ui-corner-all#results-tabs
+                ul.tab-nav.clearfix.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all(role='tablist')
+                  li.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active(role='tab', tabindex='0', aria-controls='tabs-5', aria-labelledby='ui-id-5', aria-selected='true')
+                    a(href='#tabs-5', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-5')
+                      i.fa.fa-calculator
+                      | Details Endvermögen
+                  li.ui-state-default.ui-corner-top(role='tab', tabindex='-1', aria-controls='tabs-6', aria-labelledby='ui-id-6', aria-selected='false')
+                    a(href='#tabs-6', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-6')
+                      i.fa.fa-cogs
+                      | Vorgehen
+                  li.ui-state-default.ui-corner-top(role='tab', tabindex='-1', aria-controls='tabs-7', aria-labelledby='ui-id-7', aria-selected='false')
+                    a(href='#tabs-7', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-7')
+                      i.fa.fa-lightbulb-o
+                      | Annahmen
+                div.tab-container
+
+                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-5(aria-labelledby='ui-id-5', role='tabpanel', aria-expanded='true', aria-hidden='false', style="display: block;")
+                    p.xsbottommargin.stext Alle Angaben in €
+                    table.table
+                      thead
+                        tr
+                          th Jahr {{inputs.period}}
+                          th.text-right Mieten
+                          th.text-right Kaufen
+                          th.text-right Differenz
+                      tbody
+                        tr.active
+                          td Endvermögen
+                          td.text-right {{result.rentFinalWealth | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyFinalWealth | currency:"":2 | parentheses}}
+                          td.text-right {{result.rentFinalWealth - result.buyFinalWealth | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Eigenkapital
+                          td.text-right {{result.rentEquity | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyEquity | currency:"":2 | parentheses}}
+                          td.text-right {{result.rentEquity - result.buyEquity | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Wohneinkommen
+                          td.text-right {{result.rentFinalIncome | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyFinalIncome | currency:"":2 | parentheses}}
+                          td.text-right {{result.rentFinalIncome - result.buyFinalIncome | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Mietkosten
+                          td.text-right {{result.rentFinalCost | currency:"":2 | parentheses}}
+                          td.text-right {{0 | currency:"":2 | parentheses}}
+                          td.text-right {{result.rentFinalCost  | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Zinsertrag
+                          td.text-right {{result.rentFinalInterest | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyInterestSave | currency:"":2 | parentheses}}
+                          td.text-right {{result.rentFinalInterest - result.buyInterestSave | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Zinsaufwand
+                          td.text-right {{0 | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyInterestLoan | currency:"":2 | parentheses}}
+                          td.text-right {{0 - result.buyInterestLoan | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Laufende Kosten
+                          td.text-right {{0 | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyMaintenance | currency:"":2 | parentheses}}
+                          td.text-right {{0 - result.buyMaintenance | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Darlehenstilgung
+                          td.text-right {{0 | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyRepay | currency:"":2 | parentheses}}
+                          td.text-right {{0 - result.buyRepay | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Darlehensrestschuld
+                          td.text-right {{0 | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyResidual | currency:"":2 | parentheses}}
+                          td.text-right {{0 - result.buyResidual | currency:"":2 | parentheses}}
+                        tr
+                          td &nbsp; Immobilienwert
+                          td.text-right {{0 | currency:"":2 | parentheses}}
+                          td.text-right {{result.buyPropValue | currency:"":2 | parentheses}}
+                          td.text-right {{0 - result.buyPropValue | currency:"":2 | parentheses}}
+
+                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-6(aria-labelledby='ui-id-6', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
+                    p Der Mieten-oder-Kaufen-Rechner stellt das Endvermögen für die Szenarien Mieten oder Kaufen einer Immobilie bzw. Eigentumswohnung gegenüber und dient damit als Unterstützung bei der Kauf- oder Mietentscheidung. Für beide Szenarien wird das Endvermögen über den gewählten Zeitraum berechnet, indem das Anfangsvermögen sowie Zu- und Abflüsse analysiert werden. Allgemein basiert die Analyse also auf der Bestimmung und Verrechnung aller Zahlungsströme. Details zur Berechnung für die Szenarien können Sie den folgenden Abschnitten entnehmen.
+                    h5.xsbottommargin Wie das Endvermögen für das Kaufszenario berechnet wird
+                    p.xsbottommargin Die Berechnung des Vermögens für das Kaufszenario lässt sich in drei Schritte unterteilen. Im ersten Schritt werden alle Zahlungen (bzw. Vermögensgegenstände) zum Zeitpunkt des Immobilienkaufs berechnet und addiert. Im zweiten Schritt werden die Zahlungsströme während des gesamten Zeitraumes zwischen Immobilienkauf und Ende des Betrachtungszeitraums (gewähltes "Jahr ab Kauf") erstellt. Schließlich erfolgt die Berechnung von Zahlungsströmen bzw. Vermögensgegenständen am Ende es Zeitraums.
+                    p.xsbottommargin Zur Berechnung der Zahlungen zum Zeitpunkt des Immobilienkaufs wird zunächst die Höhe des erforderlichen Darlehens bestimmt. Diese ergibt sich aus dem eingegebenen Kaufpreis und der Kaufnebenkosten abzüglich des Eigenkapitals. Den positiven Zahlungsströmen/Vermögensgegenständen Darlehensauszahlung und Eigenkapital steht zum Kaufzeitpunkt der negative Zahlungsstrom Kaufpreis der Immobilie inklusive Nebenkosten gegenüber. Der Saldo ergibt grundsätzlich null.
+                    p.xsbottommargin Die Zahlungsströme während der Laufzeit bestehen aus Zinsertrag und -aufwand, Zahlungen zur Darlehenstilgung sowie laufende Kosten der Immobilie. Der Zinsaufwand wird auf Grundlage der ermittelten Darlehenshöhe, der eingegebenen Rückzahlungsrate - welche bis zur vollständigen Rückzahlung des Darlehens nach Voreinstellung dem verfügbaren Einkommen zum Wohnen entspricht - und des Darlehenszinssatzes ermittelt. Weiterhin wird der Zinsertrag aus der Anlage eventueller Differenzen zwischen dem verfügbaren Einkommen zum Wohnen und der Darlehensrückzahlung sowie der Ertrag aus Anlage von Überschüssen nach vollständiger Rückzahlung des Darlehens (sofern zutreffend) berechnet. Aus diesen Rechnungen ergeben sich schließlich die Positionen Zinsaufwand und -ertrag. Die Zahlungen zur Darlehenstilgung ergeben sich aus der angegeben Rückzahlungsrate. Analog berechnen sich die gesamten laufenden Kosten, welche auf Grundlage der Angabe zu den monatlichen laufenden Kosten aggregiert werden.
+                    p Schließlich wird der Immobilienwert am Ende des Zeitraums (Preis plus eventuelle Steigerungen) und eine eventuelle Darlehensrestschuld berechnet. Um das Endvermögen zu berechnen wird letztlich der Saldo aus diesen Größen zu den bereits ermittelten Werten addiert. Ergebnis ist das rechnerische Endvermögen für den Immobilienkauf, welches praktisch alle relevanten Parameter berücksichtigt.
+                    h5.xsbottommargin Wie das Endvermögen für das Mietszenario berechnet wird
+                    p.xsbottommargin Die Berechnung des Endvermögens für das Mietszenario ist vergleichsweise einfach. In diesem Fall setzt sich das Endvermögen aus der Anlage des Eigenkapitals zum eingegebenen/vorgegebenen Zinssatz für die Geldanlage sowie den anfallenden Überschüssen aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und den tatsächlichen Mietkosten zusammen. Im Fall der Miete kann das Eigenkapital, welches andernfalls zur Finanzierung der Immobilie verwendet werden würde, zum Anlagezinssatz angelegt werden. Auch die verfügbaren Überschüsse aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und der Miete können verzinslich angelegt werden.
+                    p Damit ergibt sich das Endvermögen im Mietszenario aus dem anfänglich verfügbaren Eigenkapital, der Differenz aus dem gesamten verfügbaren Wohneinkommen und den gesamten Mietkosten sowie dem Zinsertrag aus der Anlage des Eigenkapitals und des über den Zeitraum anfallenden überschüssigen Kapitals.
+
+                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-7(aria-labelledby='ui-id-7', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
+                    p.xsbottommargin Um Ihnen die Analyse zu erleichtern haben wir bereits sinnvolle Annahmen zur Berechnung getroffen. Die folgenden Abschnitte erläutern die wichtigsten Annahmen. Sie können Annahmen jedoch auch ändern und die Analyse so noch besser auf Ihre persönlichen Verhältnisse zuschneiden, indem Sie die Detailangaben in der Liste der Eingabefelder entsprechend anpassen.
+                    p.xsbottommargin
+                      strong Kaufnebenkosten:
+                      |  Die Kaufnebenkosten bestehen im wesentlichen aus der Grunderwerbssteuer sowie Gebühren für Makler und Notar/Gericht. Im Durchschnitt belaufen sich diese Kosten auf etwa 10 % des Kaufpreises, wobei die Grunderwerbssteuer (je nach Bundesland) ca. 5 % ausmacht, die Maklergebühr etwa 3,8 % sowie Notar- und Gerichtskosten jeweils etwa 0,8 % und 0,4 %.
+                    p.xsbottommargin
+                      strong Laufende Kosten:
+                      |  Diese Kosten setzen sich zusammen aus den Kosten für die Nutzung (Wasser, Heizung, Müll) und Instandhaltung der Immobilie. Der angenommene Satz von 1,25 % vom Kaufpreis entspricht etwa einem Betriebskostensatz von 25 % der Gesamtmiete für eine vergleichbare Mietwohnung und ist damit eine Annährung an den aktuellen Betriebskostenspiegel.
+                    p.xsbottommargin
+                      strong Wertsteigerung Immobilie:
+                      |  Die Wertsteigerung ist von Region zu Region unterschiedlich und eine nur mit großer Unsicherheit prognostizierbare Größe. Die Vorgabe von 1,1 % orientiert sich an der langfristigen durchschnittlichen Immobilienrendite in Deutschland über die letzten 10 Jahre.
+                    p.xsbottommargin
+                      strong Steigerung laufende Kosten:
+                      |  Die Vorgabe zur jährlichen Steigerung der laufenden Kosten von 2,2 % orientiert sich an der Entwicklung des Betriebskostenspiegels über die vergangenen 10 Jahre.
+                    p.xsbottommargin
+                      strong Steigerung Mietkosten:
+                      |  Auch die Vorgabe zur jährlichen Steigerung der Mietkosten  orientiert sich an der Entwicklung des Betriebskostenspiegels über die letzten 10 Jahre.
+                    p.xsbottommargin
+                      strong Zinssatz Geldanlage und Darlehen:
+                      |  Die Zinssätze für Geldanlage und Darlehen orientieren sich an den durchschnittlichen aktuellen Marktzinssätzen für langfristige Anlagen und Darlehen.
+                    p.xsbottommargin
+                      strong Monatliche Rückzahlungsrate:
+                      |  Die Vorgabe für die monatliche Rückzahlungsrate beträgt 100 % des freien verfügbaren Einkommens. Damit wird das gesamte monatliche verfügbare Einkommen zum Wohnen abzüglich der laufenden Kosten für die Immobilie zur Tilgung des Darlehens verwendet. Diese Einstellung führt zur schnellstmöglichen Tilgung des Darlehens. Senken Sie diesen Prozentsatz entsprechend, sofern Sie einen geringeren Betrag zur Darlehenstilgung einsetzen wollen. Damit verlängert sich auch die Darlehensperiode bzw. die am Ende des Betrachtungszeitraums bestehende Restschuld.
+                    p.xsbottommargin
+                      strong Weitere Annahmen:
+                      |  Bezüglich der Zahlungszeitpunkte geht der Rechner davon aus, dass Einkommen zum Wohnen jeweils am Monatsanfang zur Verfügung steht, während Miet- und Tilgungszahlungen am Monatsende anfallen.
 
 
-          //- sidebar right
+            div.col_full
+              h3.xsbottommargin Die Entscheidung zum Kaufen oder Mieten
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+          //- </div> ********** END page center - main content **********
+
+
+
+          //- ********** sidebar right **********
           div.sidebar.nobottommargin.col_last.clearfix
             div.sidebar-widgets-wrap
               div.widget.clearfix
@@ -238,5 +243,5 @@ block content
                 h4 Newsletter
               div.widget.clearfix
                 h4 Werbung
-
+          //- </div> ********** END sidebar right **********
     include ../_includes/footer

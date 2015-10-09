@@ -18,12 +18,11 @@ angular.module('app').directive('sfSlider', function(){
         floor: 0,
         ceil: 10000,
         step: 1,
-        precision: 1
+        precision: 1,
+        secondaddon: ' €'
       };
 
-
       angular.extend($scope.options, JSON.parse($scope.overwriteOptions));
-      console.log($scope.options.step);
 
       $scope.sliderTranslate = function(value){
         return '';
