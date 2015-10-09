@@ -38,10 +38,10 @@
 
     /** initialize values */
     $scope.inputs = {
-      price: 500000,
-      rent: 1000,
-      equity: 20,
-      income: 1200,
+      price: 300000,
+      rent: 650,
+      equity: 30,
+      income: 1350,
       priceaddon: 10,
       maintenancePercent: 1.25,
       valuedynamic: 1.1,
@@ -49,7 +49,7 @@
       costdynamic: 2.2,
       equityinterest: 1.6,
       debtinterest: 2.2,
-      debtpay: 100,
+      debtpay: 90,
       period: 15,
       incomedynamic: 0
     };
