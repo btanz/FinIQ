@@ -5,12 +5,12 @@
   <div ng-switch-default>
     <!-- case with addon -->
     <div ng-if='addon' class="input-group">
-      <input type="number" id='{{id}}' name='{{id}}' ng-model="value" class="sm-form-control"/>
+      <input type="number" id='{{id}}' name='{{id}}' ng-model="$parent.$parent.value" class="sm-form-control"/>
       <span class="input-group-addon">{{addon}}</span>
     </div>
     <!-- case without addon -->
     <div ng-if='!addon'>
-      <input type="number" id='{{id}}' name='{{id}}' ng-model="value" class="sm-form-control"/>
+      <input type="number" id='{{id}}' name='{{id}}' ng-model="$parent.$parent.value" class="sm-form-control"/>
     </div>
   </div>
   <!-- *** slider that asks for a fraction of x, where the abs value is computed and displayed *** -->
@@ -19,12 +19,12 @@
       <div class="col-md-6">
         <!-- case with addon -->
         <div ng-if='addon' class="input-group">
-          <input type="number" id='{{id}}' name='{{id}}' ng-model="value" class="sm-form-control"/>
+          <input type="number" id='{{id}}' name='{{id}}' ng-model="$parent.$parent.value" class="sm-form-control"/>
           <span class="input-group-addon">{{addon}}</span>
         </div>
         <!-- case without addon -->
         <div ng-if='!addon'>
-          <input type="number" id='{{id}}' name='{{id}}' ng-model="value" class="sm-form-control"/>
+          <input type="number" id='{{id}}' name='{{id}}' ng-model="$parent.$parent.value" class="sm-form-control"/>
         </div>
       </div>
       <div class="col-md-6">
