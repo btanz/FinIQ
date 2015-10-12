@@ -13,6 +13,11 @@
     var spacingLeft = 10;
     var borderWidth = 0;
     var backgroundColor = null;
+    var titleStyle = {
+        fontWeight: 400,
+        fontFamily: '"Lato", sans-serif',
+        fontSize: '17px'
+    };
 
 
 
@@ -45,9 +50,32 @@
       }
     };
 
+    var linechartConfig = {
+      options: {
+        chart: {
+          type: 'line',
+          legend: {
+            layout: 'vertical',
+            align: 'bottom',
+            borderWidth: 0
+          }
+        },
+        plotOptions: {
+          series: {
+            color: '#009CDE',
+            marker: {
+              enabled: false
+            }
+          }
+        }
+      }
+    };
+
     /** attach particular charts to return object */
     obj.horizontalBar = horizontalBarConfig;
     obj.verticalBar   = verticalBarConfig;
+    obj.linechart     = linechartConfig;
+    obj.titleStyle    = titleStyle
 
     return obj;
   });
