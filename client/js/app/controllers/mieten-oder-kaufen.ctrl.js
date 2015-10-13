@@ -104,7 +104,10 @@
         }
       },
       series: [{
-        data: [{y:1, color: '#B2AB12'}, 4]
+        data: [{
+          y:1,
+          color: '#F38200'
+        }, 4]
       }]
     };
 

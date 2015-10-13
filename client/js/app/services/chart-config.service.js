@@ -75,7 +75,7 @@
     obj.horizontalBar = horizontalBarConfig;
     obj.verticalBar   = verticalBarConfig;
     obj.linechart     = linechartConfig;
-    obj.titleStyle    = titleStyle
+    obj.titleStyle    = titleStyle;
 
     return obj;
   });
