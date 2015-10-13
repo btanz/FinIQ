@@ -5,7 +5,7 @@
 (function(){
 
   /** ********************** BEGIN ANGULAR CODE ********************************************* */
-  angular.module('app').controller('MietenOderKaufenCtrl', function($scope, $rootScope, $interval, chartConfig, hauskaufCalculator){
+  angular.module('app').controller('mietenoderkaufenController', function($scope, $rootScope, $interval, chartConfig, hauskaufCalculator){
 
     /** *** CALCULATION FUNCTIONS *** */
     $scope.calcAbsolute = function(basis, percentage){

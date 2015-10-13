@@ -18,7 +18,7 @@ block content
           li.active Mieten oder Kaufen
 
     //-page-content
-    section#content(ng-controller='MietenOderKaufenCtrl as controller')
+    section#content(ng-controller='mietenoderkaufenController as controller')
       div.content-wrap.content-wrap-topics
         div.container.clearfix
 
@@ -78,7 +78,7 @@ block content
           //- ********** page center - main content **********
           div.postcontent.bothsidebar.nobottommargin.clearfix
             div.col_full
-              h4.widget_h4 Ergebnis
+              //- h4.widget_h4 Ergebnis
               h3 Wenn Sie
                 span(ng-class="{orange: !buyIsBest}")  {{inputs.period}} Jahre
                 |  in diesem Haus oder dieser Wohnung bleiben ist
