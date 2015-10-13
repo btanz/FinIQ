@@ -9,6 +9,7 @@ angular.module('app').directive('sfSlider', function(){
       description: '@',
       id: '@',
       addon: '@',
+      tip: '@',
       overwriteOptions: '@options'
     },
     controller: ['$scope', function($scope){
@@ -27,6 +28,10 @@ angular.module('app').directive('sfSlider', function(){
       $scope.sliderTranslate = function(value){
         return '';
       };
-    }]
+    }],
+    link: function(scope,element,attrs){
+      /** Initialize tooltips */
+      element.find('label').tooltip({title: scope.tip, template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'});
+    }
   }
 });

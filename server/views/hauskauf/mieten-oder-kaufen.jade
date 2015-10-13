@@ -31,10 +31,10 @@ block content
                   | &nbsp; Eingaben
 
                 //- primary inputs
-                sf-slider(description='Kaufpreis',    value='inputs.price', addon='€', id='price',  options='{"floor": "0", "ceil": "4000000", "precision": "1", "step": "5000"}')
-                sf-slider(description='Monatsmiete (warm)', value='inputs.rent',  addon='€', id='rent',   options='{"floor": "0", "ceil": "12000", "precision": "1", "step": "50"}')
-                sf-slider(description='Eigenkapital', type='frac', value='inputs.equity',addon='%', id='equity', options='{"floor": "0", "ceil": "100", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.equity)')
-                sf-slider(description='Monatlich verfügbares Einkommen zum Wohnen',  value='inputs.income',  addon='€', id='income',   options='{"floor": "0", "ceil": "20000", "precision": "1", "step": "50"}')
+                sf-slider(description='Kaufpreis',                  value='inputs.price', tip='Der voraussichtliche Kaufpreis der Immobilie ohne Kaufnebenkosten.', addon='€', id='price',  options='{"floor": "0", "ceil": "4000000", "precision": "1", "step": "5000"}')
+                sf-slider(description='Monatsmiete (warm)',         value='inputs.rent',  tip='Die monatlichen Mietkosten inklusive Nebenkosten (Warmmiete), welche bei Anmietung anfallen würden bzw. anfallen. ',addon='€', id='rent',   options='{"floor": "0", "ceil": "12000", "precision": "1", "step": "50"}')
+                sf-slider(description='Eigenkapital', type='frac',  value='inputs.equity' tip='Das zum Immobilienerwerb zur Verfügung stehende Eigenkapital. Dieses wird im Fall des Kaufs zum Kaufzeitpunkt in die Immobilie investiert. Im Fall der Miete wird das Eigenkapital zum Anlagezinssatz angelegt.',addon='%', id='equity', options='{"floor": "0", "ceil": "100", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.equity)')
+                sf-slider(description='Monatlich verfügbares Einkommen zum Wohnen',  value='inputs.income',  tip='Der monatliche Betrag, welcher Ihnen für Wohnzwecke zur Verfügung (Kauf und Unterhaltung einer Immobilie bzw. Miete) steht. Dieser entspricht meist dem Nettoeinkommen abzüglicher aller anderen Ausgaben für Konsum und Sparen.',addon='€', id='income',   options='{"floor": "0", "ceil": "20000", "precision": "1", "step": "50"}')
 
                 //- secondary inputs
                 div.panel-group.nobottommargin.accordion
@@ -46,10 +46,10 @@ block content
                     div#collapseOne.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-                        sf-slider(description='Kaufnebenkosten', type='frac',  value='inputs.priceaddon',         addon='%', id='priceaddon',           options='{"floor": "0", "ceil": "20", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.priceaddon)')
-                        sf-slider(description='Laufende Kosten', type='frac',  value='inputs.maintenancePercent', addon='%', id='maintenancePercent',   options='{"floor": "0", "ceil": "15", "precision": "2", "step": "0.25", "secondaddon": " €/Mt."}', fun='calcMonthlyMaintenance(inputs.maintenancePercent, inputs.price)')
-                        sf-slider(description='Wertsteigerung Immobilie',   value='inputs.valuedynamic',  addon='% p. a.', id='valuedynamic',  options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
-                        sf-slider(description='Steigerung laufende Kosten', value='inputs.costdynamic',   addon='% p. a.', id='costdynamic',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Kaufnebenkosten', type='frac',  value='inputs.priceaddon',         tip='Die Nebenkosten, welche beim Hauskauf entstehen würden. Hier handelt es sich hauptsächlich um die Grunderwerbssteuer sowie Kosten für Notar und Makler. Erfahrungsgemäß sind hier 8-10 % des Kaufpreises zu veranschlagen.' ,addon='%', id='priceaddon',           options='{"floor": "0", "ceil": "20", "precision": "2", "step": "0.25"}', fun='calcAbsolute(inputs.price, inputs.priceaddon)')
+                        sf-slider(description='Laufende Kosten', type='frac',  value='inputs.maintenancePercent', tip='Die monatlichen Kosten zum Betrieb (Wasserversorgung, Energie, Müllentsorgung, etc.) und der Instandhaltung (Reparaturen, Sanierungen, etc.) der Immobilie als Jahresanteil vom Kaufpreis der Immobilie. Erfahrungsgemäß kann man hier jährlich von 2,5 % des Kaufpreises ausgehen, wobei jeweils 1,25 % auf Betriebs- und Instandhaltungskosten entfallen. Im Fall der Anmietung sind diese Kosten bereits in der Warmiete enthalten, sofern vom Mieter zahlbar.',addon='%', id='maintenancePercent',   options='{"floor": "0", "ceil": "15", "precision": "2", "step": "0.25", "secondaddon": " €/Mt."}', fun='calcMonthlyMaintenance(inputs.maintenancePercent, inputs.price)')
+                        sf-slider(description='Wertsteigerung Immobilie',   value='inputs.valuedynamic',  addon='% p. a.', tip='Die jährliche prozentuale Steigerung des Immobilienwertes.' ,id='valuedynamic',  options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Steigerung laufende Kosten', value='inputs.costdynamic',   addon='% p. a.', tip='Die jährliche prozentuale Steigerung der laufenden Kosten zu Betrieb und Instandhaltung der Immobilie.', id='costdynamic',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
 
                   div.panel.panel-default
                     div.panel-heading
@@ -59,7 +59,7 @@ block content
                     div#collapseTwo.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-                        sf-slider(description='Mietkostensteigerung', value='inputs.rentdynamic',   addon='% p. a.', id='rentdynamic',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Mietkostensteigerung', value='inputs.rentdynamic',   tip='Die jährliche prozentuale Steigerung der Mietkosten.', addon='% p. a.', id='rentdynamic',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
 
                   div.panel.panel-default
                     div.panel-heading
@@ -69,9 +69,9 @@ block content
                     div#collapseThree.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-                        sf-slider(description='Zinssatz Geldanlage',  value='inputs.equityinterest',  addon='% p. a.', id='equityinterest', options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
-                        sf-slider(description='Zinssatz Darlehen',    value='inputs.debtinterest',    addon='% p. a.', id='debtinterest',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
-                        sf-slider(description='Monatliche Rückzahlungsrate - Eingabe als Anteil des monatlich zur Darlehenstilgung verfügbaren freien Einkommens', type='frac',  value='inputs.debtpay',  addon='%', id='debtpay',   options='{"floor": "0", "ceil": "100", "precision": "2", "step": "0.25"}', fun='calcMonthlyDebt(inputs.debtpay, inputs.maintenancePercent, inputs.income, inputs.price)')
+                        sf-slider(description='Zinssatz Geldanlage',  value='inputs.equityinterest',  tip='Der Zinssatz, zu welchem Kapital angelegt werden kann. Beträge, welche nach Zahlung von Miet- bzw. Finanzierungs-, Betriebs- und Instandhaltungskosten übrig bleiben, werden zu diesem Zinssatz angelegt.', addon='% p. a.', id='equityinterest', options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Zinssatz Darlehen',    value='inputs.debtinterest',    tip='Der jährliche Zins für das zum Immobilienerwerb ggf. notwendige Darlehen.', addon='% p. a.', id='debtinterest',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Monatliche Rückzahlungsrate - Eingabe als Anteil des monatlich zur Darlehenstilgung verfügbaren freien Einkommens', tip='Die monatliche konstante Rückzahlungsrate des Darlehens zur Immobilienfinanzierung bei Kauf als Prozentsatz des monatlich freien Einkommens zum Wohnen (Einkommen zum Wohnen abzüglich der laufenden Kosten). Diese Zahlung deckt die Zins- und Tilgungskomponenten ab. Nach vollständiger Tilgung des Darlehens wird dieser Betrag zum Anlagezinssatz angelegt.', type='frac',  value='inputs.debtpay',  addon='%', id='debtpay',   options='{"floor": "0", "ceil": "100", "precision": "2", "step": "0.25"}', fun='calcMonthlyDebt(inputs.debtpay, inputs.maintenancePercent, inputs.income, inputs.price)')
           //- </div> ********** END sidebar left (INPUTS) **********
 
 
@@ -214,13 +214,13 @@ block content
                       |  Auch die Vorgabe zur jährlichen Steigerung der Mietkosten  orientiert sich an der Entwicklung des Betriebskostenspiegels über die letzten 10 Jahre.
                     p.xsbottommargin
                       strong Zinssatz Geldanlage und Darlehen:
-                      |  Die Zinssätze für Geldanlage und Darlehen orientieren sich an den durchschnittlichen aktuellen Marktzinssätzen für langfristige Anlagen und Darlehen.
+                      |  Die Zinssätze für Geldanlage und Darlehen orientieren sich an den durchschnittlichen aktuellen Marktzinssätzen für langfristige Anlagen und Darlehen. Im Fall der Anlage wird angenommen, dass die Zinsen jährlich dem Kapital zugeschlagen werden und fortan mitverzinst werden (Zinseszins).
                     p.xsbottommargin
                       strong Monatliche Rückzahlungsrate:
                       |  Die Vorgabe für die monatliche Rückzahlungsrate beträgt 90 % des freien verfügbaren Einkommens. Damit wird nahezu das gesamte monatliche verfügbare Einkommen zum Wohnen abzüglich der laufenden Kosten für die Immobilie zur Tilgung des Darlehens verwendet. Diese Einstellung führt zu einer schnellen Tilgung des Darlehens unter Berücksichtigung eines kleinen Liquiditätspuffers. Senken Sie diesen Prozentsatz entsprechend, sofern Sie einen geringeren Betrag zur Darlehenstilgung einsetzen wollen. Damit verlängert sich auch die Darlehensperiode bzw. die am Ende des Betrachtungszeitraums bestehende Restschuld.
                     p.xsbottommargin
                       strong Weitere Annahmen:
-                      |  Bezüglich der Zahlungszeitpunkte geht der Rechner davon aus, dass Einkommen zum Wohnen jeweils am Monatsanfang zur Verfügung steht, während Miet- und Tilgungszahlungen am Monatsende anfallen.
+                      |  Bezüglich der Zahlungszeitpunkte geht der Rechner davon aus, dass Einkommen zum Wohnen jeweils am Monatsanfang zur Verfügung steht, Mietzahlungen am Monatsanfang geleistet werden und Tilgungszahlungen am Monatsende anfallen.
 
 
             div.col_full
