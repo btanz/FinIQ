@@ -14,6 +14,10 @@ router.get('/mieten-oder-kaufen', function(req, res, next) {
   res.render('hauskauf/mieten-oder-kaufen');
 });
 
+/** GET deutschlands beste arbeitsmärkte. */
+router.get('/deutschlands-beste-arbeitsmaerkte', function(req, res, next) {
+  res.render('hauskauf/deutschlands-beste-arbeitsmaerkte');
+});
 
 
 
