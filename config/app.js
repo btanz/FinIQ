@@ -16,7 +16,7 @@ var bodyParser    = require('body-parser');
 
 /** C. Internal dependencies / Routes */
 var routes        = require('./../server/routes/home/index');
-var hauskaufRoutes= require('./../server/routes/hauskauf/index');
+var hauskaufRoutes= require('./../server/routes/hauskauf/mainRoutes');
 
 
 /** D. Init */

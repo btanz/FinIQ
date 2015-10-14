@@ -3,99 +3,19 @@
  */
 (function(){
 
-  angular.module('app').controller('deutschlandsbestearbeitsmaerkteController', function($scope, chartConfig){
+  angular.module('app').controller('deutschlandsbestearbeitsmaerkteController', function($scope, chartConfig, $http){
+
+    $http({
+      method: 'GET',
+      url: '/hauskauf/deutschlands-beste-arbeitsmaerkte/map_data'
+    }).then(function successCallback(response) {
+      $scope.chartConfig_1.series[0].data = response.data;
+    }, function errorCallback(response) {
+      console.log('An error occured');
+    });
 
 
-
-
-    var data = [
-      {
-        "hc-key": "de-ni",
-        "value": 0
-      },
-      {
-        "hc-key": "de-sh",
-        "value": 1
-      },
-      {
-        "hc-key": "de-be",
-        "value": 2
-      },
-      {
-        "hc-key": "de-mv",
-        "value": 3
-      },
-      {
-        "hc-key": "de-hb",
-        "value": 4
-      },
-      {
-        "hc-key": "de-sl",
-        "value": 5
-      },
-      {
-        "hc-key": "de-by",
-        "value": 6
-      },
-      {
-        "hc-key": "de-th",
-        "value": 7
-      },
-      {
-        "hc-key": "de-st",
-        "value": 8
-      },
-      {
-        "hc-key": "de-sn",
-        "value": 9
-      },
-      {
-        "hc-key": "de-bb",
-        "value": 10
-      },
-      {
-        "hc-key": "de-nw",
-        "value": 11
-      },
-      {
-        "hc-key": "de-bw",
-        "value": 12
-      },
-      {
-        "hc-key": "de-he",
-        "value": 13
-      },
-      {
-        "hc-key": "de-hh",
-        "value": 14
-      },
-      {
-        "hc-key": "de-rp",
-        "value": 15
-      },
-      {
-        "hc-key": "de-bw-08136000",
-        "value": 0
-      },
-      {
-        "hc-key": "de-bw-08116000",
-        "value": 1
-      },
-      {
-        "hc-key": "de-bw-08415000",
-        "value": 2
-      },
-      {
-        "hc-key": "de-bw-08115000",
-        "value": 3
-      },
-      {
-        "hc-key": "de-bw-08117000",
-        "value": 4
-      }
-    ];
-
-    this.config2 = {
+    $scope.chartConfig_1 = {
       options: {
         legend: {
           enabled: false
@@ -107,7 +27,11 @@
           }
         },
         colorAxis: {
-          min: 0
+          min: null,
+          max: null,
+          type: 'logarithmic',
+          minColor: '#ffffff',
+          maxColor: '#009CDE'
         },
         plotOptions: {
           map: {
@@ -118,19 +42,25 @@
       },
       chartType: 'map',
       title: {
-        text: 'Deutschlandkarte'
+        text: 'FinIQ-Attraktivitätsindex der Städte und Landkreise'
+      },
+      credits: {
+        enabled: 'true',
+        text: 'Quelle: Statistisches Bundesamt; Highcharts © GeoBasis-DE / BKG 2014'
       },
       series: [{
-        data: data,
-        name: 'Random data',
+        name: 'Attraktivitätsindex',
         states: {
           hover: {
-            color: '#BADA55'
+            color: '#009CDE'
           }
         },
         dataLabels: {
           enabled: false,
           format: '{point.name}'
+        },
+        tooltip: {
+          pointFormat: ' <strong>{point.name}: {point.value} / 100</strong> <br>Hartz-IV-Quote: {point.alg2} %  <br>Arbeitslosenquote: {point.alg1} %  <br>Arbeitsplatzversorgung: {point.versorgung} % <br>Verfügbares jährl. Einkommen pro Person: {point.income} € <br>Bruttoinlandsprodukt pro Person: {point.bip} €'
         }
       }]
     };

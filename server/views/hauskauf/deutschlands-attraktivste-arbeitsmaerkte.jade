@@ -1,0 +1,102 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+
+    //-page-content
+    section#content(ng-controller='deutschlandsbestearbeitsmaerkteController as controller')
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Deutschlands attraktivste Arbeitsmärkte
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Blog
+                  li.nobottommargin
+                    a(href='/hauskauf') Hauskauf
+                  li.nobottommargin
+                    a(href='/hauskauf/deutschlands-beste-arbeitsmaerkte') Deutschlands attraktivste Arbeitsmärkte
+
+                ul.entry-meta.clearfix
+                  li
+                    i.icon-calendar3
+                    | 12.10.2015 &nbsp
+                    i.icon-user
+                    | FinIQ &nbsp
+
+
+                div.entry-content.notopmargin
+                  p Im internationalen Vergleich schneidet der Arbeitsmarkt in Deutschland mit einer der geringsten Arbeitslosenquoten Europas meist sehr gut ab. Hinter den Zahlen für ganz Deutschland verbergen sich jedoch erhebliche regionale Unterschiede in Zahlen wie Arbeitslosenquoten und Bruttoinlandsprodukt pro Kopf. Erfahrungsgemäß hat die Attraktivität des Arbeitsmarktes starken Einfluß auf die Lebensqualität in den Städten und Landkreisen sowie die heutige und zukünftige Bewertung von Immobilien. FinIQ analysierte zahlreiche Kernindikatoren zu den einzelnen regionalen Arbeitsmärkten und bildete einen Index für die Arbeitsmarktattraktivität in Deutschland aus Sicht der Angestellten, welcher die Attraktivität granular bis auf Kreis- und Gemeineebene abbildet. Dabei gingen in das Ergebnis gingen auch monetäre Indikatoren wie das durchschnittliche verfügbare Einkommen und das Bruttoinlandsprodukt pro Kopf ein.
+                  h4 Wichtigste Ergebnisse
+                  ul.ul-post
+                    li
+                      strong Die attaktivsten Arbeitsmärkte finden sich im Süden. &nbsp;
+                      | Mit München, Ingolstadt und Starnberg finden sich gleich drei süddeutsche Regionen unter den Top fünf.
+                    li
+                      strong Nicht nur die Arbeitslosenquoten unterscheiden sich von Region zu Region, auch die verfügbaren Einkommen und das generierte Bruttoinlandsprodukt (BIP) pro Person unterscheiden sich stark. &nbsp;
+                      | Während in Ingolstadt durchschnittlich jede Person etwa 118.000 € pro Jahr zum Bruttoinlandsprodukt beiträgt, sind es in Eisenach nur 39.600 € pro Person und Jahr.
+                    li
+                      strong Auch einige ländliche Regionen sind äußerst attraktiv. &nbsp;
+                      | Kleinere Städte wie Pfaffenhofen oder Tuttlingen sind sehr attraktiv für Angestellte und finden sich unter den Top zwanzig wieder.
+
+                  div.sf-image
+                    img.img-responsive(src="/assets/img/hauskauf/besteArbeitsmaerkte_Infographic.png", alt="Die attraktivsten Arbeitsmärkte Deutschlands.")
+
+                  h4 Daten und Methodik
+                  p.nobottommargin Um die Arbeitsmarktattraktivität zu beurteilen sammelten und analysierten wird zahlreiche Daten des statistischen Bundesamtes zu allen Landkreisen in Deutschland. Ergebnis der Analyse ist ein Index, welcher die Attraktivität der regionalen Arbeitsmärkte abbildet. Die folgenden Kernindikatoren gingen in den Index ein.
+                  ul.ul-post
+                    li
+                      strong Arbeitslosenquote &nbsp;
+                      | Die lokale Arbeitslosenquote spiegelt die Anzahl der Arbeitslosen relativ zum Erwerbspersonenpotenzial wieder.
+                    li
+                      strong Hartz-IV-Quote &nbsp;
+                      | Die Hartz-IV-Quote gibt den Anteil der Hartz-IV-Empfänger an der Bevölkerung in der jeweiligen Region an.
+                    li
+                      strong Arbeitsplatzversorgung &nbsp;
+                      | Die Arbeitsplatzversorgung gibt den Anteil aller Erwerbspersonen im Alter von 15 bis 64 Jahren an, die eine sozialversicherungspflichtige oder zumindest geringfügige Beschäftigung ausüben.
+                    li
+                      strong Verfügbares Einkommen pro Jahr und Einwohner &nbsp;
+                      | Das verfügbare Einkommen ist ein Maß für die durchschnittliche Kaufkraft eines Einwohners in der Region.
+                    li
+                      strong Bruttoinlandsprodukt pro Jahr und Einwohner &nbsp;
+                      | Das Bruttoinlandsprodukt pro Jahr und Einwohner ist ein Anhaltspunkt für die Wirtschaftskraft einer Region.
+
+                  p Zur Berechnung des FinIQ-Attraktivitätsindexes haben wir zunächst alle Indikatoren einheitlich skaliert. Danach berechneten wird den Index durch Gleichgewichtung aller skalierten Indikatoren. Danach wurden die Regionen anhand des Indexes gerankt. Das Ergebnis sehen Sie in der Infografik "Die attraktivsten Arbeitsmärkte in Deutschland."
+
+                  p Ihre Region findet sich nicht unter den Top 20, sie wollen aber dennoch Details zu Ihrer Region erfahren? Nutzen Sie einfach die folgende interaktive Karte, um mehr zu erfahren.
+
+                  highchart.chart(id='chart01', config='chartConfig_1')
+                    div.divider.notopmargin.mbottommargin
+
+                  p.strong Sie haben Fragen zu unserer Studie? Kontaktieren Sie uns: info@finiq.de
+
+                  p.weak Quellen: Alle Indikatoren wurden berechnet aus Daten des statistischen Bundesamtes (www.destatis.de). Zur Konstruktion der Indikatoren wurden die jeweils letzten verfügbaren Daten verwendet.
+
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          div.sidebar.nobottommargin.col_last.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Mehr von FinBob
+                p (links)
+              div.widget.clearfix
+                h4 Share
+              div.widget.clearfix
+                h4 Newsletter
+              div.widget.clearfix
+                h4 Werbung
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

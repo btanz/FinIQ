@@ -56,6 +56,32 @@ h5 {
   border-right-color: #009CDE;
 }
 
+.sf-image {
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.sf-image img {
+
+}
+
+.ul-post li{
+  margin: 10px 0 0 15px;
+}
+
+.strong{
+  font-weight: 700;
+}
+
+.weak{
+  font-weight: 400;
+  font-size: 11px;
+}
+
+.chart{
+  margin: 20px 0 20px 0;
+}
+
 
 
 /* **************** table styles **************** */
