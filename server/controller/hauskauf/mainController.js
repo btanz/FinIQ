@@ -30,3 +30,46 @@ exports.besteArbeitsmarkte = {
   }
 
 };
+
+
+
+exports.grundstueckspreise = {
+
+  serveJson:  function(req, res, next) {
+    //var data = require('../../../other/hauskauf/data/besteArbeitsmaerkte.json');
+
+    var data = require('../../../other/hauskauf/data/Grundstueckspreise.json');
+
+
+    //console.log(data);
+
+
+
+
+
+    var nullFilter = function(obj){
+      return !(obj['hc-key'] === null || obj['value'] == null);
+    };
+
+    var arr = Object.keys(data).map(function(key){
+      return {
+        'hc-key': data[key].HighchartsID ? data[key].HighchartsID.trim() : null,
+        'name': data[key].Kreisname,
+        'value': data[key][2013] ? Math.round(data[key][2013] * 1000) / 1000 : null,
+        '5yeargrowth': data[key].landPrices5yGrowth ? Math.round((Math.pow(data[key].landPrices5yGrowth + 1,1/5) - 1) * 1000) / 10 : null,
+        'value12': data[key][2012] ? Math.round(data[key][2012] * 1000) / 1000 : null,
+        'value11': data[key][2011] ? Math.round(data[key][2011] * 1000) / 1000 : null,
+        'value10': data[key][2010] ? Math.round(data[key][2010] * 1000) / 1000 : null,
+        'value09': data[key][2009] ? Math.round(data[key][2009] * 1000) / 1000 : null,
+        'value08': data[key][2008] ? Math.round(data[key][2008] * 1000) / 1000 : null
+
+      };
+    });
+
+    arr = arr.filter(nullFilter);
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(arr));
+  }
+
+};

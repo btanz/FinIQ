@@ -80,6 +80,7 @@ h5 {
 
 .chart{
   margin: 20px 0 20px 0;
+  max-width: 600px;
 }
 
 

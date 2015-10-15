@@ -23,12 +23,19 @@ router.get('/deutschlands-attraktivste-arbeitsmaerkte', function(req, res, next)
   res.render('hauskauf/deutschlands-attraktivste-arbeitsmaerkte');
 });
 
+/** GET übersicht der grundstückspreise. */
+router.get('/uebersicht-der-grundstueckspreise', function(req, res, next) {
+  res.render('hauskauf/uebersicht-der-grundstueckspreise');
+});
+
 
 
 
 /** **************** II. DATA ROUTES **************** */
 
 router.get('/deutschlands-beste-arbeitsmaerkte/map_data', hauskaufCtrl.besteArbeitsmarkte.serveJson);
+
+router.get('/uebersicht-der-grundstueckspreise/map_data', hauskaufCtrl.grundstueckspreise.serveJson);
 
 
 

@@ -1,0 +1,94 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+
+    //-page-content
+    section#content(ng-controller='uebersichtgrundstueckspreiseController as controller')
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Übersicht der Grundstückspreise
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Blog
+                  li.nobottommargin
+                    a(href='/hauskauf') Hauskauf
+                  li.nobottommargin
+                    a(href='/hauskauf/uebersicht-der-grundstueckspreise') Übersicht der Grundstückspreise
+
+                ul.entry-meta.clearfix
+                  li
+                    i.icon-calendar3
+                    | 14.10.2015 &nbsp
+                    i.icon-user
+                    | FinIQ &nbsp
+
+
+                div.entry-content.notopmargin
+                  p.nobottommargin Die Grundstückspreise in den Regionen Deutschlands sind nicht nur für Häuslebauer interessant, sondern geben auch eine Indikation für die Höhe und Entwicklung des Immobilienmarktes allgemein. Beim Hauskauf oder -bau sollten Sie hauptsächlich aus folgenden zwei Gründen auf Ihren lokalen Immobilienmarkt achten:
+                  ul.ul-post
+                    li
+                      | Wie bei jedem anderen Kauf auch sollten Sie auf einen fairen Preis beim Kauf achten. Vergleichen Sie den Preis Ihres Zielobjektes mit dem Preis ähnlicher Objekte in der Region. Oftmals lässt sich zum Beispiel ein Schnäppchen machen, wenn Sie nur wenige Kilometer weiter raus aufs Land ziehen.
+                    li
+                      | Ein wesentlicher Anteil der Immobilienrendite ist der Wiederverkaufswert. Dieser spielt nicht nur eine Rolle, wenn Sie Ihr Haus oder Ihre Wohnung tatsächlich verkaufen wollen. Auch wenn Sie im Eigentum der Immobilie bleiben ist der Wert Ihrer Immobilie sehr stark vom lokalen Immobilienmarkt abhängig. Ein verbreitete Ansicht ist, schlechte Marktphasen 'auszusitzen' und auf bessere Zeiten zu warten. Preisentwicklungen im Immobilienmarkt sind allerdings meist langfristiger Natur. Daher ist es hier umso wichtiger, auf das richtige Pferd zu setzen.
+
+                  p Um Ihnen einen Marktüberblick zu geben hat FinIQ die Grundstückspreise in Deutschland auf Stadt- und Kreisebene analysiert. Dazu haben wir durchschnittliche Quadratmeterpreise für Bauland in den einzelnen Regionen gesammelt und ausgewertet. Die Ergebnisse zeigen überraschend große Preisdifferenzen sowohl über Regionen als auch über die Zeit.
+                  //p Im internationalen Vergleich schneidet der Arbeitsmarkt in Deutschland mit einer der geringsten Arbeitslosenquoten Europas meist sehr gut ab. Hinter den Zahlen für ganz Deutschland verbergen sich jedoch erhebliche regionale Unterschiede in Zahlen wie Arbeitslosenquoten und Bruttoinlandsprodukt pro Kopf. Erfahrungsgemäß hat die Attraktivität des Arbeitsmarktes starken Einfluß auf die Lebensqualität in den Städten und Landkreisen sowie die heutige und zukünftige Bewertung von Immobilien. FinIQ analysierte zahlreiche Kernindikatoren zu den einzelnen regionalen Arbeitsmärkten und bildete einen Index für die Arbeitsmarktattraktivität in Deutschland aus Sicht der Angestellten, welcher die Attraktivität granular bis auf Kreis- und Gemeineebene abbildet. Dabei gingen in das Ergebnis gingen auch monetäre Indikatoren wie das durchschnittliche verfügbare Einkommen und das Bruttoinlandsprodukt pro Kopf ein.
+                  h4 Wichtigste Ergebnisse
+                  ul.ul-post
+                    li
+                      strong In den Großstädten sind die Preise mit Abstand am Höchsten. &nbsp;
+                      | Die Quadratmeterpreise in München, Stuttgart, Frankfurt am Main und Hamburg sind um ein Vielfaches höher als die Preise in kleineren Städten und ländlichen Gebieten.
+                    li
+                      strong Zum Teil bestehen erhebliche Preisunterschiede, welche sich in den vergangenen Jahren noch vergrößert haben. &nbsp;
+                      | In München kostet ein Quadratmeter Baugrund etwa 1.470 €, während man im Saale-Orla-Kreis etwa 12,50 € zahlt. Für 35 Quadratmeter in München bekommen Sie also im Saale-Orla-Kreis ein ganzes Fußballfeld.
+                    li
+                      strong Relativ teure Regionen werden noch teurer und günstige Regionen werden günstiger - von einigen Außnahmen abgesehen. &nbsp;
+                      | In vielen Regionen mit bereits hohen Preisen steigen die Preise zweistellig, während die Preise in Regionen mit niedrigen Preisen weiter in den Keller gehen.
+
+                  div.sf-image
+                    img.img-responsive(src="/assets/img/hauskauf/grundstueckspreiseHoch_Infographic.png", alt="Die attraktivsten Arbeitsmärkte Deutschlands.")
+
+                  div.sf-image
+                    img.img-responsive(src="/assets/img/hauskauf/grundstueckspreiseNiedrig_Infographic.png", alt="Die attraktivsten Arbeitsmärkte Deutschlands.")
+
+                  h4 Regionale Grundstückspreise
+                  p Die folgende interaktive Karte gibt einen Überblick über die Grundstückspreise in den Regionen. Sie können sich für jede Region den durchschnittlichen Quadratmeterpreis der letzten Jahre sowie die jährliche Wachstumsrate des Preises anzeigen lassen.
+
+                  highchart.chart(id='chart01', config='chartConfig_1')
+                  div.divider.notopmargin.mbottommargin
+
+
+                  p.strong Sie haben Fragen zu unserer Studie? Kontaktieren Sie uns: info@finiq.de
+
+                  p.weak Quellen: Alle Indikatoren wurden berechnet aus Daten des statistischen Bundesamtes (www.destatis.de). Zur Konstruktion der Indikatoren wurden die jeweils letzten verfügbaren Daten verwendet (2013). Für die weiß gefärbten Regionen liegen uns leider keine Daten vor.
+
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          div.sidebar.nobottommargin.col_last.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Mehr von FinBob
+                p (links)
+              div.widget.clearfix
+                h4 Share
+              div.widget.clearfix
+                h4 Newsletter
+              div.widget.clearfix
+                h4 Werbung
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer
