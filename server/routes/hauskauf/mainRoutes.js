@@ -18,6 +18,13 @@ router.get('/mieten-oder-kaufen', function(req, res, next) {
   res.render('hauskauf/mieten-oder-kaufen');
 });
 
+/** GET wie hoch darf Hauspreis sein */
+router.get('/wie-hoch-darf-der-hauspreis-sein', function(req, res, next) {
+  res.render('hauskauf/wie-hoch-darf-der-hauspreis-sein');
+});
+
+
+
 /** GET deutschlands attraktivste arbeitsmärkte. */
 router.get('/deutschlands-attraktivste-arbeitsmaerkte', function(req, res, next) {
   res.render('hauskauf/deutschlands-attraktivste-arbeitsmaerkte');

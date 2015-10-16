@@ -61,7 +61,7 @@
     };
 
 
-    //todo: directive
+    //todo: move to directive
     /** redraw slider and change angle item once collapsible panels are opened */
     $('.collapse').on('shown.bs.collapse', function(){
       $(this).prev().find('i').addClass('fa-angle-down');

@@ -1,0 +1,209 @@
+//
+   Created by benjamintanz on 05.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    //- Page-title
+    section#page-title
+      div.container.clearfix
+        h1 Wie hoch darf der Preis Ihres Hauses sein?
+        span Der Rechner zur Entscheidungshilfe
+        ol.breadcrumb
+          li
+            a(href='/') Home
+          li
+            a(href='/hauskauf') Hauskauf
+          li.active Wie hoch darf der Hauspreis sein
+
+    //-page-content
+    section#content(ng-controller='kaufpreisController as vm')
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** sidebar left (INPUTS) ***********
+          div.sidebar.nobottommargin.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4
+                  i.icon-pencil
+                  | &nbsp; Eingaben
+
+                //- primary inputs
+                sf-slider(description='Aktuelle Monatsmiete',                               value='vm.inputs.rent',   tip='Die monatlichen Mietkosten, welche Sie durch den Kauf der Immobilie sparen würden. Geben Sie hier die Warmmiete inklusive aller Nebenkosten an. Die Betriebskosten der neuen Immobilie berücksichtigt das Tool in der Berechnung.', addon='€ / Mt.', id='rent',  options='{"floor": "0", "ceil": "12000", "precision": "1", "step": "50"}')
+                sf-slider(description='Zusätzliches monatlich frei verfügbares Einkommen',  value='vm.inputs.income', tip='Das frei verfügbare Einkommen, welches Sie nach Zahlung aller Ihrer laufenden Kosten (inklusive Miete) zur Verfügung haben und für die Rückzahlung einer Immobilienfinanzierung verwenden könnten.', addon='€ / Mt.', id='income',  options='{"floor": "0", "ceil": "12000", "precision": "1", "step": "50"}')
+                sf-slider(description='Eigenkapital',                                       value='vm.inputs.equity', tip='Das zum Hauskauf zur Verfügung stehende Eigenkapital. Dies ist der Teil Ihrer Ersparnisse, welchen Sie beim Hauskauf investieren möchten.', addon='€', id='equity',  options='{"floor": "0", "ceil": "2000000", "precision": "1", "step": "500"}')
+                sf-slider(description='Rückzahlungszeitraum',                               value='vm.inputs.term',   tip='Der Zeitraum bis zur vollständigen Rückzahlung des Darlehens ohne verbleibende Restschuld. Während dieses Zeitraums leisten Sie monatlich gleichbleibende Raten zur Rückzahlung des Darlehens. Auf Basis des Rückzahlungszeitraums schlägt ihnen das Tool automatisch den durchschnittlichen Zinssatz für ein entsprechendes Darlehen vor.', addon='Jahre', id='term',   options='{"floor": "0", "ceil": "25", "precision": "2", "step": "1"}')
+                sf-slider(description='Darlehenszinssatz',                                  value='vm.inputs.debtinterest',    tip='Der jährliche Zins für das zum Immobilienerwerb notwendige Darlehen. Der vorgegebene Wert orientiert sich bereits an den aktuellen Marktzinsen für Darlehen mit Laufzeit bzw. Zinsbindung über den gesamten Rückzahlungszeitraum. Je nach Bonität und Besicherung des Darlehens kann der Darlehenszinssatz noch abweichen.', addon='% p. a.', id='debtinterest',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
+
+
+                //- secondary inputs
+                div.panel-group.nobottommargin.accordion
+                  div.panel.panel-default
+                    div.panel-heading
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='false', class='collapsed')
+                        i.fa.fa-angle-right.fa-lg
+                        |  Details
+                    div#collapseOne.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
+                      div.panel-body
+
+                        sf-slider(description='Kaufnebenkosten',                                  value='vm.inputs.priceaddon',    tip='Die Nebenkosten, welche beim Hauskauf entstehen. Hier handelt es sich hauptsächlich um die Grunderwerbssteuer sowie Kosten für Notar und Makler. Erfahrungsgemäß sind hier 8-10 % des Kaufpreises zu veranschlagen.', addon='%', id='priceaddon',   options='{"floor": "0", "ceil": "20", "precision": "2", "step": "0.25"}')
+                        sf-slider(description='Laufende Kosten',                                  value='vm.inputs.maintenance',    tip='Die monatlichen Kosten zum Betrieb (Wasserversorgung, Energie, Müllentsorgung, etc.) und der Instandhaltung (Reparaturen, Sanierungen, etc.) der Immobilie als Jahresanteil vom Kaufpreis der Immobilie. Erfahrungsgemäß kann man hier jährlich von 2,5 % des Kaufpreises ausgehen, wobei jeweils 1,25 % auf Betriebs- und Instandhaltungskosten entfallen.', addon='€', id='maintenance',   options='{"floor": "0", "ceil": "1000", "precision": "1", "step": "10"}')
+
+          //- </div> ********** END sidebar left (INPUTS) **********
+
+
+          //- ********** page center - main content **********
+          div.postcontent.bothsidebar.nobottommargin.clearfix
+            div.col_full
+              div.row
+                div.col-sm-2.hidden-xs
+                  i.fa.fa-home.fa-5x(style='color: #50B432')
+                div.col-sm-10.col-xs-12
+                  h3 Sie können bis zu
+                    span(style='color: #50B432')  {{vm.result.maxprice | currency:"€":2}}
+                    |  für die Immobilie ausgeben.
+                    //span(ng-class="{orange: !buyIsBest}")  {{vm.results.maxprice}} €
+                      |  betragen
+
+
+
+              //label.xxsbottommargin Jahr ab Kauf
+              rzslider(rz-slider-model='vm.priceslider.price', rz-slider-ceil='vm.priceslider.ceil', rz-slider-floor='vm.priceslider.floor', rz-slider-hide-limit-labels='true', rz-slider-translate='vm.sliderTranslate', style='margin-top: 0px;')
+              div.divider.notopmargin.lbottommargin
+              h5 Basierend auf Ihrer Miete von monatlich {{vm.inputs.rent | currency:"€":2}}, dem zusätzlich verfügbaren Einkommen von mtl. {{vm.inputs.income | currency:"€":2}} und den erwarteten laufenden Kosten der Immobilie von mtl. etwa {{vm.inputs.maintenance | currency:"€":2}} können Sie
+                span  {{vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance | currency:"€":2}} pro Monat zur Darlehenstilgung
+                |  verwenden.
+              h5 Mit {{vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance | currency:"€":2}} pro Monat können Sie über einen Zeitraum von {{vm.inputs.term}} Jahren ein Darlehen über {{vm.result.loan | currency:"€":2}} vollständig zurückzahlen. Zusammen mit ihrem Eigenkapital können Sie ingesamt also {{vm.result.totalpropcost | currency:"€":2}} ausgeben. Nach Berücksichtigung der Kaufnebenkosten (Grunderwerbssteuer, Makler, Notar) von etwa {{vm.result.notar + vm.result.makler + vm.result.proptax | currency:"€":2}}
+                span  können Sie für die Immobile bis zu {{vm.result.maxprice | currency:"€":2}} ausgeben.
+
+
+              h4 Berechnungsdetails
+              div.tabs.tabs-tb.tabs-bordered.clearfix.ui-tabs.ui-widget.ui-widget-content.ui-corner-all#results-tabs
+                ul.tab-nav.clearfix.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all(role='tablist')
+                  li.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active(role='tab', tabindex='0', aria-controls='tabs-5', aria-labelledby='ui-id-5', aria-selected='true')
+                    a(href='#tabs-5', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-5')
+                      i.fa.fa-calculator
+                      | Ergebnisse
+                  li.ui-state-default.ui-corner-top(role='tab', tabindex='-1', aria-controls='tabs-6', aria-labelledby='ui-id-6', aria-selected='false')
+                    a(href='#tabs-6', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-6')
+                      i.fa.fa-cogs
+                      | Vorgehen
+                  li.ui-state-default.ui-corner-top(role='tab', tabindex='-1', aria-controls='tabs-7', aria-labelledby='ui-id-7', aria-selected='false')
+                    a(href='#tabs-7', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-7')
+                      i.fa.fa-lightbulb-o
+                      | Annahmen
+                div.tab-container
+
+                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-5(aria-labelledby='ui-id-5', role='tabpanel', aria-expanded='true', aria-hidden='false', style="display: block;")
+                    p.xsbottommargin.stext Alle Angaben in €, sofern nicht anders bezeichnet
+                    table.table
+                      //thead
+                        tr
+                          th Jahr {{inputs.period}}
+                          th.text-right Mieten
+                          th.text-right Kaufen
+                          th.text-right Differenz
+                      tbody
+                        tr.active
+                          td Höchstmöglicher Kaufpreis
+                          td.text-right {{vm.result.maxprice | currency:"":2 | parentheses}}
+                        tr
+                          td Grunderwerbssteuer
+                          td.text-right {{vm.result.proptax | currency:"":2 | parentheses}}
+                        tr
+                          td Notargebühr
+                          td.text-right {{vm.result.notar | currency:"":2 | parentheses}}
+                        tr
+                          td Maklerprovision
+                          td.text-right {{vm.result.makler | currency:"":2 | parentheses}}
+                        tr.active
+                          td Gesamtkosten der Immobilie
+                          td.text-right {{vm.result.totalpropcost | currency:"":2 | parentheses}}
+                        tr
+                          td Rückzahlungsrate
+                          td.text-right {{vm.result.rate | currency:"":2 | parentheses}}
+                        tr
+                          td Laufzeit
+                          td.text-right {{vm.result.term | currency:"":0 | parentheses}} Jahre
+                        tr
+                          td Anfängliche Tilgung
+                          td.text-right {{vm.result.initrepay | currency:"":2 | parentheses}} %
+                        tr
+                          td Zinsaufwand
+                          td.text-right {{vm.result.interest | currency:"":2 | parentheses}}
+                        tr.active
+                          td Gesamtaufwand des Immobilienerwerbs
+                          td.text-right {{vm.result.totalcost | currency:"":2 | parentheses}}
+
+
+
+
+                  //div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-6(aria-labelledby='ui-id-6', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
+                    p Der Mieten-oder-Kaufen-Rechner stellt das Endvermögen für die Szenarien Mieten oder Kaufen einer Immobilie bzw. Eigentumswohnung gegenüber und dient damit als Unterstützung bei der Kauf- oder Mietentscheidung. Für beide Szenarien wird das Endvermögen über den gewählten Zeitraum berechnet, indem das Anfangsvermögen sowie Zu- und Abflüsse analysiert werden. Allgemein basiert die Analyse also auf der Bestimmung und Verrechnung aller Zahlungsströme. Wichtige Enflußgröße für das Ergebnis ist das Verhältnis von Mietkosten zu erwarteten Kredit- und Instandhaltungskosten beim Immobilienkauf. Details zur Berechnung für die Szenarien können Sie den folgenden Abschnitten entnehmen.
+                    h5.xsbottommargin Wie das Endvermögen für das Kaufszenario berechnet wird
+                    p.xsbottommargin Die Berechnung des Vermögens für das Kaufszenario lässt sich in drei Schritte unterteilen. Im ersten Schritt werden alle Zahlungen (bzw. Vermögensgegenstände) zum Zeitpunkt des Immobilienkaufs berechnet und addiert. Im zweiten Schritt werden die Zahlungsströme während des gesamten Zeitraumes zwischen Immobilienkauf und Ende des Betrachtungszeitraums (gewähltes "Jahr ab Kauf") erstellt. Schließlich erfolgt die Berechnung von Zahlungsströmen bzw. Vermögensgegenständen am Ende es Zeitraums.
+                    p.xsbottommargin Zur Berechnung der Zahlungen zum Zeitpunkt des Immobilienkaufs wird zunächst die Höhe des erforderlichen Darlehens bestimmt. Diese ergibt sich aus dem eingegebenen Kaufpreis und der Kaufnebenkosten abzüglich des Eigenkapitals. Den positiven Zahlungsströmen/Vermögensgegenständen Darlehensauszahlung und Eigenkapital steht zum Kaufzeitpunkt der negative Zahlungsstrom Kaufpreis der Immobilie inklusive Nebenkosten gegenüber. Der Saldo ergibt grundsätzlich null.
+                    p.xsbottommargin Die Zahlungsströme während der Laufzeit bestehen aus Zinsertrag und -aufwand, Zahlungen zur Darlehenstilgung sowie laufende Kosten der Immobilie. Der Zinsaufwand wird auf Grundlage der ermittelten Darlehenshöhe, der eingegebenen Rückzahlungsrate - welche bis zur vollständigen Rückzahlung des Darlehens nach Voreinstellung dem verfügbaren Einkommen zum Wohnen entspricht - und des Darlehenszinssatzes ermittelt. Weiterhin wird der Zinsertrag aus der Anlage eventueller Differenzen zwischen dem verfügbaren Einkommen zum Wohnen und der Darlehensrückzahlung sowie der Ertrag aus Anlage von Überschüssen nach vollständiger Rückzahlung des Darlehens (sofern zutreffend) berechnet. Aus diesen Rechnungen ergeben sich schließlich die Positionen Zinsaufwand und -ertrag. Die Zahlungen zur Darlehenstilgung ergeben sich aus der angegeben Rückzahlungsrate. Analog berechnen sich die gesamten laufenden Kosten, welche auf Grundlage der Angabe zu den monatlichen laufenden Kosten aggregiert werden.
+                    p Schließlich wird der Immobilienwert am Ende des Zeitraums (Preis plus eventuelle Steigerungen) und eine eventuelle Darlehensrestschuld berechnet. Um das Endvermögen zu berechnen wird letztlich der Saldo aus diesen Größen zu den bereits ermittelten Werten addiert. Ergebnis ist das rechnerische Endvermögen für den Immobilienkauf, welches praktisch alle relevanten Parameter berücksichtigt.
+                    h5.xsbottommargin Wie das Endvermögen für das Mietszenario berechnet wird
+                    p.xsbottommargin Die Berechnung des Endvermögens für das Mietszenario ist vergleichsweise einfach. In diesem Fall setzt sich das Endvermögen aus der Anlage des Eigenkapitals zum eingegebenen/vorgegebenen Zinssatz für die Geldanlage sowie den anfallenden Überschüssen aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und den tatsächlichen Mietkosten zusammen. Im Fall der Miete kann das Eigenkapital, welches andernfalls zur Finanzierung der Immobilie verwendet werden würde, zum Anlagezinssatz angelegt werden. Auch die verfügbaren Überschüsse aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und der Miete können verzinslich angelegt werden.
+                    p Damit ergibt sich das Endvermögen im Mietszenario aus dem anfänglich verfügbaren Eigenkapital, der Differenz aus dem gesamten verfügbaren Wohneinkommen und den gesamten Mietkosten sowie dem Zinsertrag aus der Anlage des Eigenkapitals und des über den Zeitraum anfallenden überschüssigen Kapitals.
+
+                  //div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-7(aria-labelledby='ui-id-7', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
+                    p.xsbottommargin Um Ihnen die Analyse zu erleichtern haben wir bereits sinnvolle Annahmen zur Berechnung getroffen. Die folgenden Abschnitte erläutern die wichtigsten Annahmen. Sie können Annahmen jedoch auch ändern und die Analyse so noch besser auf Ihre persönlichen Verhältnisse zuschneiden, indem Sie die Detailangaben in der Liste der Eingabefelder entsprechend anpassen.
+                    p.xsbottommargin
+                      strong Kaufnebenkosten:
+                      |  Die Kaufnebenkosten bestehen im wesentlichen aus der Grunderwerbssteuer sowie Gebühren für Makler und Notar/Gericht. Im Durchschnitt belaufen sich diese Kosten auf etwa 10 % des Kaufpreises, wobei die Grunderwerbssteuer (je nach Bundesland) ca. 5 % ausmacht, die Maklergebühr etwa 3,8 % sowie Notar- und Gerichtskosten jeweils etwa 0,8 % und 0,4 %.
+                    p.xsbottommargin
+                      strong Laufende Kosten:
+                      |  Diese Kosten setzen sich zusammen aus den Kosten für die Nutzung / den Betrieb (Wasser, Heizung, Müll) und die Instandhaltung der Immobilie. Der angenommene Satz von 2,5 % des Kaufpreises ist eine konservative (hohe) Schätzung und setzt sich zusammen aus einem Betriebskostenanteil von 1,25 % und einem Instandhaltungskostenanteil von 1,25 %. Der Betriebskostenanteil von 1,25 % entspricht etwa einem Betriebskostensatz von 25 % der Gesamtmiete für eine vergleichbare Mietwohnung und ist damit eine Annährung an den aktuellen Betriebskostenspiegel. Der Instandhaltungskostensatz orientiert sich an der sogenannten Peterschen Formel zur Abschätzung der Instandhaltungsrücklage für Immobilien. Diese Formel basiert auf empirisch ermittelten durchschnittlichen Instandhaltungskosten und besagt, dass innherhalb von 80 Jahren der 1,5-fache Herstellungswert der Immobilie für die Instandhaltung notwendig wird. Um den Instandhaltungskostensatz zu berechnen gehen wir davon aus, dass die Herstellungskosten der Immobilie zwei Drittel des Kaufpreises ausmachen (Kaufpreis abzüglich u. a. des Grundstücks). Damit ergibt sich der Satz nach der Peterschen Formel aus der Gleichung (Kaufpreis * 0,66 * 1,5) / 80 = Kaufpreis * 1,25 %. Falls Sie genauere Angaben zu den spezifischen Kosten Ihrer Immobilie haben können Sie den Kostensatz natürlich entsprechend anpassen. Nichtdestrotrotz ist der Satz von 2,5 % auf Grundlage realistischer Annahmen für Immobilien in Deutschland ermittelt und kann daher als realistischer Ausgangspunkt für die Berechnung dienen.
+                    p.xsbottommargin
+                      strong Wertsteigerung Immobilie:
+                      |  Die Wertsteigerung ist von Region zu Region unterschiedlich und eine nur mit großer Unsicherheit prognostizierbare Größe. Die Vorgabe von 1,1 % orientiert sich an der langfristigen durchschnittlichen Immobilienrendite in Deutschland über die letzten 10 Jahre.
+                    p.xsbottommargin
+                      strong Steigerung laufende Kosten:
+                      |  Die Vorgabe zur jährlichen Steigerung der laufenden Kosten von 2,2 % orientiert sich an der Entwicklung des Betriebskostenspiegels über die vergangenen 10 Jahre.
+                    p.xsbottommargin
+                      strong Steigerung Mietkosten:
+                      |  Auch die Vorgabe zur jährlichen Steigerung der Mietkosten  orientiert sich an der Entwicklung des Betriebskostenspiegels über die letzten 10 Jahre.
+                    p.xsbottommargin
+                      strong Zinssatz Geldanlage und Darlehen:
+                      |  Die Zinssätze für Geldanlage und Darlehen orientieren sich an den durchschnittlichen aktuellen Marktzinssätzen für langfristige Anlagen und Darlehen. Im Fall der Anlage wird angenommen, dass die Zinsen jährlich dem Kapital zugeschlagen werden und fortan mitverzinst werden (Zinseszins).
+                    p.xsbottommargin
+                      strong Monatliche Rückzahlungsrate:
+                      |  Die Vorgabe für die monatliche Rückzahlungsrate beträgt 90 % des freien verfügbaren Einkommens. Damit wird nahezu das gesamte monatliche verfügbare Einkommen zum Wohnen abzüglich der laufenden Kosten für die Immobilie zur Tilgung des Darlehens verwendet. Diese Einstellung führt zu einer schnellen Tilgung des Darlehens unter Berücksichtigung eines kleinen Liquiditätspuffers. Senken Sie diesen Prozentsatz entsprechend, sofern Sie einen geringeren Betrag zur Darlehenstilgung einsetzen wollen. Damit verlängert sich auch die Darlehensperiode bzw. die am Ende des Betrachtungszeitraums bestehende Restschuld.
+                    p.xsbottommargin
+                      strong Weitere Annahmen:
+                      |  Bezüglich der Zahlungszeitpunkte geht der Rechner davon aus, dass Einkommen zum Wohnen jeweils am Monatsanfang zur Verfügung steht, Mietzahlungen am Monatsanfang geleistet werden und Tilgungszahlungen am Monatsende anfallen.
+
+
+            //div.col_full
+              h3.xsbottommargin Die Entscheidung zum Kaufen oder Mieten
+              p Der Kauf einer Immobilie ist eine Entscheidung von großer finanzieller und persönlicher Tragweite und sollte daher gut überlegt sein. Für viele Immobilienerwerber spielen emotionale Komponenten bei der Entscheidung für die eigenen vier Wände eine große Rolle. Um später keine bösen Überraschungen zu erleben sollte jedoch beim Immobilienerwerb auch auf die wirtschaftliche Komponente geachtet werden. Kernaspekt der wirtschaftlichen Betrachtung ist die Analyse, ob es finanziell lohnenswert ist, eine bestimmte Immobilie zu kaufen oder besser zur Miete zu wohnen. Der finanzielle Aspekt des Immobilienerwerbs scheint oft undurchsichtig, unter anderem auch, weil in den Prozess involvierte Parteien die verschiedensten Eigeninteressen verfolgen. Auch wenn man beim Immobilienerwerb nicht alle finanziellen Risiken ausschließen kann gilt: Eine gute Entscheidung ist meist leichter als gedacht!
+              h5.xsbottommargin Ist der Kauf immer die beste Option?
+              p Lange Zeit galt der Kauf einer Wohnimmobilie als die wirtschaftlich beste Option, insbesondere bei Verfügbarkeit von hohem Eigenkapital und einer günstigen Finanzierung. Dies ist heute allerdings nicht immer der Fall und die wirtschaftliche Vorteilhaftigkeit hängt letzlich von verschiedenen Faktoren ab. Beispielsweise unterliegen Immobilienpreise teils starken und regional unterschiedlichen Schwankungen, während Mietpreise unter anderem auch durch staatliche Regulierung vergleichsweise konstant sind. Die folgende Grafik "Preis- und Mietenindex für Deutschland" zeigt, dass die Kaufpreise für Immobilien in Deutschland zuletzt stark angestiegen sind während die Mietpreise langfristig mit einer konstanten moderaten Rate steigen. Daher kann es zu bestimmten Zeiten an bestimmten Orten besser sein, zur Miete zu wohnen. Weiterhin ist der Kauf einer Immobilie mit diversen Fixkosten verbunden, welche sich erst über längere Zeit amortisieren. Daher ist auch relevant, über welchen Zeitraum Sie die Immobilie bewohnen möchten. Schließlich ist ein Vergleich der Mietkosten mit den beim Immobilienkauf entstehenden Finanzierungskosten (Kreditzinsen) und den Instandhaltungskosten für den konkreten Fall eine wichtige Entscheidungskomponente.
+              highchart(id='chart02', config='chartConfig_2')
+              div.divider.notopmargin.mbottommargin
+              h5.xsbottommargin Wie Ihnen dieses Tool helfen kann
+              p Das kaufen-oder-mieten-Tool soll Ihnen die Analyse so einfach wie möglich machen. Dazu haben wir die wichtigsten Einflussfaktoren der Entscheidung analysiert und in das Tool integriert. Sie können Details wie etwa laufende Kosten und deren jährliche Steigerungsraten individuell bestimmen und eingeben. Falls Ihnen keine speziellen Werte vorliegen können Sie auch unsere Vorgaben verwenden, welche auf Grundlage aktueller Daten zum Immobilienmarkt sowie weit verbreiteter Berechnungsmethoden wie etwa der Peterschen Formel zur Ermittlung der Instandhaltungskosten bestimmt worden sind.
+
+          //- </div> ********** END page center - main content **********
+
+
+
+          //- ********** sidebar right **********
+          div.sidebar.nobottommargin.col_last.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Mehr von FinBob
+                p (links)
+              div.widget.clearfix
+                h4 Share
+              div.widget.clearfix
+                h4 Newsletter
+              div.widget.clearfix
+                h4 Werbung
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

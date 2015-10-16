@@ -14,7 +14,7 @@
     };
 
 
-    /** mieten-oder-kaufen */
+    /** ********************** mieten-oder-kaufen ************************************* */
     fun.buyrent = function(inputs) {
 
       var result = {};
@@ -252,6 +252,85 @@
       return result;
 
     };
+
+
+
+
+
+    /** ********************** hauspreis ************************************* */
+    fun.propertyprice = function(inputs){
+
+      //console.log(inputs);
+
+      /** set defaults */
+      inputs.selection = typeof inputs.selection !== 'undefined' ? inputs.selection : 3;
+      inputs.initrepay = typeof inputs.initrepay !== 'undefined' ? inputs.initrepay : 4;
+
+      /** define objects */
+      var result = {},
+          helper = {};
+
+      /** convert do decimals */
+      inputs.interest = inputs.interest / 100;
+      inputs.notar = inputs.notar / 100;
+      inputs.makler = inputs.makler / 100;
+      inputs.proptax = inputs.proptax / 100;
+      inputs.initrepay = inputs.initrepay / 100;
+
+
+      /** ******** 3. COMPUTATIONS ******** */
+      helper.rate = inputs.rent + inputs.income - inputs.maintenance;
+      helper.q = 1 + inputs.interest / 12;
+
+
+      if(inputs.selection === 2){  // initrepay selected
+        helper.loan = (helper.rate * 12) / (inputs.interest + inputs.initrepay);
+        helper.term = f.annuity.annuityTerm(helper.loan, helper.rate, inputs.interest, 12);
+        helper.term = Math.round(helper.term * 100) / 100;
+      } else if (inputs.selection === 3){  // term selected
+        helper.qnt = Math.pow(helper.q, 12 * inputs.term);
+        helper.loan = (inputs.interest === 0) ? helper.rate * inputs.term * 12 : helper.rate * (helper.qnt - 1) / (helper.qnt * (helper.q- 1));
+        helper.initrepay = (12 * helper.rate - helper.loan * inputs.interest) / helper.loan;
+      } else {  // sthg wrong
+        return;
+      }
+
+
+
+      helper.term = helper.term || inputs.term;
+      helper.initrepay = helper.initrepay || inputs.initrepay;
+
+      helper.interest = helper.term * 12 * helper.rate - helper.loan;
+      helper.totalpropcost = inputs.equity + helper.loan;
+      helper.maxprice = helper.totalpropcost / (1 + inputs.notar + inputs.makler + inputs.proptax);
+      helper.notar = helper.maxprice * inputs.notar;
+      helper.makler = helper.maxprice * inputs.makler;
+      helper.proptax = helper.maxprice * inputs.proptax;
+
+      helper.totalcost = helper.totalpropcost + helper.interest;
+
+      /** ******** 4. CONSTRUCT RESULT DATA OBJECT ******** */
+      result.maxprice     = helper.maxprice;
+      result.notar        = helper.notar;
+      result.makler       = helper.makler;
+      result.proptax      = helper.proptax;
+      result.totalpropcost= helper.totalpropcost;
+      result.loan         = helper.loan;
+      result.rate         = helper.rate;
+      result.term         = helper.term;
+      result.initrepay    = helper.initrepay * 100;
+      result.interest     = helper.interest;
+      result.totalcost    = helper.totalcost;
+
+
+      return result;
+
+    };
+
+
+
+
+
 
 
     return fun;
