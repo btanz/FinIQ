@@ -4,10 +4,12 @@ Created on Thu Oct 15 10:54:38 2015
 
 @author: benjamintanz
 """
+import math
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import preprocessing
+from scipy.stats import rankdata
 
 
 
@@ -96,6 +98,25 @@ landPricesSM['landPrices3yGrowth'] = landPricesSM['2013']/landPricesSM['2010'] -
 landPricesSM['landPrices1yGrowth'] = landPricesSM['2013']/landPricesSM['2012'] - 1
 
 
+
+
 """ V. WRITE DATA TO FILE """
 landPricesSM.to_json(path_or_buf='data/grundstueckspreise.json', orient='index')
+
+
+""" VI. OPTIONALLY ADD Beste Arbeitsmärkte data"""
+
+def minMaxScale(col):
+    return (col - col.min()) / (col.max() - col.min())
+    
+besteAM = pd.read_csv('source_data/Arbeitsmarkt/besteArbeitsmaerkte.csv', index_col=0)
+landPricesSM['MARKETIND'] = besteAM['MARKETIND']
+#landPricesSM['2013LOG'] = np.log(np.log(landPricesSM['2013']))
+#landPricesSM['2013LOG_scaled'] = 1 - minMaxScale(landPricesSM['2013LOG'])
+#landPricesSM['SCHNAEPPCHENIND'] = (1 / landPricesSM['2013LOG_scaled']) * besteAM['MARKETIND']
+landPricesSM['RANK_PRICE'] = rankdata(landPricesSM['2013'])
+landPricesSM['RANK_MARKETIND'] = rankdata(-landPricesSM['MARKETIND'])
+landPricesSM['SCHNAEPPCHENIND'] = landPricesSM['RANK_PRICE'] + landPricesSM['RANK_MARKETIND']
+
+
 
