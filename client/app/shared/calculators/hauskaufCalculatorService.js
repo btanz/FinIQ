@@ -262,7 +262,13 @@
      * computes the affordable house price for a household/individual given a set of primitives
      *
      * @param {object} inputs
-     *        inputs.selection        indicator for input mode; 2 if initial repayment is given; 3 if term is given (default: 3)
+     *        inputs.selection        indicator for calculation mode;
+     *                                    2 if initial repayment is given
+     *                                    3 if term is given and maintenance costs are given as number
+     *                                    4 if term is given and maintenance costs are given as fraction of price
+     *                                    (default 4)
+     *
+     *                                costs are given as percentage (default: 3)
      *        inputs.initrepay        the first year's repayment ('anfängliche tilgung')
      *        inputs.repaypercent     the percentage of the free income that is used for debt repayment (default: 100%)
      *        inputs.interest         the annual interest rate on debt
@@ -272,28 +278,32 @@
      *        inputs.income           monthly free income after rent payment
      *        inputs.rent             monthly rent payment
      *        inputs.maintenance      monthly maintenance cost of building
+     *        inputs.maintenancepercent   annual maintenance costs as a percentage of house price (to be computed)
      *
      * @returns {object} result
      *
      */
     fun.propertyprice = function(inputs){
 
+
       /** set defaults */
-      inputs.selection    = typeof inputs.selection !== 'undefined' ? inputs.selection : 3;
+      inputs.selection    = typeof inputs.selection !== 'undefined' ? inputs.selection : 4;
       inputs.initrepay    = typeof inputs.initrepay !== 'undefined' ? inputs.initrepay : 4;
       inputs.repaypercent = typeof inputs.repaypercent !== 'undefined' ? inputs.repaypercent : 100;
+      inputs.maintenancepercent = typeof inputs.maintenancepercent !== 'undefined' ? inputs.maintenancepercent : 2.5;
 
       /** define objects */
       var result = {},
           helper = {};
 
       /** convert do decimals */
-      inputs.interest   = inputs.interest / 100;
-      inputs.notar      = inputs.notar / 100;
-      inputs.makler     = inputs.makler / 100;
-      inputs.proptax    = inputs.proptax / 100;
-      inputs.initrepay  = inputs.initrepay / 100;
-      inputs.repaypercent = inputs.repaypercent / 100;
+      inputs.interest           = inputs.interest / 100;
+      inputs.notar              = inputs.notar / 100;
+      inputs.makler             = inputs.makler / 100;
+      inputs.proptax            = inputs.proptax / 100;
+      inputs.initrepay          = inputs.initrepay / 100;
+      inputs.repaypercent       = inputs.repaypercent / 100;
+      inputs.maintenancepercent = (inputs.maintenancepercent / 100) / 12;
 
 
       /** ******** 3. COMPUTATIONS ******** */
@@ -305,8 +315,19 @@
         helper.loan = (helper.rate * 12) / (inputs.interest + inputs.initrepay);
         helper.term = f.annuity.annuityTerm(helper.loan, helper.rate, inputs.interest, 12);
         helper.term = Math.round(helper.term * 100) / 100;
-      } else if (inputs.selection === 3){  // term selected
+      } else if (inputs.selection === 3){  // term selected and maintenance costs as monthly number
         helper.qnt = Math.pow(helper.q, 12 * inputs.term);
+        helper.loan = (inputs.interest === 0) ? helper.rate * inputs.term * 12 : helper.rate * (helper.qnt - 1) / (helper.qnt * (helper.q- 1));
+        helper.initrepay = (12 * helper.rate - helper.loan * inputs.interest) / helper.loan;
+      } else if (inputs.selection === 4){  // term selected and maintenance costs as percentage
+        helper.qnt = Math.pow(helper.q, 12 * inputs.term);
+        helper.ratePrelim = (inputs.rent + inputs.income) * inputs.repaypercent;
+        helper.loanPrelim = (inputs.interest === 0) ? helper.ratePrelim * inputs.term * 12 : helper.ratePrelim * (helper.qnt - 1) / (helper.qnt * (helper.q- 1));
+        helper.maintenanceFrac = (inputs.interest === 0) ? inputs.maintenancepercent * inputs.term * 12 : inputs.maintenancepercent * (helper.qnt - 1) / (helper.qnt * (helper.q- 1));
+        helper.maxprice = (inputs.equity + helper.loanPrelim) / (1  + inputs.notar + inputs.makler + inputs.proptax + inputs.repaypercent * helper.maintenanceFrac);
+        helper.totalpropcost = helper.maxprice * (1  + inputs.notar + inputs.makler + inputs.proptax);
+        helper.maintenance = helper.maxprice * inputs.maintenancepercent;
+        helper.rate = (inputs.rent + inputs.income - helper.maintenance) * inputs.repaypercent;
         helper.loan = (inputs.interest === 0) ? helper.rate * inputs.term * 12 : helper.rate * (helper.qnt - 1) / (helper.qnt * (helper.q- 1));
         helper.initrepay = (12 * helper.rate - helper.loan * inputs.interest) / helper.loan;
       } else {  // sthg wrong
@@ -314,9 +335,9 @@
       }
 
 
-
       helper.term = helper.term || inputs.term;
       helper.initrepay = helper.initrepay || inputs.initrepay;
+      helper.maintenance = helper.maintenance || inputs.maintenance;
 
       helper.interest = helper.term * 12 * helper.rate - helper.loan;
       helper.totalpropcost = inputs.equity + helper.loan;
@@ -339,6 +360,7 @@
       result.initrepay    = helper.initrepay * 100;
       result.interest     = helper.interest;
       result.totalcost    = helper.totalcost;
+      result.maintenance  = helper.maintenance;
 
 
       return result;

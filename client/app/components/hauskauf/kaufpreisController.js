@@ -17,6 +17,7 @@
       term: 18,
       priceaddon: 10,
       maintenance: 400,
+      maintenancepercent: 2.5,
       repaypercent: 85
     };
 
@@ -57,7 +58,8 @@
         proptax: 0.5 * vm.inputs.priceaddon,
         rent: vm.inputs.rent,
         income: vm.inputs.income,
-        maintenance: vm.inputs.maintenance,
+        //maintenance: vm.inputs.maintenance,
+        maintenancepercent: vm.inputs.maintenancepercent,
         term: vm.inputs.term,
         equity: vm.inputs.equity,
         repaypercent: vm.inputs.repaypercent

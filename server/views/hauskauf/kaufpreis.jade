@@ -49,7 +49,8 @@ block content
                       div.panel-body
 
                         sf-slider(description='Kaufnebenkosten',                                  value='vm.inputs.priceaddon',    tip='Die Nebenkosten, welche beim Hauskauf entstehen. Hier handelt es sich hauptsächlich um die Grunderwerbssteuer sowie Kosten für Notar und Makler. Erfahrungsgemäß sind hier 8-10 % des Kaufpreises zu veranschlagen.', addon='%', id='priceaddon',   options='{"floor": "0", "ceil": "20", "precision": "2", "step": "0.25"}')
-                        sf-slider(description='Laufende Kosten',                                  value='vm.inputs.maintenance',   tip='Die monatlichen Kosten zum Betrieb (Wasserversorgung, Energie, Müllentsorgung, etc.) und der Instandhaltung (Reparaturen, Sanierungen, etc.) der Immobilie als Jahresanteil vom Kaufpreis der Immobilie. Erfahrungsgemäß kann man hier jährlich von 2,5 % des Kaufpreises ausgehen, wobei jeweils 1,25 % auf Betriebs- und Instandhaltungskosten entfallen.', addon='€', id='maintenance',   options='{"floor": "0", "ceil": "1000", "precision": "1", "step": "10"}')
+                        //sf-slider(description='Laufende Kosten',                                  value='vm.inputs.maintenance',   tip='Die monatlichen Kosten zum Betrieb (Wasserversorgung, Energie, Müllentsorgung, etc.) und der Instandhaltung (Reparaturen, Sanierungen, etc.) der Immobilie als Jahresanteil vom Kaufpreis der Immobilie. Erfahrungsgemäß kann man hier jährlich von 2,5 % des Kaufpreises ausgehen, wobei jeweils 1,25 % auf Betriebs- und Instandhaltungskosten entfallen.', addon='€', id='maintenance',   options='{"floor": "0", "ceil": "1000", "precision": "1", "step": "10"}')
+                        sf-slider(description='Laufende Kosten',                                  value='vm.inputs.maintenancepercent',  tip='Die monatlichen Kosten zum Betrieb (Wasserversorgung, Energie, Müllentsorgung, etc.) und der Instandhaltung (Reparaturen, Sanierungen, etc.) der Immobilie als Jahresanteil vom Kaufpreis der Immobilie. Erfahrungsgemäß kann man hier jährlich von 2,5 % des Kaufpreises ausgehen, wobei jeweils 1,25 % auf Betriebs- und Instandhaltungskosten entfallen.', addon='%', id='maintenancepercent',   options='{"floor": "0", "ceil": "10", "precision": "2", "step": "0.25"}')
                         sf-slider(description='Rückzahlungsanteil',                               value='vm.inputs.repaypercent',  tip='Der Anteil des monatlich freien Einkommens, welcher bis zur vollständigen Rückzahlungs des Darlehens zur Tilgung verwendet wird. Das freie Einkommen ist das Einkommen, welches Ihnen nach Zahlung der laufenden Kosten zur Verfügung steht. ', addon='%', id='repaypercent',   options='{"floor": "0", "ceil": "125", "precision": "1", "step": "1"}')
 
           //- </div> ********** END sidebar left (INPUTS) **********
@@ -90,18 +91,18 @@ block content
 
 
               div.divider.notopmargin.lbottommargin
-              h5 Basierend auf Ihrer Miete von monatlich {{vm.inputs.rent | currency:"€":2}}, dem zusätzlich verfügbaren Einkommen von mtl. {{vm.inputs.income | currency:"€":2}} und den erwarteten laufenden Kosten der Immobilie von mtl. etwa {{vm.inputs.maintenance | currency:"€":2}} könnten Sie
-                span  {{vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance | currency:"€":2}} pro Monat zur Darlehenstilgung
+              h5 Basierend auf Ihrer Miete von monatlich {{vm.inputs.rent | currency:"€":2}}, dem zusätzlich verfügbaren Einkommen von mtl. {{vm.inputs.income | currency:"€":2}} und den erwarteten laufenden Kosten der Immobilie von mtl. etwa {{vm.result.maintenance | currency:"€":2}} könnten Sie
+                span  {{vm.inputs.income + vm.inputs.rent - vm.result.maintenance | currency:"€":2}} pro Monat zur Darlehenstilgung
                 |  verwenden.
-              h5 Im berechneten Szenario verwenden Sie {{vm.inputs.repaypercent}} % der {{vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance | currency:"€":2}} zur Darlehenstilgung, also {{(vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance) * (vm.inputs.repaypercent / 100)  | currency:"€":2}}.
+              h5 Im berechneten Szenario verwenden Sie {{vm.inputs.repaypercent}} % der {{vm.inputs.income + vm.inputs.rent - vm.result.maintenance | currency:"€":2}} zur Darlehenstilgung, also {{(vm.inputs.income + vm.inputs.rent - vm.result.maintenance) * (vm.inputs.repaypercent / 100)  | currency:"€":2}}.
                 span(ng-if='vm.inputs.repaypercent <= 85', style="color: #333333")  Ihnen bleiben
-                  span(style='color: #50B432')  {{(vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance) * ((100 - vm.inputs.repaypercent) / 100)  | currency:"€":2}} monatlich als Reserve.
+                  span(style='color: #50B432')  {{(vm.inputs.income + vm.inputs.rent - vm.result.maintenance) * ((100 - vm.inputs.repaypercent) / 100)  | currency:"€":2}} monatlich als Reserve.
                 span(ng-if='vm.inputs.repaypercent > 85 && vm.inputs.repaypercent <= 100', style="color: #333333")  Ihnen bleiben
-                  span(style='color: #F38200')  {{(vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance) * ((100 - vm.inputs.repaypercent) / 100)  | currency:"€":2}} monatlich als Reserve.
+                  span(style='color: #F38200')  {{(vm.inputs.income + vm.inputs.rent - vm.result.maintenance) * ((100 - vm.inputs.repaypercent) / 100)  | currency:"€":2}} monatlich als Reserve.
                 span(ng-if='vm.inputs.repaypercent > 100', style="color: #B20925")  Die Tilgungszahlungen übersteigen Ihre Zahlungsfähigkeit.
 
-              h5 Mit {{(vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance) * (vm.inputs.repaypercent / 100)  | currency:"€":2}} pro Monat können Sie über einen Zeitraum von {{vm.inputs.term}} Jahren ein Darlehen über {{vm.result.loan | currency:"€":2}} vollständig zurückzahlen. Zusammen mit ihrem Eigenkapital können Sie ingesamt also {{vm.result.totalpropcost | currency:"€":2}} ausgeben. Nach Berücksichtigung der Kaufnebenkosten (Grunderwerbssteuer, Makler, Notar) von etwa {{vm.result.notar + vm.result.makler + vm.result.proptax | currency:"€":2}}
-                span  können Sie für die Immobile bis zu {{vm.result.maxprice | currency:"€":2}} ausgeben.
+              h5 Mit {{(vm.inputs.income + vm.inputs.rent - vm.result.maintenance) * (vm.inputs.repaypercent / 100)  | currency:"€":2}} pro Monat können Sie über einen Zeitraum von {{vm.inputs.term}} Jahren ein Darlehen über {{vm.result.loan | currency:"€":2}} vollständig zurückzahlen. Zusammen mit ihrem Eigenkapital können Sie ingesamt also {{vm.result.totalpropcost | currency:"€":2}} ausgeben. Nach Berücksichtigung der Kaufnebenkosten (Grunderwerbssteuer, Makler, Notar) von etwa {{vm.result.notar + vm.result.makler + vm.result.proptax | currency:"€":2}}
+                span  können Sie für die Immobile {{vm.result.maxprice | currency:"€":2}} ausgeben.
 
 
               h4 Berechnungsdetails
@@ -124,15 +125,9 @@ block content
                   div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-5(aria-labelledby='ui-id-5', role='tabpanel', aria-expanded='true', aria-hidden='false', style="display: block;")
                     p.xsbottommargin.stext Alle Angaben in €, sofern nicht anders bezeichnet
                     table.table
-                      //thead
-                        tr
-                          th Jahr {{inputs.period}}
-                          th.text-right Mieten
-                          th.text-right Kaufen
-                          th.text-right Differenz
                       tbody
                         tr.active
-                          td Höchstmöglicher Kaufpreis
+                          td Kaufpreis
                           td.text-right {{vm.result.maxprice | currency:"":2 | parentheses}}
                         tr
                           td Grunderwerbssteuer
@@ -147,8 +142,14 @@ block content
                           td Gesamtkosten der Immobilie
                           td.text-right {{vm.result.totalpropcost | currency:"":2 | parentheses}}
                         tr
-                          td Rückzahlungsrate
+                          td Darlehensbetrag
+                          td.text-right {{vm.result.loan | currency:"":2 | parentheses}}
+                        tr
+                          td Rückzahlungsrate (mtl.)
                           td.text-right {{vm.result.rate | currency:"":2 | parentheses}}
+                        tr
+                          td Laufende Kosten (mtl.)
+                          td.text-right {{vm.result.maintenance | currency:"":2 | parentheses}}
                         tr
                           td Laufzeit
                           td.text-right {{vm.result.term | currency:"":0 | parentheses}} Jahre
@@ -165,18 +166,23 @@ block content
 
 
 
-                  //div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-6(aria-labelledby='ui-id-6', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
-                    p Der Mieten-oder-Kaufen-Rechner stellt das Endvermögen für die Szenarien Mieten oder Kaufen einer Immobilie bzw. Eigentumswohnung gegenüber und dient damit als Unterstützung bei der Kauf- oder Mietentscheidung. Für beide Szenarien wird das Endvermögen über den gewählten Zeitraum berechnet, indem das Anfangsvermögen sowie Zu- und Abflüsse analysiert werden. Allgemein basiert die Analyse also auf der Bestimmung und Verrechnung aller Zahlungsströme. Wichtige Enflußgröße für das Ergebnis ist das Verhältnis von Mietkosten zu erwarteten Kredit- und Instandhaltungskosten beim Immobilienkauf. Details zur Berechnung für die Szenarien können Sie den folgenden Abschnitten entnehmen.
-                    h5.xsbottommargin Wie das Endvermögen für das Kaufszenario berechnet wird
-                    p.xsbottommargin Die Berechnung des Vermögens für das Kaufszenario lässt sich in drei Schritte unterteilen. Im ersten Schritt werden alle Zahlungen (bzw. Vermögensgegenstände) zum Zeitpunkt des Immobilienkaufs berechnet und addiert. Im zweiten Schritt werden die Zahlungsströme während des gesamten Zeitraumes zwischen Immobilienkauf und Ende des Betrachtungszeitraums (gewähltes "Jahr ab Kauf") erstellt. Schließlich erfolgt die Berechnung von Zahlungsströmen bzw. Vermögensgegenständen am Ende es Zeitraums.
-                    p.xsbottommargin Zur Berechnung der Zahlungen zum Zeitpunkt des Immobilienkaufs wird zunächst die Höhe des erforderlichen Darlehens bestimmt. Diese ergibt sich aus dem eingegebenen Kaufpreis und der Kaufnebenkosten abzüglich des Eigenkapitals. Den positiven Zahlungsströmen/Vermögensgegenständen Darlehensauszahlung und Eigenkapital steht zum Kaufzeitpunkt der negative Zahlungsstrom Kaufpreis der Immobilie inklusive Nebenkosten gegenüber. Der Saldo ergibt grundsätzlich null.
-                    p.xsbottommargin Die Zahlungsströme während der Laufzeit bestehen aus Zinsertrag und -aufwand, Zahlungen zur Darlehenstilgung sowie laufende Kosten der Immobilie. Der Zinsaufwand wird auf Grundlage der ermittelten Darlehenshöhe, der eingegebenen Rückzahlungsrate - welche bis zur vollständigen Rückzahlung des Darlehens nach Voreinstellung dem verfügbaren Einkommen zum Wohnen entspricht - und des Darlehenszinssatzes ermittelt. Weiterhin wird der Zinsertrag aus der Anlage eventueller Differenzen zwischen dem verfügbaren Einkommen zum Wohnen und der Darlehensrückzahlung sowie der Ertrag aus Anlage von Überschüssen nach vollständiger Rückzahlung des Darlehens (sofern zutreffend) berechnet. Aus diesen Rechnungen ergeben sich schließlich die Positionen Zinsaufwand und -ertrag. Die Zahlungen zur Darlehenstilgung ergeben sich aus der angegeben Rückzahlungsrate. Analog berechnen sich die gesamten laufenden Kosten, welche auf Grundlage der Angabe zu den monatlichen laufenden Kosten aggregiert werden.
-                    p Schließlich wird der Immobilienwert am Ende des Zeitraums (Preis plus eventuelle Steigerungen) und eine eventuelle Darlehensrestschuld berechnet. Um das Endvermögen zu berechnen wird letztlich der Saldo aus diesen Größen zu den bereits ermittelten Werten addiert. Ergebnis ist das rechnerische Endvermögen für den Immobilienkauf, welches praktisch alle relevanten Parameter berücksichtigt.
-                    h5.xsbottommargin Wie das Endvermögen für das Mietszenario berechnet wird
-                    p.xsbottommargin Die Berechnung des Endvermögens für das Mietszenario ist vergleichsweise einfach. In diesem Fall setzt sich das Endvermögen aus der Anlage des Eigenkapitals zum eingegebenen/vorgegebenen Zinssatz für die Geldanlage sowie den anfallenden Überschüssen aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und den tatsächlichen Mietkosten zusammen. Im Fall der Miete kann das Eigenkapital, welches andernfalls zur Finanzierung der Immobilie verwendet werden würde, zum Anlagezinssatz angelegt werden. Auch die verfügbaren Überschüsse aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und der Miete können verzinslich angelegt werden.
-                    p Damit ergibt sich das Endvermögen im Mietszenario aus dem anfänglich verfügbaren Eigenkapital, der Differenz aus dem gesamten verfügbaren Wohneinkommen und den gesamten Mietkosten sowie dem Zinsertrag aus der Anlage des Eigenkapitals und des über den Zeitraum anfallenden überschüssigen Kapitals.
+                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-6(aria-labelledby='ui-id-6', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
+                    p Dieses Tool hilft Ihnen dabei, festzustellen, wie viel Sie für den Kauf einer Immobilie ausgeben können, um auch noch nach dem Kauf ruhig schlafen zu können. Es werden verschiedene Richtwerte berechnet, damit Sie eine informierte Entscheidung zum Immobilien- bzw. Hauskauf treffen können.
 
-                  //div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-7(aria-labelledby='ui-id-7', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
+                    h5.xsbottommargin Wie der finanzierbare Immobilienpreis berechnet wird
+                    p.xsbottommargin Die Berechnung des finanzierbaren Immobilienpreises kann man in drei Schritte unterteilen. Im ersten Schritt wird ermittelt, wie hoch Ihre monatlichen Beiträge für die Darlehensrückzahlung sein können. Im zweiten Schritt wird berechnet, wieviel Sie unter Berücksichtigung eines für Sie finanzierbaren Darlehens für den Hauskauf ingesamt ausgeben können. Im dritten Schritt werden die einmaligen Kosten des Hauskaufs von dem im letzten Schritt berechneten Wert abgezogen, um den Kaufpreis der Immobilie an sich (bzw. laut Inserat) zu bestimmen.
+
+                    h6.xsbottommargin Erster Schritt: Höhe der Darlehensrückzahlung
+                    p.xsbottommargin Aus den Eingaben zur Ihrer aktuellen Miete (Warmmiete) und dem zusätzlichem monatlich frei verfügbaren Einkommen wird die Höhe der monatlichen Zahlung berechnet, welche Sie für das Haus leisten könnten. Es wird davon ausgegangen, dass die Mietzahlungen nach dem Hauskauf entfallen. Von diesem Betrag werden die (errechneten) monatlichen laufenden Kosten der Immobilie (Betriebs- und Instandhaltungskosten) abgezogen. Sie können den Prozentsatz der laufenden Kosten (als Jahresanteil vom Kaufpreis) im Feld 'Laufende Kosten' unter 'Details' anpassen. Der auf Basis des Prozentsatzes errechnete monatliche Betrag der laufenden Kosten wird auch als Ergebnis ausgegeben. Der verbleibende Betrag wird mit dem Rückzahlungsanteil multipliziert, um die Darlehensrückzahlung zu erhalten. Der gewünschte Rückzahlungsanteil ist der Anteil der Darlehensrückzahlungen am verbleibenden freien Einkommen und ist unter 'Rückzahlungsanteil' einstellbar. Ein geringerer Rückzahungsanteil geht mit größeren finanziellen Reserven einher.
+
+                    h6.xsbottommargin Zweiter Schritt: Berechnung der finanzierbaren Gesamtkosten des Kaufs
+                    p.xsbottommargin Die finanzierbaren Gesamtkosten für den Kauf ergeben sich aus Ihrem Eigenkapital und der Höhe des Darlehens. Die Höhe des Darlehens wird ermittelt aus der berechneten monatlich möglichen Darlehensrückzahlung, dem gewünschten Rückzahlungszeitraum sowie dem Zinssatz.
+
+                    h6.xsbottommargin Dritter Schritt: Der Preis der Immobilie
+                    p.xsbottommargin Im letzten Schritt schließlich werden zu erwartende einmalige Kosten des Immobilienkaufs (Kaufnebenkosten) von den finanzierbaren Gesamtkosten abgezogen. Dabei handelt es sich um Kosten wie Grunderwerbssteuer sowie Makler- und Notarkosten. Den vorgebebenen Prozentsatz der Kaufnebenkosten vom Kaufpreis können Sie wenn nötig unter 'Kaufnebenkosten' anpasssen. Ergebnis dieses Schritts ist der Kaufpreis.
+
+
+                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-7(aria-labelledby='ui-id-7', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
                     p.xsbottommargin Um Ihnen die Analyse zu erleichtern haben wir bereits sinnvolle Annahmen zur Berechnung getroffen. Die folgenden Abschnitte erläutern die wichtigsten Annahmen. Sie können Annahmen jedoch auch ändern und die Analyse so noch besser auf Ihre persönlichen Verhältnisse zuschneiden, indem Sie die Detailangaben in der Liste der Eingabefelder entsprechend anpassen.
                     p.xsbottommargin
                       strong Kaufnebenkosten:
@@ -185,23 +191,8 @@ block content
                       strong Laufende Kosten:
                       |  Diese Kosten setzen sich zusammen aus den Kosten für die Nutzung / den Betrieb (Wasser, Heizung, Müll) und die Instandhaltung der Immobilie. Der angenommene Satz von 2,5 % des Kaufpreises ist eine konservative (hohe) Schätzung und setzt sich zusammen aus einem Betriebskostenanteil von 1,25 % und einem Instandhaltungskostenanteil von 1,25 %. Der Betriebskostenanteil von 1,25 % entspricht etwa einem Betriebskostensatz von 25 % der Gesamtmiete für eine vergleichbare Mietwohnung und ist damit eine Annährung an den aktuellen Betriebskostenspiegel. Der Instandhaltungskostensatz orientiert sich an der sogenannten Peterschen Formel zur Abschätzung der Instandhaltungsrücklage für Immobilien. Diese Formel basiert auf empirisch ermittelten durchschnittlichen Instandhaltungskosten und besagt, dass innherhalb von 80 Jahren der 1,5-fache Herstellungswert der Immobilie für die Instandhaltung notwendig wird. Um den Instandhaltungskostensatz zu berechnen gehen wir davon aus, dass die Herstellungskosten der Immobilie zwei Drittel des Kaufpreises ausmachen (Kaufpreis abzüglich u. a. des Grundstücks). Damit ergibt sich der Satz nach der Peterschen Formel aus der Gleichung (Kaufpreis * 0,66 * 1,5) / 80 = Kaufpreis * 1,25 %. Falls Sie genauere Angaben zu den spezifischen Kosten Ihrer Immobilie haben können Sie den Kostensatz natürlich entsprechend anpassen. Nichtdestrotrotz ist der Satz von 2,5 % auf Grundlage realistischer Annahmen für Immobilien in Deutschland ermittelt und kann daher als realistischer Ausgangspunkt für die Berechnung dienen.
                     p.xsbottommargin
-                      strong Wertsteigerung Immobilie:
-                      |  Die Wertsteigerung ist von Region zu Region unterschiedlich und eine nur mit großer Unsicherheit prognostizierbare Größe. Die Vorgabe von 1,1 % orientiert sich an der langfristigen durchschnittlichen Immobilienrendite in Deutschland über die letzten 10 Jahre.
-                    p.xsbottommargin
-                      strong Steigerung laufende Kosten:
-                      |  Die Vorgabe zur jährlichen Steigerung der laufenden Kosten von 2,2 % orientiert sich an der Entwicklung des Betriebskostenspiegels über die vergangenen 10 Jahre.
-                    p.xsbottommargin
-                      strong Steigerung Mietkosten:
-                      |  Auch die Vorgabe zur jährlichen Steigerung der Mietkosten  orientiert sich an der Entwicklung des Betriebskostenspiegels über die letzten 10 Jahre.
-                    p.xsbottommargin
-                      strong Zinssatz Geldanlage und Darlehen:
-                      |  Die Zinssätze für Geldanlage und Darlehen orientieren sich an den durchschnittlichen aktuellen Marktzinssätzen für langfristige Anlagen und Darlehen. Im Fall der Anlage wird angenommen, dass die Zinsen jährlich dem Kapital zugeschlagen werden und fortan mitverzinst werden (Zinseszins).
-                    p.xsbottommargin
-                      strong Monatliche Rückzahlungsrate:
-                      |  Die Vorgabe für die monatliche Rückzahlungsrate beträgt 90 % des freien verfügbaren Einkommens. Damit wird nahezu das gesamte monatliche verfügbare Einkommen zum Wohnen abzüglich der laufenden Kosten für die Immobilie zur Tilgung des Darlehens verwendet. Diese Einstellung führt zu einer schnellen Tilgung des Darlehens unter Berücksichtigung eines kleinen Liquiditätspuffers. Senken Sie diesen Prozentsatz entsprechend, sofern Sie einen geringeren Betrag zur Darlehenstilgung einsetzen wollen. Damit verlängert sich auch die Darlehensperiode bzw. die am Ende des Betrachtungszeitraums bestehende Restschuld.
-                    p.xsbottommargin
-                      strong Weitere Annahmen:
-                      |  Bezüglich der Zahlungszeitpunkte geht der Rechner davon aus, dass Einkommen zum Wohnen jeweils am Monatsanfang zur Verfügung steht, Mietzahlungen am Monatsanfang geleistet werden und Tilgungszahlungen am Monatsende anfallen.
+                      strong Rückzahlungsanteil:
+                      |  Der Rückzahlungsanteil ist der Anteil der Darlehensrückzahlungen am gesamten monatlichen Betrag, welchen Sie für die Rückzahlung verwenden könnten. In den meisten Fällen ist es angebracht, den Rückzahlungsanteil geringer als 100 % zu setzen, um noch eine kleine monatliche Reserve zu haben. Diese kann zum Beispiel genutzt werden, um Schwankungen der laufenden Kosten auszugleichen. Erfahrungsgemäß sollte der Rückzahlungsanteil im Normallfall nicht größer als 85 % sein.
 
 
             //div.col_full
