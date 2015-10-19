@@ -50,7 +50,7 @@ block content
 
                         sf-slider(description='Kaufnebenkosten',                                  value='vm.inputs.priceaddon',    tip='Die Nebenkosten, welche beim Hauskauf entstehen. Hier handelt es sich hauptsächlich um die Grunderwerbssteuer sowie Kosten für Notar und Makler. Erfahrungsgemäß sind hier 8-10 % des Kaufpreises zu veranschlagen.', addon='%', id='priceaddon',   options='{"floor": "0", "ceil": "20", "precision": "2", "step": "0.25"}')
                         sf-slider(description='Laufende Kosten',                                  value='vm.inputs.maintenance',   tip='Die monatlichen Kosten zum Betrieb (Wasserversorgung, Energie, Müllentsorgung, etc.) und der Instandhaltung (Reparaturen, Sanierungen, etc.) der Immobilie als Jahresanteil vom Kaufpreis der Immobilie. Erfahrungsgemäß kann man hier jährlich von 2,5 % des Kaufpreises ausgehen, wobei jeweils 1,25 % auf Betriebs- und Instandhaltungskosten entfallen.', addon='€', id='maintenance',   options='{"floor": "0", "ceil": "1000", "precision": "1", "step": "10"}')
-                        sf-slider(description='Rückzahlungsanteil',                               value='vm.inputs.repaypercent',  tip='Der Anteil des monatlich freien Einkommens, welcher bis zur vollständigen Rückzahlungs des Darlehens zur Tilgung verwendet wird. Das freie Einkommen ist das Einkommen, welches Ihnen nach Zahlung der laufenden Kosten zur Verfügung steht. ', addon='%', id='repaypercent',   options='{"floor": "0", "ceil": "100", "precision": "1", "step": "1"}')
+                        sf-slider(description='Rückzahlungsanteil',                               value='vm.inputs.repaypercent',  tip='Der Anteil des monatlich freien Einkommens, welcher bis zur vollständigen Rückzahlungs des Darlehens zur Tilgung verwendet wird. Das freie Einkommen ist das Einkommen, welches Ihnen nach Zahlung der laufenden Kosten zur Verfügung steht. ', addon='%', id='repaypercent',   options='{"floor": "0", "ceil": "125", "precision": "1", "step": "1"}')
 
           //- </div> ********** END sidebar left (INPUTS) **********
 
@@ -58,25 +58,49 @@ block content
           //- ********** page center - main content **********
           div.postcontent.bothsidebar.nobottommargin.clearfix
             div.col_full
-              div.row
+              //- price feasible
+              div.row(ng-if='vm.inputs.repaypercent <= 85')
                 div.col-sm-2.hidden-xs
                   i.fa.fa-home.fa-5x(style='color: #50B432')
                 div.col-sm-10.col-xs-12
-                  h3 Sie können bis zu
+                  h3 Sie können sich eine Immobilie für
                     span(style='color: #50B432')  {{vm.result.maxprice | currency:"€":2}}
-                    |  für die Immobilie ausgeben.
-                    //span(ng-class="{orange: !buyIsBest}")  {{vm.results.maxprice}} €
-                      |  betragen
+                    |  leisten.
+
+              //- price maybe feasible
+              div.row(ng-if='vm.inputs.repaypercent > 85 && vm.inputs.repaypercent <= 100')
+                div.col-sm-2.hidden-xs
+                  i.fa.fa-home.fa-5x(style='color: #F38200')
+                div.col-sm-10.col-xs-12
+                  h3 Sie können sich eine Immobilie für
+                    span(style='color: #F38200')  {{vm.result.maxprice | currency:"€":2}}
+                    |  möglicherweise nicht leisten.
+
+              //- price not feasible
+              div.row(ng-if='vm.inputs.repaypercent > 100')
+                div.col-sm-2.hidden-xs
+                  i.fa.fa-home.fa-5x(style='color: #B20925')
+                div.col-sm-10.col-xs-12
+                  h3 Sie können sich eine Immobilie für
+                    span(style='color: #B20925')  {{vm.result.maxprice | currency:"€":2}}
+                    |  nicht leisten.
 
 
+              rzslider(rz-slider-model='vm.inputs.repaypercent', rz-slider-ceil='125', rz-slider-floor='0', rz-slider-hide-limit-labels='true', rz-slider-translate='vm.sliderTranslate', style='margin-top: 0px;')
 
-              //label.xxsbottommargin Jahr ab Kauf
-              rzslider(rz-slider-model='vm.priceslider.price', rz-slider-ceil='vm.priceslider.ceil', rz-slider-floor='vm.priceslider.floor', rz-slider-hide-limit-labels='true', rz-slider-translate='vm.sliderTranslate', style='margin-top: 0px;')
+
               div.divider.notopmargin.lbottommargin
-              h5 Basierend auf Ihrer Miete von monatlich {{vm.inputs.rent | currency:"€":2}}, dem zusätzlich verfügbaren Einkommen von mtl. {{vm.inputs.income | currency:"€":2}} und den erwarteten laufenden Kosten der Immobilie von mtl. etwa {{vm.inputs.maintenance | currency:"€":2}} können Sie
+              h5 Basierend auf Ihrer Miete von monatlich {{vm.inputs.rent | currency:"€":2}}, dem zusätzlich verfügbaren Einkommen von mtl. {{vm.inputs.income | currency:"€":2}} und den erwarteten laufenden Kosten der Immobilie von mtl. etwa {{vm.inputs.maintenance | currency:"€":2}} könnten Sie
                 span  {{vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance | currency:"€":2}} pro Monat zur Darlehenstilgung
                 |  verwenden.
-              h5 Mit {{vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance | currency:"€":2}} pro Monat können Sie über einen Zeitraum von {{vm.inputs.term}} Jahren ein Darlehen über {{vm.result.loan | currency:"€":2}} vollständig zurückzahlen. Zusammen mit ihrem Eigenkapital können Sie ingesamt also {{vm.result.totalpropcost | currency:"€":2}} ausgeben. Nach Berücksichtigung der Kaufnebenkosten (Grunderwerbssteuer, Makler, Notar) von etwa {{vm.result.notar + vm.result.makler + vm.result.proptax | currency:"€":2}}
+              h5 Im berechneten Szenario verwenden Sie {{vm.inputs.repaypercent}} % der {{vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance | currency:"€":2}} zur Darlehenstilgung, also {{(vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance) * (vm.inputs.repaypercent / 100)  | currency:"€":2}}.
+                span(ng-if='vm.inputs.repaypercent <= 85', style="color: #333333")  Ihnen bleiben
+                  span(style='color: #50B432')  {{(vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance) * ((100 - vm.inputs.repaypercent) / 100)  | currency:"€":2}} monatlich als Reserve.
+                span(ng-if='vm.inputs.repaypercent > 85 && vm.inputs.repaypercent <= 100', style="color: #333333")  Ihnen bleiben
+                  span(style='color: #F38200')  {{(vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance) * ((100 - vm.inputs.repaypercent) / 100)  | currency:"€":2}} monatlich als Reserve.
+                span(ng-if='vm.inputs.repaypercent > 100', style="color: #B20925")  Die Tilgungszahlungen übersteigen Ihre Zahlungsfähigkeit.
+
+              h5 Mit {{(vm.inputs.income + vm.inputs.rent - vm.inputs.maintenance) * (vm.inputs.repaypercent / 100)  | currency:"€":2}} pro Monat können Sie über einen Zeitraum von {{vm.inputs.term}} Jahren ein Darlehen über {{vm.result.loan | currency:"€":2}} vollständig zurückzahlen. Zusammen mit ihrem Eigenkapital können Sie ingesamt also {{vm.result.totalpropcost | currency:"€":2}} ausgeben. Nach Berücksichtigung der Kaufnebenkosten (Grunderwerbssteuer, Makler, Notar) von etwa {{vm.result.notar + vm.result.makler + vm.result.proptax | currency:"€":2}}
                 span  können Sie für die Immobile bis zu {{vm.result.maxprice | currency:"€":2}} ausgeben.
 
 

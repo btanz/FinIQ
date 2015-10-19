@@ -20,12 +20,6 @@
       repaypercent: 85
     };
 
-    vm.priceslider = {
-      price: 100000,
-      ceil: 200000,
-      floor: 30000
-    };
-
 
 
     /** adjust market interest rates based on entered term */
@@ -70,9 +64,7 @@
       };
       vm.result = hauskaufCalculator.propertyprice(inputObj);
       /** set price slider value and ceiling */
-      vm.priceslider.ceil  = Math.round((vm.result.maxprice * 7 / (Math.log(vm.result.maxprice) / Math.log(10) )) / 10000) * 10000;
-      vm.priceslider.price = Math.round(vm.result.maxprice);
-      $rootScope.$broadcast('rzSliderForceRender');
+
 
       /*
       $scope.chartConfig_1.series[0].data = [{y: $scope.result.rentFinalWealth, color:'#F38200'}, $scope.result.buyFinalWealth];
