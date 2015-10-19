@@ -35,6 +35,11 @@ router.get('/uebersicht-der-grundstueckspreise', function(req, res, next) {
   res.render('hauskauf/uebersicht-der-grundstueckspreise');
 });
 
+/** GET zehn schnäppchenregionen. */
+router.get('/schnaeppchen-regionen-zum-bauen', function(req, res, next) {
+  res.render('hauskauf/zehn-schnaeppchen-regionen');
+});
+
 
 
 

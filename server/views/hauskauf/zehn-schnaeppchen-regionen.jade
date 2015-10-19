@@ -1,0 +1,123 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+
+    //-page-content
+    section#content(ng-controller='uebersichtgrundstueckspreiseController as controller')
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 10 Schnäppchen-Regionen zum Bauen
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Blog
+                  li.nobottommargin
+                    a(href='/hauskauf') Hauskauf
+                  li.nobottommargin
+                    a(href='/hauskauf/schnaeppchen-regionen-zum-bauen') Schnäppchen-Regionen zum Bauen
+
+                ul.entry-meta.clearfix
+                  li
+                    i.icon-calendar3
+                    | 19.10.2015 &nbsp
+                    i.icon-user
+                    | FinIQ &nbsp
+
+
+                div.entry-content.notopmargin
+
+                  p Nicht nur in sehr abgelegen Regionen kann man zu günstigen Grundstücken kommen. Auch die Gegenden um die deutschen Großstädte haben das ein oder andere Schnäppchen zu bieten. FinIQ hat die Städte und Landkreise um die Großstädte nach den Kriterien Entfernung zur Großstadt und Grundstückspreis pro Quadratmeter unter die Lupe genommen und die ein oder andere Überraschung gefunden. Wir zeigen Ihnen, wo Grundstücke in Metropolregionen noch preiswert sind.
+
+
+                  div#region-carousel.carousel.slide(data-ride='carousel', data-interval='12000')
+                    //- indicators
+                    ol.carousel-indicators
+                      li(data-target="#region-carousel", data-slide-to="0", class="active")
+                      li(data-target="#region-carousel", data-slide-to="1")
+                      li(data-target="#region-carousel", data-slide-to="2")
+                      li(data-target="#region-carousel", data-slide-to="3")
+                      li(data-target="#region-carousel", data-slide-to="4")
+                      li(data-target="#region-carousel", data-slide-to="5")
+                      li(data-target="#region-carousel", data-slide-to="6")
+                      li(data-target="#region-carousel", data-slide-to="7")
+                      li(data-target="#region-carousel", data-slide-to="8")
+                      li(data-target="#region-carousel", data-slide-to="9")
+
+                    //- slides wrapper
+                    div.carousel-inner(role='listbox')
+                      div.item.active
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/muehldorf.jpg', alt='Mühldorf')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/oderspree.jpg', alt='Oder-Spree-Kreis')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/erding.jpg', alt='Erding')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/segeberg.jpg', alt='Segeberg')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/lauenburg.jpg', alt='Herzogtum Lauenburg')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/mkk.jpg', alt='Main-Kinzig-Kreis')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/neuburg.jpg', alt='Neuburg-Schrobenhausen')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/rheinneuss.jpg', alt='Rhein-Kreis Neuss')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/forchheim.jpg', alt='Forchheim')
+                      div.item
+                        img(src='/assets/img/hauskauf/zehnSchnaeppchenRegionen/rheinerft.jpg', alt='Rhein-Erft-Kreis')
+
+                    //- controls
+                    a.left.carousel-control(href="#region-carousel", role="button", data-slide="prev")
+                      span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+                      span.sr-only Vorheriges
+                    a.right.carousel-control(href="#region-carousel", role="button", data-slide="next")
+                      span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+                      span.sr-only Nächstes
+                  p.sf-image-source Quelle: Flickr
+
+                  div.divider.notopmargin.mbottommargin
+                  p Lorem Opsum
+
+                  div.sf-image
+                    img.img-responsive(src="/assets/img/hauskauf/schnaeppchen_Infographic.png", alt="Die attraktivsten Arbeitsmärkte Deutschlands.")
+
+
+
+                  h4 Regionale Grundstückspreise
+                  p Die folgende interaktive Karte gibt einen Überblick über die Grundstückspreise in den Regionen. Sie können sich für jede Region den durchschnittlichen Quadratmeterpreis der letzten Jahre sowie die jährliche Wachstumsrate des Preises anzeigen lassen.
+
+
+
+                  p.strong Sie haben Fragen zu unserer Studie? Kontaktieren Sie uns: info@finiq.de
+
+                  p.weak Quellen: Alle Indikatoren wurden berechnet aus Daten des statistischen Bundesamtes (www.destatis.de). Zur Konstruktion der Indikatoren wurden die jeweils letzten verfügbaren Daten verwendet (2013). Für die weiß gefärbten Regionen liegen uns leider keine Daten vor.
+
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          div.sidebar.nobottommargin.col_last.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Mehr von FinBob
+                p (links)
+              div.widget.clearfix
+                h4 Share
+              div.widget.clearfix
+                h4 Newsletter
+              div.widget.clearfix
+                h4 Werbung
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer
