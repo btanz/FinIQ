@@ -262,6 +262,17 @@
      * computes the affordable house price for a household/individual given a set of primitives
      *
      * @param {object} inputs
+     *        inputs.selection        indicator for input mode; 2 if initial repayment is given; 3 if term is given (default: 3)
+     *        inputs.initrepay        the first year's repayment ('anfängliche tilgung')
+     *        inputs.repaypercent     the percentage of the free income that is used for debt repayment (default: 100%)
+     *        inputs.interest         the annual interest rate on debt
+     *        inputs.notar            cost fraction notar
+     *        inputs.makler           cost fraction makler
+     *        inputs.proptax          cost fraction tax ('Grunderwerbssteuer')
+     *        inputs.income           monthly free income after rent payment
+     *        inputs.rent             monthly rent payment
+     *        inputs.maintenance      monthly maintenance cost of building
+     *
      * @returns {object} result
      *
      */
