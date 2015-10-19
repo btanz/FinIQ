@@ -256,30 +256,37 @@
 
 
 
-
-    /** ********************** hauspreis ************************************* */
+    /**
+     * Function propertyprice
+     *
+     * computes the affordable house price for a household/individual given a set of primitives
+     *
+     * @param {object} inputs
+     * @returns {object} result
+     *
+     */
     fun.propertyprice = function(inputs){
 
-      //console.log(inputs);
-
       /** set defaults */
-      inputs.selection = typeof inputs.selection !== 'undefined' ? inputs.selection : 3;
-      inputs.initrepay = typeof inputs.initrepay !== 'undefined' ? inputs.initrepay : 4;
+      inputs.selection    = typeof inputs.selection !== 'undefined' ? inputs.selection : 3;
+      inputs.initrepay    = typeof inputs.initrepay !== 'undefined' ? inputs.initrepay : 4;
+      inputs.repaypercent = typeof inputs.repaypercent !== 'undefined' ? inputs.repaypercent : 100;
 
       /** define objects */
       var result = {},
           helper = {};
 
       /** convert do decimals */
-      inputs.interest = inputs.interest / 100;
-      inputs.notar = inputs.notar / 100;
-      inputs.makler = inputs.makler / 100;
-      inputs.proptax = inputs.proptax / 100;
-      inputs.initrepay = inputs.initrepay / 100;
+      inputs.interest   = inputs.interest / 100;
+      inputs.notar      = inputs.notar / 100;
+      inputs.makler     = inputs.makler / 100;
+      inputs.proptax    = inputs.proptax / 100;
+      inputs.initrepay  = inputs.initrepay / 100;
+      inputs.repaypercent = inputs.repaypercent / 100;
 
 
       /** ******** 3. COMPUTATIONS ******** */
-      helper.rate = inputs.rent + inputs.income - inputs.maintenance;
+      helper.rate = (inputs.rent + inputs.income - inputs.maintenance) * inputs.repaypercent;
       helper.q = 1 + inputs.interest / 12;
 
 

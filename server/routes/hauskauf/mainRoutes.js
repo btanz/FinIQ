@@ -15,12 +15,12 @@ router.get('/', function(req, res, next) {
 
 /** GET mieten oder kaufen. */
 router.get('/mieten-oder-kaufen', function(req, res, next) {
-  res.render('hauskauf/mieten-oder-kaufen');
+  res.render('hauskauf/mietenoderkaufen');
 });
 
 /** GET wie hoch darf Hauspreis sein */
 router.get('/wie-hoch-darf-der-hauspreis-sein', function(req, res, next) {
-  res.render('hauskauf/wie-hoch-darf-der-hauspreis-sein');
+  res.render('hauskauf/kaufpreis');
 });
 
 

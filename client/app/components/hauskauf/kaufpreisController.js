@@ -16,7 +16,8 @@
       debtinterest: 2.2,
       term: 18,
       priceaddon: 10,
-      maintenance: 400
+      maintenance: 400,
+      repaypercent: 85
     };
 
     vm.priceslider = {
@@ -55,7 +56,18 @@
     /** watch inputs and re-compute on change */
     $scope.$watchCollection('vm.inputs', function(){
       /** calculate maximal price */
-      var inputObj = {interest: vm.inputs.debtinterest, notar: 0.12 * vm.inputs.priceaddon, makler: 0.38 * vm.inputs.priceaddon, proptax: 0.5 * vm.inputs.priceaddon, rent: vm.inputs.rent, income: vm.inputs.income, maintenance: vm.inputs.maintenance, term: vm.inputs.term, equity: vm.inputs.equity};
+      var inputObj = {
+        interest: vm.inputs.debtinterest,
+        notar: 0.12 * vm.inputs.priceaddon,
+        makler: 0.38 * vm.inputs.priceaddon,
+        proptax: 0.5 * vm.inputs.priceaddon,
+        rent: vm.inputs.rent,
+        income: vm.inputs.income,
+        maintenance: vm.inputs.maintenance,
+        term: vm.inputs.term,
+        equity: vm.inputs.equity,
+        repaypercent: vm.inputs.repaypercent
+      };
       vm.result = hauskaufCalculator.propertyprice(inputObj);
       /** set price slider value and ceiling */
       vm.priceslider.ceil  = Math.round((vm.result.maxprice * 7 / (Math.log(vm.result.maxprice) / Math.log(10) )) / 10000) * 10000;
