@@ -1,0 +1,126 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+
+    //-page-content
+    section#content(ng-controller='artablaufhauskaufController')
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Wie läuft der Hauskauf ab?
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Home
+                  li.nobottommargin
+                    a(href='/hauskauf') Hauskauf
+                  li.nobottommargin
+                    a(href='/hauskauf/wie-laeuft-der-hauskauf-ab') Wie läuft der Hauskauf ab?
+
+
+                div.entry-content.mtopmargin
+                  p Der Hauskauf ist vielmals eine der wichtigsten persönlichen und finanziellen Entscheidungen und will nicht nur deshalb gut geplant und ausgeführt sein. Damit Sie bestens planen und unabhängig entscheiden können haben wir den Ablauf des Hauskaufs in Etappen zerlegt. So bekommen Sie einen Überlick und können sich gezielt über jede Etappe informieren.
+
+                  div.divider.notopmargin.mbottommargin
+                  //-process step graph
+                  div#processTabs
+                    ul.process-steps.bottommargin.clearfix
+                      li
+                        a.i-circled.i-bordered.i-alt.divcenter(href='#ptab1') 1
+                        h5 Haus finden
+                      li
+                        a.i-circled.i-bordered.i-alt.divcenter(href='#ptab2') 2
+                        h5 Finanzierung planen
+                      li
+                        a.i-circled.i-bordered.i-alt.divcenter(href='#ptab3') 3
+                        h5 Haus kaufen
+                      li
+                        a.i-circled.i-bordered.i-alt.divcenter(href='#ptab4') 4
+                        h5 Einziehen
+                    div
+                      div#ptab1
+                        h4 Die erste Etappe: Das perfekte Haus für Sie finden
+                        p Auch wenn diese Entscheidung meist sehr individuell ist und von vielen Faktoren abhängt: es gibt ein paar Vorgehensweisen, welche Ihnen die Entscheidung erleichtern und Zeit sparen können. Finden Sie im ersten Schritt heraus, wie viel Sie für das Haus ausgeben können und wollen. Im zweiten Schritt finden Sie die richtige Lage für Ihre Haus. Ihre Anforderungen an Größe und Lage der Immobilie analysieren Sie im dritten Schritt. Nun haben Sie es fast geschafft und können gezielt nach zu Ihnen passenden Objekten suchen: im vierten Schritt suchen und besichtigen Sie passende Immobilien.
+
+                        div.divider.stopmargin.mbottommargin
+                          i.icon-circle
+
+                        h5.xsbottommargin Schritt 1: Wie hoch darf der Kaufpreis sein?
+                        p Dies ist die erste Frage, welche Sie beantworten sollten. Der Preis ist eines der wichtigsten Kriterien beim Hauskauf und die Suche nach Häusern, welche außerhalb Ihres Budgets liegen, ist nichts als vertane Zeit. Um langfristig von der eigenen Immobilie profitieren zu können sollten Sie Ihr Budget kennen und finanzielle Engpässe abfedern können. Daher sollten Sie herausfinden, wieviel Eigenkapital Sie für den Hauskauf zur Verfügung haben und wie viel Ihres monatliches Budgets Sie für den Hauskauf verwenden können und wollen. Grundsätzlich sollten mindestens 25 bis 30 Prozent Eigenkapital zur Verfügung stehen, Sie sollten allerdings nicht Ihre gesamten Ersparnisse in das Haus stecken, um temporäre Engpässe abfedern zu könnnen.
+                        p Der
+                          a(href='/hauskauf/wie-hoch-darf-der-hauspreis-sein')  FinIQ-Hauspreisrechner
+                          |  hilft Ihnen bei der Ermittlung des Ihres Budgets für den Hauskauf.
+
+                        div.divider.stopmargin.mbottommargin
+                          i.icon-circle
+
+                        h5.xsbottommargin Schritt 2: Die richtige Lage
+                        p Bei der Lage entscheiden Experten zwischen der Mikro- und Makrolage. Bei der Makrolage geht es um die Zukunftsfähigkeit und Arbeitsmarktlage der gesamten Region, während es bei der Mikrolage um indivduelle Kriterien innerhalb einer Region geht, wie zum Beispiel die Anbindung an den öffentlichen Nahverkehr. Wenn Sie in Ihrer Region ein Haus kaufen wollen ist für Sie natürlich nur die Entscheidung für die richtige Mikrolage relevant.
+                        p Erfahren Sie mehr zu interessanten Makrolagen in Deutschland im FinIQ-Artikel
+                          a(href='/hauskauf/deutschlands-attraktivste-arbeitsmaerkte')  Deutschlands attraktivste Arbeitsmärkte.
+                        p Die folgende Checkliste enthält Kriterien, auf welche Sie bei der Entscheidung für eine gute Mikrolage achten sollten. Beachten Sie, dass es die perfekte Lage nicht gibt. Jede Entscheidung ist letztlich eine Abwägung verschiedener Kriterien.
+                        ul.ul-post
+                          li City-Nähe: Auf dem Land sind die Preise niedriger, allerdings haben Sie auch höhere Fahrtkosten und pendeln kostet Zeit.
+                          li Landschaft: Mögen Sie die Berge, Flachland, die Nähe zum Meer oder fühlen Sie sich in der Stadt am wohlsten?
+                          li Verkehrsanbindung: Wie wichtig ist Ihnen die Nähe zu Haltestellen, Bahnhöfen und Flughäfen?
+                          li Kinder: Haben oder planen Sie Kinder? Dann achten Sie auf Nähe zu Kindergärten und Schulen und Infrastruktur für Kinder wie Spiel- und Sportplätze.
+                          li Sonstige Infrastruktur: Gibt es ein gutes Angebot an Ärzten, Geschäften, Freizeiteinrichtungen, Sportstätten und Einkaufsmöglichkeiten?
+
+                        div.divider.stopmargin.mbottommargin
+                          i.icon-circle
+
+                        h5.xsbottommargin Schritt 3: Größe und Ausstattung
+                        p Dies ist praktisch immer der aufwändigste Teil der Suche. Gut beraten ist, wer schon vor der konkreten Suche Klarheit über seine Wünsche und Bedürfnisse schafft, um nicht passende Objekte gleich ausschließen zu können. Die folgende Checkliste enthält die wichtigsten Kriterien:
+                        ul.ul-post
+                          li Größe: Wie groß ist Ihr Platzbedarf heute und in der Zukunft? Denken Sie dabei auch an Kinder. Als Faustregel für eine komfortable minimale Wohnfläche können sie die Regel 50 Quadratmeter plus Anzahl der Personen mal 20 Quadratmeter nutzen. Für drei Personen sollte die Wohnfläche also nicht kleiner sein als 110 Quadratmeter, für vier Personen entsprechend 130 Qadratmeter.
+                          li Stil: Wünschen Sie einen bestimmten Baustil?
+                          li Fläche: Wie viel Abstand möchten Sie von den Nachbarn? Soll das Haus freistehen oder wünschen Sie ein Reihen- oder Doppelhaus? Letztere haben Vorteile beim Energieverbrauch.
+                          li Materialqualität: Gutes Material senkt die Instandhaltungskosten, schlägt sich allerdings in aller Regel auch im Kaufpreis nieder. Insbesondere wenn Sie eine lange Zeit im Haus leben möchten sollten Sie hier auf Qualität achten.
+                          li Besondere Ausstattungen: Überlegen Sie, wie wichtig Ihnen Ausstattungen wie Balkon, eine große Terasse oder ein Kamin sind.
+
+                        div.divider.stopmargin.mbottommargin
+                          i.icon-circle
+
+                        h5.xsbottommargin Schritt 4: Suchen und Besichtigen
+                        p Geschafft! Sie kennen nun Ihr Budget und Ihre Anforderungen an Preis, Lage, Größe und Ausstattung und können sich gezielt auf die Suche machen. Damit sind Sie den meisten anderen Hauskäufern schon einige Schritte voraus. Aktuelle Angebote finden Sie auf Immobilienportalen wie Immonet.de oder Immobilienscout24.de
+                        p Steht ein Besichtigungstermin an und Sie wollen gut vorbereitet sein? Nehmen Sie die FinIQ-Checklist Hauskauf mit zum Termin.
+
+
+
+                        a.button.button-3d.button-mini.nomargin.fright.tab-linker(href="#", rel='2') Zur nächsten Etappe
+                      div#ptab2
+                        h4 Die zweite Etappe: Planung der Finanzierung
+                      div#ptab3
+                        p Lorem Ipsum 3
+                      div#ptab4
+                        p Lorem Ipsum 4
+
+                  div.divider.notopmargin.mbottommargin
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          div.sidebar.nobottommargin.col_last.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Mehr von FinBob
+                p (links)
+              div.widget.clearfix
+                h4 Share
+              div.widget.clearfix
+                h4 Newsletter
+              div.widget.clearfix
+                h4 Werbung
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

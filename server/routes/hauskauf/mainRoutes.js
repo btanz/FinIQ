@@ -40,6 +40,11 @@ router.get('/schnaeppchen-regionen-zum-bauen', function(req, res, next) {
   res.render('hauskauf/zehn-schnaeppchen-regionen');
 });
 
+/** GET wie laeuft der hauskauf ab. */
+router.get('/wie-laeuft-der-hauskauf-ab', function(req, res, next) {
+  res.render('hauskauf/art-ablauf-hauskauf');
+});
+
 
 
 

@@ -23,12 +23,16 @@ h5 {
   line-height: 1.5;
   font-weight: 500;
   text-transform: uppercase;
+  margin-top: 15px;
 }
 h6 {
   margin-top: 20px;
   line-height: 1.5;
   font-weight: 500;
   font-size: 14px;
+}
+p {
+  margin-bottom: 10px;
 }
 #page-title{
   padding: 25px 0 20px 0;
@@ -116,6 +120,18 @@ ul.tab-nav li a {
 /* **************** helper classes **************** */
 .notopmargin {
   margin-top: 0;
+}
+.xxstopmargin {
+  margin-top: 5px;
+}
+.xstopmargin {
+  margin-top: 10px;
+}
+.stopmargin {
+  margin-top: 15px;
+}
+.mtopmargin {
+  margin-top: 20px;
 }
 .nobottompadding {
   padding-bottom: 0;
