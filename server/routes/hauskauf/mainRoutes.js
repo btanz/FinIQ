@@ -3,6 +3,10 @@
  */
 var express = require('express');
 var router = express.Router();
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
+
+
 
 var hauskaufCtrl = require('../../controller/hauskauf/mainController');
 
@@ -44,6 +48,19 @@ router.get('/schnaeppchen-regionen-zum-bauen', function(req, res, next) {
 router.get('/wie-laeuft-der-hauskauf-ab', function(req, res, next) {
   res.render('hauskauf/art-ablauf-hauskauf');
 });
+
+/** GET checkliste hauskauf */
+router.get('/checkliste-hauskauf', function(req, res, next) {
+  res.render('hauskauf/art-checkliste-hauskauf');
+});
+
+router.get('/checkliste-hauskauf/download', function(req, res, next) {
+  console.log(appDir);
+  res.set('Content-Type', 'application/pdf');
+  res.sendfile(appDir + '/other/hauskauf/data/finIQ_checklist_hauskauf.pdf','finIQ_Hauskauf_Checkliste');
+  //res.render('hauskauf/art-checkliste-hauskauf');
+});
+
 
 
 

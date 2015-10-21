@@ -1,0 +1,61 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+
+    //-page-content
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Die Checkliste zum Hauskauf
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Home
+                  li.nobottommargin
+                    a(href='/hauskauf') Hauskauf
+                  li.nobottommargin
+                    a(href='/hauskauf/checkliste-hauskauf') Die Checkliste zum Hauskauf
+
+
+                div.entry-content.mtopmargin
+                  p Ein Besichtigungstermin steht an und Sie wollen gut vorbereitet sein und keine wichtigen Fragen vergessen? Nehmen Sie die FinIQ Checkliste zum Hauskauf mit zum Termin. Die Liste stellt alle wichtigen Standardfragen überichtlich auf einer Seite dar. Sie können die Checkliste Hauskauf
+                    a(href='/hauskauf/checkliste-hauskauf/download')  hier
+                    |  herunterladen.
+                  a(href='/hauskauf/checkliste-hauskauf/download').button.button-3d.button-mini.button-rounded.button-blue Download Checkliste
+
+                  div.divider.notopmargin.mbottommargin
+                  div.sf-image
+                    img.img-responsive(src="/assets/img/hauskauf/checklist_hauskauf.png", alt="Checkliste Hauskauf")
+
+
+
+                  div.divider.notopmargin.mbottommargin
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          div.sidebar.nobottommargin.col_last.clearfix
+            div.sidebar-widgets-wrap
+              div.widget.clearfix
+                h4 Mehr von FinBob
+                p (links)
+              div.widget.clearfix
+                h4 Share
+              div.widget.clearfix
+                h4 Newsletter
+              div.widget.clearfix
+                h4 Werbung
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer
