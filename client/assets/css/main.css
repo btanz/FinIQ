@@ -77,6 +77,9 @@ p {
 .sf-image-source{
   text-align: right;
   font-size: 11px;
+  margin: 0;
+  padding: 0;
+  float: right;
 }
 
 .ul-post li{

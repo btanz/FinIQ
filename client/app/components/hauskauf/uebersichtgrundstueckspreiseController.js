@@ -7,7 +7,7 @@
 
     $http({
       method: 'GET',
-      url: '/hauskauf//uebersicht-der-grundstueckspreise/map_data'
+      url: '/hauskauf/uebersicht-der-grundstueckspreise/map_data'
     }).then(function successCallback(response) {
       $scope.chartConfig_1.series[0].data = response.data;
     }, function errorCallback(response) {
