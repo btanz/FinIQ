@@ -7,15 +7,8 @@ block content
     include ../_includes/navheader
     //- Page-title
     section#page-title
-      div.container.clearfix
-        h1 Mieten oder Kaufen
-        span Der Rechner zur Entscheidungshilfe
-        ol.breadcrumb
-          li
-            a(href='/') Home
-          li
-            a(href='/hauskauf') Hauskauf
-          li.active Mieten oder Kaufen
+      include ../_mixins/page_title
+      mixin page_title('Mieten oder Kaufen', 'Der Rechner zur Entscheidungshilfe', ['Home', '/'], ['Hauskauf', '/hauskauf'], ['Mieten oder Kaufen', '/hauskauf/mieten-oder-kaufen', 'true'])
 
     //-page-content
     section#content(ng-controller='mietenoderkaufenController as controller')

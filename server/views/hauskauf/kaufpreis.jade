@@ -7,15 +7,9 @@ block content
     include ../_includes/navheader
     //- Page-title
     section#page-title
-      div.container.clearfix
-        h1 Wie hoch darf der Preis Ihres Hauses sein?
-        span Der Rechner zur Entscheidungshilfe
-        ol.breadcrumb
-          li
-            a(href='/') Home
-          li
-            a(href='/hauskauf') Hauskauf
-          li.active Wie hoch darf der Hauspreis sein
+      include ../_mixins/page_title
+      mixin page_title('Wie hoch darf der Preis Ihres Hauses sein?', 'Der Rechner zur Entscheidungshilfe', ['Home', '/'], ['Hauskauf', '/hauskauf'], ['Wie hoch darf der Hauspreis sein', '/hauskauf/wie-hoch-darf-der-hauspreis-sein', 'true'])
+
 
     //-page-content
     section#content(ng-controller='kaufpreisController as vm')
@@ -24,7 +18,7 @@ block content
 
           //- ********** sidebar left (INPUTS) ***********
           div.sidebar.nobottommargin.clearfix
-            div.sidebar-widgets-wrap
+            div.sidebar-widgets-wrap.sidebar-widgets-wrap-calc
               div.widget.clearfix
                 h4
                   i.icon-pencil

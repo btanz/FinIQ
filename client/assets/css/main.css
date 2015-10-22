@@ -39,6 +39,10 @@ p {
   background-color: #e8eef7;
 }
 
+.breadcrumb-sf{
+  top: 85% !important;
+}
+
 
 .tooltip {
   z-index: 1070;
@@ -101,6 +105,10 @@ p {
   max-width: 600px;
 }
 
+/* **************** preview element styles **************** */
+.entry-image-small {
+  width: 96px !important;
+}
 
 
 
@@ -324,4 +332,15 @@ rzslider .rz-ticks .tick .tick-value{
   #primary-menu-trigger { top: 5px; }
   #top-search a { margin-top: 20px; }
   #top-search form { height: 60px !important; }
+}
+
+@media (max-width: 991px) and (min-width: 768px){
+
+  .sidebar-widgets-wrap-calc .widget{
+    width: 100%;
+  }
+
+  .sidebar-widgets-wrap-calc{
+    margin: 0;
+  }
 }
