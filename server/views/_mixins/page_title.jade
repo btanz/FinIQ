@@ -1,0 +1,14 @@
+//-
+   Created by benjamintanz on 22.10.15.
+mixin page_title(title, subtitle, ...items)
+  div.container.clearfix
+    h1=title
+    span=subtitle
+    ol.breadcrumb
+      each item in items
+        if item[2]
+          li.active
+            a(href=item[1])=item[0]
+        else
+          li
+            a(href=item[1])=item[0]

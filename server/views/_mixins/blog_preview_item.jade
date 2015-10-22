@@ -1,0 +1,22 @@
+//-
+   Created by benjamintanz on 22.10.15.
+
+
+//- mixin for blog previews in topics pages
+//- requires a blog title, date, a teaser, the route to the post als well as the image route and description
+mixin blog_preview_item(title, date, teaser, route, img_route, img_alt)
+  div.entry.clearfix
+    div.entry-image
+      img(src=img_route, alt=img_alt)
+    //div.entry-c
+    div.entry-title
+      h4.nobottommargin.fb
+        a(href=route)=title
+    ul.entry-meta.clearfix
+      li
+        i.icon-calendar3 &nbsp;
+          =date
+
+    div.entry-content
+      p=teaser
+      a(href=route).more-link Weiterlesen ...

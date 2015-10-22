@@ -1,0 +1,14 @@
+//-
+   Created by benjamintanz on 22.10.15.
+
+mixin article_preview_item(title, teaser, route)
+  div.entry.clearfix
+    div.entry-title
+      h4.nobottommargin.fb
+        a(href=route)= title
+    div.entry-content.notopmargin
+      h6.xxstopmargin.smallbottommargin=teaser
+      a(href=route).more-link Weiterlesen ...
+      //p.smallbottommargin Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
+    //div.entry-button
+      a(href='/').button.button-3d.button-mini.button-rounded.button-blue Finden Sie die richtige Baufinanzierung

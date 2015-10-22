@@ -7,14 +7,8 @@ block content
     include ../_includes/navheader
     //- Page-title
     section#page-title
-      div.container.clearfix
-        h1 Hauskauf
-        span Der Guide zum Hauskauf
-        ol.breadcrumb
-          li
-            a(href='/') Home
-          li.active Hauskauf
-
+      include ../_mixins/page_title
+      mixin page_title('Hauskauf', 'Der Guide zum Hauskauf', ['Home', '/'], ['Hauskauf', '/hauskauf', 'true'])
 
     section#content
       div.content-wrap.content-wrap-topics
@@ -23,149 +17,55 @@ block content
           //- main content
           div.postcontent.nobottommargin.clearfix
             //- calculators
-
             div.col_half
               div.fancy-title.title-bottom-border.xsbottommargin
                 h3.nobottompadding Rechentools
               div#posts
-                div.entry.clearfix
-                  div.entry-title
-                    h4.nobottommargin.fb
-                      a(href='/') Wie hoch darf der Kaufpreis sein?
-                  div.entry-content.notopmargin
-                    p.smallbottommargin Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-                  div.entry-image.smallbottommargin
-                    a(href='assets/img/hauskauf/img02.jpg', data-lightbox='image')
-                      img(class='image_fade', src='assets/img/hauskauf/img02.jpg', alt='Standard Post with Image')
-                  div.entry-button
-                    a(href='/hauskauf/wie-hoch-darf-der-hauspreis-sein').button.button-3d.button-mini.button-rounded.button-blue Wie hoch darf der Kaufpreis sein?
+                include ../_mixins/calc_preview_item
 
-                div.entry.clearfix
-                  div.entry-title
-                    h4.nobottommargin.fb
-                      a(href='/') Ist mieten besser als kaufen?
-                  div.entry-content.notopmargin
-                    p.smallbottommargin Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-                  div.entry-image.smallbottommargin
-                    a(href='assets/img/hauskauf/img02.jpg', data-lightbox='image')
-                      img(class='image_fade', src='assets/img/hauskauf/img02.jpg', alt='Standard Post with Image')
-                  div.entry-button
-                    a(href='/hauskauf/mieten-oder-kaufen').button.button-3d.button-mini.button-rounded.button-blue Sollte ich mieten oder kaufen?
+                mixin calc_preview_item('Wie hoch darf der Kaufpreis sein?', 'Die Bestimmung des Budgets ist einer der ersten Schritte beim Hauskauf. Finden Sie mit diesem Tool heraus, wie viel Sie für die Immobilie ausgeben können und wollen. Kaufnebenkosten wie Grunderwerbssteuer und Kosten für Makler und Notar werden natürlich automatisch berücksichtigt. Eine gute Budgetplanung spart Ihnen Zeit und minimiert finanzielle Risiken.', '/hauskauf/wie-hoch-darf-der-hauspreis-sein', 'assets/img/hauskauf/img_couple_01.jpg', 'Wie hoch darf der Kaufpreis sein?')
 
+                mixin calc_preview_item('Ist mieten besser als kaufen?', 'Sie stehen vor der Entscheidung, ein bestimmtes Haus zu kaufen oder zu mieten? Sie haben die Möglichkeit, Ihr Haus oder Ihre Immobilie zu kaufen und sind sich nicht sicher, ob dies ein guter Schritt ist? Diese Entscheidung hängt von vielen individuellen Faktoren ab. Das Mieten-oder-Kaufen-Berechnungstool unterstützt Sie dabei, eine gute Entscheidung zu treffen.', '/hauskauf/mieten-oder-kaufen', 'assets/img/hauskauf/img_comparebuyrent_01.jpg', 'Ist mieten besser als kaufen?')
+
+            //- from blog
+            div.col_half.col_last
+              //div.fancy-title.title-bottom-border.xsbottommargin
+                h3.nobottompadding Vergleichstools
+              //div#posts
+                include ../_mixins/compare_preview_item
+
+                mixin compare_preview_item('Vergleichen Sie verschiedene Baufinanzierungen', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.', '/')
 
 
               div.fancy-title.title-bottom-border.xsbottommargin
                 h3.nobottompadding Artikel
               div
-                div.entry.clearfix
-                  div.entry-title
-                    h4.nobottommargin.fb
-                      a(href='/hauskauf/wie-laeuft-der-hauskauf-ab') Wie läuft der Hauskauf ab?
-                  div.entry-content.notopmargin
-                    h6.xxstopmargin.smallbottommargin Der Ablauf des Hauskaufs von Planung bis Einzug in der Übersicht
-                    //p.smallbottommargin Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-                  //div.entry-button
-                    a(href='/').button.button-3d.button-mini.button-rounded.button-blue Finden Sie die richtige Baufinanzierung
+                include ../_mixins/article_preview_item
 
+                mixin article_preview_item('Wie läuft der Hauskauf ab?', 'Erfahren Sie, auf was es beim Hauskauf ankommt. Alle Schritte, gegliegert in Etappen, von der Suche der richtigen Immobilie über die Finanzierung bis zur Übergabe. Dieser Artikel eignet sich besonders zum Einstieg in das Thema Haus- und Immobilienkauf.', '/hauskauf/wie-laeuft-der-hauskauf-ab')
 
-                  div.entry-title
-                    h4.nobottommargin.fb
-                      a(href='/hauskauf/checkliste-hauskauf') Checkliste Hauskauf
-                  div.entry-content.notopmargin
-                    h6.xxstopmargin.smallbottommargin Bestens vorbereitet auf den Besichtigungstermin: Die Checkliste für die Besichtigung bei geplantem Hauskauf.
-                    //p.smallbottommargin Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-                  //div.entry-button
-                    a(href='/').button.button-3d.button-mini.button-rounded.button-blue Finden Sie die richtige Baufinanzierung
+                mixin article_preview_item('Checkliste Hauskauf', 'Bestens vorbereitet auf den Besichtigungstermin: Die Checkliste für die Besichtigung bei geplantem Hauskauf.', '/hauskauf/checkliste-hauskauf')
 
-
-
-
-
-
-            //- from blog
-            div.col_half.col_last
-              div.fancy-title.title-bottom-border.xsbottommargin
-                h3.nobottompadding Baufinanzierung
-              div#posts
-                div.entry.clearfix
-                  div.entry-title
-                    h4.nobottommargin.fb
-                      a(href='/') Vergleichen Sie verschiedene Baufinanzierungen
-                  div.entry-content.notopmargin
-                    p.smallbottommargin Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-                  div.entry-button
-                    a(href='/').button.button-3d.button-mini.button-rounded.button-blue Finden Sie die richtige Baufinanzierung
 
 
               div.fancy-title.title-bottom-border.xsbottommargin
                 h3.nobottompadding Aus unserem Blog
 
               div#posts.small-thumbs.alt
-                div.entry.clearfix
-                  div.entry-image
-                    a(href='assets/img/hauskauf/img01.jpg', data-lightbox='image')
-                      img(class='image_fade', src='assets/img/hauskauf/img01.jpg', alt='Standard Post with Image')
-                  div.entry-c
-                    div.entry-title
-                      h4.nobottommargin.fb
-                        a(href='/hauskauf/deutschlands-attraktivste-arbeitsmaerkte') Deutschlands attraktivste Arbeitsmärkte
-                    ul.entry-meta.clearfix
-                      li
-                        i.icon-calendar3 &nbsp; 12.10.2015
-                  div.entry-content
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-                    a(href='/').more-link Weiterlesen ...
+                include ../_mixins/blog_preview_item
+
+                mixin blog_preview_item('Deutschlands attraktivste Arbeitsmärkte', '12.10.2015', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.', '/hauskauf/deutschlands-attraktivste-arbeitsmaerkte', 'assets/img/hauskauf/img01.jpg', 'Amazing pic')
+
+                mixin blog_preview_item('Übersicht der Grundstückspreise', '05.10.2015', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.', '/hauskauf/uebersicht-der-grundstueckspreise', 'assets/img/hauskauf/img01.jpg', 'Amazing pic')
+
+                mixin blog_preview_item('10 Schnäppchen-Regionen zum Bauen', '19.10.2015', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.', '/hauskauf/schnaeppchen-regionen-zum-bauen', 'assets/img/hauskauf/img01.jpg', 'Amazing pic')
 
 
-                div.entry.clearfix
-                  div.entry-image
-                    a(href='assets/img/hauskauf/img01.jpg', data-lightbox='image')
-                      img(class='image_fade', src='assets/img/hauskauf/img01.jpg', alt='Standard Post with Image')
-                  div.entry-c
-                    div.entry-title
-                      h4.nobottommargin.fb
-                        a(href='/hauskauf/uebersicht-der-grundstueckspreise') Übersicht der Grundstückspreise
-                    ul.entry-meta.clearfix
-                      li
-                        i.icon-calendar3 &nbsp; 05.10.2015
-                  div.entry-content
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-                    a(href='/').more-link Weiterlesen ...
-
-
-                div.entry.clearfix
-                  div.entry-image
-                    a(href='assets/img/hauskauf/img01.jpg', data-lightbox='image')
-                      img(class='image_fade', src='assets/img/hauskauf/img01.jpg', alt='Standard Post with Image')
-                  div.entry-c
-                    div.entry-title
-                      h4.nobottommargin.fb
-                        a(href='/hauskauf/schnaeppchen-regionen-zum-bauen') 10 Schnäppchen-Regionen zum Bauen
-                    ul.entry-meta.clearfix
-                      li
-                        i.icon-calendar3 &nbsp; 19.10.2015
-                  div.entry-content
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.
-                    a(href='/').more-link Weiterlesen ...
 
 
           //- sidebar
-          div.sidebar.nobottommargin.col_last.clearfix
-            div.sidebar-widgets-wrap
-              div.widget.clearfix
-                h4 Mehr von FinBob
-                p (links)
-              div.widget.clearfix
-                h4 Share
-              div.widget.clearfix
-                h4 Newsletter
-              div.widget.clearfix
-                h4 Werbung
-
-
-
-
-
+          include ../_mixins/sidebar
+          mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
 
 
     include ../_includes/footer

@@ -79,16 +79,7 @@ block content
 
           //- </div> ********** END page center - main content **********
           //- ********** sidebar right **********
-          div.sidebar.nobottommargin.col_last.clearfix
-            div.sidebar-widgets-wrap
-              div.widget.clearfix
-                h4 Mehr von FinBob
-                p (links)
-              div.widget.clearfix
-                h4 Share
-              div.widget.clearfix
-                h4 Newsletter
-              div.widget.clearfix
-                h4 Werbung
+          include ../_mixins/sidebar
+          mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
           //- </div> ********** END sidebar right **********
     include ../_includes/footer

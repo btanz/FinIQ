@@ -1,0 +1,11 @@
+//
+   Created by benjamintanz on 22.10.15.
+
+mixin sidebar(...items)
+  div.sidebar.nobottommargin.col_last.clearfix
+    div.sidebar-widgets-wrap
+      each item in items
+        div.widget.clearfix
+          h4=item[0]
+          p=item[1]
+

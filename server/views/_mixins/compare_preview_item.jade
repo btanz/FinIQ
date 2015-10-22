@@ -1,0 +1,11 @@
+//
+   Created by benjamintanz on 22.10.15.
+mixin compare_preview_item(title, teaser, route)
+  div.entry.clearfix
+    div.entry-title
+      h4.nobottommargin.fb
+        a(href=route)=title
+    div.entry-content.notopmargin
+      p.smallbottommargin=teaser
+    div.entry-button
+      a(href=route).button.button-3d.button-mini.button-rounded.button-blue=title
