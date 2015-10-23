@@ -5,18 +5,27 @@ block content
     include _includes/navheader
 
     //- background picture and main messsage
-    section#slider.slider-parallax(style='height: 670px; transform: translate(0px, 0px); background: url(assets/img/landing/img_landing_01.jpg);', data-height-lg='670', data-height-md='500' data-height-sm='400' data-height-xs='250' data-height-xxs='200')
+    //section#slider.slider-parallax(style='height: 670px; transform: translate(0px, 0px); background: url(assets/img/landing/img_landing_01a.jpg);', data-height-lg='670', data-height-md='500' data-height-sm='400' data-height-xs='250' data-height-xxs='200')
       div.container.clearfix
         div.vertical-middle.center(style='position: absolute; top: 50%; width: 100%; margin-top: -14px; opacity: 1.99896;')
           div.heading-block.nobottomborder.center
             h1
               div.text-rotater(data-separator='|', data-rotate='flipInX', data-speed='3500') Antworten auf Ihre Finanzfragen
 
+    section#slider.slider-parallax(style='background: url(assets/img/landing/img_landing_01a.jpg) no-repeat; background-size: cover', data-height-lg='800', data-height-md='500', data-height-sm='400', data-height-xs='300', data-height-xxs='250')
+      div.container.clearfix
+        div.vertical-middle.dark.center
+          div.heading-block.nobottommargin.center
+            h1
+              span.text-rotater.nocolor(data-separator='|', data-rotate='flipInX', data-speed='3500')
+                span.t-rotate Wieviel kann ich für ein Haus ausgeben?|Sollte ich ein Haus besser mieten oder kaufen?|Wie funktioniert eigentlich Bausparen?|Was muss man bei der Geldanlage beachten?
+            span.hidden-xs Personalisierte Tools und Rechner für unabhähngige Finanzentscheidungen.
+
 
     section#content
       div.content-wrap
         //- horizontal content teaser
-        div.promo.promo-light.promo-full.bottommargin-lg.header-stick.notopborder.center
+        //div.promo.promo-light.promo-full.bottommargin-lg.header-stick.notopborder.center
           div.container.clearfix
             h3 Bessere Finanzentscheidungen durch personalisierte und interaktive Tools und Rechner.
 
