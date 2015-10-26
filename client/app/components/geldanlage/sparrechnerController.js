@@ -11,12 +11,16 @@
 
     /** initialize values */
     vm.inputs = {
-      principal: 5000,
-      saving: 300,
+      principal: 10000,
+      saving: 100,
       interest: 1.75,
       term: 10,
       dynamic: 0,
-      saveterm: 0
+      saveterm: 0,
+      inflowfreq: {id: 12},
+      inflowtime: {id: 1},
+      interestfreq: {id: 1},
+      compounding: {id: 1}
     };
 
 
@@ -40,11 +44,11 @@
         term: Math.ceil(vm.inputs.term * 12) / 12,
         inflow: vm.inputs.saving,
         interest: vm.inputs.interest / 100,
-        inflowfreq: 1,
-        interestfreq: 1,
-        compounding: 1,
+        inflowfreq: vm.inputs.inflowfreq.id,
+        interestfreq: vm.inputs.interestfreq.id,
+        compounding: vm.inputs.compounding.id,
         dynamic: vm.inputs.dynamic / 100,
-        inflowtime: 1,
+        inflowtime: vm.inputs.inflowtime.id,
         termfix: Math.ceil(vm.inputs.saveterm * 12) / 12,
         terminal: 120000
       };

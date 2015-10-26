@@ -1,7 +1,7 @@
 angular.module('app').directive('sfSlider', function(){
   return {
     restrict: 'E',
-    templateUrl: '/app/shared/slider/sfSliderTemplate.html',
+    templateUrl: '/app/shared/inputs/slider/sfSliderTemplate.html',
     scope: {
       value: '=',
       type: '@',
