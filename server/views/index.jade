@@ -3,6 +3,7 @@ extends layout
 block content
   div#wrapper.clearfix
     include _includes/navheader
+    mixin navheader(true)
 
     //- background picture and main messsage
     //section#slider.slider-parallax(style='height: 670px; transform: translate(0px, 0px); background: url(assets/img/landing/img_landing_01a.jpg);', data-height-lg='670', data-height-md='500' data-height-sm='400' data-height-xs='250' data-height-xxs='200')
@@ -51,9 +52,9 @@ block content
           div.col_one_fourth
             div.feature-box.fbox-effect
               div.fbox-icon
-                a(href='/')
+                a(href='/geldanlage')
                   i.icon-screen.i-alt
-              h3 Investieren
+              h3 Geld anlegen
               p Text
 
           div.col_one_fourth.col_last
@@ -94,9 +95,9 @@ block content
           div.col_half
             div.feature-box.fbox-effect
               div.fbox-icon
-                a(href='/')
+                a(href='/geldanlage')
                   i.icon-screen.i-alt
-              h3 Investieren
+              h3 Geld anlegen
               p Text
           div.col_half.col_last
             p Bild

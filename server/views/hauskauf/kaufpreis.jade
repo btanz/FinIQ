@@ -5,6 +5,8 @@ extends ../layout
 block content
   div#wrapper.clearfix
     include ../_includes/navheader
+    mixin navheader(false)
+
     //- Page-title
     section#page-title
       include ../_mixins/page_title

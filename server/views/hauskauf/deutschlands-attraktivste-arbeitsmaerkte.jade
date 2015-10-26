@@ -5,6 +5,7 @@ extends ../layout
 block content
   div#wrapper.clearfix
     include ../_includes/navheader
+    mixin navheader(false)
 
     //-page-content
     section#content(ng-controller='deutschlandsbestearbeitsmaerkteController as controller')

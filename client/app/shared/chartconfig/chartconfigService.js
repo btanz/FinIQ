@@ -16,7 +16,7 @@
     var titleStyle = {
         fontWeight: 400,
         fontFamily: '"Lato", sans-serif',
-        fontSize: '17px'
+        fontSize: '16px'
     };
 
 
@@ -37,6 +37,9 @@
     };
 
     var verticalBarConfig = {
+      title: {
+        style: titleStyle
+      },
       options: {
         chart: {
           type: 'column',
@@ -51,6 +54,7 @@
     };
 
     var linechartConfig = {
+
       options: {
         chart: {
           type: 'line',
@@ -71,11 +75,37 @@
       }
     };
 
+    var piechartConfig = {
+      title: {
+        style: titleStyle
+      },
+      options: {
+        chart: {
+          type: 'pie',
+          spacingLeft: spacingLeft,
+          borderWidth: borderWidth,
+          backgroundColor: backgroundColor
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: false
+            },
+            showInLegend: true
+          }
+        }
+      }
+
+    };
+
     /** attach particular charts to return object */
     obj.horizontalBar = horizontalBarConfig;
     obj.verticalBar   = verticalBarConfig;
     obj.linechart     = linechartConfig;
     obj.titleStyle    = titleStyle;
+    obj.piechart      = piechartConfig;
 
     return obj;
   });

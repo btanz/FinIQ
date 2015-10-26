@@ -1,7 +1,16 @@
 //-
    Created by benjamintanz on 05.10.15.
-//header#header.full-header.static-sticky.transparent-header
-header#header.transparent-header.dark.full-header(data-sticky-class='not-dark')
+mixin navheader(landing_page)
+
+  //header#header.full-header.static-sticky.transparent-header
+  if landing_page
+    header#header.transparent-header.dark.full-header(data-sticky-class='not-dark')
+      mixin navheader_content
+  else
+    header#header.full-header.static-sticky.transparent-header
+      mixin navheader_content
+
+mixin navheader_content
   div#header-wrap
     div.container.clearfix
       //- MENU TRIGGER
@@ -25,8 +34,8 @@ header#header.transparent-header.dark.full-header(data-sticky-class='not-dark')
             a(href='/hauskauf')
               div Hauskauf
           li
-            a(href='/investieren')
-              div Investieren
+            a(href='/geldanlage')
+              div Geld anlegen
           li
             a(href='/kreditkarten')
               div Kreditkarten

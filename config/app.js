@@ -15,8 +15,9 @@ var bodyParser    = require('body-parser');
 
 
 /** C. Internal dependencies / Routes */
-var routes        = require('./../server/routes/home/index');
-var hauskaufRoutes= require('./../server/routes/hauskauf/mainRoutes');
+var routes           = require('./../server/routes/home/index');
+var hauskaufRoutes   = require('./../server/routes/hauskauf/mainRoutes');
+var geldanlageRoutes = require('./../server/routes/geld_anlegen/mainRoutes');
 
 
 /** D. Init */
@@ -69,6 +70,8 @@ app.use(express.static(path.join(__dirname, './../client')));
  */
 app.use('/', routes);
 app.use('/hauskauf', hauskaufRoutes);
+app.use('/geldanlage', geldanlageRoutes);
+
 
 /** robots txt route */
 

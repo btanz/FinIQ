@@ -296,7 +296,7 @@
       var result = {},
           helper = {};
 
-      /** convert do decimals */
+      /** convert to decimals */
       inputs.interest           = inputs.interest / 100;
       inputs.notar              = inputs.notar / 100;
       inputs.makler             = inputs.makler / 100;
