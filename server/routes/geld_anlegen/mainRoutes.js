@@ -17,9 +17,16 @@ router.get('/', function(req, res, next) {
   res.render('geld_anlegen/index');
 });
 
+/** GET sparrechner page. */
 router.get('/sparrechner', function(req, res, next) {
   res.render('geld_anlegen/calc-sparrechner');
 });
+
+/** GET assetallokation page. */
+router.get('/assetallokation', function(req, res, next) {
+  res.render('geld_anlegen/calc-assetallokation');
+});
+
 
 
 module.exports = router;

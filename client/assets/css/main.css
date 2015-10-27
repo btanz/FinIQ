@@ -93,6 +93,10 @@ p {
   margin: 10px 0 0 15px;
 }
 
+.ul-post-close li{
+  margin: 5px 0 0 15px;
+}
+
 .strong{
   font-weight: 700;
 }
@@ -306,6 +310,90 @@ option{
   padding: 2px 5px;
 }
 
+/* small alllocation buttons in geld_anlegen */
+.class-icons{
+  border-bottom: 2px solid #009CDE;
+  margin-bottom: 15px;
+}
+
+.class-icons > div {
+  position: relative;
+  cursor: pointer;
+  width: 20%;
+  min-height: 40px;
+  background: #fafafa none repeat scroll 0% 0%;
+  border-right: 4px solid #FFF;
+  float: left;
+  box-sizing: border-box;
+  text-align: center;
+}
+.class-icons>div:hover, .class-icons>div.selected {
+  background-color: #fff;
+}
+
+.class-icons>div:hover>.bottom, .class-icons>div.selected>.bottom {
+  display: block;
+}
+
+.class-icons > div > img{
+  display: block;
+  margin: 10px auto 5px;
+  width: 55px;
+  height: 55px;
+}
+
+.class-icons > div p{
+  color: #009CDE;
+  display: block;
+  margin: 10px auto 15px;
+}
+
+.class-icons > div > .bottom{
+  display: none;
+  position: absolute;
+  bottom: 0px;
+  height: 6px;
+  width: 100%;
+  background: #009CDE none repeat scroll 0% 0%;
+}
+
+@media(max-width: 768px){
+  .class-icons{
+    border: 0;
+  }
+  .class-icons > div.selected{
+    background: #009CDE;
+  }
+  .class-icons > div{
+    min-height: 0;
+    padding: 12px 0;
+    float: none;
+    width: 100%;
+    border-bottom: 2px solid #fff;
+  }
+  .class-icons > div > img{
+    /*display: none;*/
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+  }
+  .class-icons > div p{
+    font-size: 16px;
+    margin: 0 auto;
+  }
+  .class-icons > div.selected p{
+    color: #fff;
+  }
+  .class-icons > div:hover > .bottom, .class-icons > div.selected > .bottom{
+    display: none;
+  }
+}
+
+/* **************** Highcharts custom styles **************** */
+.highcharts-legend-item span {
+  width:70px!important;
+  text-align:right!important;
+}
 
 
 
