@@ -111,6 +111,15 @@ p {
   max-width: 600px;
 }
 
+.sf-well{
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 5px;
+  background-color: #009CDE;
+  color: #fff;
+  max-width: 200px;
+  min-height: 15px;
+}
+
 /* **************** preview element styles **************** */
 .entry-image-small {
   width: 96px !important;

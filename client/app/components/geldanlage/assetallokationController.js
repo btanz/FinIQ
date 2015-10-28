@@ -4,7 +4,8 @@
 
 (function(){
 
-  angular.module('app').controller('assetallokationController', function($scope, $rootScope, chartConfig, geldanlageCalculator) {
+  angular.module('app').controller('assetallokationController', function($scope, $rootScope, chartConfig, geldanlageCalculator, marketdataService) {
+
 
     var vm = this,
         calcResult;
@@ -16,11 +17,30 @@
       principal: 15000
     };
 
+    /** helper function to compute portfolio values */
+    function multiplyArray(arr, val){
+      newArr = [];
+      for (var i = 0; i < arr.length; i += 1){
+        newArr.push(arr[i] * val);
+      }
+      return newArr;
+    }
+
+    function multiplyTwoDimArray(arr,val){
+      newArr2 = [];
+      for (var i = 0; i < arr.length; i += 1){
+        newArr2.push(multiplyArray(arr[i], val));
+      }
+      return newArr2;
+    }
+
+
+
     /** profile name for use in view */
     var profile = ['sehr konservativ', 'konservativ', 'ausgewogen', 'aggressiv', 'sehr aggressiv'];
 
     /** asset allocation */
-    var allocation = [[50,50,0],[40,50,20],[30,30,40],[25,15,60],[10,10,80]];
+    var allocation = [[50,50,0],[30,50,20],[30,30,40],[25,15,60],[10,10,80]];
     var returns_annual = [0.02,0.03,0.04,0.05,0.06];
     var spreads = [0.005,0.007,0.009,0.012,0.015];
 
@@ -35,17 +55,23 @@
       calcResult = geldanlageCalculator.assetgrowth({value: vm.inputs.principal, periods: 21, interest: returns_annual[vm.inputs.selection], spread: spreads[vm.inputs.selection]});
 
       /** change asset values */
+      /*
       $scope.chartConfig_2.series[0].data = calcResult.values;
       $scope.chartConfig_2.series[1].data = calcResult.confidence;
+      */
+      $scope.chartConfig_2.series[0].data = multiplyArray(marketdataService.montecarlo[vm.inputs.selection].values, vm.inputs.principal);
+      $scope.chartConfig_2.series[1].data = multiplyTwoDimArray(marketdataService.montecarlo[vm.inputs.selection].confidence, vm.inputs.principal);
+
 
       /** change allocation based on risk profile */
       $scope.chartConfig_1.series[0].data = [{name: 'Tagesgeld', y: allocation[vm.inputs.selection][0], color:'#009CDE'}, {name: 'Festgeld', y: allocation[vm.inputs.selection][1], color:'#50B432'}, {name: 'Aktien (ETF)', y: allocation[vm.inputs.selection][2], color:'#F38200'}];
 
       /** assign vm result values */
       vm.result = {
-        value:    calcResult.values[calcResult.values.length - 1],
-        low_conf: calcResult.confidence[calcResult.confidence.length - 1][0],
-        high_conf: calcResult.confidence[calcResult.confidence.length - 1][1]
+        value:    marketdataService.montecarlo[vm.inputs.selection].values[marketdataService.montecarlo[vm.inputs.selection].values.length - 1] * vm.inputs.principal,
+        low_conf: marketdataService.montecarlo[vm.inputs.selection].confidence[marketdataService.montecarlo[vm.inputs.selection].confidence.length - 1][0] * vm.inputs.principal,
+        high_conf: marketdataService.montecarlo[vm.inputs.selection].confidence[marketdataService.montecarlo[vm.inputs.selection].confidence.length - 1][1] * vm.inputs.principal,
+        pLoss_10y: marketdataService.montecarlo[vm.inputs.selection].pLoss[10]
       }
 
 
