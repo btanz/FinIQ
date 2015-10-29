@@ -19,24 +19,26 @@ mixin navheader_content
 
       //- LOGO
       div#logo
-        a(href='/', class='standard-logo', data-dark-logo='/assets/img/logo/logo-dark.png')
-          img(src='/assets/img/logo/logo.png', alt='Canvas Logo')
-        a(href='/', class='retina-logo', data-dark-logo='/assets/img/logo/logo-dark@2x.png')
-          img(src='/assets/img/logo/logo.png', alt='Canvas Logo')
+        a(href='/', class='standard-logo', data-dark-logo='/assets/img/logo/logo03-dark.png')
+          img(src='/assets/img/logo/logo03.png', alt='FinIQ Logo')
+        a(href='/', class='retina-logo', data-dark-logo='/assets/img/logo/logo03-dark@2x.png')
+          img(src='/assets/img/logo/logo03.png', alt='FinIQ Logo')
 
       //- PRIMARY NAV
       nav#primary-menu
         ul.sf-js-enabled(style='touch-action: pan-y')
           li
-            a(href='/bausparen')
-              div Bausparen
+            a(href='/geldanlage')
+              div Geld anlegen
           li
             a(href='/hauskauf')
               div Hauskauf
           li
-            a(href='/geldanlage')
-              div Geld anlegen
-          li
+            a(href='/bausparen')
+              div Bausparen
+
+
+          //-li
             a(href='/kreditkarten')
               div Kreditkarten
           li

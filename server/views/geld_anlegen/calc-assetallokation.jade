@@ -29,23 +29,23 @@ block content
               |  informieren.
             div.class-icons.clearfix
               div.allocation.class_1(ng-click='vm.inputs.selection = 0', ng-class='{"selected": vm.inputs.selection === 0}')
-                img(src='/assets/img/geld_anlegen/v_conservative.png')
+                img(src='/assets/img/geld_anlegen/assetallocation_sehrkons_01.jpg')
                 p Sehr konservativ
                 div.bottom
               div.allocation.class_2(ng-click='vm.inputs.selection = 1', ng-class='{"selected": vm.inputs.selection === 1}')
-                img(src='/assets/img/geld_anlegen/v_conservative.png')
+                img(src='/assets/img/geld_anlegen/assetallocation_kons_01.jpg')
                 p Konservativ
                 div.bottom
               div.allocation.class_3(ng-click='vm.inputs.selection = 2', ng-class='{"selected": vm.inputs.selection === 2}')
-                img(src='/assets/img/geld_anlegen/v_conservative.png')
+                img(src='/assets/img/geld_anlegen/assetallocation_ausgew_01.jpg')
                 p Ausgewogen
                 div.bottom
               div.allocation.class_4(ng-click='vm.inputs.selection = 3', ng-class='{"selected": vm.inputs.selection === 3}')
-                img(src='/assets/img/geld_anlegen/v_conservative.png')
+                img(src='/assets/img/geld_anlegen/assetallocation_aggressiv_01.jpg')
                 p Aggressiv
                 div.bottom
               div.allocation.class_5(ng-click='vm.inputs.selection = 4', ng-class='{"selected": vm.inputs.selection === 4}')
-                img(src='/assets/img/geld_anlegen/v_conservative.png')
+                img(src='/assets/img/geld_anlegen/assetallocation_sehraggressiv_01.jpg')
                 p Sehr aggressiv
                 div.bottom
 
@@ -57,7 +57,7 @@ block content
                   h3.xstopmargin.xsbottommargin Als
                     span  sehr konservativer
                     |  Investor haben Sie
-                  ul.ul-post-close
+                  ul.ul-post-close.sbottommargin
                     li Sicherheit als vorrangiges Anlageziel
                     li einen kurzen Anlagezeitraum von 0 bis 5 Jahren
                     li Interesse an einem sehr niedrigem Anlagerisiko
@@ -67,7 +67,7 @@ block content
                   h3.xstopmargin.xsbottommargin Als
                     span  konservativer
                     |  Investor haben Sie
-                  ul.ul-post-close
+                  ul.ul-post-close.sbottommargin
                     li Sicherheit als vorrangiges Anlageziel, akzeptieren aber auch etwas Risiko
                     li einen kurzen Anlagezeitraum von 0 bis 5 Jahren
                     li Interesse an einem niedrigem Anlagerisiko
@@ -77,7 +77,7 @@ block content
                   h3.xstopmargin.xsbottommargin Als
                     span  ausgewogener
                     |  Investor haben Sie
-                  ul.ul-post-close
+                  ul.ul-post-close.sbottommargin
                     li eine gute Balance aus Rendite und Risiko als Anlageziel
                     li einen mittelfristigen Anlagehorizont von 5 bis 15 Jahren
                     li das Ziel, überschaubare Risiken einzugehen, um Renditechancen zu nutzen
@@ -86,7 +86,7 @@ block content
                   h3.xstopmargin.xsbottommargin Als
                     span  aggressiver
                     |  Investor haben Sie
-                  ul.ul-post-close
+                  ul.ul-post-close.sbottommargin
                     li eine hohe Rendite als primäres Anlageziel
                     li einen langfristigen Anlagehorizont von 15 bis 30 Jahren
                     li das Ziel, Renditechancen zu nutzen, und dennoch ausreichend diversifiziert zu bleiben
@@ -95,13 +95,13 @@ block content
                   h3.xstopmargin.xsbottommargin Als
                     span  sehr aggressiver
                     |  Investor haben Sie
-                  ul.ul-post-close
+                  ul.ul-post-close.sbottommargin
                     li eine sehr hohe Rendite als primäres Anlageziel
                     li einen langfristigen Anlagehorizont von 15 bis 30 Jahren, über welchen Sie das angelegte Kapital nicht benötigen
                     li keine Scheu vor großen Schwankungen Ihres Vermögens
                     li Erfahrung mit Anlagen in risikoreicheren Anlageklassen wie Aktien
                 div
-                  p Ausfallwahrscheinlickeit {{vm.result.pLoss_10y * 100}}
+                  h6 In etwa {{vm.result.pLoss_10y * 100 | currency:"%":1 }} aller Fälle ist das Portfolio nach 10 Jahren weniger Wert.
 
               div.divider.notopmargin.lbottommargin
                 i.icon-circle
@@ -113,8 +113,8 @@ block content
                   span  {{vm.inputs.principal | currency:"€":2}} {{vm.profile}}
                   |  anlegen, wird Ihr Portfolio in 20 Jahren
                   ul.ul-post-close
-                    li im Erwartungswert {{vm.result.value | currency:"€":2}} Wert sein und
-                    li mit einer Wahrscheinlickeit von 50 % wird Ihr Portfoliowert zwischen {{vm.result.low_conf | currency:"€":2}} und {{vm.result.high_conf | currency:"€":2}} liegen.
+                    li im Median {{vm.result.value | currency:"€":2}} Wert sein und
+                    li mit einer Wahrscheinlickeit von 50 % wird der Portfoliowert zwischen {{vm.result.low_conf | currency:"€":2}} und {{vm.result.high_conf | currency:"€":2}} liegen.
 
 
             div.col_full
@@ -132,46 +132,24 @@ block content
                 div.tab-container
 
                   div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-6(aria-labelledby='ui-id-6', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
-                    p Der Mieten-oder-Kaufen-Rechner stellt das Endvermögen für die Szenarien Mieten oder Kaufen einer Immobilie bzw. Eigentumswohnung gegenüber und dient damit als Unterstützung bei der Kauf- oder Mietentscheidung. Für beide Szenarien wird das Endvermögen über den gewählten Zeitraum berechnet, indem das Anfangsvermögen sowie Zu- und Abflüsse analysiert werden. Allgemein basiert die Analyse also auf der Bestimmung und Verrechnung aller Zahlungsströme. Wichtige Enflußgröße für das Ergebnis ist das Verhältnis von Mietkosten zu erwarteten Kredit- und Instandhaltungskosten beim Immobilienkauf. Details zur Berechnung für die Szenarien können Sie den folgenden Abschnitten entnehmen.
-                    h5.xsbottommargin Wie das Endvermögen für das Kaufszenario berechnet wird
-                    p.xsbottommargin Die Berechnung des Vermögens für das Kaufszenario lässt sich in drei Schritte unterteilen. Im ersten Schritt werden alle Zahlungen (bzw. Vermögensgegenstände) zum Zeitpunkt des Immobilienkaufs berechnet und addiert. Im zweiten Schritt werden die Zahlungsströme während des gesamten Zeitraumes zwischen Immobilienkauf und Ende des Betrachtungszeitraums (gewähltes "Jahr ab Kauf") erstellt. Schließlich erfolgt die Berechnung von Zahlungsströmen bzw. Vermögensgegenständen am Ende es Zeitraums.
-                    p.xsbottommargin Zur Berechnung der Zahlungen zum Zeitpunkt des Immobilienkaufs wird zunächst die Höhe des erforderlichen Darlehens bestimmt. Diese ergibt sich aus dem eingegebenen Kaufpreis und der Kaufnebenkosten abzüglich des Eigenkapitals. Den positiven Zahlungsströmen/Vermögensgegenständen Darlehensauszahlung und Eigenkapital steht zum Kaufzeitpunkt der negative Zahlungsstrom Kaufpreis der Immobilie inklusive Nebenkosten gegenüber. Der Saldo ergibt grundsätzlich null.
-                    p.xsbottommargin Die Zahlungsströme während der Laufzeit bestehen aus Zinsertrag und -aufwand, Zahlungen zur Darlehenstilgung sowie laufende Kosten der Immobilie. Der Zinsaufwand wird auf Grundlage der ermittelten Darlehenshöhe, der eingegebenen Rückzahlungsrate - welche bis zur vollständigen Rückzahlung des Darlehens nach Voreinstellung dem verfügbaren Einkommen zum Wohnen entspricht - und des Darlehenszinssatzes ermittelt. Weiterhin wird der Zinsertrag aus der Anlage eventueller Differenzen zwischen dem verfügbaren Einkommen zum Wohnen und der Darlehensrückzahlung sowie der Ertrag aus Anlage von Überschüssen nach vollständiger Rückzahlung des Darlehens (sofern zutreffend) berechnet. Aus diesen Rechnungen ergeben sich schließlich die Positionen Zinsaufwand und -ertrag. Die Zahlungen zur Darlehenstilgung ergeben sich aus der angegeben Rückzahlungsrate. Analog berechnen sich die gesamten laufenden Kosten, welche auf Grundlage der Angabe zu den monatlichen laufenden Kosten aggregiert werden.
-                    p Schließlich wird der Immobilienwert am Ende des Zeitraums (Preis plus eventuelle Steigerungen) und eine eventuelle Darlehensrestschuld berechnet. Um das Endvermögen zu berechnen wird letztlich der Saldo aus diesen Größen zu den bereits ermittelten Werten addiert. Ergebnis ist das rechnerische Endvermögen für den Immobilienkauf, welches praktisch alle relevanten Parameter berücksichtigt.
-                    h5.xsbottommargin Wie das Endvermögen für das Mietszenario berechnet wird
-                    p.xsbottommargin Die Berechnung des Endvermögens für das Mietszenario ist vergleichsweise einfach. In diesem Fall setzt sich das Endvermögen aus der Anlage des Eigenkapitals zum eingegebenen/vorgegebenen Zinssatz für die Geldanlage sowie den anfallenden Überschüssen aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und den tatsächlichen Mietkosten zusammen. Im Fall der Miete kann das Eigenkapital, welches andernfalls zur Finanzierung der Immobilie verwendet werden würde, zum Anlagezinssatz angelegt werden. Auch die verfügbaren Überschüsse aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und der Miete können verzinslich angelegt werden.
-                    p Damit ergibt sich das Endvermögen im Mietszenario aus dem anfänglich verfügbaren Eigenkapital, der Differenz aus dem gesamten verfügbaren Wohneinkommen und den gesamten Mietkosten sowie dem Zinsertrag aus der Anlage des Eigenkapitals und des über den Zeitraum anfallenden überschüssigen Kapitals.
+                    p Dieses Tool zur Bestimmung der Allokationen bei der Geldanlage ermittelt die optimale Mischung verschiedender Anlageklassen basierend auf Ihrem Risikoprofil und stellt die erwartete Rendite und das Risiko des Portfolios dar.
+                    p Um die zukünftige Entwicklung zu prognostizieren haben wir historische Renditen von Tagesgeld, Festgeld und einem breit diversifizierten Aktienindex (MSCI World) über die vergangenen 20 Jahre analysiert. Daraufhin haben wir für jedes Risikoprofil Portfolios zusammengestellt und die Entwicklung dieser Portfolios unter Nutzung der historischen Daten 10.000 mal simuliert (Monte-Carlo-Simulation). Die Ergebnisse dieser Simulation sind eine robuste Grundlage für die langfristige Prognose der Portfolioentwicklung und sind im obigen Chart dargestellt.
 
                   div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-7(aria-labelledby='ui-id-7', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
-                    p.xsbottommargin Um Ihnen die Analyse zu erleichtern haben wir bereits sinnvolle Annahmen zur Berechnung getroffen. Die folgenden Abschnitte erläutern die wichtigsten Annahmen. Sie können Annahmen jedoch auch ändern und die Analyse so noch besser auf Ihre persönlichen Verhältnisse zuschneiden, indem Sie die Detailangaben in der Liste der Eingabefelder entsprechend anpassen.
+                    p.xsbottommargin Die folgenden Annahmen gingen in die Simulation und Prognose der Portfolioentwicklung ein:
                     p.xsbottommargin
-                      strong Kaufnebenkosten:
-                      |  Die Kaufnebenkosten bestehen im wesentlichen aus der Grunderwerbssteuer sowie Gebühren für Makler und Notar/Gericht. Im Durchschnitt belaufen sich diese Kosten auf etwa 10 % des Kaufpreises, wobei die Grunderwerbssteuer (je nach Bundesland) ca. 5 % ausmacht, die Maklergebühr etwa 3,8 % sowie Notar- und Gerichtskosten jeweils etwa 0,8 % und 0,4 %.
+                      strong Produktdaten:
+                      |  Für die Kategorie Tagesgeld wurden die historischen Basiszinssätze für Tagesgeld aus den vergangenen 20 Jahren verwendet. Die Zinssätze für 5-jährige Sparbriefe aus den letzten 20 Jahren bilden die Datengrundlage für die Kategorie Festgeld. Quelle der Daten ist die FMH Finanzberatung. Die Kategorie Aktien (ETF) wird repräsentiert durch den MSCI World Index, einem global diversifizierten Aktienfonds. Es gibt diverse kostengünstige ETF's für Privatanleger, welche diesen Index abbilden. Bei der Ableitung der Renditen haben wir die Managementgebühren berücksichtigt.
                     p.xsbottommargin
-                      strong Laufende Kosten:
-                      |  Diese Kosten setzen sich zusammen aus den Kosten für die Nutzung / den Betrieb (Wasser, Heizung, Müll) und die Instandhaltung der Immobilie. Der angenommene Satz von 2,5 % des Kaufpreises ist eine konservative (hohe) Schätzung und setzt sich zusammen aus einem Betriebskostenanteil von 1,25 % und einem Instandhaltungskostenanteil von 1,25 %. Der Betriebskostenanteil von 1,25 % entspricht etwa einem Betriebskostensatz von 25 % der Gesamtmiete für eine vergleichbare Mietwohnung und ist damit eine Annährung an den aktuellen Betriebskostenspiegel. Der Instandhaltungskostensatz orientiert sich an der sogenannten Peterschen Formel zur Abschätzung der Instandhaltungsrücklage für Immobilien. Diese Formel basiert auf empirisch ermittelten durchschnittlichen Instandhaltungskosten und besagt, dass innherhalb von 80 Jahren der 1,5-fache Herstellungswert der Immobilie für die Instandhaltung notwendig wird. Um den Instandhaltungskostensatz zu berechnen gehen wir davon aus, dass die Herstellungskosten der Immobilie zwei Drittel des Kaufpreises ausmachen (Kaufpreis abzüglich u. a. des Grundstücks). Damit ergibt sich der Satz nach der Peterschen Formel aus der Gleichung (Kaufpreis * 0,66 * 1,5) / 80 = Kaufpreis * 1,25 %. Falls Sie genauere Angaben zu den spezifischen Kosten Ihrer Immobilie haben können Sie den Kostensatz natürlich entsprechend anpassen. Nichtdestrotrotz ist der Satz von 2,5 % auf Grundlage realistischer Annahmen für Immobilien in Deutschland ermittelt und kann daher als realistischer Ausgangspunkt für die Berechnung dienen.
+                      strong Ermittlung der erwarteten Renditen
+                      |  Portfoliorenditen wurden mittels Monte-Carlo-Simulation auf Basis historischer Renditen simuliert. Es wurde angenommen, dass während der Anlagedauer keine Portfolioumschichtung vorgenommen wird.
                     p.xsbottommargin
-                      strong Wertsteigerung Immobilie:
-                      |  Die Wertsteigerung ist von Region zu Region unterschiedlich und eine nur mit großer Unsicherheit prognostizierbare Größe. Die Vorgabe von 1,1 % orientiert sich an der langfristigen durchschnittlichen Immobilienrendite in Deutschland über die letzten 10 Jahre.
-                    p.xsbottommargin
-                      strong Steigerung laufende Kosten:
-                      |  Die Vorgabe zur jährlichen Steigerung der laufenden Kosten von 2,2 % orientiert sich an der Entwicklung des Betriebskostenspiegels über die vergangenen 10 Jahre.
-                    p.xsbottommargin
-                      strong Steigerung Mietkosten:
-                      |  Auch die Vorgabe zur jährlichen Steigerung der Mietkosten  orientiert sich an der Entwicklung des Betriebskostenspiegels über die letzten 10 Jahre.
-                    p.xsbottommargin
-                      strong Zinssatz Geldanlage und Darlehen:
-                      |  Die Zinssätze für Geldanlage und Darlehen orientieren sich an den durchschnittlichen aktuellen Marktzinssätzen für langfristige Anlagen und Darlehen. Im Fall der Anlage wird angenommen, dass die Zinsen jährlich dem Kapital zugeschlagen werden und fortan mitverzinst werden (Zinseszins).
-                    p.xsbottommargin
-                      strong Monatliche Rückzahlungsrate:
-                      |  Die Vorgabe für die monatliche Rückzahlungsrate beträgt 90 % des freien verfügbaren Einkommens. Damit wird nahezu das gesamte monatliche verfügbare Einkommen zum Wohnen abzüglich der laufenden Kosten für die Immobilie zur Tilgung des Darlehens verwendet. Diese Einstellung führt zu einer schnellen Tilgung des Darlehens unter Berücksichtigung eines kleinen Liquiditätspuffers. Senken Sie diesen Prozentsatz entsprechend, sofern Sie einen geringeren Betrag zur Darlehenstilgung einsetzen wollen. Damit verlängert sich auch die Darlehensperiode bzw. die am Ende des Betrachtungszeitraums bestehende Restschuld.
-                    p.xsbottommargin
-                      strong Weitere Annahmen:
-                      |  Bezüglich der Zahlungszeitpunkte geht der Rechner davon aus, dass Einkommen zum Wohnen jeweils am Monatsanfang zur Verfügung steht, Mietzahlungen am Monatsanfang geleistet werden und Tilgungszahlungen am Monatsende anfallen.
+                      strong Anlagedauer
+                      |  Die angenommene Anlagedauer beträgt 20 Jahre, wobei der je nach Risikoprofil unterschiedliche hohe Tagesgeldanteil täglich verfügbar ist.
 
 
             div.col_full
-              h3.xsbottommargin Die wichtigsten Informationen für eine ausgewogene Geldanlage
+              h3.xsbottommargin Die wichtigsten Informationen für eine gute Geldanlage
               p Ob Aktien, Fonds, Festgeld, Tagesgeld oder das gute alte Sparbuch, die Möglichkeiten bei der Geldanlage sind unbegrenzt. Jedoch unterscheiden sich die Produkte aus Risiko- und Renditesicht mitunter deutlich. Für eine gute Geldanlage ist die richtige Mischung - von Experten auch Assetallokation genannt - entscheidend. Wir helfen Ihnen, eine gute Mischung für Ihre Geldanlage zu finden.
               p Auch Einstieger können mit ein paar einfachen Regeln Ihre Anlageentscheidungen selbst in die Hand nehmen und damit auf Anlageberater verzichten, welche aufgrund von Provisionsanreizen möglicherweise nicht immer in Ihrem Sinne handeln. Natürlich ist ein vertrauenswürdiger Anlageberater Gold wert, nicht jeder tut sich aber leicht, einen solchen zu finden. Und auch bei dieser Suche gilt: Wer gut informiert ist hat klare Vorteile.
               p Im Kern jeder Entscheidung zur Geldanlage liegt die Abwägung zwischen Rendite und Risiko - nicht mehr und nicht weniger. Für eine höhere Rendite bekommen Sie mehr Risiko, für eine niedrigere Rendite entsprechend weniger Risiko. Daher sollten Sie sich für eine gute Entscheidung mit zwei Fragen beschäftigen:

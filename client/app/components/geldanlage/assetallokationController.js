@@ -7,8 +7,7 @@
   angular.module('app').controller('assetallokationController', function($scope, $rootScope, chartConfig, geldanlageCalculator, marketdataService) {
 
 
-    var vm = this,
-        calcResult;
+    var vm = this;
 
 
     /** initialize values */
@@ -35,15 +34,11 @@
     }
 
 
-
     /** profile name for use in view */
     var profile = ['sehr konservativ', 'konservativ', 'ausgewogen', 'aggressiv', 'sehr aggressiv'];
 
     /** asset allocation */
     var allocation = [[50,50,0],[30,50,20],[30,30,40],[25,15,60],[10,10,80]];
-    var returns_annual = [0.02,0.03,0.04,0.05,0.06];
-    var spreads = [0.005,0.007,0.009,0.012,0.015];
-
 
     /** watch inputs, re-compute, re-assign and redraw on change */
     $scope.$watchCollection('vm.inputs', function(){
@@ -51,17 +46,12 @@
       /** change name of profile */
       vm.profile = profile[vm.inputs.selection];
 
-      /** run computation */
-      calcResult = geldanlageCalculator.assetgrowth({value: vm.inputs.principal, periods: 21, interest: returns_annual[vm.inputs.selection], spread: spreads[vm.inputs.selection]});
-
       /** change asset values */
-      /*
-      $scope.chartConfig_2.series[0].data = calcResult.values;
-      $scope.chartConfig_2.series[1].data = calcResult.confidence;
-      */
       $scope.chartConfig_2.series[0].data = multiplyArray(marketdataService.montecarlo[vm.inputs.selection].values, vm.inputs.principal);
       $scope.chartConfig_2.series[1].data = multiplyTwoDimArray(marketdataService.montecarlo[vm.inputs.selection].confidence, vm.inputs.principal);
 
+      /** change title of second graph depending on profile */
+      $scope.chartConfig_2.title.text = 'Erwartete Rendite und Risiko für ' + vm.profile + 'e Risikoprofile';
 
       /** change allocation based on risk profile */
       $scope.chartConfig_1.series[0].data = [{name: 'Tagesgeld', y: allocation[vm.inputs.selection][0], color:'#009CDE'}, {name: 'Festgeld', y: allocation[vm.inputs.selection][1], color:'#50B432'}, {name: 'Aktien (ETF)', y: allocation[vm.inputs.selection][2], color:'#F38200'}];
@@ -152,7 +142,7 @@
           lineColor: Highcharts.getOptions().colors[0]
         }
       },{
-        name: 'Streuung',
+        name: 'Streuung (50 % Konfidenz)',
         data: geldanlageCalculator.assetgrowth({value: 100, periods: 21, interest: 0.02, spread: 0.005}).confidence,
         type: 'arearange',
         lineWidth: 0,
