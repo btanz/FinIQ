@@ -1,0 +1,78 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    //-page-content
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Wie lege ich Geld an
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Home
+                  li.nobottommargin
+                    a(href='/geldanlage') Geld anlegen
+                  li.nobottommargin
+                    a(href='/geldanlage/wie-lege-ich-geld-an') Wie lege ich Geld an
+
+
+                div.entry-content.mtopmargin
+                  div.entry-image.alignright
+                    a(href='#')
+                      img(src='/assets/img/geld_anlegen/art_wieLegeIchGeldAn_illustration01.jpg', alt='Wie lege ich Geld an')
+                  p Egal ob Sie für die Rente, eine besseren Lifestyle in der Zukunft oder eine größere Anschaffung sparen: Sie können Ihre Ziele besser erreichen, wenn Sie Ihr Geld mit einer guten Anlagestrategie für sich arbeiten lassen. Dieser Artikel wird Ihnen keine konkreten Ratschläge bezüglich einzelner konkreter Investitionen geben, sondern soll Hintergrundwissen zur Geldanlage vermitteln, damit Sie bessere Entscheidungen treffen können. Obwohl es sehr viele teils wiedersprüchliche Informationen zum Thema Geld anlegen gibt gilt: mit etwas Wissen behalten Sie leicht den Durchblick.
+                  h5.xsbottommargin Warum sollte ich Geld anlegen?
+                  p Im Jahr 2014 sparte der durchschnittliche Haushalt in Deutschland 9,4 % seines verfügbaren Einkommens, ein im internationalen Vergleich hoher Wert. Der Durchschnitt verdeckt aber die Tatsache, dass viele Haushalte überhaupt nicht sparen, während andere sehr viel auf die hohe Kante legen. Dabei legen manche kein Geld an, weil am Monatsende nichts übrig bleibt, andere wiederum sind sich nicht sicher, wie Sie investieren sollten und was eigentlich die Vorteile sind. Gehören Sie zu den Letzteren, dann ist dieser Artikel für Sie.
+                  p Die Vorteile einer guten Geldanlage werden schnell klar, wenn man sich die Folgen von Zinseszinseffekten vor Augen führt: Zum Beispiel könnten Sie sich in 30 Jahren über etwa 85.000 € freuen, wenn Sie heute mit 5.000 € Sparguthaben starten und monatlich 100 € bei einem Zinssatz von 4 % einzahlen. Ganze 44.000 € entstehen dabei alleine durch Zins- und Zinseszinseffekte. Wenn Sie das Geld also nicht anlegen und auf dem Gehaltskonto unverzinst liegen lassen würden, dann würden Ihnen € 44.000 entgehen. Sie können mit dem
+                    a(href='/geldanlage/sparrechner')  Sparrechner
+                    |  ausprobieren, wie sich Ihr Guthaben unter verschiedenen Szenarien langfristig entwickelt. Eine erwartete Rendite von 4 % oder mehr können Sie langfristig mit einem diversifizierten Portfolio aus Festgeld und etwas Aktienanteil erzielen.
+
+                  h5.xsbottommargin Wann sollte ich kein Geld anlegen?
+                  p Sie müssen nicht reich sein, um mit dem Investieren zu beginnen. Sie sollten allerdings - sofern möglich - zunächst alle Schulden tilgen. Der Grund ist, dass Zinsen für Dispokredite, Ratenkredite oder auch Baufinanzierungen praktisch immer höher sind die Zinsen einer Geldanlage. Falls Sie zum Beispiel noch 10.000 € Kredit zu 5 % haben und gleichzeitig 10.000 € zu 3 % anlegen, dann würden sie pro Jahr 500 € an die Bank für den Kredit zahlen und 300 € durch die Anlage einnehmen. Unter Strich zahlen Sie also 200 €. Würden Sie dagegen zunächst den Kredit tilgen, könnten Sie sich die 200 € sparen.
+                  div.entry-image.alignleft
+                    a(href='#')
+                      img(src='/assets/img/geld_anlegen/art_wieLegeIchGeldAn_illustration02.jpg', alt='Rendite braucht Zeit')
+                  p Auf eine Festgeld- oder Aktienanlage sollten Sie grundsätzlich auch verzichten, wenn Sie in den nächsten 3 Jahren eine größere Anschaffung planen oder das Geld anderweitig benötigen. Für eine Aktienanlage sollten Sie Zeit haben, auch einmal eine schlechte Marktphase 'auszusitzen'. Sofern man nicht in das Geschäft der Spekulation einsteigen will, sollte man für Aktien einen Anlagehorizont von mindestens 3 Jahren haben. Wer einen solchen Zeitraum jedoch möglich machen kann, dem eröffnen Aktien ausgezeichnete Renditechancen. Wenn man das Geld dann nach einem langen Anlagezeitraum benötigt, kann man es Stück für Stück auf sichere Festgeld- oder Taegsgeldanlagen umschichten.
+
+                  h5.xsbottommargin Die ersten Schritte
+                  p Als erstes sollten Sie sich überlegen, wie viel Risiko für Sie tragbar ist. Können Sie auch in schlechten Marktphasen, wenn der Aktienmarkt über wenige Wochen 30 % fällt, einen kühlen Kopf bewaren und Ihre Strategie durchhalten? Falls Sie diese Frage mit "ja" beantworten können sind Sie in einer guten Ausgangsposition, schließlich haben sich Aktienmärkte bisher praktisch immer erholt. So mancher kann in solchen Situationen jedoch nicht ruhig schlafen. Falls auch Sie unruhige Nächte befürchten fahren Sie anfangs mit einer geringen Aktienquote von 10-20 % besser, den Rest investieren Sie in Fest- oder Tagesgeld. Um eine gute Mischung für Ihre Geldanlage zu finden können Sie das
+                    a(href='/geldanlage/assetallokation')  Tool zur Assetallokation
+                    |  verwenden. Mehr über Rendite und Risiko bei der Geldanlage können Sie
+                    a(href='/geldanlage/assetallokation#risk-profile-info')  hier
+                    |  erfahren.
+                  p Nachdem Sie eine gute Mischung aus Tagesgeld, Festgeld und Aktien gefunden haben geht es an die Umsetzung. Anbieter für Fest- und Tagesgeld finden Sie sowohl Online als auch über Ihren Bankberater. Achten Sie hier auf Transparenz bezüglich der Zinssätze und Kosten und seien Sie vorsichtig bei Anbietern, welche Zinssätze nicht aktiv kommunizieren. Letzlich sind für Sie nur geringe Kosten und hohe Zinssätze entscheidend. Lassen Sie sich nicht von Produkten überzeugen, welche dem Anbieter mehr Rendite bringen als Ihnen. Falls Sie einen persönlichen Ansprechpartner bevorzugen macht es oft Sinn, auf den einen oder anderen Prozentpunkt bei der Rendite zu verzichten. Achten Sie jedoch darauf, dass die Zusammenarbeit für beide Seiten fair ist.
+                  p Für eine diversifizierte Anlage in Aktien sind börsengehandelte Fonds (ETFs) auf einen Index wie etwa den DAX oder den MSCI World praktisch immer die beste Lösung. Diese sind zum einen kostengünstig, da sie kein aktives Management haben, welches laut zahlreicher Studien ohnehin nicht konsistent mehr Rendite erzielt als der jeweilige Vergleichsmarkt. Zum anderen sind Sie damit gut diversifiziert und nicht vom Schicksal einzelner Unternehmen abhängig. Um in ETFs anzulegen benötigen Sie ein einfaches Wertpapierdepot, welches Sie online bei diversen Anbietern eröffnen können. Achten Sie dabei darauf, dass Sie keine oder nur sehr geringe laufende Kosten haben. Nach Eröffnung können Sie direkt auf Einkaufstour gehen. Berücksichtigen Sie aber, dass für einen Transaktion meist noch eine fixe Gebühr anfällt, weshalb sich Transaktionen unter 1.000 € meist nicht lohnen. Kleinere Beträge zahlen Sie daher besser zunächst auf ein Konto ein und warten, bis etwa 1.000 € zusammengekommen sind.
+
+                  h5.xsbottommargin Lassen Sie Ihr Geld für sich arbeiten
+                  p Wie Sie sehen können Sie mit einigen einfachen Grundregeln Ihre Finanzen problemlos selbst in die Hand nehmen und auch mit ruhigem Gewissen und ohne viel Aufwand über einen Fonds in Aktien investieren, sofern eine gute Rendite Ihr Ziel ist und Sie nicht die Ambition haben, besser zu sein als der Markt. Zusammengefasst sollten Sie auf folgende Punkte achten:
+                  ul.ul-post
+                    li Tilgen Sie wenn möglich zunächst alle Kredite
+                    li Investieren Sie nicht in Aktien, sofern Sie auf das Geld nicht 3 Jahre oder länger verzichten können
+                    li Finden Sie eine zu Ihnen passende Mischung aus Tagesgeld, Festgeld und Aktienfonds (ETFs)
+                    li Achten Sie bei der Auswahl von Tages- und Festgeldanlagen genau auf die Zinssätze
+                    li Bei Fonds und Depots sollten Sie auf geringe Kosten Wert legen
+                  p Sind finden mehr Artikel zur Geldanlage im FinIQ
+                    a(href='/geldanlage')  Einmaleins der privaten Geldanlage.
+                  div.divider.notopmargin.mbottommargin
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

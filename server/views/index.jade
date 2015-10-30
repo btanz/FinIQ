@@ -18,8 +18,11 @@ block content
         div.vertical-middle.dark.center
           div.heading-block.nobottommargin.center
             h1
-              span.text-rotater.nocolor(data-separator='|', data-rotate='flipInX', data-speed='3500')
-                span.t-rotate Wieviel kann ich für ein Haus ausgeben?|Sollte ich ein Haus besser mieten oder kaufen?|Wie funktioniert eigentlich Bausparen?|Was muss man bei der Geldanlage beachten?
+              span.text-rotater.nocolor(data-separator='*', data-rotate='flipInX', data-speed='3500')
+                span.t-rotate
+                  a(href='/') Wieviel kann ich für ein Haus ausgeben?*
+                  | Sollte ich ein Haus besser mieten oder kaufen?*Wie funktioniert eigentlich Bausparen?*Was muss man bei der Geldanlage beachten?
+            //a(href="/").button.button-3d.button-rounded.button-red.button-large Jetzt herausfinden
             span.hidden-xs Personalisierte Tools und Rechner für unabhähngige Finanzentscheidungen.
 
 

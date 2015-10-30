@@ -17,6 +17,8 @@ router.get('/', function(req, res, next) {
   res.render('geld_anlegen/index');
 });
 
+
+/** **************** IA. CALCULATOR ROUTES **************** */
 /** GET sparrechner page. */
 router.get('/sparrechner', function(req, res, next) {
   res.render('geld_anlegen/calc-sparrechner');
@@ -25,6 +27,15 @@ router.get('/sparrechner', function(req, res, next) {
 /** GET assetallokation page. */
 router.get('/assetallokation', function(req, res, next) {
   res.render('geld_anlegen/calc-assetallokation');
+});
+
+
+
+/** **************** IB. ARTICLE ROUTES **************** */
+
+/** GET wie geld anlegen. */
+router.get('/wie-lege-ich-geld-an', function(req, res, next) {
+  res.render('geld_anlegen/art-wie-geld-anlegen');
 });
 
 
