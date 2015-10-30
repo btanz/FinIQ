@@ -27,7 +27,7 @@ block content
 
 
     section#content
-      div.content-wrap(style='background-color: #DDE1E2;').nobottommargin
+      div.content-wrap(style='background-color: #DDE1E2;').nobottompadding.stoppadding
         //- horizontal content teaser
         //div.promo.promo-light.promo-full.bottommargin-lg.header-stick.notopborder.center
           div.container.clearfix
@@ -36,7 +36,7 @@ block content
         //- short content overview
         div.container.clearfix
 
-          div.col_one_third.nobottommargin
+          div.col_one_third.mbottommargin.mtopmargin
             div.feature-box.fbox-effect.fbox-center.nobottomborder
               div.fbox-icon
                 a(href='/geldanlage')
@@ -44,7 +44,7 @@ block content
               h3 Geldanlage
 
 
-          div.col_one_third.nobottommargin
+          div.col_one_third.mbottommargin.mtopmargin
             div.feature-box.fbox-effect.fbox-center.nobottomborder
               div.fbox-icon
                 a(href='/hauskauf')
@@ -52,7 +52,7 @@ block content
               h3 Hauskauf
 
 
-          div.col_one_third.nobottommargin.col_last
+          div.col_one_third.mbottommargin.mtopmargin.col_last
             div.feature-box.fbox-effect.fbox-center.nobottomborder
               div.fbox-icon
                 a(href='/')
@@ -69,9 +69,10 @@ block content
               h3 Kreditkarten
               p Text
           div.clear
-          div.line
 
 
+      div.content-wrap.nobottommargin
+        div.container.clearfix
           //- long content overview
           div.col_half.xsbottommargin
             div.feature-box.fbox-effect

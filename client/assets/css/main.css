@@ -163,6 +163,9 @@ ul.tab-nav li a {
 .nobottompadding {
   padding-bottom: 0;
 }
+.stoppadding {
+  padding-top: 15px;
+}
 .xxsbottommargin {
   margin-bottom: 5px;
 }
