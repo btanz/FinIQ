@@ -111,7 +111,7 @@
       }]
     };
 
-    $scope.chartConfig_1 = angular.extend(chartLocal_1 , chartConfig.verticalBar);
+    $scope.chartConfig_1 = angular.merge(chartLocal_1 , chartConfig.verticalBar);
 
 
     /** line chart with house price development */

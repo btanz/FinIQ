@@ -27,7 +27,7 @@ block content
 
 
     section#content
-      div.content-wrap
+      div.content-wrap(style='background-color: #DDE1E2;').nobottommargin
         //- horizontal content teaser
         //div.promo.promo-light.promo-full.bottommargin-lg.header-stick.notopborder.center
           div.container.clearfix
@@ -36,29 +36,30 @@ block content
         //- short content overview
         div.container.clearfix
 
-          div.col_one_third
-            div.feature-box.fbox-effect
+          div.col_one_third.nobottommargin
+            div.feature-box.fbox-effect.fbox-center.nobottomborder
               div.fbox-icon
                 a(href='/geldanlage')
-                  i.icon-screen.i-alt
-              h3 Geld anlegen
-              p Text
+                  i.fa.fa-line-chart.fa-lg.i-alt
+              h3 Geldanlage
 
-          div.col_one_third
-            div.feature-box.fbox-effect
+
+          div.col_one_third.nobottommargin
+            div.feature-box.fbox-effect.fbox-center.nobottomborder
               div.fbox-icon
                 a(href='/hauskauf')
-                  i.icon-screen.i-alt
+                  i.fa.fa-home.fa-lg.i-alt
               h3 Hauskauf
-              p Text
 
-          div.col_one_third.col_last
-            div.feature-box.fbox-effect
+
+          div.col_one_third.nobottommargin.col_last
+            div.feature-box.fbox-effect.fbox-center.nobottomborder
               div.fbox-icon
                 a(href='/')
-                  i.icon-screen.i-alt
+                  i.fa.fa-bar-chart.fa-lg.i-alt
               h3 Bausparen
-              p Text
+
+
 
           //-div.col_one_fourth.col_last
             div.feature-box.fbox-effect
@@ -70,16 +71,31 @@ block content
           div.clear
           div.line
 
+
           //- long content overview
-          div.col_half
+          div.col_half.xsbottommargin
             div.feature-box.fbox-effect
               div.fbox-icon
                 a(href='/geldanlage')
                   i.icon-screen.i-alt
-              h3 Geld anlegen
-              p Text
-          div.col_half.col_last
-            p Bild
+              h3
+                a(href='/geldanlage') Geld anlegen
+              p Bei der Vielzahl an Produkten und Ratschlägen zur Geldanlage ist es einfach, den Überblick zu verlieren. Wir zeigen Ihnen, dass Geld anlegen nicht kompliziert sein muss. Die FinIQ Tools und Visualisierungen helfen Ihnen, gute und unabhänige Entscheidungen zu treffen und Ihre Geldanlage in die eigenen Hände zu nehmen.
+          div.col_half.xsbottommargin.col_last
+            img(src='assets/img/geld_anlegen/sparrechner_01.jpg', alt='Sparrechner zur Geldanlage', style='max-height: 300px;').aligncenter
+          div.clear
+          div.line.notopmargin
+
+          div.col_half.xsbottommargin
+            div.feature-box.fbox-effect
+              div.fbox-icon
+                a(href='/hauskauf')
+                  i.icon-screen.i-alt
+              h3
+                a(href='/hauskauf') Hauskauf
+              p Der Kauf einer Wohnung oder eines Hauses ist vielmals eine der wichtigsten persönlichen und finanziellen Entscheidungen und will nicht nur deshalb gut geplant und ausgeführt sein. Mit den interaktiven Berechnungstools und Guides von FinIQ behalten Sie den Durchblick.
+          div.col_half.xsbottommargin.col_last
+            img(src='assets/img/landing/img_landing_hauskauf_01.jpg', alt='Kaufen-oder-mieten-Tool', style='max-height: 300px;').aligncenter
           div.clear
           div.line
 
@@ -88,22 +104,11 @@ block content
               div.fbox-icon
                 a(href='/')
                   i.icon-screen.i-alt
-              h3 Hauskauf
-              p Text
+              h3
+                a(href='/') Bausparen
+              p Bausparen gilt seit Jahrzenten als sichere und solide Anlageform, daher sind Bausparverträge auch heute sehr beliebt. Wer sich genauer informiert erlebt jedoch die ein oder andere Überraschung. FinIQ hilft Ihnen zu entscheiden, ob Bausparen das Richtige für Sie ist oder ob Sie Ihre Sparziele mit anderen Sparformen besser erreichen.
           div.col_half.col_last
-            p Bild
-          div.clear
-          div.line
-
-          div.col_half
-            div.feature-box.fbox-effect
-              div.fbox-icon
-                a(href='/')
-                  i.icon-screen.i-alt
-              h3 Bausparen
-              p Text
-          div.col_half.col_last
-            p Bild
+            img(src='assets/img/landing/img_landing_bausparen_01.jpg', alt='Bausparen', style='max-height: 300px;').aligncenter
           div.clear
           div.line
 
