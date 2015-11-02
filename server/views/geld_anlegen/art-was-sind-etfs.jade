@@ -1,0 +1,125 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    //-page-content
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Was sind ETFs?
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Home
+                  li.nobottommargin
+                    a(href='/geldanlage') Geld anlegen
+                  li.nobottommargin
+                    a(href='/geldanlage/was-sind-etfs') Was sind ETFs?
+
+
+                div.entry-content.mtopmargin
+                  p ETFs sind nach Meinung vieler Experten die beste Produktklasse für den Einstieg in die langfristige Geldanlage in Aktien. Aber was sind eigentlich ETFs, welche Vorteile haben sie und wie startet man den Einstieg in die Anlage mit ETFs? In diesem Artikel erfahren Sie alle Grundlagen für eine erfolgreiche Anlage in ETFs.
+                  h5.xsbottommargin Was sind ETFs?
+                  p Die Abkürzung ETF steht für exchange-traded fund, zu Deutsch also börsengehandelter Fonds. Wie so viele Finanzprodukte erscheinen ETFs zunächst mal kompliziert und etwas undurchsichtig, sind aber letzlich sehr leicht zu verstehen, wenn man die Bedeutung der drei wichtigsten Eigenschaften von ETFs durchschaut hat. ETFs
+                  ul.ul-post.xsbottommargin
+                    li sind Investmentfonds auf einen Index,
+                    li sind börsengehandelt und
+                    li haben kein aktives Management,
+                  p wobei es von den letzten beiden Eigenschaften einige wenige Ausnahmen gibt. Falls Sie sich nun so schlau wie zuvor fühlen: Keine Sorge, in den folgenden Abschnitten erfahren Sie, worum es sich bei diesen Eigenschaften dreht und wie Sie davon profitieren.
+
+                  h5.xsbottommargin Diversifikation durch Investmentfonds auf einen Index
+                  div.entry-image.alignright
+                    a(href='#')
+                      img(src='/assets/img/geld_anlegen/art_wasSindEtfs_01.jpg', alt='Wie funktionieren Aktien')
+                  p Normalerweise sagen wenige Menschen nein, wenn es wertvolle Dinge kostenlos gibt. Bei der Anlage in Aktien gibt es etwas sehr Wertvolles kostenlos, was sich aber viele Anleger nicht zunutze machen: Sie können weniger Risiko bei gleicher Rendite bekommen, ohne dafür zu zahlen. Der Schlüssel dafür ist die Diversifikation und das Prinzip ist sehr einfach: Statt in eine Aktie zu investieren legen Sie Ihr Geld gleich in einen Korb vieler verschiedener Aktien an und sichern sich so gegen die Risiken einzelner Unternehmen ab. Stellen Sie sich zum Beispiel vor, Sie haben die Möglichkeit, in Aktien der Auto AG und der Chemie AG zu investieren, welche langfristig etwa 5 % Rendite erzielen und sehr volatil sind. Investieren Sie nun alleine in Aktien der Auto AG, ist ihr gesamtes Portfolio komplett den Schwankungen dieser Aktie ausgesetzt. Verteilen Sie Ihr Geld dagegen auf Aktien beider Unternehmen, dann gleichen sich die Schwankungen der Aktien zum Teil aus und der Wert Ihres Portfolios ändert sich weniger als der Wert der einzelnen Aktien, obwohl die langfristige Rendite gleich bleibt. Sie können Ihr Risiko sogar noch weiter diversifizieren, indem Sie Ihr Geld über noch mehr Aktien verteilen und auch die Bank AG, die Versicherungs AG und die Lebensmittel AG in Ihr Portfolio aufnehmen. Je mehr Aktien Sie in das Portfolio nehmen, desto stärker ähnelt Ihr Portfolio einem gesamten Index wie dem Dax. Herzlichen Glückwunsch, Sie haben das Risiko Ihrer Geldanlage deutlich verringert!
+                  p Bei der Umsetzung dieser Strategie gibt es jedoch ein Problem: Beim Kauf und Verkauf einer Aktie entstehen fixe Transaktionskosten. Wollen Sie zum Beispiel 10.000 € auf 30 DAX-Aktien gleich verteilen, dann müssten Sie 333,33 € in jede Aktie investieren und 60 Transaktionen für den Kauf und später den Verkauf tätigen. Bei ca. 10 € Kosten pro Transaktionen haben Sie gleich etwa 6 % Verlust auf die 333,33 € gemacht, welche erst wieder aufgeholt werden müssen, bevor Sie überhaupt Rendite machen können. Diversifikation hin oder her, dies klingt nach keinem guten Geschäft.
+                  p Nun stellt sich die Frage: Warum die 10.000 € nicht gleich mit einer einzigen Transaktion in einen gesamten Index investieren? Doch auch hier gibt es ein Problem: Ein Index ist zunächst mal nur eine rechnerische Größe, welche nach einem bestimmten Verfahren berechnet wird, und daher eine einfache Zahl und kein Produkt zur Geldanlage. Allerdings haben natürlich haben auch Banken und Fondsgesellschaften dieses Problem der Investoren und die Vorteilhaftigkeit der Diversifikation verstanden und bieten daher Investmentfonds an, welche etwa Aktienindizes wie den Dax abbilden. Sie investieren also, zusammen mit anderen Anleger, in einen Investmentfonds einer Fondsgesellschaft. Die Fondsgesellschaft kümmert sich dann um den Aktienkauf und sorgt dafür, dass der Fonds insgesamt den entsprechenden Index abbildet. Das Ziel ist also erreicht: Mit einem Investmentfonds können Sie diversifiziert und kostengünstig in einen breiten Aktienindex anlegen.
+
+                  h5.xsbottommargin Der Fonds geht an die Börse
+                  p Klassische Investmentfonds kann man grundsätzlich nur direkt bei den Fondsgesellschaften zu fest vorgegeben Zeitpunkten kaufen. Beim Kauf erheben die Gesellschaften in der Regel einen Ausgabeaufschlag und in der weiteren Laufzeit fallen Managementgebühren an. Derartige Fonds sind meist vergleichsweise teuer und weniger transparent, werden aber auch heute noch sehr gerne von Banken vertrieben.
+                  p Im Unterschied zu klassischen Investmentfonds werden ETFs, wie der Name schon sagt, einfach an einer Börse gehandelt. Für Sie hat das drei Vorteile: Sie können jederzeit einsteigen und mit einem einfachen Wertpapierdepot Fonds kaufen und verkaufen. Weiterhin ist der Wert eines ETF zu jedem Zeitpunkt sehr nah am Wert des zugrundeliegenden Indexes. Wäre dies nicht der Fall, dann könnten große Investoren Geld verdienen, wenn Sie den ETF kaufen und alle Aktien des Indexes verkaufen oder umgekehrt. Experten bezeichnen dieses Vorgehen als Arbitrage und Investoren würden so lange kaufen und verkaufen, bis der Preis des ETF wieder dem Index entspricht. Sie können die Kontrolle des korrekten Preises des Fonds also einfach dem Markt überlassen, der automatisch für den richtigen Preis sorgen wird. Schließlich gibt es beim ETF keinen Ausgabeaufschlag, Sie zahlen also nur die Transaktionskosten, welche auch beim Handel einer einfachen Aktie entstehen würden.
+                  p Die Handelbarkeit an einer Börse bringt also für Sie als Investor Vorteile hinsichtlich der Preistransparenz und Praktikabilität mit sich. Erfahren Sie im nächsten Abschnitt, warum ETFs auch eine sehr kostengünstige Anlagealternative sind.
+
+                  h5.xsbottommargin Geringe Kosten durch Verzicht auf aktives Management
+                  p Aktives Management bedeutet, dass ein oder mehrere Fondsmanager das Vermögen des Fonds im Sinne der Anleger betreuen und ihre Expertenansichten in die Anlageentscheidungen einbringen. Dies klingt zunächst einmal nach einer sehr guten Sache, da man sein Vermögen in guten Händen wähnt. Mit Sicherheit haben die meisten Fondsmanager auch die Absicht, die besten Entscheidungen im Interesse der Anleger zu treffen. Zahlreiche Studien haben aber inzwischen erwiesen, dass es sehr sehr wenige Fondsmanager gibt, die konsistent mehr Rendite erzielen als eine einfache Investitionen in einen Index erzielen würde. Manager, welche in einem Jahr eine höhere Rendite erzielen, liegen im nächsten Jahr hinter dem Index. Darüber hinaus kann man im Voraus nie wissen, welcher Fondsmanager über die nächste Zeit erfolgreich sein wird. An sich wäre dies zunächst auch kein Problem, so lange Fonds mit aktiven Management im Durchschnitt nicht schlechter abschneiden würden als zum Beispiel ein Aktienindex wie der Dax. Jedoch wollen auch Fondsmanager entlohnt werden, weshalb von den Anlegern Managementgebühren verlangt werden. Aufgrund dieser Gebühren schneiden Fonds mit aktivem Management im Durchschnitt schlechter ab als solche mit passivem Management, welche keine eigenen Fondsmanager benötigen.
+                  table.table.table-striped.xsbottommargin
+                    thead
+                      tr.table-caption
+                        th(colspan='3') Passive Indexfonds sind preisgünstiger
+                      tr.table-head
+                        th
+                        th.text-right Passive Fonds
+                        th.text-right Aktive Fonds
+                    tbody
+                      tr
+                        td Renditeziel
+                        td.text-right Rendite wie Index
+                        td.text-right Rendite höher als Index
+                      tr
+                        td Tatsächliche Rendite
+                        td.text-right Index abzüglich laufender Kosten
+                        td.text-right Index (im Durchschnitt) abzüglich laufender Kosten
+                      tr
+                        td &nbsp; Anschaffungskosten
+                        td.text-right ca. 0,2 %
+                        td.text-right 1,0 - 5,0 %
+                      tr
+                        td &nbsp; Laufende Kosten (Management Fee)
+                        td.text-right ca. 0,2 - 0,5 % pro Jahr
+                        td.text-right ca. 1,0 - 1,5 % pro Jahr
+                  p.xxstopmargin.xsbottommargin.stext Quelle: Diverse Fondsanbieter (Stand: November 2015)
+
+
+                  p Unterm Strich zahlen Sie also bei Fonds mit aktivem Management für Leistungen, welche Ihnen im Durchschnitt nicht mehr Anlageerfolg bringen. Daher sind ETFs, welche praktisch immer nur ein passives Management haben, ein ausgezeichnetes Produkt für ein diversifizierte Geldanalage in Aktien.
+
+                  h5.xsbottommargin Wie investiere ich in ETFs?
+                  p Falls Sie sich entschieden haben, in ETFs zu investieren, werden Sie sich vielleicht Fragen, wie Sie dabei am besten vorgehen. Wir erklären Ihnen, wie Sie in zwei Schritten zu einem passenden ETF kommen.
+                  p Als erstes benötigen Sie ein Wertpapierdepot, welches Sie bei verschiedenen Online-Brokern eröffnen können. Achten Sie darauf, dass Sie mit dem Depot ETFs handeln können, die Ordergebühren fair sind und keine (hohen) laufenden Kosten für das Depot anfallen.
+                  p Nachdem Sie ein Wertpapierdepot eröffnet haben geht es an die Auswahl des passenden ETFs. Sie müssen zwei wichtige Entscheidungen treffen:
+                  ol.ul-post.xsbottommargin
+                    li In welchen Index soll investiert werden?
+                    li Sollen anfallende Dividenden ausgeschüttet oder wieder angelegt werden?
+
+                  p Widmen wir uns zunächst der wichtigsten Entscheidung, der Auswahl des Indexes. Hier haben Sie die Qual der Wahl, da es weltweit eine ganze Menge an Aktienindizes gibt. Damit Sie nicht den Überblick verlieren haben wir die wichtigsten Indizes in der folgenden Liste für Sie gegliedert nach Geographie zusammengefasst.
+                  ul.ul-post.xsbottommargin
+                    li Welt
+                    ul.ul-post-second.xsbottommargin
+                      li MSCI World - die 1900 größten Aktiengesellschaften der Industrieländer
+                      li MSCI Emerging Markets Index - die größten Aktiengesellschaften der Entwicklungsländer
+                    li Europa
+                    ul.ul-post-second.xsbottommargin
+                      li Euro Stoxx 50 - die 50 größten Unternehmen der Eurozone
+                      li Stoxx Europe 50 - die 50 größten Unternehmen Europas (inklusive Nicht-Euro-Länder)
+                    li Deutschland
+                    ul.ul-post-second.xsbottommargin
+                      li DAX - die 30 größten Unternehmen Deutschlands
+                      li MDAX - 50 große deutsche Unternehmen, welche auf die 30 DAX-Unternehmen folgen
+                      li TecTAX - 30 der größten deutschen Technologieunternehmen
+                  p Falls Sie sich nicht sicher sind, welcher Index der Richtige ist, dann schauen Sie sich den MSCI World genauer an. Damit sind Sie global diversifiziert aufgestellt und nicht alleine von den Entwicklungen in einzelnen Regionen der Welt abhängig.
+                  p Nachdem Sie sich für einen Index entschieden haben müssen Sie nun noch einen ETF auf diesen Index finden, wofür Sie einfach zum Beispiel Google nutzen können. Achten sie bei der Entscheidung für einen konkreten ETF darauf, ob Dividenden wiederangelegt (thesauriert) oder ausgeschüttet werden. Bei Wiederanlage von Dividenden kommen Sie zwar nicht in den Genuß regelmäßiger Ausschüttungen aus dem Fonds, jedoch profitieren Sie bei der Wiederanlage von Zinseszinseffekten, da es auf die neu angelegten Dividenden in Zukunft auch wieder Dividenden gibt. Thesaurierende Fonds sind zu empfehlen, wenn Sie langfristig anlegen und nicht auf Ausschüttungen angewiesen sind. Nutzen Sie nun das Depot beim Online-Broker Ihrer Wahl, um Ihren ETF zu günstigen Transaktionskosten zu kaufen. Wir wünschen viel Erfolg bei der Geldanlage in ETFs!
+
+
+                  p Sie finden mehr Artikel zur Geldanlage im FinIQ
+                    a(href='/geldanlage')  Einmaleins der privaten Geldanlage.
+                  div.divider.notopmargin.mbottommargin
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

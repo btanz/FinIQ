@@ -92,6 +92,11 @@ p {
 .ul-post li{
   margin: 10px 0 0 15px;
 }
+.ul-post-second li{
+  margin: 3px 0 0 25px;
+}
+
+
 
 .ul-post-close li{
   margin: 5px 0 0 15px;
@@ -135,7 +140,18 @@ p {
 }
 .table>thead>tr>th{
   padding-bottom: 4px;
+
 }
+
+.table-caption{
+  font-size: 18px;
+}
+
+.table > thead .table-head>th{
+  border-bottom: 2pt solid #009CDE;
+}
+
+
 /* **************** tabs styles **************** */
 ul.tab-nav li a {
   font-weight: 400 !important;

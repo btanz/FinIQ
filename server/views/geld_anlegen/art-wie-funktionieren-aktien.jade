@@ -1,0 +1,64 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    //-page-content
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Wie funktionieren Aktien?
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Home
+                  li.nobottommargin
+                    a(href='/geldanlage') Geld anlegen
+                  li.nobottommargin
+                    a(href='/geldanlage/wie-funktionieren-aktien') Wie funktionieren Aktien?
+
+
+                div.entry-content.mtopmargin
+                  p Vielleicht haben Sie schon länger gefragt, was Aktien eigentlich genau sind und warum es Sinn machen kann, Geld in Aktien anzulegen. Wenn dem so ist, dann sind Sie hier genau richtig: Wir erklären Ihnen, warum es Aktien gibt, wie Sie funktionieren und warum es klug sein kann, Geld in Aktien anzulegen.
+                  h5.xsbottommargin Was sind Aktien und warum gibt es sie?
+                  div.entry-image.alignright
+                    a(href='#')
+                      img(src='/assets/img/geld_anlegen/art_wiefunktioneren_aktien_01.jpg', alt='Wie funktionieren Aktien')
+                  p Stellen Sie sich vor, Sie haben ein kleines florierendes Unternehmen gegründet und Ihre Produkte kommen so gut an, dass Sie entscheiden, Ihr Unternehmen zu vergrößern. Dazu werden Sie Mitarbeiter und neue Bürofläche benötigen, Sie müssen also investieren. Um zu investieren brauchen Sie eine Finanzierung, welche Sie zum Beispiel bei der Bank über einen Kredit bekommen. Neben dem Kredit gibt es aber eine weitere Alternative: Sie geben Anteilsscheine an Ihrem Unternehmen aus und erlauben anderen Menschen, sich an Ihrem Unternehmen zu beteiligen, indem Sie diese Anteilsscheine kaufen. Solche Anteilsscheine nennt man Aktien, die Inhaber der Anteilsscheine Aktionäre und der Vorgang der Ausgabe neuer Anteile wird als Neuemission bezeichnet. Aktionäre sind am Erfolg Ihres Unternehmens interessiert und bekommen als Gegenleistung für ihr Engagement das Recht auf entsprechende Informationen, einen kleinen Anteil an Ihrem Unternehmen sowie begrenzte Mitbestimmungsrechte. Was ist nun aber der Unterschied zwischen einem Kredit von der Bank und Aktien? Die Bank verlangt einen festen Zinssatz von zum Beispiel 4 % pro Jahr, welchen Sie unabhängig vom Erfolg Ihres Unternehmens an die Bank zahlen. Die Aktionäre hingegen erhalten eine Dividende, welche sich am Erfolg Ihres Unternehmns bemisst und welche auf Grundlage Ihres Gewinns festgestellt wird. Die Aktionäre bekommen also wenig Geld, wenn Ihr Unternehmen gerade nicht so gut läuft, und viel Geld, wenn es sehr gut läuft. Das ist der Grund, warum eine Investition in Aktien mit Risiken und Chancen verknüpft ist.
+                  h5.xsbottommargin Die Börse als Marktplatz für Aktien
+                  p Nachdem Sie Aktionäre gefunden haben und Ihr Unternehmen weiter gewachsen ist wird es früher oder später dazu kommen, dass einige Investoren Ihre Aktien verkaufen möchten und neue Investoren an Ihrem Unternehmen interessiert sind. Die alten und neuen Aktionäre können sich an der Börse treffen, um dort ihre Aktien gegen Geld auszutauschen. Da sich an den großen Börsen viele Aktionäre gleichzeitig treffen und viele Aktien gehandelt werden funktioniert die Preisbildung dort praktisch automatisch. Wenn Sie zum Beispiel an der Börse Frankfurt eine Aktie kaufen wollen, dann müssen Sie nicht erst zum Börsenparkett laufen und verhandeln, sondern bekommen direkt den Preis angezeigt, welcher gerade das Angebot und die Nachfrage nach Aktien ausgleicht. Sie müssen sich also nur noch entscheiden, ob Sie zum aktuellen Preis kaufen möchten oder nicht. Die Börse findet automatisch den oder die Verkäufer, welche die Aktien zum angezeigten Preis an Sie verkaufen würden. Wie Sie sehen sind Aktien und die Börse also nichts besonders Geheimnisvolles.
+                  h5.xsbottommargin Warum fallen und steigen Aktien?
+                  p Die einfache Antwort auf diese Frage lautet: Eine Aktie steigt, wenn es mehr Anbieter als Nachfrager für diese Aktie gibt. Nun werden Sie sich wahrscheinlich Fragen, warum sich das Angebot und die Nachfrage nach Aktien verändern bzw. warum Anleger bestimmte Aktien manchmal kaufen oder verkaufen möchten. Auch dies ist eigentlich ganz einfach, denn es gibt letztlich vier wichtige Gründe, zwei davon eher langfristig und zwei eher kurzfristig.
+                  div.entry-image.alignleft
+                    a(href='#')
+                      img(src='/assets/img/geld_anlegen/art_wiefunktioneren_aktien_02.jpg', alt='Wie funktionieren Aktien')
+                  p Der erste langfristige Grund sind die zukünftigen erwarteten Unternehmensgewinne, welche langfristig als Dividende ausgezahlt werden können. Wenn Sie sich an das Wachstum Ihres florierenden Unternehmens erinnern: Ihre ausgegeben Aktien sind im Grunde so viel Wert, wie Sie als Dividende in der Zukunft aus Ihrem Gewinn an die Aktionäre ausschütten können. Der Preis Ihrer Aktie wird bereits heute steigen, wenn Aktionäre glauben, dass Ihr Unternehmen in der Zukunft hohe Gewinne erzielen wird. Der zweite langfristige Grund ist der aktuelle Marktzins für Festgeldanlagen. Wenn der Marktzins niedrig ist gehen Investoren eher etwas mehr Risiko ein und kaufen Aktien, um eine zufriedenstellende Rendite zu erzielen. Daher erfahren dann alle Aktien auch in der Tendenz eine Preissteigerung. Umgekehrt fallen Aktien, wenn sich der Zinssatz erhöht. Der Zinssatz wird letzendlich von der Zentralbank bestimmt, darum sind Entscheidungen der Zentralbank für Investoren von so großem Interesse.
+                  p Kommen wir nun zu den eher kurzfristigen Gründen. Zu diesen gehört als erstes die Psychologie. Viele Studien haben gezeigt, dass Irrationalität und "Herdentrieb" eine große Rolle bei Anlageentscheidungen spielen. Zum Beispiel gibt es oft Überreaktionen, wenn besonderes gute oder schlechte Informationen über ein Unternehmen bekannt werden bzw. Unternehmen oft in den Medien sind. In solchen Zeiten schwankt der Aktienkurs stark, Experten sprechen von hoher Volatilität. Wer hier einen kühlen Kopf bewahrt und die langfristigen Perspektiven eines Unternehmens einigermaßen objektiv einschätzen kann vermeidet es, vorschnelle Entscheidungen zu treffen. Der zweite Grund für starke kurzfristige Schwankungen wird von Experten als Liquiditätsbedarf bezeichnet. In manchen Situationen müssen viele Aktionäre Ihre Aktien verkaufen, weil Sie das Geld benötigen. Ein Extremfall war die Finanzkrise 2008, in welcher viele Banken Aktienportfolios verkaufen mussten, weil Sie das in Aktien gebundene Geld benötigten. Geschickte Anleger nutzen solche Zeitpunkte, um preiswert in den Aktienmarkt einzusteigen, getreu der alten Regel: "Kaufe niedrig, verkaufe hoch."
+                  h5.xsbottommargin Warum kann es klug sein, Geld in Aktien anzulegen?
+                  p Viele scheuen die Risiken einer Aktienanlage und ziehen das gute alte Festgeldkonto vor, da es praktisch keinen Schwankungen unterliegt. Wenn man sich damit wohlfühlt kann die Anlage in Festgeld alleine eine gute Entscheidung sein, schließlich ist die Anlageentscheidung etwas sehr Persönliches. Man sollte sich jedoch vor Augen führen, dass Festgeld langfristig praktisch keine Rendite bringt, da der geringe Zinssatz in der Regel von der Inflation wieder ausgeglichen wird. Bevor Ihr Geld als auf dem Gehalts- oder Festgeldkonto versauert überlegen Sie sich, ob es nicht besser ist, einen bestimmten Anteil in Aktien zu investieren, denn langfristig haben Aktien über die letzten Jahrzente im Durchschnitt eine Rendite von 4 bis 6 % pro Jahr erzielt. Sie können das
+                    a(href='/geldanlage/assetallokation')  FinIQ Tool zur Assetallokation
+                    |  nutzen, um einzuschätzen, wie Sie Ihr Geld auf Grundlage Ihrer Risikoneigung auf Tagesgeld, Festgeld und Aktien verteilen sollten und welche Rendite Sie damit über die letzten Jahre erzielt hätten. Wenn Sie sich entscheiden, in Aktien zu investieren, ist die Anlage in einen breit gestreuten börsengehandelten Fonds (ETF) praktisch immer die beste Alternative, da Sie dann nicht vom Schicksal eines einzelnen Unternehmens abhängig sind. Solche ETFs gibt es zum Beispiel auf Aktienindizes wie den DAX oder den globalen MSCI World.
+                  p Egal für welche Anlagestrategie Sie sich entscheiden, halten Sie immer die Augen geöffnet und behalten Sie einen kühlen Kopf. So erhöhen Sie sehr wahrscheinlich langfristig Ihre Rendite und Fallen nicht auf schlechte Ratschläge herein.
+                  p Sind finden mehr Artikel zur Geldanlage im FinIQ
+                    a(href='/geldanlage')  Einmaleins der privaten Geldanlage.
+                  div.divider.notopmargin.mbottommargin
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

@@ -39,5 +39,16 @@ router.get('/wie-lege-ich-geld-an', function(req, res, next) {
 });
 
 
+/** GET wie funktioniert der Aktienmarkt */
+router.get('/wie-funktionieren-aktien', function(req, res, next) {
+  res.render('geld_anlegen/art-wie-funktionieren-aktien');
+});
+
+/** GET was sind ETFs */
+router.get('/was-sind-etfs', function(req, res, next) {
+  res.render('geld_anlegen/art-was-sind-etfs');
+});
+
+
 
 module.exports = router;
