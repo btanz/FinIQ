@@ -1,0 +1,71 @@
+//
+   Created by benjamintanz on 05.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+    //- Page-title
+    section#page-title
+      include ../_mixins/page_title
+      mixin page_title('Bausparen', 'Was Sie zum Thema Bausparen wissen müssen', ['Home', '/'], ['Bausparen', '/bausparen', 'true'])
+
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- main content
+          div.postcontent.nobottommargin.clearfix
+            //- calculators
+            div.col_half
+              div.fancy-title.title-bottom-border.xsbottommargin
+                h3.nobottompadding Rechentools
+              div#posts
+                include ../_mixins/calc_preview_item
+
+                mixin calc_preview_item('Sparrechner', 'Der Sparrechner zeigt Ihnen, wie das von Ihnen angelegte Geld über die Zeit anwächst. Sie können die Ergebnisse auf Ihre Situation zuschneiden, indem Sie Parameter wie u. a. die Sparrate, den Sparzeitraum und den Zinssatz individuell einstellen.', '/geldanlage/sparrechner', 'assets/img/geld_anlegen/sparrechner_01.jpg', 'Sparrechner')
+
+                mixin calc_preview_item('Wie verteile ich mein Geld am besten?', 'Ob Aktien, Fonds, Festgeld, Tagesgeld oder das gute alte Sparbuch, die Möglichkeiten bei der Geldanlage sind unbegrenzt. Jedoch unterscheiden sich die Produkte aus Risiko- und Renditesicht mitunter deutlich. Für eine gute Geldanlage ist die richtige Mischung - von Experten auch Assetallokation genannt - entscheidend. Wir helfen Ihnen, eine gute Mischung für Ihre Geldanlage zu finden.', '/geldanlage/assetallokation', 'assets/img/geld_anlegen/assetallocation_01.jpg', 'Wie verteile ich mein Geld am besten?')
+
+            //- from blog
+            div.col_half.col_last
+              //div.fancy-title.title-bottom-border.xsbottommargin
+                h3.nobottompadding Vergleichstools
+              //div#posts
+                include ../_mixins/compare_preview_item
+
+                mixin compare_preview_item('Vergleichen Sie verschiedene Baufinanzierungen', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, asperiores quod est tenetur in. Eligendi, deserunt, blanditiis est quisquam doloribus voluptate id aperiam ea ipsum magni aut perspiciatis rem voluptatibus officia eos rerum deleniti quae nihil facilis repellat atque vitae voluptatem libero at eveniet veritatis ab facere.', '/')
+
+
+              div.fancy-title.title-bottom-border.xsbottommargin
+                h3.nobottompadding Artikel
+              div
+                include ../_mixins/article_preview_item
+
+                mixin article_preview_item('Wie lege ich Geld an?', 'Wir zeigen Ihnen, wie Sie ihr Geld für sich arbeiten lassen.', '/geldanlage/wie-lege-ich-geld-an')
+
+                mixin article_preview_item('Wie funktionieren Aktien?', 'Das Wichtigste zum Einstieg in die Welt der Aktien.', '/geldanlage/wie-funktionieren-aktien')
+
+                mixin article_preview_item('Was sind ETFs?', 'ETFs sind eine ausgezeichnete Produktklasse für den Einstieg in die Aktienanlage. Die Gründe erfahren Sie in diesem Artikel.', '/geldanlage/was-sind-etfs')
+
+
+
+              div.fancy-title.title-bottom-border.xsbottommargin
+                h3.nobottompadding Aus unserem Blog
+
+              div#posts.small-thumbs
+                include ../_mixins/blog_preview_item
+
+                mixin blog_preview_item('4 verbreite Irrtümer zur Geldanlage', '29.10.2015', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/hauskauf/schnaeppchen-regionen-zum-bauen', 'assets/img/hauskauf/img_schnaeppchen.jpg', '10 Schnäppchen-Regionen zum Bauen')
+
+                mixin blog_preview_item('Die erfolgreichsten ETFs der letzten Jahre', '15.10.2015', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '/hauskauf/uebersicht-der-grundstueckspreise', 'assets/img/hauskauf/img_grundstueckspreise.jpg', 'Übersicht der Grundstückspreise')
+
+
+
+          //- sidebar
+          include ../_mixins/sidebar
+          mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+
+
+    include ../_includes/footer
