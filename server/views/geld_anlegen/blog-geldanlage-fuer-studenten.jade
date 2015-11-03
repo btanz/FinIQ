@@ -1,0 +1,92 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    //-page-content
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Tipps zur Geldanlage für Studenten
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Blog
+                  li.nobottommargin
+                    a(href='/geldanlage') Geldanlage
+                  li.nobottommargin
+                    a(href='/geldanlage/geldanlage-fuer-studenten') Geldanlage für Studenten
+
+                ul.entry-meta.clearfix
+                  li
+                    i.icon-calendar3
+                    | 02.11.2015 &nbsp
+                    i.icon-user
+                    | FinIQ &nbsp
+
+
+                div.entry-content.notopmargin
+                  p Mit guten Geldanlageentscheidungen schon zur Studienzeit können Sie die Grundlage legen für mehr Geld und einen besseren Lifestyle in der Zukunft. Allerdings sind gute und objektive
+                    | Tipps zur Geldanlage für Studenten Mangelware, insbesondere auch da Studenten eine sehr beliebte Zielgruppe für manche Banken und Versicherungen sind, welche Sie schon sehr frühzeitig mit langfristigen Produkten an
+                    | sich binden wollen. Darum haben wir die aus unserer Sicht wichtigsten Tipps zur Geldanlage für Studenten in diesem Artikel für Sie zusammengefasst.
+                  h4.sf-styled-h4 1. An die Rente können Sie auch später noch denken
+                  p Sehr oft entsteht der Eindruck, für die Rente und das Eigenheim könne man nie früh genug beginnen zu sparen und der unterschriftsreife Bausparvertrag liegt schnell auf Ihrem Schreibtisch. Sie sollten aber in jungen Jahren nichts übers Knie brechen was das Sparen und
+                    | Geld anlegen betrifft, denn schließlich ist das Studium letzlich Ihre beste Investition für die Altersvorsorge. Vorlesungen, Klausuren und Hausarbeiten werden sich in Zukunft für Sie auszahlen und Sie werden durchschnittlich wesentlich
+                    | mehr Einkommen haben als zur Studienzeit. Wenn Sie also knapp bei Kasse sind können Sie genauso gut auf die langfristige Anlage pfeifen und Ihre Studienzeit genießen. Sie würden möglicherweise sogar finanziell besser dastehen, sollten Sie dadurch früher das Studium abschließen und damit früher Einkommen erzielen können.
+                  p Ein gerne vorgebrachtes Argument für eine frühzeitige Geldanlage ist der Zinseszinseffekt, welcher dafür sorgt, dass sich Ihre Ersparnisse in Zukunft praktisch automatisch selbst vermehren. Dies ist grundsätzlich auch richtig, wie man anhand des
+                    a(href='/geldanlage/sparrechner')  FinIQ Sparrechners
+                    |  nachvollziehen kann. Allerdings sind die Zinsen aktuell so niedrig, dass dieser Effekt eine deutlich geringere Anziehungskraft hat als vor einigen Jahren und Jahrzehnten.
+                  p Falls Sie nun zu den wenigen Glücklichen gehören, die schon zur Studienzeit mehr Geld zur Verfügung haben, als Sie ausgeben müssen und wollen, dann sollten Sie sich genauer mit dem Thema Geldanlage auseinandersetzen. Dazu haben wir weitere Tipps für Sie.
+                  h4 2. Nehmen Sie Ihre finanzielle Zukunft selbst in die Hand
+                  p Geld anlegen ist nicht kompliziert, wird nur manchmal kompliziert gemacht. Mit etwas Information und einem "Schritt-für-Schritt"-Ansatz können Sie Ihre finanzielle Zukunft selbst in die Hand nehmen und
+                    | müssen nicht auf die Ratschläge anderer Vertrauen. Die Online-Angebote vieler Banken und Finanzdienstleister erlauben Ihnen sogar, Ihre Pläne selbständig und bequem Online umzusetzen - und das meist kostengünstiger als in den meisten Bankfilialen. Aber vor der Umsetzung kommt die Planung, und vor der Planung die Information. Über welche Theme sollten Sie also informiert sein?
+                  p Zum Einstieg sollten Sie sich drei Fragen stellen:
+                  ol.ul-post.xsbottommargin
+                    li Was sind meine Anlageziele und wie lange kann ich auf das angelegte Geld verzichten?
+                      br
+                      | Grundsätzlich gilt: Je langfristiger Sie denken (können), desto mehr können Sie in risikoreichere Produkte wie Aktien investieren. Auf eine Festgeld- oder Aktienanlage sollten Sie grundsätzlich auch verzichten, wenn Sie in den nächsten 3 Jahren eine größere Anschaffung planen oder das Geld anderweitig benötigen.
+                    li Möchte ich etwas mehr Risiko eingehen oder bleibe ich besser auf der sicheren Seite?
+                      br
+                      | Bei der Geldanlage dreht sich alles um Rendite und Risiko. Je mehr Risiko Sie eingehen, desto mehr Rendite können Sie erwarten. Mehr Risiko bedeuted aber auch größere Schwankungen Ihres Vermögens. Nur Sie können einschätzen, wie groß Ihre Risikoneigung ist. Mit dem
+                      a(href='/geldanlage/assetallokation')  FinIQ Tool zur Assetallokation
+                      |  können Sie verschiedene Risikoprofile vergleichen.
+                    li Was sind die wichtigsten Produkte für meine Geldanlage?
+                      br
+                      | Zum Einstieg reicht es, wenn Sie sich mit Tagesgeld, Festgeld und Aktien bzw. ETFs (börsengehandelte Fonds) näher beschäftigen. Schaffen Sie sich ein Grundverständnis für die Produkte und meiden Sie komplizierte und exotische Produkte. Eine Produktüberblick können Sie sich
+                      a(href='/geldanlage/assetallokation#product-info')  hier
+                      |  verschaffen.
+
+                  h4 3. Werden Sie aktiv, aber gehen Sie Schritt für Schritt vor
+                  p Für Sie sich vor Augen, dass jedes Jahr, in welchem Ihr Geld unverzinst auf dem Konto liegt, ein verschenktes Jahr ist, denn Sie könnten stattdessen Ihr Geld für Ihre Zukunft arbeiten lassen. Es mag Gründe geben, Ihr Geld unverzinst verfügbar zu halten, Sie sollten sich dann aber aktiv dafür entscheiden.
+                  p Sie sind sich anfangs nicht ganz sicher, ob Sie das Richtige tun? Keine Sorge, da sind Sie nicht alleine. Gehen Sie Schritt für Schritt vor und starten Sie langsam. Falls Sie sich zum Beispiel dafür entschieden haben, einen Anteil Ihres Geldes in einen ETF anzulegen, dann eröffnen Sie ein Depot und investieren
+                    | zunächst mal einen kleinen Betrag. Danach geben Sie Jahr für Jahr etwas mehr Geld in ETFs. Damit sammeln Sie nicht nur Erfahrung, sie machen die Rendite Ihres Investments auch weniger abhängig vom Einstiegszeitpunkt (dies wird in der Investmenttheorie auch als 'Cost Averaging' bezeichnet).
+
+                  p Informationen zu ETFs finden sie im Artikel
+                    a(href='/geldanlage/was-sind-etfs')  Was sind ETFs
+                    | .
+                  p Mehr zur Geldanlage finden Sie im FinIQ
+                    a(href='/geldanlage')  Einmaleins der privaten Geldanlage.
+
+                  div.divider.notopmargin.mbottommargin
+
+
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

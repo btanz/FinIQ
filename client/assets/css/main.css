@@ -33,6 +33,10 @@ h6 {
   font-weight: 500;
   font-size: 14px;
 }
+.sf-styled-h4{
+  color: red;
+}
+
 p {
   margin-bottom: 10px;
 }

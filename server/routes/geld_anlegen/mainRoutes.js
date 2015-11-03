@@ -51,4 +51,16 @@ router.get('/was-sind-etfs', function(req, res, next) {
 
 
 
+
+/** **************** IC. BLOG ROUTES **************** */
+
+/** GET Geldanlage für Studenten */
+router.get('/geldanlage-fuer-studenten', function(req, res, next) {
+  res.render('geld_anlegen/blog-geldanlage-fuer-studenten');
+});
+
+
+
+
+
 module.exports = router;
