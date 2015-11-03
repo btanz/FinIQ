@@ -1,0 +1,110 @@
+//
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    //-page-content
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 4 häufige Fehler bei der Geldanlage
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Blog
+                  li.nobottommargin
+                    a(href='/geldanlage') Geldanlage
+                  li.nobottommargin
+                    a(href='/geldanlage/fehler-bei-der-Geldanlage') 4 häufige Fehler bei der Geldanlage
+
+                ul.entry-meta.clearfix
+                  li
+                    i.icon-calendar3
+                    | 04.11.2015 &nbsp
+                    i.icon-user
+                    | FinIQ &nbsp
+
+
+                div.entry-content.notopmargin
+                  p Fehler sind auch bei der Geldanlage nicht zu vermeiden und wahrscheinlich hat fast jeder schon einmal eine finanzielle Entscheidung getroffen, welche er später bereut hat. Für eine erfolgreiche Anlagestrategie
+                    | sollten Sie wissen, was man tun und was man besser lassen sollte. Wir erläutern Ihnen 4 der häufigsten Fehler bei der Geldanlage.
+                  h4.sf-styled-h4(number='1') Investieren ohne Planung
+                  p Für Ihren persönlichen Anlageprozess sollten Sie immer die 3 Schritte Information, Planung und Ausführung in dieser Reihenfolge befolgen. Nicht wenige zäumen jedoch das Pferd von hinten auf und unterschreiben zum Beispiel einen
+                    | Bausparvertrag, ohne sich Gedanken über alternative Anlageprodukte, Anlageziele und die eigene Risikobereitschaft zu machen. Nicht selten endet das im Frust über den langfristigen Vertrag, weil plötzlich Finanzierungsbedarf
+                    | für eine größere Ausgabe besteht, welche nun mit einem teuren Kredit finanziert werden muss.
+                  blockquote
+                    p Sparen Sie für die Rente oder die Ausbildung der Kinder? Befassen Sie sich immer erst mit Ihren Anlagezielen, bevor Sie langfristige Verträge unterschreiben oder Aktien kaufen. Damit ersparen Sie sich möglichen Ärger in der Zukunft.
+                  div.entry-image.alignright
+                    a(href='#')
+                      img(src='/assets/img/geld_anlegen/blog_haeufigeFehlerGeldanlage_01.jpg', alt='Fehler bei der Geldanlage')
+                  p Damit Sie keine Überraschungen erleben, sollten Sie sich zunächst über Geldanlage informieren und sich mit Ihren Anlagezielen befassen. Wollen Sie zum Beispiel über eine langen Zeitraum für die Rente vorsorgen oder sparen, um in wenigen Jahren das Studium Ihrer Kinder zu finanzieren? Verfügen Sie bereits über Ersparnisse, mit welchen Sie notfalls kurzfristig auch unerwartete größere Ausgaben bis zu einem gewissen Grad finanzieren können
+                    | oder müssen Sie sich ein Polster an 'Notgroschen' erst ansparen? All diese Dinge sollten Sie berücksichtigen, bevor Sie Aktien kaufen oder langfristige Verträge abschließen.
+                  p
+                    strong Im Artikel
+                      a(href='/geldanlage/wie-lege-ich-geld-an')  Wie lege ich Geld an
+                      |  können Sie sich über Details zur Geldanlage informieren.
+
+                  p Nachdem Sie Ihre Ziele kennen ist es an der Zeit, sich mit den verschiedenen Produkten auseinanderzusetzen. FinIQ empfiehlt, sich zum Einstieg mit Tagesgeld, Festgeld und ETFs auf Aktienindizes etwas genauer zu beschäftigen. Damit haben Sie bereits ein breites Spektrum an sicheren und risikoreicheren Anlagen abgedeckt. Bedenken Sie bei den Produkten immer, dass es entgegen eventuell anderslautender Behauptungen leider auch bei der Geldanlage nichts umsonst gibt. Je mehr Risiken Sie mit Anlagen wie ETFs auf Aktienindizes eingehen, desto mehr Rendite werden Sie im langfristigen Durchschnitt auch erzielen. Legen Sie dagegen mit sehr wenig Risiko an, werden Sie auch kaum Rendite erzielen.
+                  p
+                    strong Sie können sich
+                      a(href='/geldanlage/assetallokation#product-info')  hier
+                      |  über die wichtigsten Anlageprodukte informieren.
+
+                  h4.sf-styled-h4(number='2') Emotionsgetriebene Entscheidungen
+                  p Vorschnelle und emotionsgetriebene Entscheidungen führen selten zu guten Ergebnissen, dies gilt für Finanzentscheidungen ganz besonders. Schauen Sie sich bei solchen Entscheidungen unbedingt
+                    | immer auch die Zahlen an. Es ist besser, für eine anstehende Entscheidung mehr Informationen zu sammeln und einige Nächte darüber zu schlafen, als sie in einigen Jahren zu bereuen. Natürlich spielt das
+                    | Bauchgefühl bei Entscheidungen oftmals eine Rolle, es wäre aber fatal, sich alleine auf den Bauch zu verlassen.
+                  p Verlassen Sie sich auch nicht alleine auf die Ratschläge von Freunden, Bekannten oder Beratern. Was als gut gemeinter Ratschlag gemeint war und für Freunde und Bekannte gut war, muss für Sie noch nicht per se das Richtige sein. Setzen Sie sich
+                    | bei jeder Anlageentscheidung zunächst mit den Risiken und Renditemöglichkeiten sowie der Anlagedauer des Produkts auseinander. Falls Sie etwas nicht verstehen, entscheiden Sie sich für "Keep it simple" und investieren in Tagesgeld, Festgeld und/oder ETFs auf große Aktienindizes.
+                  p
+                    strong Vielleicht ist der Artikel
+                      a(href='/geldanlage/was-sind-etfs')  Was sind ETFs?
+                      |  auch für Sie interessant.
+
+                  h4.sf-styled-h4(number='3') Mangelnde Geduld
+                  p Egal ob Sie viel oder wenig Geld anlegen, um eine gute Rendite zu erzielen sollten Sie zu Ihren langfristigen Anlageplänen stehen. Ständige Anpassungen Ihres Portfolios
+                    | verursachen meist nichts als Transaktionskosten, welche sich deutlich in der erzielbaren Rendite bemerkbar machen. Gerade Privatanleger tendieren oft dazu, bei Kursverfällen am Aktienmarkt
+                    | schnell zu verkaufen, nur um später in besseren Zeiten wieder teuer einzukaufen. Dabei zeigt zum Beispiel das Renditedreieck des deutschen Aktieninstituts, dass man mit einer Anlage in den deutschen Aktienindex von mindestens 15 Jahren Laufzeit zu keiner Zeit in den vergangenen 50 Jahren eine negative Rendite erzielt hätte, egal in welchem Jahr man eingestiegen wäre. Behalten Sie also Geduld, Ihre Aktien werden es Ihnen danken.
+                  blockquote
+                    p Mit einer Anlage in den deutschen Aktienindex von mindestens 15 Jahren Laufzeit hätte man in den vergangenen 50 Jahren, unabhängig vom Einstiegsjahr, immer eine positive Rendite erzielt.
+                  p Vermeiden Sie auch den Irrtum, Aktien zu kaufen, nur weil sie in letzter Zeit stark gestiegen sind. In nicht wenigen Fällen sind die Aktien dann schon teuer und fallen womöglich bald wieder. Schauen Sie sich besser Rendite und Risiko der Aktie über einen langjährigen Zeitraum an.
+
+
+                  h4.sf-styled-h4(number='4') Geringe Diversifikation
+                  p Manche Anleger setzen alles auf ein Pferd und sind später sehr enttäuscht, wenn das Pferd das rennen nicht gewinnt. Besser beraten sind Sie mit einer Anlage, welche über
+                    | Tagesgeld, Festgeld und Aktien gemäß Ihrer Risikobereitschaft diversifiziert. Auch innerhalb der Kategorie Aktien ist es praktisch immer besser, über verschiedene Aktien
+                    | zum Beispiel mit einem ETF zu diversifizieren, statt auf die Aktien einzelner Unternehmen zu setzen.
+                  p
+                    strong Das
+                      a(href='/geldanlage/assetallokation')  FinIQ Tool zur Assetallokation
+                      |  hilft Ihnen, eine gute Mischung aus verschiedenen Anlagen für Ihre Geldanlage zu finden.
+                  p Wenn Sie die gröbsten Fehler vermeiden und Ihre Augen offen halten werden Sie langfristig deutlich mehr von Ihrem Geld haben.
+                  p
+                    strong Mehr zur Geldanlage finden Sie im FinIQ
+                      a(href='/geldanlage')  Einmaleins der privaten Geldanlage.
+
+
+
+                  div.divider.notopmargin.mbottommargin
+
+
+
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

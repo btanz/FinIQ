@@ -33,9 +33,27 @@ h6 {
   font-weight: 500;
   font-size: 14px;
 }
-.sf-styled-h4{
-  color: red;
+.sf-styled-h4::before{
+  content: attr(number);
+  color: #009CDE;
+  margin-right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 0px 0px #007db8;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  letter-spacing: -0.05em;
+  font-weight: normal !important;
 }
+.sf-styled-h4{
+  margin-top: 30px;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+blockquote{
+  border-left: 3px solid #007db8;
+}
+
 
 p {
   margin-bottom: 10px;

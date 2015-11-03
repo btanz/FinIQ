@@ -59,6 +59,11 @@ router.get('/geldanlage-fuer-studenten', function(req, res, next) {
   res.render('geld_anlegen/blog-geldanlage-fuer-studenten');
 });
 
+/** GET Fehler bei der Geldanlage */
+router.get('/fehler-bei-der-Geldanlage', function(req, res, next) {
+  res.render('geld_anlegen/blog-fehler-bei-der-geldanlage');
+});
+
 
 
 
