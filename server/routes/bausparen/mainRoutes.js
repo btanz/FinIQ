@@ -19,7 +19,10 @@ router.get('/', function(req, res, next) {
 
 
 /** **************** IA. CALCULATOR ROUTES **************** */
-
+/** GET mieten oder kaufen. */
+router.get('/bausparrechner', function(req, res, next) {
+  res.render('bausparen/calc-bausparrechner');
+});
 
 
 /** **************** IB. ARTICLE ROUTES **************** */
