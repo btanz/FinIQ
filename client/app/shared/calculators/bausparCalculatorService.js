@@ -5,7 +5,7 @@
 
 (function(){
 
-  angular.module('app').factory('bausparCalculator', function(){
+  angular.module('app').factory('bausparCalculator', function(finlibBasic){
 
     var fun = {};
 
@@ -163,12 +163,13 @@
 
       /** COMPUTE IRR FOR SAVINGSPERIOD */
       /** add initial special pay */
-      //cfSave[0][1] += inputs.initialpay;
+      cfSave[0][1] += inputs.initialpay;
       /** subtract end value of savings */
-      //cfSave[cfSave.length - 1][1] -= helper.finalsavingswohnungsbau;
+      cfSave[cfSave.length - 1][1] -= helper.finalsavingswohnungsbau;
       /** compute irr */
-      //helper.irrSave = f.basic.irr(0 ,cfSave, 12);
-      //helper.irrSave = typeof helper.irrSave !== 'undefined' ? helper.irrSave : null;
+      helper.irrSave = finlibBasic.irr(0 ,cfSave, 12);
+
+      helper.irrSave = typeof helper.irrSave !== 'undefined' ? helper.irrSave : null;
 
 
       /** ******** 5. COMPUTATIONS LOAN PERIOD ******** */
@@ -258,6 +259,7 @@
       result.wohnungsbau    = helper.wohnungsbau;
       result.initialpay     = inputs.initialpay;
       result.intialfee      = -inputs.initialfee;
+      if(helper.irrSave !== null && isFinite(helper.irrSave)){result.irrSave = helper.irrSave * 100};
 
 
       return result;

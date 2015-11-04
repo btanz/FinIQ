@@ -1,10 +1,14 @@
 /**
  * Created by benjamintanz on 26.10.15.
+ *
+ * Basic finance service
+ * Requires mathlibMath
+ *
  */
 
 (function() {
 
-  angular.module('app').factory('finlibBasic', function () {
+  angular.module('app').factory('finlibBasic', function (mathlibMath) {
 
     var fun = {};
 
@@ -301,11 +305,11 @@
 
       /** wrapper for present value */
       pv = function(i){
-        return initialcf - basic.pv(i, cf, periods);
+        return initialcf - fun.pv(i, cf, periods);
       };
 
 
-      return math.roots(pv,0.05);
+      return mathlibMath.roots(pv,0.05);
     };
 
 
