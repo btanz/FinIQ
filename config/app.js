@@ -15,7 +15,8 @@ var bodyParser    = require('body-parser');
 
 
 /** C. Internal dependencies / Routes */
-var routes           = require('./../server/routes/home/index');
+var routes           = require('./../server/routes/other/index');
+var blogRoutes       = require('./../server/routes/blog/mainRoutes');
 var hauskaufRoutes   = require('./../server/routes/hauskauf/mainRoutes');
 var geldanlageRoutes = require('./../server/routes/geld_anlegen/mainRoutes');
 var bausparenRoutes  = require('./../server/routes/bausparen/mainRoutes');
@@ -73,6 +74,7 @@ app.use('/', routes);
 app.use('/hauskauf', hauskaufRoutes);
 app.use('/geldanlage', geldanlageRoutes);
 app.use('/bausparen', bausparenRoutes);
+app.use('/blog', blogRoutes);
 
 
 /** robots txt route */

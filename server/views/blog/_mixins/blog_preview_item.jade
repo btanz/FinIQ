@@ -1,0 +1,28 @@
+//-
+   Created by benjamintanz on 22.10.15.
+
+
+//- mixin for blog previews in BLOG pages
+//- requires a blog title, date, a teaser, the route to the post als well as the image route and description
+mixin blog_preview_item(title, date, teaser, route, img_route, img_alt)
+  - var category_route = '/' + route.split('/')[1];
+  - var category_name = category_route.substr(1,1).toUpperCase() +  category_route.substr(2);
+  div.entry.clearfix
+    div.entry-image
+      a(href=route, data-lightbox="image")
+        img.image_fade(src=img_route, alt=img_alt, style="opacity: 1;")
+    div.entry-c
+      div.entry-title
+        h2
+          a(href=route)=title
+      ul.entry-meta.clearfix
+        li
+          i.icon-folder-open
+            a(href=category_route) &nbsp;
+              =category_name
+        li
+          i.icon-calendar3  &nbsp;
+            =date
+      div.entry-content
+        p=teaser
+        a(href=route).more-link Weiterlesen ...
