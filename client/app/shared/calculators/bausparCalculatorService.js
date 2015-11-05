@@ -237,8 +237,8 @@
 
 
       /** COMPUTE IRR FOR LOANPERIOD */
-      //helper.irrLoan = f.basic.irr(helper.totalloan ,cfLoan, 12);
-      //helper.irrLoan = typeof helper.irrLoan !== 'undefined' ? helper.irrLoan : null;
+      helper.irrLoan = finlibBasic.irr(helper.totalloan ,cfLoan, 12);
+      helper.irrLoan = typeof helper.irrLoan !== 'undefined' ? helper.irrLoan : null;
 
 
 
@@ -260,10 +260,20 @@
       result.initialpay     = inputs.initialpay;
       result.intialfee      = -inputs.initialfee;
       if(helper.irrSave !== null && isFinite(helper.irrSave)){result.irrSave = helper.irrSave * 100};
+      if(helper.irrLoan !== null && isFinite(helper.irrLoan)){result.irrLoan = helper.irrLoan * 100};
+
+
+      // DYNAMIC VALUES
+      // a) saving period
+      result._2.title = 'Entwicklung Bausparguthaben';
+      result._2.header1 = ['Monat', 'Guthaben Monatsanfang', 'Sparbeitrag', 'Zinsen','Prämien','Guthaben Monatsende'];
+      result._2.body = dynT;
+      // b) repayment period
+      result._2.header2 = ['Monat', 'Saldo Monatsanfang', 'Rückzahlungsrate', 'Zinsen','Prämien','Saldo Monatsende'];
+      result._2.body2 = dynloanT;
 
 
       return result;
-
 
     };
 

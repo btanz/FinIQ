@@ -1,5 +1,5 @@
 (function(){
-  angular.module('app', ['rzModule','highcharts-ng'])
+  angular.module('app', ['rzModule','highcharts-ng','ngAnimate'])
       /** do initialization work */
       .run(function(){
 
