@@ -526,6 +526,27 @@ option{
     margin-bottom: -3px;
     vertical-align: bottom;
   }
+
+/*
+  #header.dark.transparent-header,
+  #header.dark.semi-transparent {
+    background: #FFF;
+    border-bottom: 1px solid #F5F5F5;
+    z-index: auto;
+  }
+  .dark, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #444;
+  }
+  .dark #header-wrap:not(.not-dark) #primary-menu > ul > li > a, .dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li > a, .dark.overlay-menu #header-wrap:not(.not-dark) #primary-menu > ul > li > a, .overlay-menu #primary-menu.dark > ul > li > a, .dark.overlay-menu #header-wrap:not(.not-dark) #primary-menu > #overlay-menu-close, .overlay-menu #primary-menu.dark > #overlay-menu-close, .dark #header-wrap:not(.not-dark) #top-search a, .dark #header-wrap:not(.not-dark) #top-cart a, .dark #header-wrap:not(.not-dark) #side-panel-trigger a, .dark #top-cart .top-cart-item-desc a, body.top-search-open .dark #header-wrap:not(.not-dark) #top-search a, .dark #header-wrap:not(.not-dark) #top-search a:hover, .dark #header-wrap:not(.not-dark) #top-cart a:hover, .dark #header-wrap:not(.not-dark) #side-panel-trigger a:hover, .dark #header-wrap:not(.not-dark) #top-search form input {
+    color: #444;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  }
+  .dark #header-wrap:not(.not-dark) #primary-menu > ul > li:hover a,
+  .dark #header-wrap:not(.not-dark) #primary-menu > ul > li.current a,
+  .dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li:hover a,
+  .dark #header-wrap:not(.not-dark) #primary-menu > .container > ul > li.current a { color: #009CDE; }
+*/
+
 }
 
 @media (max-width: 991px) and (min-width: 768px){

@@ -1,3 +1,4 @@
+/** INITIALIZE ANGULAR APP */
 (function(){
   angular.module('app', ['rzModule','highcharts-ng','ngAnimate'])
       /** do initialization work */
@@ -15,3 +16,4 @@
 
       });
 })();
+

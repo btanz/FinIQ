@@ -19,15 +19,18 @@ block content
 
           //- ********** sidebar left (INPUTS) ***********
           div.sidebar.nobottommargin.clearfix
-            div.sidebar-widgets-wrap
+            div.sidebar-widgets-wrap.sidebar-widgets-wrap-calc
               div.widget.clearfix
                 h4
                   i.icon-pencil
                   | &nbsp; Eingaben
 
                 //- primary inputs
-                sf-slider(description='Bausparsumme',               value='vm.inputs.principal',    tip='Der Gesamtbetrag, über den der Bausparvertrag abgeschlossen wird. Dies ist der Betrag, welcher bei Zuteilung des Bausparvertrages ausgezahlt wird', addon='€', id='principal',  options='{"floor": "0", "ceil": "500000", "precision": "1", "step": "1000"}')
-                sf-slider(description='Sparbeitrag',                value='vm.inputs.saving',       tip='Der Beitrag, welcher in der Ansparphase monatlich in den Bausparvertrag eingezahlt wird. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. ',addon='€', id='rent',   options='{"floor": "0", "ceil": "1500", "precision": "1", "step": "25"}')
+                sf-slider(description='Bausparsumme',               value='vm.inputs.principal',    tip='Der Gesamtbetrag, über den der Bausparvertrag abgeschlossen wird. Dies ist der Betrag, welcher bei Zuteilung des Bausparvertrages ausgezahlt wird', addon='€', id='principal',  options='{"floor": "3000", "ceil": "300000", "precision": "1", "step": "1000"}')
+                //sf-slider(description='Sparbeitrag',                value='vm.inputs.saving',       tip='Der Regelsparbeitrag, welcher in der Ansparphase monatlich in den Bausparvertrag eingezahlt wird. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. ',addon='€', id='rent',   options='{"floor": "0", "ceil": "1500", "precision": "1", "step": "25"}')
+
+                sf-slider(description='Sparbeitrag', type='frac',  value='vm.inputs.saving' tip='Der monatliche Regelsparbeitrag als Promillesatz von der Bausparsumme, welcher in der Ansparphase monatlich in den Bausparvertrag eingezahlt wird. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. Für die meisten Verträge liegt der Satz zwischen 3‰ und 10‰.',addon='‰', id='equity', options='{"floor": "1", "ceil": "20", "precision": "2", "step": "0.1"}', fun='calcAbsolute(vm.inputs.principal, vm.inputs.saving)')
+
                 sf-slider(description='Anspardauer',                value='vm.inputs.termsave',    addon='Jahre',    tip='Der Zeitraum, über den die monatlichen Sparbeiträge geleistet werden.' ,id='termsave',  options='{"floor": "1", "ceil": "15", "precision": "2", "step": "1"}')
                 sf-slider(description='Guthabenzinssatz',           value='vm.inputs.interestsave', addon='% p. a.',  tip='Der jährlichen Zinssatz, welchen Sie laut Bausparvertrag auf das angesparte Kapital erhalten.' ,id='interestsave',  options='{"floor": "0", "ceil": "3", "precision": "2", "step": "0.05"}')
                 sf-slider(description='Darlehenszinssatz',          value='vm.inputs.interestdebt', addon='% p. a.',  tip='Der jährliche Zinssatz, welchen Sie laut Bausparvertrag für das Bauspardarlehen zahlen.' ,id='interestdebt',  options='{"floor": "0", "ceil": "5", "precision": "2", "step": "0.05"}')

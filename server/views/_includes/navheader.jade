@@ -4,10 +4,10 @@ mixin navheader(landing_page)
 
   //header#header.full-header.static-sticky.transparent-header
   if landing_page
-    header#header.transparent-header.dark.full-header(data-sticky-class='not-dark')
+    header#header.full-header.transparent-header.static-sticky.dark(data-sticky-class='not-dark')
       mixin navheader_content
   else
-    header#header.full-header.static-sticky.transparent-header
+    header#header.full-header.transparent-header.static-sticky
       mixin navheader_content
 
 mixin navheader_content
