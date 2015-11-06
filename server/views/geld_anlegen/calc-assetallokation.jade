@@ -60,7 +60,7 @@ block content
                   ul.ul-post-close.sbottommargin
                     li Sicherheit als vorrangiges Anlageziel
                     li einen kurzen Anlagezeitraum von 0 bis 5 Jahren
-                    li Interesse an einem sehr niedrigem Anlagerisiko
+                    li Interesse an einem sehr niedrigen Anlagerisiko
                     li das Ziel, den Nominalwert Ihres Vermögens auf jeden Fall zu erhalten
                     li noch keine Erfahrung mit Anlagen in risikoreicheren Anlageklassen wie Aktien
                 div(ng-show='(vm.inputs.selection === 1)')
@@ -70,7 +70,7 @@ block content
                   ul.ul-post-close.sbottommargin
                     li Sicherheit als vorrangiges Anlageziel, akzeptieren aber auch etwas Risiko
                     li einen relativ kurzen Anlagezeitraum von 3 bis 5 Jahren
-                    li Interesse an einem niedrigem Anlagerisiko
+                    li Interesse an einem niedrigen Anlagerisiko
                     li das Ziel, den Nominalwert Ihres Vermögens grundsätzlich zu erhalten, aber auch begrenzte Renditepotenziale zu nutzen
                     li keine bis wenig Erfahrung mit Anlagen in risikoreicheren Anlageklassen wie Aktien
                 div(ng-show='(vm.inputs.selection === 2)')
@@ -114,7 +114,7 @@ block content
                   |  anlegen, wird Ihr Portfolio in 20 Jahren
                   ul.ul-post-close
                     li im Median {{vm.result.value | currency:"€":2}} Wert sein und
-                    li mit einer Wahrscheinlickeit von 50 % wird der Portfoliowert zwischen {{vm.result.low_conf | currency:"€":2}} und {{vm.result.high_conf | currency:"€":2}} liegen.
+                    li mit einer Wahrscheinlichkeit von 50 % wird der Portfoliowert zwischen {{vm.result.low_conf | currency:"€":2}} und {{vm.result.high_conf | currency:"€":2}} liegen.
 
 
             div.col_full
@@ -132,14 +132,14 @@ block content
                 div.tab-container
 
                   div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-6(aria-labelledby='ui-id-6', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
-                    p Dieses Tool zur Bestimmung der Allokationen bei der Geldanlage ermittelt die optimale Mischung verschiedender Anlageklassen basierend auf Ihrem Risikoprofil und stellt die erwartete Rendite und das Risiko des Portfolios dar.
+                    p Dieses Tool zur Bestimmung der Allokationen bei der Geldanlage ermittelt die optimale Mischung verschiedener Anlageklassen basierend auf Ihrem Risikoprofil und stellt die erwartete Rendite und das Risiko des Portfolios dar.
                     p Um die zukünftige Entwicklung zu prognostizieren haben wir historische Renditen von Tagesgeld, Festgeld und einem breit diversifizierten Aktienindex (MSCI World) über die vergangenen 20 Jahre analysiert. Daraufhin haben wir für jedes Risikoprofil Portfolios zusammengestellt und die Entwicklung dieser Portfolios unter Nutzung der historischen Daten 10.000 mal simuliert (Monte-Carlo-Simulation). Die Ergebnisse dieser Simulation sind eine robuste Grundlage für die langfristige Prognose der Portfolioentwicklung und sind im obigen Chart dargestellt.
 
                   div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-7(aria-labelledby='ui-id-7', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
                     p.xsbottommargin Die folgenden Annahmen gingen in die Simulation und Prognose der Portfolioentwicklung ein:
                     p.xsbottommargin
                       strong Produktdaten:
-                      |  Für die Kategorie Tagesgeld wurden die historischen Basiszinssätze für Tagesgeld aus den vergangenen 20 Jahren verwendet. Die Zinssätze für 5-jährige Sparbriefe aus den letzten 20 Jahren bilden die Datengrundlage für die Kategorie Festgeld. Quelle der Daten ist die FMH Finanzberatung. Die Kategorie Aktien (ETF) wird repräsentiert durch den MSCI World Index, einem global diversifizierten Aktienfonds. Es gibt diverse kostengünstige ETF's für Privatanleger, welche diesen Index abbilden. Bei der Ableitung der Renditen haben wir die Managementgebühren berücksichtigt.
+                      |  Für die Kategorie Tagesgeld wurden die historischen Basiszinssätze für Tagesgeld aus den vergangenen 20 Jahren verwendet. Die Zinssätze für 5-jährige Sparbriefe aus den letzten 20 Jahren bilden die Datengrundlage für die Kategorie Festgeld. Quelle der Daten ist die FMH Finanzberatung. Die Kategorie Aktien (ETF) wird repräsentiert durch den MSCI World Index, einem global diversifizierten Aktienfonds. Es gibt diverse kostengünstige ETFs für Privatanleger, welche diesen Index abbilden. Bei der Ableitung der Renditen haben wir die Managementgebühren berücksichtigt.
                     p.xsbottommargin
                       strong Ermittlung der erwarteten Renditen
                       |  Portfoliorenditen wurden mittels Monte-Carlo-Simulation auf Basis historischer Renditen simuliert. Es wurde angenommen, dass während der Anlagedauer keine Portfolioumschichtung vorgenommen wird.
@@ -151,7 +151,7 @@ block content
             div.col_full
               h3.xsbottommargin Die wichtigsten Informationen für eine gute Geldanlage
               p Ob Aktien, Fonds, Festgeld, Tagesgeld oder das gute alte Sparbuch, die Möglichkeiten bei der Geldanlage sind unbegrenzt. Jedoch unterscheiden sich die Produkte aus Risiko- und Renditesicht mitunter deutlich. Für eine gute Geldanlage ist die richtige Mischung - von Experten auch Assetallokation genannt - entscheidend. Wir helfen Ihnen, eine gute Mischung für Ihre Geldanlage zu finden.
-              p Auch Einstieger können mit ein paar einfachen Regeln Ihre Anlageentscheidungen selbst in die Hand nehmen und damit auf Anlageberater verzichten, welche aufgrund von Provisionsanreizen möglicherweise nicht immer in Ihrem Sinne handeln. Natürlich ist ein vertrauenswürdiger Anlageberater Gold wert, nicht jeder tut sich aber leicht, einen solchen zu finden. Und auch bei dieser Suche gilt: Wer gut informiert ist hat klare Vorteile.
+              p Auch Einsteiger können mit ein paar einfachen Regeln Ihre Anlageentscheidungen selbst in die Hand nehmen und damit auf Anlageberater verzichten, welche aufgrund von Provisionsanreizen möglicherweise nicht immer in Ihrem Sinne handeln. Natürlich ist ein vertrauenswürdiger Anlageberater Gold wert, nicht jeder tut sich aber leicht, einen solchen zu finden. Und auch bei dieser Suche gilt: Wer gut informiert ist hat klare Vorteile.
               p Im Kern jeder Entscheidung zur Geldanlage liegt die Abwägung zwischen Rendite und Risiko - nicht mehr und nicht weniger. Für eine höhere Rendite bekommen Sie mehr Risiko, für eine niedrigere Rendite entsprechend weniger Risiko. Daher sollten Sie sich für eine gute Entscheidung mit zwei Fragen beschäftigen:
               ul.ul-post#risk-profile-info
                 li Wieviel Risiko kann und will ich über einen bestimmten Zeitraum tragen?
@@ -178,12 +178,12 @@ block content
               p Aktien sind Anteilscheine an Unternehmen, welche einen Anteil des Eigenkapitals des Unternehmens verbriefen. Über Aktien können Sie also Anteile eines Unternehmens erwerben. Der Wert der Aktien ist daher eng mit dem heutigen und vor allem dem erwarteten zukünftigen Wert des Unternehmens verknüpft, weshalb neue Informationen, welche die Zukunft eines Unternehmens betreffen, sich direkt nach Bekanntwerden im Aktienkurs niederschlagen. Die Rendite von Aktien setzt sich zusammen aus der Kurssteigerung und den im Anlagezeitraum erhaltenen Dividenden. Gerade bei langfristigen Anlagen kann die meist jährlich gezahlte Dividende eine wesentliche Renditekomponente sein, die Aktien über mögliche Kurssteigerungen hinaus attraktiv macht.
               p Bei der großen Anzahl an Aktien stellt sich natürlich die Frage, in welche Aktie man nun eigentlich investieren sollte. Die Antwort ist grundsätzlich sehr einfach: Meist ist es nicht sinnvoll, in
                 strong  einzelne
-                |  Aktien zu investieren. Sie würden sich dann sehr abhängig vom Schicksal eines einzelnen oder einzelner Unternehmen machen. Besser ist es, in ein diversifiziertes Portfolio von Aktien zu investieren. Am besten erreichen Sie dies mit einem Aktienfonds, welcher das Geld für Sie in ein diversifiziertes Portfolio investiert.
+                |  Aktien zu investieren. Sie würden sich dann sehr abhängig vom Schicksal eines einzelnen bzw. einzelner Unternehmen machen. Besser ist es, in ein diversifiziertes Portfolio von Aktien zu investieren. Am besten erreichen Sie dies mit einem Aktienfonds, welcher das Geld für Sie in ein diversifiziertes Portfolio investiert.
               h5.xsbottommargin Fonds
               div.well.sf-well
                 p.nobottommargin Risiko: mittel
                 p.nobottommargin Renditechance: hoch
-              p Fonds sind Instrumente zur Geldanlage, welche im Auftrag Ihrer Anleger in bestimmte Vermögensklassen investieren. Die gebräuchlichsten Vermögensklassen sind dabei Aktien, Anleihen und Immobilien. Grundsätzlich 'erben' Fonds das Rendite- und Risikoprofil der Vermögensklasse, in welcher Sie investiert sind. Jedoch gibt es einen wichtigen Unterschied: Fonds investieren in der Regel gleich in mehrere Einzelanlagen und haben daher aufgrund der Diversifizierung ein besseres Risikoprofil. Deshalb ist Ihnen als Investor in einen Aktienfonds das Schicksal einzelner Unternehmen praktisch egal, da Sie in vielen Unternehmen gleichzeit investiert sind. Das beste Instrument für Anleger, welche diversifiziert in Aktien anlegen wollen, ist nahezu immer der börsengehandelte Aktienfonds (Exchange-Traded Fund, ETF). Dieses passive Anlageinstrument ist kostengüngstig und bildet meist die Entwicklung eines gesamten diversifizierten Aktienindexes ab.
+              p Fonds sind Instrumente zur Geldanlage, welche im Auftrag Ihrer Anleger in bestimmte Vermögensklassen investieren. Die gebräuchlichsten Vermögensklassen sind dabei Aktien, Anleihen und Immobilien. Grundsätzlich 'erben' Fonds das Rendite- und Risikoprofil der Vermögensklasse, in welcher Sie investiert sind. Jedoch gibt es einen wichtigen Unterschied: Fonds investieren in der Regel gleich in mehrere Einzelanlagen und haben daher aufgrund der Diversifizierung ein besseres Risikoprofil. Deshalb ist Ihnen als Investor in einen Aktienfonds das Schicksal einzelner Unternehmen praktisch egal, da Sie in vielen Unternehmen gleichzeitig investiert sind. Das beste Instrument für Anleger, welche diversifiziert in Aktien anlegen wollen, ist nahezu immer der börsengehandelte Aktienfonds (Exchange-Traded Fund, ETF). Dieses passive Anlageinstrument ist kostengünstig und bildet meist die Entwicklung eines gesamten diversifizierten Aktienindexes ab.
               h5.xsbottommargin Festgeld
               div.well.sf-well
                 p.nobottommargin Risiko: gering
