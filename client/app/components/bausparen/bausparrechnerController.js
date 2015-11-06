@@ -11,23 +11,23 @@
 
     /** initialize values */
     vm.inputs = {
-      principal: 80000,
+      principal: 40000,
       saving: 5,
       interestsave: 0.5,
       interestdebt: 2.5,
       termsave: 8,
-      repay: 300,
+      repay: 6,
       bonus: {id: 2},
       marriage: {id: 1},
       income: 30000,
-      initialfee: 0,
+      initialfee: 1,
       initialpay: 0,
       paypercent: 100
     };
 
     /** calculation functions */
-    $scope.calcAbsolute = function(basis, percentage){
-      return (percentage / 1000) * basis;
+    vm.calcAbsolute = function(basis, percentage, denom){
+      return (percentage / denom) * basis;
     };
 
 
@@ -56,11 +56,11 @@
         interestsave: vm.inputs.interestsave,
         interestdebt: vm.inputs.interestdebt,
         termsave: vm.inputs.termsave,
-        repay: vm.inputs.repay,
+        repay: (vm.inputs.repay / 1000) * vm.inputs.principal,
         bonus: vm.inputs.bonus.id === 1,
         marriage: vm.inputs.marriage.id === 2,
         income: vm.inputs.income,
-        initialfee: vm.inputs.initialfee,
+        initialfee: (vm.inputs.initialfee / 100) * vm.inputs.principal,
         initialpay: vm.inputs.initialpay,
         paypercent: vm.inputs.paypercent
       };
