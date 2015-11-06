@@ -26,16 +26,11 @@ block content
                   | &nbsp; Eingaben
 
                 //- primary inputs
-                sf-slider(description='Bausparsumme',               value='vm.inputs.principal',    tip='Der Gesamtbetrag, über den der Bausparvertrag abgeschlossen wird. Dies ist der Betrag, welcher bei Zuteilung des Bausparvertrages ausgezahlt wird', addon='€', id='principal',  options='{"floor": "3000", "ceil": "300000", "precision": "1", "step": "1000"}')
-                //sf-slider(description='Sparbeitrag',                value='vm.inputs.saving',       tip='Der Regelsparbeitrag, welcher in der Ansparphase monatlich in den Bausparvertrag eingezahlt wird. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. ',addon='€', id='rent',   options='{"floor": "0", "ceil": "1500", "precision": "1", "step": "25"}')
-
+                //sf-slider(description='Bausparsumme',               value='vm.inputs.principal',    tip='Der Gesamtbetrag, über den der Bausparvertrag abgeschlossen wird. Dies ist der Betrag, welcher bei Zuteilung des Bausparvertrages ausgezahlt wird', addon='€', id='principal',  options='{"floor": "3000", "ceil": "300000", "precision": "1", "step": "1000"}')
                 sf-slider(description='Sparbeitrag', type='frac',  value='vm.inputs.saving' tip='Der monatliche Regelsparbeitrag als Promillesatz von der Bausparsumme, welcher in der Ansparphase monatlich in den Bausparvertrag eingezahlt wird. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. Für die meisten Verträge liegt der Satz zwischen 3‰ und 10‰.',addon='‰', id='saving', options='{"floor": "1", "ceil": "16", "precision": "2", "step": "0.1"}', fun='vm.calcAbsolute(vm.inputs.principal, vm.inputs.saving, 1000)')
-
                 sf-slider(description='Anspardauer',                value='vm.inputs.termsave',    addon='Jahre',    tip='Der Zeitraum, über den die monatlichen Sparbeiträge geleistet werden.' ,id='termsave',  options='{"floor": "1", "ceil": "15", "precision": "2", "step": "1"}')
                 sf-slider(description='Guthabenzinssatz',           value='vm.inputs.interestsave', addon='% p. a.',  tip='Der jährlichen Zinssatz, welchen Sie laut Bausparvertrag auf das angesparte Kapital erhalten.' ,id='interestsave',  options='{"floor": "0", "ceil": "3", "precision": "2", "step": "0.05"}')
                 sf-slider(description='Darlehenszinssatz',          value='vm.inputs.interestdebt', addon='% p. a.',  tip='Der jährliche Zinssatz, welchen Sie laut Bausparvertrag für das Bauspardarlehen zahlen.' ,id='interestdebt',  options='{"floor": "0", "ceil": "5", "precision": "2", "step": "0.05"}')
-                //sf-slider(description='Rückzahlungsrate',           value='vm.inputs.repay',       tip='Der monatliche Betrag zur Rückzahlung des Darlehens. Dieser Betrag fällt nach Zuteilung während der Rückzahlungsphase an und besteht aus Zins und Tilgung. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. ',addon='€', id='repay',   options='{"floor": "0", "ceil": "1500", "precision": "1", "step": "25"}')
-
                 sf-slider(description='Rückzahlungsrate', type='frac',  value='vm.inputs.repay' tip='Der monatliche Betrag zur Rückzahlung des Darlehens als Promillesatz von der Bausparsumme. Dieser Betrag fällt nach Zuteilung während der Rückzahlungsphase an und besteht aus Zins und Tilgung. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. ',addon='%', id='repay', options='{"floor": "2", "ceil": "16", "precision": "2", "step": "0.05"}', fun='vm.calcAbsolute(vm.inputs.principal, vm.inputs.repay, 1000)')
 
                 //- secondary inputs
@@ -60,10 +55,7 @@ block content
                     div#collapseTwo.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-                        //sf-slider(description='Abschlussgebühr',                  value='vm.inputs.initialfee',    tip='Eventuelle einmalige Gebühren, welche beim Abschluss des Vertrages anfallen. Dies Gebühren werden mit den Einzahlungen verrechnet. Falls keine einmaligen Gebühren anfallen, tragen Sie einfach 0 ein.', addon='€', id='initialfee',  options='{"floor": "0", "ceil": "2500", "precision": "1", "step": "10"}')
-
                         sf-slider(description='Abschlussgebühr', type='frac',  value='vm.inputs.initialfee' tip='Die einmaligen Gebühren als Prozentsatz der Bausparsumme, welche für die meisten Bausparverträge bei Abschluß anfallen. Der Gebührensatz je nach Vertrag zwischen 0,5 % und 3 %.',addon='%', id='initialfee', options='{"floor": "0", "ceil": "5", "precision": "2", "step": "0.05"}', fun='vm.calcAbsolute(vm.inputs.principal, vm.inputs.initialfee, 100)')
-
                         sf-slider(description='Sondereinzahlung bei Beginn',      value='vm.inputs.initialpay',    tip='Einmalige Sparbeiträge, welche bei manchen Verträgen zu Beginn der Vertragsperiode möglich sind. Diese Sondereinzahlungen werden entsprechend über die Ansparperiode verzinst.', addon='€', id='initialpay',  options='{"floor": "0", "ceil": "15000", "precision": "1", "step": "50"}')
                         sf-slider(description='Auszahlungsprozentsatz',           value='vm.inputs.paypercent',   addon='%',  tip='Bei Standardverträgen ist der Auszahlungsprozentsatz 100% der Bausparsumme. Bei einigen Verträgen kann jedoch davon nach oben oder unten abgewichen werden, was die Auszahlung relativ zur Bausparsumme entsprechend erhöht oder senkt. Im Zweifel sollten Sie hier 100% eingeben.' ,id='paypercent',  options='{"floor": "0", "ceil": "100", "precision": "2", "step": "1"}')
 
@@ -78,9 +70,11 @@ block content
                 div.col-sm-2.hidden-xs
                   i.fa.fa-home.fa-5x(style='color: #50B432')
                 div.col-sm-10.col-xs-12
-                  h3.sbottommargin Die Bausparsumme von
+                  h3.sbottommargin Für die Bausparsumme von
                     span(style='color: #50B432')  {{vm.inputs.principal | currency:"€":2}}
-                    |  ist realistisch für diese Eingaben. Ihre Ansparquote beträgt {{vm.result.savingratio | currency:"%":0}}.
+                    |  zahlen Sie monatlich
+                    span(style='color: #50B432')  {{vm.calcAbsolute(vm.inputs.principal, vm.inputs.saving, 1000) | currency:"€":2}}
+                    | .
 
 
               //- principle maybe feasible
@@ -88,37 +82,61 @@ block content
                 div.col-sm-2.hidden-xs
                   i.fa.fa-home.fa-5x(style='color: #F38200')
                 div.col-sm-10.col-xs-12
-                  h3.sbottommargin Die Bausparsumme von
+                  h3.sbottommargin Für die Bausparsumme von
                     span(style='color: #F38200')  {{vm.inputs.principal | currency:"€":2}}
-                    |  ist sehr hoch, da die Ansparquote unter 40 % liegt.
+                    |  zahlen Sie monatlich
+                    span(style='color: #F38200')  {{vm.calcAbsolute(vm.inputs.principal, vm.inputs.saving, 1000) | currency:"€":2}}
+                    | .
+                    span(style='color: #F38200')
+                      br
+                      | Die Ansparquote liegt unter 40 %.
 
               //- principle not feasible
               div.row(ng-if='vm.result.savingratio < 20')
                 div.col-sm-2.hidden-xs
                   i.fa.fa-home.fa-5x(style='color: #B20925')
                 div.col-sm-10.col-xs-12
-                  h3.sbottommargin Die Bausparsumme von
+                  h3.sbottommargin Für die Bausparsumme von
                     span(style='color: #B20925')  {{vm.inputs.principal | currency:"€":2}}
-                    |  ist sehr wahrscheinlich nicht realisierbar, da die Ansparquote unter 20 % liegt.
+                    |  zahlen Sie monatlich
+                    span(style='color: #B20925')  {{vm.calcAbsolute(vm.inputs.principal, vm.inputs.saving, 1000) | currency:"€":2}}
+                    | .
+                    span(style='color: #B20925')
+                      br
+                      | Achtung: Die Ansparquote liegt unter 20 %.
 
               //- principle maybe feasible
               div.row(ng-if='vm.result.savingratio >= 65 && vm.result.savingratio < 100')
                 div.col-sm-2.hidden-xs
                   i.fa.fa-home.fa-5x(style='color: #F38200')
                 div.col-sm-10.col-xs-12
-                  h3.sbottommargin Die Bausparsumme von
+                  h3.sbottommargin Für die Bausparsumme von
                     span(style='color: #F38200')  {{vm.inputs.principal | currency:"€":2}}
-                    |  ist sehr niedrig im Vergleich zum Sparbeitrag. Ihr Ansparquote liegt bei {{vm.result.savingratio | currency:"%":0}}.
+                    |  zahlen Sie monatlich
+                    span(style='color: #F38200')  {{vm.calcAbsolute(vm.inputs.principal, vm.inputs.saving, 1000) | currency:"€":2}}
+                    | .
+                    span(style='color: #F38200')
+                      br
+                      | Die Ansparquote liegt über 65 %.
+
 
               //- principle not feasible
               div.row(ng-if='vm.result.savingratio >= 100')
                 div.col-sm-2.hidden-xs
                   i.fa.fa-home.fa-5x(style='color: #B20925')
                 div.col-sm-10.col-xs-12
-                  h3.sbottommargin Die Bausparsumme von
+                  h3.sbottommargin Für die Bausparsumme von
                     span(style='color: #B20925')  {{vm.inputs.principal | currency:"€":2}}
-                    |  ist zu niedrig. Ihre Ansparquote ist größer als 100 %.
+                    |  zahlen Sie monatlich
+                    span(style='color: #B20925')  {{vm.calcAbsolute(vm.inputs.principal, vm.inputs.saving, 1000) | currency:"€":2}}
+                    | .
+                    span(style='color: #B20925')
+                      br
+                      | Achtung: Die Ansparquote liegt über 100 %.
 
+              div.notopmargin.sbottommargin
+              rzslider(rz-slider-model='vm.inputs.principal', rz-slider-ceil='300000', rz-slider-floor='3000', rz-slider-step='1000',rz-slider-hide-limit-labels='true', rz-slider-translate='vm.sliderTranslate', style='margin-top: 0px;')
+              div.notopmargin.sbottommargin
 
               //- warning concering the loan
               div.row(ng-if='vm.result.termloan > 30 || !vm.result.termloan')
