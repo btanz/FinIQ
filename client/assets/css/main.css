@@ -238,6 +238,12 @@ ul.tab-nav li a {
 .nobottompadding {
   padding-bottom: 0;
 }
+.xxstoppadding {
+  padding-top: 5px;
+}
+.xstoppadding {
+  padding-top: 10px;
+}
 .stoppadding {
   padding-top: 15px;
 }
