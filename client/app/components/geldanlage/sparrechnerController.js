@@ -127,6 +127,7 @@
           }
         },
         tooltip: {
+          headerFormat: '<span style="font-size: 14px">{point.key}. Jahr</span><br/>',
           pointFormat: '<span style="color:{series.color}">{series.name}</span>: {point.y:.2f} €<br/>',
           shared: true
         }

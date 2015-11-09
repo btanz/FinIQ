@@ -66,15 +66,19 @@ p {
   margin-bottom: 10px;
 }
 #page-title{
-  padding: 25px 0 20px 0;
+  padding: 35px 0 35px 0;
   background-color: #e8eef7;
 }
 
 
 .breadcrumb-sf{
-  top: 85% !important;
+  top: 110% !important;
 }
 
+.text-tooltip{
+  border-bottom: 2px #009CDE dotted;
+  cursor: pointer;
+}
 
 .tooltip {
   z-index: 1070;
