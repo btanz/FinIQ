@@ -63,7 +63,7 @@
         low_conf: marketdataService.montecarlo[vm.inputs.selection].confidence[marketdataService.montecarlo[vm.inputs.selection].confidence.length - 1][0] * vm.inputs.principal,
         high_conf: marketdataService.montecarlo[vm.inputs.selection].confidence[marketdataService.montecarlo[vm.inputs.selection].confidence.length - 1][1] * vm.inputs.principal,
         pLoss_10y: marketdataService.montecarlo[vm.inputs.selection].pLoss[10]
-      }
+      };
 
 
     });
@@ -115,7 +115,7 @@
         text: 'Erwartete Rendite und Risikoprofil'
       },
       xAxis: {
-        categories: ["2015", "2016",	"2017",	"2018",	"2019",	"2020",	"2021",	"2022",	"2023",	"2024",	"2025", "2026",	"2027",	"2028",	"2029",	"2030",	"2031",	"2032",	"2033",	"2034",	"2035"]
+        categories: ['2015', '2016',	'2017',	'2018',	'2019',	'2020',	'2021',	'2022',	'2023',	'2024',	'2025', '2026',	'2027',	'2028',	'2029',	'2030',	'2031',	'2032',	'2033',	'2034',	'2035']
       },
       yAxis: {
         title: {

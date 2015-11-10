@@ -30,9 +30,9 @@
     $scope.calcBestAlternative = function(){
       var answer;
       if ($scope.result.buyFinalWealth >= $scope.result.rentFinalWealth){
-        answer = ' kaufen '
+        answer = ' kaufen ';
       } else {
-        answer = ' mieten '
+        answer = ' mieten ';
       }
       return answer;
     };
@@ -122,7 +122,7 @@
         style: chartConfig.titleStyle
       },
       xAxis: {
-        categories: ["Mrz '00",	"Jun '00",	"Sep '00",	"Dez '00",	"Mrz '01",	"Jun '01",	"Sep '01",	"Dez '01",	"Mrz '02",	"Jun '02",	"Sep '02",	"Dez '02",	"Mrz '03",	"Jun '03",	"Sep '03",	"Dez '03",	"Mrz '04",	"Jun '04",	"Sep '04",	"Dez '04",	"Mrz '05",	"Jun '05",	"Sep '05",	"Dez '05",	"Mrz '06",	"Jun '06",	"Sep '06",	"Dez '06",	"Mrz '07",	"Jun '07",	"Sep '07",	"Dez '07",	"Mrz '08",	"Jun '08",	"Sep '08",	"Dez '08",	"Mrz '09",	"Jun '09",	"Sep '09",	"Dez '09",	"Mrz '10",	"Jun '10",	"Sep '10",	"Dez '10",	"Mrz '11",	"Jun '11",	"Sep '11",	"Dez '11",	"Mrz '12",	"Jun '12",	"Sep '12",	"Dez '12",	"Mrz '13",	"Jun '13",	"Sep '13",	"Dez '13",	"Mrz '14",	"Jun '14",	"Sep '14",	"Dez '14",	"Mrz '15"]
+        categories: ['Mrz \'00',	'Jun \'00',	'Sep \'00',	'Dez \'00',	'Mrz \'01',	'Jun \'01',	'Sep \'01',	'Dez \'01',	'Mrz \'02',	'Jun \'02',	'Sep \'02',	'Dez \'02',	'Mrz \'03',	'Jun \'03',	'Sep \'03',	'Dez \'03',	'Mrz \'04',	'Jun \'04',	'Sep \'04',	'Dez \'04',	'Mrz \'05',	'Jun \'05',	'Sep \'05',	'Dez \'05',	'Mrz \'06',	'Jun \'06',	'Sep \'06',	'Dez \'06',	'Mrz \'07',	'Jun \'07',	'Sep \'07',	'Dez \'07',	'Mrz \'08',	'Jun \'08',	'Sep \'08',	'Dez \'08',	'Mrz \'09',	'Jun \'09',	'Sep \'09',	'Dez \'09',	'Mrz \'10',	'Jun \'10',	'Sep \'10',	'Dez \'10',	'Mrz \'11',	'Jun \'11',	'Sep \'11',	'Dez \'11',	'Mrz \'12',	'Jun \'12',	'Sep \'12',	'Dez \'12',	'Mrz \'13',	'Jun \'13',	'Sep \'13',	'Dez \'13',	'Mrz \'14',	'Jun \'14',	'Sep \'14',	'Dez \'14',	'Mrz \'15']
       },
       yAxis: {
         title: {

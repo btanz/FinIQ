@@ -1,46 +1,72 @@
 //-
    Created by benjamintanz on 03.10.15.
 
-//- vendor files
-script(type='text/javascript', src='/packages/jquery/dist/jquery.min.js')
-script(type='text/javascript', src='/packages/angular/angular.min.js')
-script(type='text/javascript', src='/packages/angular-animate/angular-animate.min.js')
-script(type='text/javascript', src='/assets/js/localization/angular-locale_de-de.js')
-script(type='text/javascript', src='/packages/underscore/underscore-min.js')
-script(type='text/javascript', src='/packages/highcharts/highcharts.js')
-script(type='text/javascript', src='/packages/highcharts/highcharts-more.js')
+
+//- INJECT BOWER JS
+//- bower:js
+script(src='/packages/jquery/dist/jquery.js')
+script(src='/packages/bootstrap/dist/js/bootstrap.js')
+script(src='/packages/angular/angular.js')
+script(src='/packages/angularjs-slider/dist/rzslider.js')
+script(src='/packages/highcharts/highcharts.js')
+script(src='/packages/highcharts/highcharts-more.js')
+script(src='/packages/highcharts/modules/exporting.js')
+script(src='/packages/highcharts-ng/dist/highcharts-ng.js')
+script(src='/packages/underscore/underscore.js')
+script(src='/packages/angular-animate/angular-animate.js')
+script(src='/packages/angular-i18n/angular-locale_de-de.js')
+//- endbower
+
+
+
+//- OTHER JS
+//- highcharts
 script(type='text/javascript', src='http://code.highcharts.com/maps/modules/map.js')
-//- highcharts - world map
 script(type='text/javascript', src='http://code.highcharts.com/mapdata/custom/world.js')
-//- highcharts - federal states of germany
 script(type='text/javascript', src='http://code.highcharts.com/mapdata/countries/de/de-all.js')
-//- highcharts - districts of germany
 script(type='text/javascript', src='http://code.highcharts.com/mapdata/countries/de/de-all-all.js')
 
-script(type='text/javascript', src='/packages/highcharts-ng/dist/highcharts-ng.min.js')
-script(type='text/javascript', src='/packages/angularjs-slider/dist/rzslider.js')
+//- canvas
 script(type='text/javascript', src='/assets/js/canvas/plugins.js')
 script(type='text/javascript', src='/assets/js/canvas/functions.js')
 
-//- app files
-script(type='text/javascript', src='/app/app.js')
-script(type='text/javascript', src='/app/components/hauskauf/mietenoderkaufenController.js')
-script(type='text/javascript', src='/app/components/hauskauf/kaufpreisController.js')
-script(type='text/javascript', src='/app/components/hauskauf/deutschlandsbestearbeitsmarkteController.js')
-script(type='text/javascript', src='/app/components/hauskauf/uebersichtgrundstueckspreiseController.js')
-script(type='text/javascript', src='/app/components/hauskauf/artablaufhauskaufController.js')
-script(type='text/javascript', src='/app/components/hauskauf/zehnschnaeppchenController.js')
-script(type='text/javascript', src='/app/components/geldanlage/sparrechnerController.js')
-script(type='text/javascript', src='/app/components/geldanlage/assetallokationController.js')
-script(type='text/javascript', src='/app/components/bausparen/bausparrechnerController.js')
-script(type='text/javascript', src='/app/shared/chartconfig/chartconfigService.js')
-script(type='text/javascript', src='/app/shared/mathLib/mathService.js')
-script(type='text/javascript', src='/app/shared/finLib/basicService.js')
-script(type='text/javascript', src='/app/shared/finLib/savingsService.js')
-script(type='text/javascript', src='/app/shared/calculators/hauskaufCalculatorService.js')
-script(type='text/javascript', src='/app/shared/calculators/geldanlageCalculatorService.js')
-script(type='text/javascript', src='/app/shared/calculators/bausparCalculatorService.js')
-script(type='text/javascript', src='/app/shared/data/marketdataService.js')
-script(type='text/javascript', src='/app/shared/inputs/slider/sfSliderDirective.js')
-script(type='text/javascript', src='/app/shared/inputs/select/sfSelectDirective.js')
-script(type='text/javascript', src='/app/shared/numberformatter/numbersFilter.js')
+
+
+
+//- INJECT APP JS
+//- inject:js
+script(src="/app/app.js")
+script(src="/app/shared/inputs/slider/sfSliderDirective.js")
+script(src="/app/shared/inputs/select/sfSelectDirective.js")
+script(src="/app/shared/numberformatter/numbersFilter.js")
+script(src="/app/shared/mathLib/mathService.js")
+script(src="/app/shared/finLib/savingsService.js")
+script(src="/app/shared/finLib/basicService.js")
+script(src="/app/shared/data/marketdataService.js")
+script(src="/app/shared/chartconfig/chartconfigService.js")
+script(src="/app/shared/calculators/hauskaufCalculatorService.js")
+script(src="/app/shared/calculators/geldanlageCalculatorService.js")
+script(src="/app/shared/calculators/bausparCalculatorService.js")
+script(src="/app/components/hauskauf/zehnschnaeppchenController.js")
+script(src="/app/components/hauskauf/uebersichtgrundstueckspreiseController.js")
+script(src="/app/components/hauskauf/mietenoderkaufenController.js")
+script(src="/app/components/hauskauf/kaufpreisController.js")
+script(src="/app/components/hauskauf/deutschlandsbestearbeitsmarkteController.js")
+script(src="/app/components/hauskauf/artablaufhauskaufController.js")
+script(src="/app/components/geldanlage/sparrechnerController.js")
+script(src="/app/components/geldanlage/assetallokationController.js")
+script(src="/app/components/bausparen/bausparrechnerController.js")
+//- endinject
+
+
+
+//- legacy stuff
+  //script(type='text/javascript', src='/packages/jquery/dist/jquery.min.js')
+  //script(type='text/javascript', src='/packages/angular/angular.min.js')
+  //script(type='text/javascript', src='/packages/angular-animate/angular-animate.min.js')
+  //script(type='text/javascript', src='/assets/js/localization/angular-locale_de-de.js')
+  //script(type='text/javascript', src='/packages/underscore/underscore-min.js')
+  //script(type='text/javascript', src='/packages/highcharts/highcharts.js')
+  //script(type='text/javascript', src='/packages/highcharts/highcharts-more.js')
+  //script(type='text/javascript', src='/packages/highcharts-ng/dist/highcharts-ng.min.js')
+  //script(type='text/javascript', src='/packages/angularjs-slider/dist/rzslider.js')

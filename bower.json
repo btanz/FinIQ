@@ -9,6 +9,13 @@
     "font-awesome": "fontawesome#~4.4.0",
     "highcharts": "highcharts-release#~4.1.8",
     "highcharts-ng": "~0.0.11",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "angular-animate": "~1.4.7",
+    "angular-i18n": "~1.4.7"
+  },
+  "overrides": {
+    "angular-i18n": {
+      "main": "angular-locale_de-de.js"
+    }
   }
 }

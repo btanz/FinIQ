@@ -63,10 +63,10 @@
       var res_anfang = _.map(res, function(){ return vm.inputs.principal; });
       res_anfang.unshift(vm.inputs.principal);
       var res_einzahlungen = _.map(res, function(arr){ return arr[2]; });
-      res_einzahlungen = _.reduce(res_einzahlungen, function (acc, n) { acc.push( (acc.length > 0 ? acc[acc.length-1] : 0) + n); return acc }, []);
+      res_einzahlungen = _.reduce(res_einzahlungen, function (acc, n) { acc.push( (acc.length > 0 ? acc[acc.length-1] : 0) + n); return acc; }, []);
       res_einzahlungen.unshift(0);
       var res_zinsen = _.map(res, function(arr){ return arr[3]; });
-      res_zinsen = _.reduce(res_zinsen, function (acc, n) { acc.push( (acc.length > 0 ? acc[acc.length-1] : 0) + n); return acc }, []);
+      res_zinsen = _.reduce(res_zinsen, function (acc, n) { acc.push( (acc.length > 0 ? acc[acc.length-1] : 0) + n); return acc; }, []);
       res_zinsen.unshift(0);
 
       $scope.chartConfig_1.series[0].data = [{name: 'Anfangskapital', y: vm.result.principal, color:'#009CDE'}, {name: 'Einzahlungen', y: vm.result.inflow, color:'#50B432'}, {name: 'Zinsen', y: vm.result.interest, color:'#F38200'}];
