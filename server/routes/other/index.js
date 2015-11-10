@@ -12,17 +12,15 @@ router.get('/impressum', function(req, res, next) {
   res.render('other/impressum');
 });
 
-router.get('/test', function(req, res, next) {
-  res.render('other/impressum');
-});
-
-
-
 /* GET datenschutz page. */
 router.get('/datenschutz', function(req, res, next) {
   res.render('other/datenschutz');
 });
 
+/* GET über finiq page. */
+router.get('/finiq', function(req, res, next) {
+  res.render('other/uberfiniq');
+});
 
 
 module.exports = router;

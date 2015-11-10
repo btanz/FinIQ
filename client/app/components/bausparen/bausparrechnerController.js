@@ -14,7 +14,7 @@
       principal: 40000,
       saving: 5,
       interestsave: 0.6,
-      interestdebt: 2.5,
+      interestdebt: 1.5,
       termsave: 8,
       repay: 6,
       bonus: {id: 2},

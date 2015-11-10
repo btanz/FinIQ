@@ -10,7 +10,7 @@ block content
     //- Page-title
     section#page-title
       include ../_mixins/page_title
-      mixin page_title('Bausparrechner', 'Das Tool zur Berechnung von Bausparverträgen', ['Home', '/'], ['Bausparen', '/bausparen'], ['Bausparrechner', '/bausparen/bausparrechner', 'true'])
+      mixin page_title('Bausparrechner', 'Das Tool zur Berechnung von Bausparverträgen. Finden Sie anhand der effektiven Zinssätze heraus, wie attraktiv Bausparen für Sie ist.', ['Home', '/'], ['Baufinanzierung', '/baufinanzierung'], ['Bausparrechner', '/baufinanzierung/bausparrechner', 'true'])
 
     //-page-content
     section#content(ng-controller='bausparrechnerController as vm')
@@ -27,7 +27,7 @@ block content
 
                 //- primary inputs
                 //sf-slider(description='Bausparsumme',               value='vm.inputs.principal',    tip='Der Gesamtbetrag, über den der Bausparvertrag abgeschlossen wird. Dies ist der Betrag, welcher bei Zuteilung des Bausparvertrages ausgezahlt wird', addon='€', id='principal',  options='{"floor": "3000", "ceil": "300000", "precision": "1", "step": "1000"}')
-                sf-slider(description='Sparbeitrag', type='frac',  value='vm.inputs.saving' tip='Der monatliche Regelsparbeitrag als Promillesatz von der Bausparsumme, welcher in der Ansparphase monatlich in den Bausparvertrag eingezahlt wird. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. Für die meisten Verträge liegt der Satz zwischen 3‰ und 10‰.',addon='‰', id='saving', options='{"floor": "1", "ceil": "16", "precision": "2", "step": "0.1"}', fun='vm.calcAbsolute(vm.inputs.principal, vm.inputs.saving, 1000)')
+                sf-slider(description='Sparbeitrag', type='frac',  value='vm.inputs.saving' tip='Der monatliche Regelsparbeitrag als Promillesatz von der Bausparsumme, welcher in der Ansparphase monatlich in den Bausparvertrag eingezahlt wird. Es wird unterstellt, dass die Zahlung jeweils am Monatsende (nachschüssig) erfolgt. Für die meisten Verträge liegt der Satz zwischen 3‰ und 10‰.',addon='‰', id='saving', options='{"floor": "1", "ceil": "15", "precision": "2", "step": "0.1"}', fun='vm.calcAbsolute(vm.inputs.principal, vm.inputs.saving, 1000)')
                 sf-slider(description='Anspardauer',                value='vm.inputs.termsave',    addon='Jahre',    tip='Der Zeitraum, über den die monatlichen Sparbeiträge geleistet werden.' ,id='termsave',  options='{"floor": "1", "ceil": "15", "precision": "2", "step": "1"}')
                 sf-slider(description='Guthabenzinssatz',           value='vm.inputs.interestsave', addon='% p. a.',  tip='Der jährlichen Zinssatz, welchen Sie laut Bausparvertrag auf das angesparte Kapital erhalten.' ,id='interestsave',  options='{"floor": "0", "ceil": "3", "precision": "2", "step": "0.05"}')
                 sf-slider(description='Darlehenszinssatz',          value='vm.inputs.interestdebt', addon='% p. a.',  tip='Der jährliche Zinssatz, welchen Sie laut Bausparvertrag für das Bauspardarlehen zahlen.' ,id='interestdebt',  options='{"floor": "0", "ceil": "5", "precision": "2", "step": "0.05"}')
@@ -55,7 +55,7 @@ block content
                     div#collapseTwo.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
                       div.panel-body
 
-                        sf-slider(description='Abschlussgebühr', type='frac',  value='vm.inputs.initialfee' tip='Die einmaligen Gebühren als Prozentsatz der Bausparsumme, welche für die meisten Bausparverträge bei Abschluß anfallen. Der Gebührensatz je nach Vertrag zwischen 0,5 % und 3 %.',addon='%', id='initialfee', options='{"floor": "0", "ceil": "5", "precision": "2", "step": "0.05"}', fun='vm.calcAbsolute(vm.inputs.principal, vm.inputs.initialfee, 100)')
+                        sf-slider(description='Abschlussgebühr', type='frac',  value='vm.inputs.initialfee' tip='Die einmaligen Gebühren als Prozentsatz der Bausparsumme, welche für die meisten Bausparverträge bei Abschluss anfallen. Der Gebührensatz liegt je nach Vertrag zwischen 0,5 % und 3,0 %.',addon='%', id='initialfee', options='{"floor": "0", "ceil": "5", "precision": "2", "step": "0.05"}', fun='vm.calcAbsolute(vm.inputs.principal, vm.inputs.initialfee, 100)')
                         sf-slider(description='Sondereinzahlung bei Beginn',      value='vm.inputs.initialpay',    tip='Einmalige Sparbeiträge, welche bei manchen Verträgen zu Beginn der Vertragsperiode möglich sind. Diese Sondereinzahlungen werden entsprechend über die Ansparperiode verzinst.', addon='€', id='initialpay',  options='{"floor": "0", "ceil": "15000", "precision": "1", "step": "50"}')
                         sf-slider(description='Auszahlungsprozentsatz',           value='vm.inputs.paypercent',   addon='%',  tip='Bei Standardverträgen ist der Auszahlungsprozentsatz 100% der Bausparsumme. Bei einigen Verträgen kann jedoch davon nach oben oder unten abgewichen werden, was die Auszahlung relativ zur Bausparsumme entsprechend erhöht oder senkt. Im Zweifel sollten Sie hier 100% eingeben.' ,id='paypercent',  options='{"floor": "0", "ceil": "100", "precision": "2", "step": "1"}')
 
@@ -89,7 +89,7 @@ block content
                     | .
                     span(style='color: #F38200')
                       br
-                      | Die Ansparquote liegt unter 40 %.
+                      | Die Ansparquote liegt unter 40 %. Erhöhen Sie den Sparbeitrag.
 
               //- principle not feasible
               div.row(ng-if='vm.result.savingratio < 20')
@@ -103,7 +103,7 @@ block content
                     | .
                     span(style='color: #B20925')
                       br
-                      | Achtung: Die Ansparquote liegt unter 20 %.
+                      | Achtung: Die Ansparquote liegt unter 20 %. Erhöhen Sie den Sparbeitrag.
 
               //- principle maybe feasible
               div.row(ng-if='vm.result.savingratio >= 65 && vm.result.savingratio < 100')
@@ -117,7 +117,7 @@ block content
                     | .
                     span(style='color: #F38200')
                       br
-                      | Die Ansparquote liegt über 65 %.
+                      | Die Ansparquote liegt über 65 %. Wählen Sie einen niedrigeren Sparbeitrag.
 
 
               //- principle not feasible
@@ -132,9 +132,10 @@ block content
                     | .
                     span(style='color: #B20925')
                       br
-                      | Achtung: Die Ansparquote liegt über 100 %.
+                      | Achtung: Die Ansparquote liegt über 100 %. Wählen Sie einen niedrigeren Sparbeitrag.
 
               div.notopmargin.sbottommargin
+              p(style='text-transform: uppercase; font-weight: 700; letter-spacing: 1.5px;') Bausparsumme
               rzslider(rz-slider-model='vm.inputs.principal', rz-slider-ceil='300000', rz-slider-floor='3000', rz-slider-step='1000',rz-slider-hide-limit-labels='true', rz-slider-translate='vm.sliderTranslate', style='margin-top: 0px;')
               div.notopmargin.sbottommargin
 
@@ -147,16 +148,20 @@ block content
 
               //- effective interest rate
               div.row(ng-if='vm.result.irrSave && vm.result.irrLoan').animate-if
-                div.col-sm-6
+                div.col-sm-4
                   div.sf-info-box
                     span(style='font-size: 24px; color: #009CDE;')  {{vm.result.irrSave | currency:"%":2}}
                     p Effektiver Zinssatz Ansparphase
 
-
-                div.col-sm-6
+                div.col-sm-4
                   div.sf-info-box
                     span(style='font-size: 24px; color: #009CDE;') {{vm.result.irrLoan | currency:"%":2}}
                     p Effektiver Zinssatz Rückzahlungsphase
+
+                div.col-sm-4
+                  div.sf-info-box
+                    span(style='font-size: 24px; color: #009CDE;') {{vm.result.savingratio | currency:"%":2}}
+                    p Ansparquote
 
 
 
@@ -179,10 +184,6 @@ block content
                     a(href='#tabs-5', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-5')
                       i.fa.fa-calculator
                       | Ergebnisse
-                  li.ui-state-default.ui-corner-top(role='tab', tabindex='-1', aria-controls='tabs-6', aria-labelledby='ui-id-6', aria-selected='false')
-                    a(href='#tabs-6', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-6')
-                      i.fa.fa-cogs
-                      | Vorgehen
                   li.ui-state-default.ui-corner-top(role='tab', tabindex='-1', aria-controls='tabs-7', aria-labelledby='ui-id-7', aria-selected='false')
                     a(href='#tabs-7', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-7')
                       i.fa.fa-lightbulb-o
@@ -235,58 +236,51 @@ block content
                           td.text-right {{vm.result.termloan | currency:" Jahre":2}}
 
 
-
-
-
-
-                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-6(aria-labelledby='ui-id-6', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
-                    p Der Mieten-oder-Kaufen-Rechner stellt das Endvermögen für die Szenarien Mieten oder Kaufen einer Immobilie bzw. Eigentumswohnung gegenüber und dient damit als Unterstützung bei der Kauf- oder Mietentscheidung. Für beide Szenarien wird das Endvermögen über den gewählten Zeitraum berechnet, indem das Anfangsvermögen sowie Zu- und Abflüsse analysiert werden. Allgemein basiert die Analyse also auf der Bestimmung und Verrechnung aller Zahlungsströme. Wichtige Enflußgröße für das Ergebnis ist das Verhältnis von Mietkosten zu erwarteten Kredit- und Instandhaltungskosten beim Immobilienkauf. Details zur Berechnung für die Szenarien können Sie den folgenden Abschnitten entnehmen.
-                    h5.xsbottommargin Wie das Endvermögen für das Kaufszenario berechnet wird
-                    p.xsbottommargin Die Berechnung des Vermögens für das Kaufszenario lässt sich in drei Schritte unterteilen. Im ersten Schritt werden alle Zahlungen (bzw. Vermögensgegenstände) zum Zeitpunkt des Immobilienkaufs berechnet und addiert. Im zweiten Schritt werden die Zahlungsströme während des gesamten Zeitraumes zwischen Immobilienkauf und Ende des Betrachtungszeitraums (gewähltes "Jahr ab Kauf") erstellt. Schließlich erfolgt die Berechnung von Zahlungsströmen bzw. Vermögensgegenständen am Ende es Zeitraums.
-                    p.xsbottommargin Zur Berechnung der Zahlungen zum Zeitpunkt des Immobilienkaufs wird zunächst die Höhe des erforderlichen Darlehens bestimmt. Diese ergibt sich aus dem eingegebenen Kaufpreis und der Kaufnebenkosten abzüglich des Eigenkapitals. Den positiven Zahlungsströmen/Vermögensgegenständen Darlehensauszahlung und Eigenkapital steht zum Kaufzeitpunkt der negative Zahlungsstrom Kaufpreis der Immobilie inklusive Nebenkosten gegenüber. Der Saldo ergibt grundsätzlich null.
-                    p.xsbottommargin Die Zahlungsströme während der Laufzeit bestehen aus Zinsertrag und -aufwand, Zahlungen zur Darlehenstilgung sowie laufende Kosten der Immobilie. Der Zinsaufwand wird auf Grundlage der ermittelten Darlehenshöhe, der eingegebenen Rückzahlungsrate - welche bis zur vollständigen Rückzahlung des Darlehens nach Voreinstellung dem verfügbaren Einkommen zum Wohnen entspricht - und des Darlehenszinssatzes ermittelt. Weiterhin wird der Zinsertrag aus der Anlage eventueller Differenzen zwischen dem verfügbaren Einkommen zum Wohnen und der Darlehensrückzahlung sowie der Ertrag aus Anlage von Überschüssen nach vollständiger Rückzahlung des Darlehens (sofern zutreffend) berechnet. Aus diesen Rechnungen ergeben sich schließlich die Positionen Zinsaufwand und -ertrag. Die Zahlungen zur Darlehenstilgung ergeben sich aus der angegeben Rückzahlungsrate. Analog berechnen sich die gesamten laufenden Kosten, welche auf Grundlage der Angabe zu den monatlichen laufenden Kosten aggregiert werden.
-                    p Schließlich wird der Immobilienwert am Ende des Zeitraums (Preis plus eventuelle Steigerungen) und eine eventuelle Darlehensrestschuld berechnet. Um das Endvermögen zu berechnen wird letztlich der Saldo aus diesen Größen zu den bereits ermittelten Werten addiert. Ergebnis ist das rechnerische Endvermögen für den Immobilienkauf, welches praktisch alle relevanten Parameter berücksichtigt.
-                    h5.xsbottommargin Wie das Endvermögen für das Mietszenario berechnet wird
-                    p.xsbottommargin Die Berechnung des Endvermögens für das Mietszenario ist vergleichsweise einfach. In diesem Fall setzt sich das Endvermögen aus der Anlage des Eigenkapitals zum eingegebenen/vorgegebenen Zinssatz für die Geldanlage sowie den anfallenden Überschüssen aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und den tatsächlichen Mietkosten zusammen. Im Fall der Miete kann das Eigenkapital, welches andernfalls zur Finanzierung der Immobilie verwendet werden würde, zum Anlagezinssatz angelegt werden. Auch die verfügbaren Überschüsse aus der Differenz zwischen dem verfügbaren Einkommen zum Wohnen und der Miete können verzinslich angelegt werden.
-                    p Damit ergibt sich das Endvermögen im Mietszenario aus dem anfänglich verfügbaren Eigenkapital, der Differenz aus dem gesamten verfügbaren Wohneinkommen und den gesamten Mietkosten sowie dem Zinsertrag aus der Anlage des Eigenkapitals und des über den Zeitraum anfallenden überschüssigen Kapitals.
-
                   div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-7(aria-labelledby='ui-id-7', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
-                    p.xsbottommargin Um Ihnen die Analyse zu erleichtern haben wir bereits sinnvolle Annahmen zur Berechnung getroffen. Die folgenden Abschnitte erläutern die wichtigsten Annahmen. Sie können Annahmen jedoch auch ändern und die Analyse so noch besser auf Ihre persönlichen Verhältnisse zuschneiden, indem Sie die Detailangaben in der Liste der Eingabefelder entsprechend anpassen.
+                    p.xsbottommargin Um Ihnen die Analyse zu erleichtern haben wir bereits sinnvolle Annahmen und Vorgaben zur Berechnung getroffen, welche Sie natürlich nach Bedarf noch individuell anpassen können und sollten. Die folgenden Abschnitte erläutern die wichtigsten Vorgaben.
                     p.xsbottommargin
-                      strong Kaufnebenkosten:
-                      |  Die Kaufnebenkosten bestehen im wesentlichen aus der Grunderwerbssteuer sowie Gebühren für Makler und Notar/Gericht. Im Durchschnitt belaufen sich diese Kosten auf etwa 10 % des Kaufpreises, wobei die Grunderwerbssteuer (je nach Bundesland) ca. 5 % ausmacht, die Maklergebühr etwa 3,8 % sowie Notar- und Gerichtskosten jeweils etwa 0,8 % und 0,4 %.
+                      strong Sparbeitrag:
+                      |  Der monatliche Regelsparbeitrag für Bausparverträge beträgt meist zwischen 3 und 10 ‰ der Bausparsumme. Als Vorgabe haben wir den gebräuchlichen Wert von 5 ‰ gewählt.
                     p.xsbottommargin
-                      strong Laufende Kosten:
-                      |  Diese Kosten setzen sich zusammen aus den Kosten für die Nutzung / den Betrieb (Wasser, Heizung, Müll) und die Instandhaltung der Immobilie. Der angenommene Satz von 2,5 % des Kaufpreises ist eine konservative (hohe) Schätzung und setzt sich zusammen aus einem Betriebskostenanteil von 1,25 % und einem Instandhaltungskostenanteil von 1,25 %. Der Betriebskostenanteil von 1,25 % entspricht etwa einem Betriebskostensatz von 25 % der Gesamtmiete für eine vergleichbare Mietwohnung und ist damit eine Annährung an den aktuellen Betriebskostenspiegel. Der Instandhaltungskostensatz orientiert sich an der sogenannten Peterschen Formel zur Abschätzung der Instandhaltungsrücklage für Immobilien. Diese Formel basiert auf empirisch ermittelten durchschnittlichen Instandhaltungskosten und besagt, dass innherhalb von 80 Jahren der 1,5-fache Herstellungswert der Immobilie für die Instandhaltung notwendig wird. Um den Instandhaltungskostensatz zu berechnen gehen wir davon aus, dass die Herstellungskosten der Immobilie zwei Drittel des Kaufpreises ausmachen (Kaufpreis abzüglich u. a. des Grundstücks). Damit ergibt sich der Satz nach der Peterschen Formel aus der Gleichung (Kaufpreis * 0,66 * 1,5) / 80 = Kaufpreis * 1,25 %. Falls Sie genauere Angaben zu den spezifischen Kosten Ihrer Immobilie haben können Sie den Kostensatz natürlich entsprechend anpassen. Nichtdestrotrotz ist der Satz von 2,5 % auf Grundlage realistischer Annahmen für Immobilien in Deutschland ermittelt und kann daher als realistischer Ausgangspunkt für die Berechnung dienen.
+                      strong Anspardauer:
+                      |  Die Anspardauer beträgt für die meisten Verträge wie bereits vorgegeben etwa 8 Jahre. Meistens wird das Ende der Anspardauer auch an eine im Voraus definierte
+                      span(data-toggle='tooltip', title='Die Ansparquote ist der Anteil des angesparten Kapitals an der gesamten Bausparsumme.').text-tooltip  Ansparquote
+                      |  geknüpft. Durch Veränderung der Anspardauer können Sie errechnen lassen, wie hoch die Ansparquote nach jedem abgelaufenen Jahr ist, sofern alle monatlichen Sparbeiträge geleistet wurden. Neben den Standardverträgen gibt es auch Schnellspar- und Langzeitverträge. Für diese Verträge ist die Anspardauer entsprechend länger oder kürzer.
                     p.xsbottommargin
-                      strong Wertsteigerung Immobilie:
-                      |  Die Wertsteigerung ist von Region zu Region unterschiedlich und eine nur mit großer Unsicherheit prognostizierbare Größe. Die Vorgabe von 1,1 % orientiert sich an der langfristigen durchschnittlichen Immobilienrendite in Deutschland über die letzten 10 Jahre.
+                      strong Guthaben- und Darlehenszinssätze:
+                      |  Der Guthabenzinssatz variiert je nach Bausparkasse aktuell zwischen 0,0 und 1,5 % p. a., die Darlehenszinssätze liegen zwischen 0,5 und 2,5 %.
                     p.xsbottommargin
-                      strong Steigerung laufende Kosten:
-                      |  Die Vorgabe zur jährlichen Steigerung der laufenden Kosten von 2,2 % orientiert sich an der Entwicklung des Betriebskostenspiegels über die vergangenen 10 Jahre.
+                      strong Rückzahlungsrate:
+                      |  Die monatliche Rückzahlungsrate für Bausparverträge beträgt meist zwischen 4 und 8 ‰ der Bausparsumme. Als Vorgabe haben wir den gebräuchlichen Wert von 6 ‰ gewählt. Je höher die Rückzahlungsrate, desto schneller ist das Bauspardarlehen vollständig zurückgezahlt.
                     p.xsbottommargin
-                      strong Steigerung Mietkosten:
-                      |  Auch die Vorgabe zur jährlichen Steigerung der Mietkosten  orientiert sich an der Entwicklung des Betriebskostenspiegels über die letzten 10 Jahre.
+                      strong Wohnungsbauprämie:
+                      |  Die Wohnungsbauprämie ist eine staatliche Förderung, welche Personen gewährt wird, deren zu versteuerndes Einkommen im Sparjahr 25.600 € (Ledige) bzw. 51.200 € (für zusammenveranlagte Ehegatten/Lebenspartner) nicht übersteigt. Die Prämie beträgt grundsätzlich 8,8 % der laufenden Bauspareinlagen, Guthabenzinsen und eventuellen Abschlussgebühren, sofern diese im Kalenderjahr 50 € übersteigen. Die jährliche Höchstprämie liegt bei 45,06 € für Ledige und 90,11 € für Ehepaare. Der Bausparrechner bestimmt automatisch auf Basis Ihrer Angaben zu Einkommen und Familienstand die Höhe der Wohnungsbauprämie und berücksichtigt diese in der Effektivzinsberechnung.
                     p.xsbottommargin
-                      strong Zinssatz Geldanlage und Darlehen:
-                      |  Die Zinssätze für Geldanlage und Darlehen orientieren sich an den durchschnittlichen aktuellen Marktzinssätzen für langfristige Anlagen und Darlehen. Im Fall der Anlage wird angenommen, dass die Zinsen jährlich dem Kapital zugeschlagen werden und fortan mitverzinst werden (Zinseszins).
+                      strong Abschlussgebühr:
+                      |  Die Abschlussgebühr ist eine einmalige Gebühr, welche für die meisten Bausparverträge bei Abschluss anfällt. Der Gebührensatz liegt je nach Vertrag zwischen 0,5 % und 3 %. Den Einfluss der Abschlussgebühr auf die Rendite eines Bausparvertrags sollte man nicht unterschätzen. Nicht selten ist die Abschlussgebühr höher als die gesamten erzielbaren Zinserträge während der Ansparzeit.
                     p.xsbottommargin
-                      strong Monatliche Rückzahlungsrate:
-                      |  Die Vorgabe für die monatliche Rückzahlungsrate beträgt 90 % des freien verfügbaren Einkommens. Damit wird nahezu das gesamte monatliche verfügbare Einkommen zum Wohnen abzüglich der laufenden Kosten für die Immobilie zur Tilgung des Darlehens verwendet. Diese Einstellung führt zu einer schnellen Tilgung des Darlehens unter Berücksichtigung eines kleinen Liquiditätspuffers. Senken Sie diesen Prozentsatz entsprechend, sofern Sie einen geringeren Betrag zur Darlehenstilgung einsetzen wollen. Damit verlängert sich auch die Darlehensperiode bzw. die am Ende des Betrachtungszeitraums bestehende Restschuld.
+                      strong Sondereinzahlung bei Beginn:
+                      |  Viele Bausparverträge erlauben einmalige Spareinzahlungen zu Beginn der Bausparperiode. Diese Sondereinzahlungen werden entsprechend über die Ansparperiode verzinst.
                     p.xsbottommargin
-                      strong Weitere Annahmen:
-                      |  Bezüglich der Zahlungszeitpunkte geht der Rechner davon aus, dass Einkommen zum Wohnen jeweils am Monatsanfang zur Verfügung steht, Mietzahlungen am Monatsanfang geleistet werden und Tilgungszahlungen am Monatsende anfallen.
+                      strong Auszahlungsprozentsatz:
+                      |  Der Auszahlungsprozentsatz bestimmt die Höhe des Darlehens als Anteil der Bausparsumme.  Dieser Prozentsatz ist meist 100 %, kann aber bei manchen Verträge je nach Darlehensbedarf angepasst werden. Durch Veränderung des Auszahlungsprozentsatzes können Sie die Höhe des Darlehens bei vorgegebener Bausparsumme anpassen.
 
 
             div.col_full
-              h3.xsbottommargin Die Entscheidung zum Kaufen oder Mieten
-              p Der Kauf einer Immobilie ist eine Entscheidung von großer finanzieller und persönlicher Tragweite und sollte daher gut überlegt sein. Für viele Immobilienerwerber spielen emotionale Komponenten bei der Entscheidung für die eigenen vier Wände eine große Rolle. Um später keine bösen Überraschungen zu erleben sollte jedoch beim Immobilienerwerb auch auf die wirtschaftliche Komponente geachtet werden. Kernaspekt der wirtschaftlichen Betrachtung ist die Analyse, ob es finanziell lohnenswert ist, eine bestimmte Immobilie zu kaufen oder besser zur Miete zu wohnen. Der finanzielle Aspekt des Immobilienerwerbs scheint oft undurchsichtig, unter anderem auch, weil in den Prozess involvierte Parteien die verschiedensten Eigeninteressen verfolgen. Auch wenn man beim Immobilienerwerb nicht alle finanziellen Risiken ausschließen kann gilt: Eine gute Entscheidung ist meist leichter als gedacht!
-              h5.xsbottommargin Ist der Kauf immer die beste Option?
-              p Lange Zeit galt der Kauf einer Wohnimmobilie als die wirtschaftlich beste Option, insbesondere bei Verfügbarkeit von hohem Eigenkapital und einer günstigen Finanzierung. Dies ist heute allerdings nicht immer der Fall und die wirtschaftliche Vorteilhaftigkeit hängt letzlich von verschiedenen Faktoren ab. Beispielsweise unterliegen Immobilienpreise teils starken und regional unterschiedlichen Schwankungen, während Mietpreise unter anderem auch durch staatliche Regulierung vergleichsweise konstant sind. Die folgende Grafik "Preis- und Mietenindex für Deutschland" zeigt, dass die Kaufpreise für Immobilien in Deutschland zuletzt stark angestiegen sind während die Mietpreise langfristig mit einer konstanten moderaten Rate steigen. Daher kann es zu bestimmten Zeiten an bestimmten Orten besser sein, zur Miete zu wohnen. Weiterhin ist der Kauf einer Immobilie mit diversen Fixkosten verbunden, welche sich erst über längere Zeit amortisieren. Daher ist auch relevant, über welchen Zeitraum Sie die Immobilie bewohnen möchten. Schließlich ist ein Vergleich der Mietkosten mit den beim Immobilienkauf entstehenden Finanzierungskosten (Kreditzinsen) und den Instandhaltungskosten für den konkreten Fall eine wichtige Entscheidungskomponente.
-              highchart(id='chart02', config='chartConfig_2')
-              div.divider.notopmargin.mbottommargin
-              h5.xsbottommargin Wie Ihnen dieses Tool helfen kann
-              p Das kaufen-oder-mieten-Tool soll Ihnen die Analyse so einfach wie möglich machen. Dazu haben wir die wichtigsten Einflussfaktoren der Entscheidung analysiert und in das Tool integriert. Sie können Details wie etwa laufende Kosten und deren jährliche Steigerungsraten individuell bestimmen und eingeben. Falls Ihnen keine speziellen Werte vorliegen können Sie auch unsere Vorgaben verwenden, welche auf Grundlage aktueller Daten zum Immobilienmarkt sowie weit verbreiteter Berechnungsmethoden wie etwa der Peterschen Formel zur Ermittlung der Instandhaltungskosten bestimmt worden sind.
+              h3.xsbottommargin Das Tool zur Berechnung von Bausparverträgen
+              p Bausparverträge sind eine der beliebtesten Formen der Finanzierung von Immobilien in Deutschland und bilden seit Jahrzehnten die Basis des Vermögensaufbaus vieler Menschen. Kurzgefasst beinhaltet der Bausparvertrag eine Ansparphase von mehreren Jahren, in welcher meist monatlich in den Vertrag eingezahlt wird. Nachdem ein vorher festgelegtes Mindestguthaben angespart wurde, erfolgt die sogenannte Zuteilung des Bausparvertrags. Die Zuteilung besteht aus der Auszahlung des angesparten Bausparguthabens und in der Regel aus der Auszahlung eines Bauspardarlehens, dessen Zinssatz bereits bei Abschluss des Bausparvertrags vereinbart wurde. Das Bauspardarlehen muss dabei für wohnungswirtschaftliche Zwecke verwendet und über die folgenden Jahre zurückgezahlt werden.
+              h5.xsbottommargin Sind Bausparverträge eine gute Option für den Vermögensaufbau?
+              p Leider schließen viele Sparer oft vorschnell einen Bausparvertrag ab, ohne sich ein Bild zu machen, ob ein solcher Vertrag überhaupt sinnvoll ist. Dies mag auch damit zu tun haben, dass Bausparverträge traditionell einen guten Ruf genießen und als solide Anlagen gelten. Bei genauerem hinschauen zeigt sich jedoch oft, dass ein klassischer Sparplan zusammen mit einem Immobilienkredit (wenn benötigt) die bessere Alternative ist. Ob ein Bausparvertrag letztlich für Sie eine gute Option zum Vermögensaufbau ist, hängt stark von individuellen Faktoren ab.
+              p Wir haben die wichtigsten individuellen Faktoren für Sie zusammengefasst:
+              ul.ul-post
+                li Ihr Bruttoeinkommen: Das Bruttoeinkommen bestimmt etwa über Förderzahlungen aufgrund der Wohnungsbauprämie.
+                li Ihr Sparbeitrag: Der Sparbeitrag bestimmt zum Beispiel die relative Rentabilität der Wohnungsbauprämie. Da pro Jahr maximal Aufwendungen von 512,00 € bezuschusst werden (Einzelpersonen), wird durch höhere Sparbeiträge auch keine höhere Wohnungsbauprämie erzielt. Daher ist es aus Renditegesichtspunkten oft ratsam, nicht deutlich mehr als 500,00 € pro Jahr in einen Bausparvertrag einzuzahlen (1000,00 € für Verheiratete) und die Bausparsumme entsprechend zu wählen.
+                li Ihre Ziele: Wenn Sie sich noch nicht sicher sind, ob Sie überhaupt ein Darlehen zur Baufinanzierung benötigen, macht ein Bausparvertrag möglicherweise wenig Sinn. Sie würden möglicherweise auf bessere Guthabenzinsen für Ihre Ersparnisse verzichten, um sich gute Bedingungen (Zinsen) für Bauspardarlehen in der Zukunft zu 'erkaufen', diese dann aber nicht in Anspruch nehmen.
+                li Konditionen des Bausparvertrags: Konditionen des Bausparvertrags wie Zinssätze und Abschlussgebühren haben einen maßgeblichen Einfluss auf Ihre Rendite.
+              h5.xsbottommargin Wie kann ich mit dem Bausparrechner entscheiden, ob ein Bausparvertrag sinnvoll für mich ist?
+              p Der Bausparrechner hilft Ihnen, Ihre individuelle Situation auf eine Kenngröße für die Anspar- und Rückzahlungsphase zu reduzieren: den effektiven Zinssatz. Mit Hilfe des effektiven Zinssatzes können Sie dann den Bausparvertrag mit anderen verfügbaren Geldanlage- und Finanzierungsalternativen vergleichen bzw. die Parameter des Vertrags so wählen, dass der effektive Zinssatz für Sie attraktiv wird. Wenn Sie zum Beispiel die Voraussetzungen für die Wohnungsbauprämie erfüllen, dann können Sie Ihre Rendite/Ihren effektiven Zinssatz meist durch geschickte Wahl der Sparbeiträge und damit der Bausparsumme optimieren.
+              p Machen Sie die entsprechenden Angaben in den Eingabefeldern, möglichst auch unter dem Punkten "Wohnungsbauprämie" und "Details", um den effektiven Zinssatz zu berechnen. Der Rechner ermittelt automatisch, ob eine Förderung durch die Wohnungsbauprämie für Sie voraussichtlich in Frage kommt oder nicht und berücksichtigt solche Förderungen im effektiven Zinssatz. Die vorgegebenen Werte zu den Konditionen des Bausparvertrags wie Guthaben- und Darlehenszinssatz sowie Abschlussgebühren entsprechen bereits den marktüblichen Werten. Natürlich können und sollten Sie diese anpassen, sofern Ihnen bereits ein konkretes Angebot für einen Bausparvertrag vorliegt.
+              p Im aktuellen Zinsumfeld kann es sogar sein, dass der Rechner einen negativen effektiven Zinssatz für die Ansparphase ermittelt. Der Grund dafür ist, dass der Guthabenzins und eventuelle Förderungen die bei Vertragsschluss zu zahlende Abschlussgebühr nicht aufwiegen. Einfach ausgedrückt: In solchen Fällen "zahlen Sie drauf". Dies kann manchmal gerechtfertigt sein, um sich bereits heute die niedrigen Zinsen eines Bauspardarlehens in der Zukunft zu sichern. Sie sollten in diesen Fällen aber sehr genau hinschauen, da ein konventioneller Sparplan Ihnen Zinsen bereits in der Ansparphase bieten würde und es aktuell wenig Anzeichen für eine deutliche Steigerung der Darlehenszinsen in der Zukunft gibt, so dass Sie auch in Zukunft noch von günstigen Immobilienkrediten profitieren können.
 
           //- </div> ********** END page center - main content **********
 

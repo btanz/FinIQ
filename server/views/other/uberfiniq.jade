@@ -1,0 +1,57 @@
+//
+   Created by benjamintanz on 05.10.15.
+
+extends ../layout
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    section#content
+      div.content-wrap.nopadding
+
+        div.section.parallax(style='background: url("/assets/img/other/about_finiq_01j.jpg") center center; background-size:cover; padding: 450px 0; margin-top: 0;', data-stellar-background-ratio="0.3", data-stellar-vertical-offset="110")
+          div.about-headingcontainer
+            div.container.clearfix
+              //div.col_three_fifth.nobottommargin
+              div.emphasis-title.center
+                h2 Bessere Entscheidungen durch Technologie
+                p.lead.xstopmargin Wir bauen auf Software und Daten, um komplizierte Finanzfragen zu vereinfachen und Sie in die Lage zu versetzen, bessere Finanzentscheidungen zu treffen.
+
+
+
+        div.container.clearfix
+          div.row
+            div.col-md-12.bottommargin
+              div.team.team-list.clearfix
+                div.team-image
+                  img(src="/assets/img/other/about_finiq_inhaber_01b.jpg" alt="Benjamin Tanz")
+                div.team-desc
+                  div.team-title Benjamin Tanz
+                    span Inhaber
+                  div.team-content.xxstopmargin
+                    p Vor der Gründung von FinIQ war Ben als Berater für den Bankensektor bei PwC, als quantitativer Analyst bei HSBC sowie als Dozent für Wirtschaftswissenschaften an der Universität Tilburg (Niederlande) tätig. Er studierte Wirtschaftswissenschaften und Statistik in Mannheim, Rotterdam und Chicago und machte als Kind die ersten Schritte im Programmieren auf einem Commodore 64. Mit FinIQ möchte Ben Technologien, welche sonst nur Banken zur Entscheidungsfindung nutzen, auch für Privatpersonen verfügbar machen.
+                  a(href='https://de.linkedin.com/in/benjamin-tanz-5407897b', target='_blank', style='margin-top: 10px;').social-icon.si-rounded.si-small.si-linkedin
+                    i.icon-linkedin
+                    i.icon-linkedin
+                  a(href='https://www.xing.com/profile/Benjamin_Tanz', target='_blank', style='margin-top: 10px;').social-icon.si-rounded.si-small.si-xing
+                    i.icon-xing
+                    i.icon-xing
+
+          div.divider.divider-center.xxstopmargin
+            i.icon-circle
+
+          div.row
+            h3.center Kontakt
+            div.col-md-6.bottommargin
+              h5.nobottommargin E-Mail Allgemein
+              a(href='mailto:info@finiq.de') info@finiq.de
+
+            div.col-md-6.bottommargin
+              h5.nobottommargin E-Mail Anfragen Blog
+              a(href='mailto:blog@finiq.de') blog@finiq.de
+
+          div.divider.divider-center
+
+
+    include ../_includes/footer
