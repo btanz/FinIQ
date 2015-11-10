@@ -2,6 +2,7 @@
  * Created by benjamintanz on 15.10.15.
  */
 (function(){
+  'use strict';
 
   angular.module('app').controller('uebersichtgrundstueckspreiseController', function($scope, chartConfig, $http){
 

@@ -2,6 +2,7 @@
  * Created by benjamintanz on 20.10.15.
  */
 (function(){
+  'use strict';
 
   angular.module('app').controller('artablaufhauskaufController', function($scope, chartConfig, $http) {
 

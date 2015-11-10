@@ -3,6 +3,7 @@
  */
 
 (function(){
+  'use strict';
 
   angular.module('app').controller('assetallokationController', function($scope, $rootScope, chartConfig, geldanlageCalculator, marketdataService) {
 
@@ -18,7 +19,7 @@
 
     /** helper function to compute portfolio values */
     function multiplyArray(arr, val){
-      newArr = [];
+      var newArr = [];
       for (var i = 0; i < arr.length; i += 1){
         newArr.push(arr[i] * val);
       }
@@ -26,7 +27,7 @@
     }
 
     function multiplyTwoDimArray(arr,val){
-      newArr2 = [];
+      var newArr2 = [];
       for (var i = 0; i < arr.length; i += 1){
         newArr2.push(multiplyArray(arr[i], val));
       }

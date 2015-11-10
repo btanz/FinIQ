@@ -1,5 +1,7 @@
 /** INITIALIZE ANGULAR APP */
 (function(){
+  'use strict';
+
   angular.module('app', ['rzModule','highcharts-ng','ngAnimate'])
       /** do initialization work */
       .run(function(){

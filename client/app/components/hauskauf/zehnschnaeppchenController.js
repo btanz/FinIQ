@@ -2,6 +2,7 @@
  * Created by benjamintanz on 21.10.15.
  */
 (function(){
+  'use strict';
 
   angular.module('app').controller('zehnschnaeppchenController', function($scope, chartConfig, $http){
 

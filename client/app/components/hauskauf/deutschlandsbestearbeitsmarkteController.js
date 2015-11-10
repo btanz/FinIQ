@@ -2,6 +2,7 @@
  * Created by benjamintanz on 13.10.15.
  */
 (function(){
+  'use strict';
 
   angular.module('app').controller('deutschlandsbestearbeitsmaerkteController', function($scope, chartConfig, $http){
 

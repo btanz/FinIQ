@@ -2,6 +2,7 @@
  * Created by benjamintanz on 16.10.15.
  */
 (function(){
+  'use strict';
 
   angular.module('app').controller('kaufpreisController', function($scope, $rootScope, chartConfig, $interval, marketdataService, hauskaufCalculator){
 

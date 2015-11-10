@@ -3,10 +3,12 @@
  */
 
 (function(){
+  'use strict';
 
   angular.module('app').controller('sparrechnerController', function($scope, $rootScope, chartConfig, finlibSavings) {
 
-    var vm = this;
+    var vm = this,
+        res;
 
 
     /** initialize values */

@@ -3,6 +3,7 @@
  */
 
 (function(){
+  'use strict';
 
   /** ********************** BEGIN ANGULAR CODE ********************************************* */
   angular.module('app').controller('mietenoderkaufenController', function($scope, $rootScope, $interval, chartConfig, hauskaufCalculator){
