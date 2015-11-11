@@ -11,17 +11,56 @@ module.exports = function(){
 
 
   var config = {
+    build: './clientProd/',
+
     client: client,
     clientBase: '.' + client,
 
     clientDist: clientDist,
 
+    fonts: client + 'packages/font-awesome/fonts/**/*.*',
+
+    images: client + 'assets/img/**/*.*',
+
     scriptSrc: serverViews + '/_includes/scripttags.jade',
     scriptDist: serverViews + '/_includes/',
 
+    cssSrc: serverViews + '/_includes/styletags.jade',
+    cssDist: serverViews + '/_includes/',
+
     js: [
-        './app/**/*.js',
-        './assets/js/**/*.js'
+      './client/assets/js/**/*.js',
+      './client/app/**/*.js'
+
+    ],
+
+    appJS: './client/app/**/*.js',
+
+    assetsJS: [
+      "./client/assets/js/canvas/plugins.js",
+      "./client/assets/js/canvas/functions.js",
+      "./client/assets/js/highcharts/map.src.js",
+      "./client/assets/js/highcharts/mapdata/countries/de/de-all.js",
+      "./client/assets/js/highcharts/mapdata/countries/de/de-all-all.js",
+      "./client/assets/js/highcharts/mapdata/custom/world.js"
+    ],
+
+    packagesJS: [
+      './client/packages/jquery/dist/jquery.js',
+      './client/packages/angular/angular.js',
+      './client/packages/angularjs-slider/dist/rzslider.js',
+      './client/packages/highcharts/highcharts.js',
+      './client/packages/highcharts/highcharts-more.js',
+      './client/packages/highcharts/modules/exporting.js',
+      './client/packages/highcharts-ng/dist/highcharts-ng.js',
+      './client/packages/underscore/underscore.js',
+      './client/packages/angular-animate/angular-animate.js',
+      './client/packages/angular-i18n/angular-locale_de-de.js'
+    ],
+
+    css: [
+      './client/assets/css/canvas/*.css',
+      './client/assets/css/*.css'
     ],
 
     /**
@@ -46,7 +85,7 @@ module.exports = function(){
         jade: {
           replace: {
             js: 'script(src=\'/{{filePath}}\')',
-            css: 'link(rel=\'stylesheet\', href=\'{{filePath}}\')'
+            css: 'link(rel=\'stylesheet\', href=\'/{{filePath}}\')'
           }
         }
       }

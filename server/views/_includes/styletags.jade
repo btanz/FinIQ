@@ -3,22 +3,30 @@
 
 
 link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic')
-link(rel='stylesheet', type='text/css', href='/packages/bootstrap/dist/css/bootstrap.min.css')
-link(rel='stylesheet', type='text/css', href='/packages/font-awesome/css/font-awesome.min.css')
-link(rel='stylesheet', type='text/css', href='/packages/angularjs-slider/dist/rzslider.css')
-link(rel='stylesheet', type='text/css', href='/assets/css/canvas/style.css')
-link(rel='stylesheet', type='text/css', href='/assets/css/canvas/dark.css')
-link(rel='stylesheet', type='text/css', href='/assets/css/canvas/font-icons.css')
-link(rel='stylesheet', type='text/css', href='/assets/css/canvas/animate.css')
-link(rel='stylesheet', type='text/css', href='/assets/css/canvas/magnific-popup.css')
-link(rel='stylesheet', type='text/css', href='/assets/css/canvas/responsive.css')
-link(rel='stylesheet', type='text/css', href='/assets/css/canvas/colors.css')
-link(rel='stylesheet', type='text/css', href='/assets/css/main.css')
 
 
+//- INJECT BOWER CSS
+//- bower:css
+link(rel='stylesheet', href='/packages/bootstrap/dist/css/bootstrap.css')
+link(rel='stylesheet', href='/packages/angularjs-slider/dist/rzslider.css')
+link(rel='stylesheet', href='/packages/font-awesome/css/font-awesome.css')
+//- endbower
 
 
-//- favicon
+//- INJECT APP CSS
+//- inject:css
+link(rel="stylesheet", href="/assets/css/canvas/animate.css")
+link(rel="stylesheet", href="/assets/css/canvas/dark.css")
+link(rel="stylesheet", href="/assets/css/canvas/font-icons.css")
+link(rel="stylesheet", href="/assets/css/canvas/magnific-popup.css")
+link(rel="stylesheet", href="/assets/css/canvas/responsive.css")
+link(rel="stylesheet", href="/assets/css/canvas/style.css")
+link(rel="stylesheet", href="/assets/css/colors.css")
+link(rel="stylesheet", href="/assets/css/main.css")
+//- endinject
+
+
+//- FAVICON
 link(rel="apple-touch-icon", sizes="57x57", href="/assets/img/favicon/apple-icon-57x57.png")
 link(rel="apple-touch-icon", sizes="60x60", href="/assets/img/favicon/apple-icon-60x60.png")
 link(rel="apple-touch-icon", sizes="72x72", href="/assets/img/favicon/apple-icon-72x72.png")
@@ -36,3 +44,17 @@ link(rel="manifest", href="/assets/img/favicon/manifest.json")
 meta(name="msapplication-TileColor", content="#ffffff")
 meta(name="msapplication-TileImage", content="/assets/img/favicon/ms-icon-144x144.png")
 meta(name="theme-color", content="#ffffff")
+
+
+//- legacy stuff
+//link(rel='stylesheet', type='text/css', href='/packages/bootstrap/dist/css/bootstrap.min.css')
+//link(rel='stylesheet', type='text/css', href='/packages/font-awesome/css/font-awesome.min.css')
+//link(rel='stylesheet', type='text/css', href='/packages/angularjs-slider/dist/rzslider.css')
+//link(rel='stylesheet', type='text/css', href='/assets/css/canvas/style.css')
+//link(rel='stylesheet', type='text/css', href='/assets/css/canvas/dark.css')
+//link(rel='stylesheet', type='text/css', href='/assets/css/canvas/font-icons.css')
+//link(rel='stylesheet', type='text/css', href='/assets/css/canvas/animate.css')
+//link(rel='stylesheet', type='text/css', href='/assets/css/canvas/magnific-popup.css')
+//link(rel='stylesheet', type='text/css', href='/assets/css/canvas/responsive.css')
+//link(rel='stylesheet', type='text/css', href='/assets/css/canvas/colors.css')
+//link(rel='stylesheet', type='text/css', href='/assets/css/main.css')

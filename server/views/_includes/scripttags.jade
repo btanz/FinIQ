@@ -2,10 +2,10 @@
    Created by benjamintanz on 03.10.15.
 
 
+
 //- INJECT BOWER JS
 //- bower:js
 script(src='/packages/jquery/dist/jquery.js')
-script(src='/packages/bootstrap/dist/js/bootstrap.js')
 script(src='/packages/angular/angular.js')
 script(src='/packages/angularjs-slider/dist/rzslider.js')
 script(src='/packages/highcharts/highcharts.js')
@@ -22,34 +22,33 @@ script(src='/packages/angular-i18n/angular-locale_de-de.js')
 
 //- INJECT APP JS
 //- inject:js
-script(src="/assets/js/highcharts/mapdata/custom/world.js")
-script(src="/assets/js/canvas/plugins.js")
 script(src="/assets/js/canvas/functions.js")
-script(src="/assets/js/highcharts/mapdataCustomWorld.js")
+script(src="/assets/js/canvas/plugins.js")
 script(src="/assets/js/highcharts/map.src.js")
-script(src="/assets/js/highcharts/mapdata/countries/de/de-all.js")
+script(src="/assets/js/highcharts/mapdata/custom/world.js")
 script(src="/assets/js/highcharts/mapdata/countries/de/de-all-all.js")
+script(src="/assets/js/highcharts/mapdata/countries/de/de-all.js")
 script(src="/app/app.js")
-script(src="/app/shared/inputs/slider/sfSliderDirective.js")
-script(src="/app/shared/inputs/select/sfSelectDirective.js")
-script(src="/app/shared/numberformatter/numbersFilter.js")
-script(src="/app/shared/mathLib/mathService.js")
-script(src="/app/shared/finLib/savingsService.js")
-script(src="/app/shared/finLib/basicService.js")
+script(src="/app/shared/calculators/bausparCalculatorService.js")
+script(src="/app/shared/calculators/geldanlageCalculatorService.js")
+script(src="/app/shared/calculators/hauskaufCalculatorService.js")
 script(src="/app/shared/data/marketdataService.js")
 script(src="/app/shared/chartconfig/chartconfigService.js")
-script(src="/app/shared/calculators/hauskaufCalculatorService.js")
-script(src="/app/shared/calculators/geldanlageCalculatorService.js")
-script(src="/app/shared/calculators/bausparCalculatorService.js")
-script(src="/app/components/hauskauf/zehnschnaeppchenController.js")
-script(src="/app/components/hauskauf/uebersichtgrundstueckspreiseController.js")
-script(src="/app/components/hauskauf/mietenoderkaufenController.js")
-script(src="/app/components/hauskauf/kaufpreisController.js")
-script(src="/app/components/hauskauf/deutschlandsbestearbeitsmarkteController.js")
-script(src="/app/components/hauskauf/artablaufhauskaufController.js")
-script(src="/app/components/geldanlage/sparrechnerController.js")
-script(src="/app/components/geldanlage/assetallokationController.js")
+script(src="/app/shared/finLib/basicService.js")
+script(src="/app/shared/finLib/savingsService.js")
+script(src="/app/shared/mathLib/mathService.js")
+script(src="/app/shared/numberformatter/numbersFilter.js")
 script(src="/app/components/bausparen/bausparrechnerController.js")
+script(src="/app/components/geldanlage/assetallokationController.js")
+script(src="/app/components/geldanlage/sparrechnerController.js")
+script(src="/app/components/hauskauf/artablaufhauskaufController.js")
+script(src="/app/components/hauskauf/deutschlandsbestearbeitsmarkteController.js")
+script(src="/app/components/hauskauf/kaufpreisController.js")
+script(src="/app/components/hauskauf/mietenoderkaufenController.js")
+script(src="/app/components/hauskauf/uebersichtgrundstueckspreiseController.js")
+script(src="/app/components/hauskauf/zehnschnaeppchenController.js")
+script(src="/app/shared/inputs/select/sfSelectDirective.js")
+script(src="/app/shared/inputs/slider/sfSliderDirective.js")
 //- endinject
 
 
