@@ -1,3 +1,4 @@
+
 /**
  * 1. REQUIRE DEPENDENCIES AND INITIALIZE
  */
@@ -30,6 +31,13 @@ var app = express();
  * 2. CONFIGURE SETTINGS
  */
 
+/** A. Set environment */
+process.env.NODE_ENV = (process.env.NODE_ENV || 'production');
+
+
+/** B. App settings */
+
+
 /** view engine setup */
 app.set('views', path.join(__dirname, './../server/views'));
 app.set('view engine', 'jade');
@@ -40,7 +48,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, './../client')));
+
+if (process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname, './../clientProd')));
+} else {
+  app.use(express.static(path.join(__dirname, './../client')));
+}
 
 
 

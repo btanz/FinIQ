@@ -18,9 +18,15 @@ module.exports = function(){
 
     clientDist: clientDist,
 
-    fonts: client + 'packages/font-awesome/fonts/**/*.*',
+    fonts: [
+      client + 'packages/font-awesome/fonts/**/*.*',
+      client + 'assets/css/canvas/fonts/**/*.*'
+    ],
 
-    images: client + 'assets/img/**/*.*',
+    images: [
+      client + 'assets/img/**/*.*',
+      client + 'assets/css/canvas/images/**/*.*'
+    ],
 
     scriptSrc: serverViews + '/_includes/scripttags.jade',
     scriptDist: serverViews + '/_includes/',
@@ -34,15 +40,20 @@ module.exports = function(){
 
     ],
 
+    css: [
+      './client/assets/css/canvas/*.css',
+      './client/assets/css/*.css'
+    ],
+
     appJS: './client/app/**/*.js',
 
     assetsJS: [
-      "./client/assets/js/canvas/plugins.js",
-      "./client/assets/js/canvas/functions.js",
-      "./client/assets/js/highcharts/map.src.js",
-      "./client/assets/js/highcharts/mapdata/countries/de/de-all.js",
-      "./client/assets/js/highcharts/mapdata/countries/de/de-all-all.js",
-      "./client/assets/js/highcharts/mapdata/custom/world.js"
+      './client/assets/js/canvas/plugins.js',
+      './client/assets/js/canvas/functions.js',
+      './client/assets/js/highcharts/map.src.js',
+      './client/assets/js/highcharts/mapdata/countries/de/de-all.js',
+      './client/assets/js/highcharts/mapdata/countries/de/de-all-all.js',
+      './client/assets/js/highcharts/mapdata/custom/world.js'
     ],
 
     packagesJS: [
@@ -58,10 +69,25 @@ module.exports = function(){
       './client/packages/angular-i18n/angular-locale_de-de.js'
     ],
 
-    css: [
-      './client/assets/css/canvas/*.css',
-      './client/assets/css/*.css'
+    appCSS: './client/assets/css/app/**/*.css',
+
+    assetsCSS: [
+      './client/assets/css/canvas/style.css',
+      './client/assets/css/canvas/dark.css',
+      './client/assets/css/canvas/font-icons.css',
+      './client/assets/css/canvas/animate.css',
+      './client/assets/css/canvas/magnific-popup.css',
+      './client/assets/css/canvas/responsive.css',
+      './client/assets/css/canvas/colors.css'
     ],
+
+    packagesCSS: [
+      './client/packages/bootstrap/dist/css/bootstrap.css',
+      './client/packages/font-awesome/css/font-awesome.css',
+      './client/packages/angularjs-slider/dist/rzslider.css'
+    ],
+
+
 
     /**
      * Bower and NPM locations

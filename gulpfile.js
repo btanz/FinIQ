@@ -39,90 +39,48 @@ gulp.task('lint', function(){
 });
 
 
-
-
-
-
-/** inject bower AND app js into scripttag-template */
-gulp.task('inject-js', function(){
-  log('*** Inject bower AND app js into scripttag-template ***');
-  var options = config.getWiredepDefaultOptions();
-  var wiredep = require('wiredep').stream;
-
-  return gulp
-      .src(config.scriptSrc)
-      .pipe(wiredep(options))
-      .pipe(gulpinject(gulp.src(config.js),{ignorePath: 'client'}
-      ))
-      .pipe(gulp.dest(config.scriptDist));
-
-});
-
-
-/** inject bower AND app css into styletags-template */
-gulp.task('inject-css', function(){
-  log('*** Inject bower AND app css into styletags-template ***');
-  var options = config.getWiredepDefaultOptions();
-  var wiredep = require('wiredep').stream;
-
-  return gulp
-      .src(config.cssSrc)
-      .pipe(wiredep(options))
-      .pipe(gulpinject(gulp.src(config.css),{ignorePath: 'client'}))
-      .pipe(gulp.dest(config.cssDist));
-});
-
-
-
-gulp.task('fonts', ['clean-fonts'],function(){
+gulp.task('prepare-fonts', ['clean-fonts'],function(){
   log('*** Copying fonts ***');
 
-  return gulp
-    .src(config.fonts)
+  var faFonts = gulp
+    .src(config.fonts[0])
     .pipe(gulp.dest(config.build + 'fonts'));
+
+  var canvasFonts = gulp
+      .src(config.fonts[1])
+      .pipe(gulp.dest(config.build + 'css/fonts'));
+
+  return merge(faFonts, canvasFonts);
+
 });
 
 
-gulp.task('images', ['clean-images'], function(){
+gulp.task('prepare-images', ['clean-images'], function(){
   log('*** Copying and compressing the images ***');
 
-  return gulp
-      .src(config.images)
+  var mainImages = gulp
+      .src(config.images[0])
       .pipe(gulpImagemin({optimizationLevel: 4}))
-      .pipe(gulp.dest(config.build + 'images'));
+      .pipe(gulp.dest(config.build + 'assets/img/'));
+
+  var canvasImages = gulp
+      .src(config.images[1])
+      .pipe(gulp.dest(config.build + 'css/images/'));
+
+  return merge(canvasImages);
+});
+
+gulp.task('prepare-html', ['clean-html'], function(){
+  log('*** Preparing angular templates for production ***');
+
+  return gulp
+      .src('./client/**/*.html')
+      .pipe(gulp.dest(config.build));
 });
 
 
-gulp.task('clean-fonts', function(done){
-  return del(config.build + 'fonts/**/*');
-});
-
-
-gulp.task('clean-images', function(done){
-  return del(config.build + 'images/**/*');
-});
-
-gulp.task('clean-js', function(done){
-  return del(config.build + 'js/**/*');
-});
-
-
-gulp.task('clean', function(done){
-  var delconfig = [].concat(config.build + 'fonts', config.build + 'images', config.build + 'js');
-  log('Cleaning: ');
-  log(delconfig);
-  del(delconfig, done);
-});
-
-gulp.task('inject', ['inject-js', 'inject-css'],function(){
-  log('*** inject JS and CSS into script- and styletags-templates ***');
-});
-
-
-// optimize to prepare for prodution
-gulp.task('optimize', ['inject', 'clean-js'], function(){
-  log('*** Optimizing CSS and JS ***');
-
+gulp.task('prepare-js', ['clean-js'], function(){
+  log('*** Preparing JS for production ***');
 
   var appJS = gulp
       .src(config.appJS)
@@ -140,8 +98,65 @@ gulp.task('optimize', ['inject', 'clean-js'], function(){
       .pipe(gulp.dest(config.build + 'js/'));
 
   return merge(appJS, assetsJS, packagesJS);
+});
 
 
+gulp.task('prepare-css', ['clean-css'], function(){
+  log('*** Preparing CSS for production ***');
+
+  var appCSS = gulp
+      .src(config.appCSS)
+      .pipe(gulpConcat('app.css'))
+      .pipe(gulp.dest(config.build + 'css/'));
+
+  var assetsCSS = gulp
+      .src(config.assetsCSS)
+      .pipe(gulpConcat('assets.css'))
+      .pipe(gulp.dest(config.build + 'css/'));
+
+  var packagesCSS = gulp
+      .src(config.packagesCSS)
+      .pipe(gulpConcat('packages.css'))
+      .pipe(gulp.dest(config.build + 'css/'));
+
+  return merge(appCSS, assetsCSS, packagesCSS);
+});
+
+
+
+
+gulp.task('prepare', ['prepare-js','prepare-fonts','prepare-images', 'prepare-css', 'prepare-html'],function(){
+  log('*** Preparing files for production ***');
+});
+
+
+gulp.task('clean-fonts', function(done){
+  return del([config.build + 'css/fonts/**/*', config.build + 'fonts/**/*']);
+});
+
+
+gulp.task('clean-images', function(done){
+  return del([config.build + 'assets/img/**/*', config.build + 'css/images/**/*']);
+});
+
+gulp.task('clean-js', function(done){
+  return del(config.build + 'js/**/*');
+});
+
+gulp.task('clean-css', function(done){
+  return del(config.build + 'css/**/*');
+});
+
+gulp.task('clean-html', function(done){
+  return del(config.build + '/**/*.html');
+});
+
+
+gulp.task('clean', function(done){
+  var delconfig = [].concat(config.build + '/*');
+  log('Cleaning: ');
+  log(delconfig);
+  del(delconfig, done);
 });
 
 
