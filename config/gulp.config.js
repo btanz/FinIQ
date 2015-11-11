@@ -20,8 +20,8 @@ module.exports = function(){
     scriptDist: serverViews + '/_includes/',
 
     js: [
-        // todo: load order
-        './app/**/*.js'
+        './app/**/*.js',
+        './assets/js/**/*.js'
     ],
 
     /**

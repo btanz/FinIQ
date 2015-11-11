@@ -27,7 +27,7 @@ gulp.task('lint', function(){
 
 
 
-/** inject bower AND app js into jade-templates */
+/** inject bower AND app js into scripttag-template */
 gulp.task('inject-js', function(){
   var options = config.getWiredepDefaultOptions();
   var wiredep = require('wiredep').stream;
@@ -35,7 +35,7 @@ gulp.task('inject-js', function(){
   return gulp
       .src(config.scriptSrc)
       .pipe(wiredep(options))
-      .pipe(gulpinject(gulp.src(config.js, {cwd: __dirname + '/client'})
+      .pipe(gulpinject(gulp.src(config.js)
           .pipe(angularFilesort())
       ))
       .pipe(gulp.dest(config.scriptDist));
