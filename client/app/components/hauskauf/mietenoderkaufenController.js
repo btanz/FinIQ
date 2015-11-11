@@ -6,7 +6,7 @@
   'use strict';
 
   /** ********************** BEGIN ANGULAR CODE ********************************************* */
-  angular.module('app').controller('mietenoderkaufenController', function($scope, $rootScope, $interval, chartConfig, hauskaufCalculator){
+  angular.module('app').controller('mietenoderkaufenController', ['$scope', '$rootScope', '$interval', 'chartConfig', 'hauskaufCalculator', function($scope, $rootScope, $interval, chartConfig, hauskaufCalculator){
 
     /** *** CALCULATION FUNCTIONS *** */
     $scope.calcAbsolute = function(basis, percentage){
@@ -159,7 +159,7 @@
 
 
 
-  });
+  }]);
   /** ********************** END ANGULAR CODE ********************************************* */
 
 

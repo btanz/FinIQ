@@ -4,7 +4,7 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('artablaufhauskaufController', function($scope, chartConfig, $http) {
+  angular.module('app').controller('artablaufhauskaufController', ['$scope', 'chartConfig', '$http', function($scope, chartConfig, $http) {
 
     /** activate tabbed process interface*/
     // todo: move to directive
@@ -16,6 +16,6 @@
       });
     });
 
-  });
+  }]);
 
 })();

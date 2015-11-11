@@ -4,7 +4,7 @@
 
 (function(){
 
-  angular.module('app').factory('finlibSavings', function(finlibBasic, mathlibMath) {
+  angular.module('app').factory('finlibSavings', ['finlibBasic', 'mathlibMath', function(finlibBasic, mathlibMath) {
 
     /** namespacing */
     var fun = {};
@@ -284,6 +284,6 @@
     return fun;
 
 
-  });
+  }]);
 
 })();

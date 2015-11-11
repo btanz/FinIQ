@@ -1,0 +1,41 @@
+<label class='xxsbottommargin' for='{{id}}' data-toggle='tooltip' data-placement='right' style="border-bottom: 1px #009CDE dotted;">{{description}}</label>
+
+<div ng-switch="type">
+  <!-- *** default slider *** -->
+  <div ng-switch-default>
+    <!-- case with addon -->
+    <div ng-if='addon' class="input-group">
+      <input type="number" id='{{id}}' name='{{id}}' ng-model="$parent.$parent.value" class="sm-form-control"/>
+      <span class="input-group-addon">{{addon}}</span>
+    </div>
+    <!-- case without addon -->
+    <div ng-if='!addon'>
+      <input type="number" id='{{id}}' name='{{id}}' ng-model="$parent.$parent.value" class="sm-form-control"/>
+    </div>
+  </div>
+  <!-- *** slider that asks for a fraction of x, where the abs value is computed and displayed *** -->
+  <div ng-switch-when="frac">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- case with addon -->
+        <div ng-if='addon' class="input-group">
+          <input type="number" id='{{id}}' name='{{id}}' ng-model="$parent.$parent.value" class="sm-form-control"/>
+          <span class="input-group-addon">{{addon}}</span>
+        </div>
+        <!-- case without addon -->
+        <div ng-if='!addon'>
+          <input type="number" id='{{id}}' name='{{id}}' ng-model="$parent.$parent.value" class="sm-form-control"/>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <p class="nobottommargin text-right">{{fun() | currency:options.secondaddon:2}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<rzslider rz-slider-model="value" rz-slider-floor='options.floor' rz-slider-ceil="options.ceil" rz-slider-precision="{{options.precision}}" rz-slider-step='{{options.step}}' rz-slider-hide-limit-labels="true" rz-slider-translate="sliderTranslate"></rzslider>
+<div class="divider notopmargin mbottommargin"></div>
+
+
+

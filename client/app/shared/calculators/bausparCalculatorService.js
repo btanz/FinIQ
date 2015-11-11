@@ -5,7 +5,7 @@
 
 (function(){
 
-  angular.module('app').factory('bausparCalculator', function(finlibBasic){
+  angular.module('app').factory('bausparCalculator', ['finlibBasic', function(finlibBasic){
 
     var fun = {};
 
@@ -283,6 +283,6 @@
 
 
 
-  });
+  }]);
 
 })();

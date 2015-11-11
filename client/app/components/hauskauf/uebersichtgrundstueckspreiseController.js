@@ -4,7 +4,7 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('uebersichtgrundstueckspreiseController', function($scope, chartConfig, $http){
+  angular.module('app').controller('uebersichtgrundstueckspreiseController', ['$scope', 'chartConfig', '$http', function($scope, chartConfig, $http){
 
     $http({
       method: 'GET',
@@ -76,6 +76,6 @@
 
 
 
-  });
+  }]);
 
 })();

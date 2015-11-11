@@ -5,7 +5,7 @@
 
 (function() {
 
-  angular.module('app').factory('mathlibMath', function () {
+  angular.module('app').factory('mathlibMath', [function () {
 
     var fun = {};
 
@@ -47,7 +47,7 @@
 
 
     return fun;
-  });
+  }]);
 
 
 

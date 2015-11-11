@@ -1,4 +1,4 @@
-angular.module('app').directive('sfSlider', function(){
+angular.module('app').directive('sfSlider', [function(){
   return {
     restrict: 'E',
     templateUrl: '/app/shared/inputs/slider/sfSliderTemplate.html',
@@ -34,4 +34,4 @@ angular.module('app').directive('sfSlider', function(){
       element.find('label').tooltip({title: scope.tip, template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'});
     }
   }
-});
+}]);

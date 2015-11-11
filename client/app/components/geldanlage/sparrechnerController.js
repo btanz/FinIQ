@@ -5,7 +5,7 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('sparrechnerController', function($scope, $rootScope, chartConfig, finlibSavings) {
+  angular.module('app').controller('sparrechnerController', ['$scope', '$rootScope', 'chartConfig', 'finlibSavings', function($scope, $rootScope, chartConfig, finlibSavings) {
 
     var vm = this,
         res;
@@ -168,7 +168,7 @@
 
 
 
-  });
+  }]);
 
 
 

@@ -3,7 +3,7 @@
  */
 (function(){
 
-  angular.module('app').factory('marketdataService', function(){
+  angular.module('app').factory('marketdataService', [function(){
 
     var obj = {};
 
@@ -51,7 +51,7 @@
 
     return obj;
 
-  });
+  }]);
 
 
 

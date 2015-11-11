@@ -6,7 +6,7 @@
 
 (function(){
 
-  angular.module('app').factory('chartConfig', function(){
+  angular.module('app').factory('chartConfig', [function(){
     var obj = {};
 
     /** configurations concerning all charts */
@@ -108,7 +108,7 @@
     obj.piechart      = piechartConfig;
 
     return obj;
-  });
+  }]);
 
 
 

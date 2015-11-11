@@ -5,7 +5,7 @@
 
 (function(){
 
-  angular.module('app').factory('hauskaufCalculator', function(){
+  angular.module('app').factory('hauskaufCalculator', [function(){
 
     var fun = {};
 
@@ -376,7 +376,7 @@
     return fun;
 
 
-  });
+  }]);
 
 
 

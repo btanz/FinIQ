@@ -4,7 +4,7 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('zehnschnaeppchenController', function($scope, chartConfig, $http){
+  angular.module('app').controller('zehnschnaeppchenController', ['$scope', 'chartConfig', '$http', function($scope, chartConfig, $http){
 
     $(function($){
       $('.carousel').carousel();
@@ -20,9 +20,6 @@
 
     });
 
-
-  });
-
-
+  }]);
 
 })();

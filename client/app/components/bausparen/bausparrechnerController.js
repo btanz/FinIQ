@@ -6,7 +6,7 @@
   'use strict';
 
   /** ********************** BEGIN ANGULAR CODE ********************************************* */
-  angular.module('app').controller('bausparrechnerController', function($scope, $rootScope, chartConfig, bausparCalculator){
+  angular.module('app').controller('bausparrechnerController', ['$scope', '$rootScope', 'chartConfig', 'bausparCalculator', function($scope, $rootScope, chartConfig, bausparCalculator){
 
     var vm = this;
 
@@ -209,7 +209,7 @@
 
 
 
-  });
+  }]);
   /** ********************** END ANGULAR CODE ********************************************* */
 
 

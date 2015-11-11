@@ -98,7 +98,7 @@ block content
                 span(ng-if='vm.inputs.repaypercent > 100', style="color: #B20925")  Die Tilgungszahlungen übersteigen Ihre Zahlungsfähigkeit.
 
               h5 Mit {{(vm.inputs.income + vm.inputs.rent - vm.result.maintenance) * (vm.inputs.repaypercent / 100)  | currency:"€":2}} pro Monat können Sie über einen Zeitraum von {{vm.inputs.term}} Jahren ein Darlehen über {{vm.result.loan | currency:"€":2}} vollständig zurückzahlen. Zusammen mit ihrem Eigenkapital können Sie ingesamt also {{vm.result.totalpropcost | currency:"€":2}} ausgeben. Nach Berücksichtigung der Kaufnebenkosten (Grunderwerbssteuer, Makler, Notar) von etwa {{vm.result.notar + vm.result.makler + vm.result.proptax | currency:"€":2}}
-                span  können Sie für die Immobile {{vm.result.maxprice | currency:"€":2}} ausgeben.
+                span  können Sie für die Immobilie {{vm.result.maxprice | currency:"€":2}} ausgeben.
 
 
               h4 Berechnungsdetails

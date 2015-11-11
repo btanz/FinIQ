@@ -4,7 +4,7 @@
 
 (function(){
 
-  angular.module('app').factory('geldanlageCalculator', function() {
+  angular.module('app').factory('geldanlageCalculator', [function() {
 
     var fun = {};
 
@@ -55,7 +55,7 @@
 
     return fun;
 
-  });
+  }]);
 
 
 

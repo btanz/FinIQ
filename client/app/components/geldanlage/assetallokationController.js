@@ -5,11 +5,9 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('assetallokationController', function($scope, $rootScope, chartConfig, geldanlageCalculator, marketdataService) {
-
+  angular.module('app').controller('assetallokationController', ['$scope', '$rootScope', 'chartConfig', 'geldanlageCalculator', 'marketdataService', function($scope, $rootScope, chartConfig, geldanlageCalculator, marketdataService) {
 
     var vm = this;
-
 
     /** initialize values */
     vm.inputs = {
@@ -157,8 +155,7 @@
     $scope.chartConfig_2 = angular.merge(chartLocal_2 , chartConfig.linechart);
 
 
-
-  });
+  }]);
 
 
 

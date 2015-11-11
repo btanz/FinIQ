@@ -16,6 +16,9 @@ var gulpImagemin = require('gulp-imagemin');
 var gulpUseref = require('gulp-useref');
 var gulpJade = require('gulp-jade');
 var gulpConcat = require('gulp-concat');
+var gulpMinifyCss = require('gulp-minify-css');
+var gulpUglify = require('gulp-uglify');
+var gulpObfuscate = require('gulp-obfuscate');
 
 var config = require('./config/gulp.config')();
 
@@ -85,16 +88,19 @@ gulp.task('prepare-js', ['clean-js'], function(){
   var appJS = gulp
       .src(config.appJS)
       .pipe(gulpConcat('app.js'))
+      .pipe(gulpUglify({mangle: true}))
       .pipe(gulp.dest(config.build + 'js/'));
 
   var assetsJS = gulp
       .src(config.assetsJS)
       .pipe(gulpConcat('assets.js'))
+      .pipe(gulpUglify({mangle: true}))
       .pipe(gulp.dest(config.build + 'js/'));
 
   var packagesJS = gulp
       .src(config.packagesJS)
       .pipe(gulpConcat('packages.js'))
+      .pipe(gulpUglify({mangle: true}))
       .pipe(gulp.dest(config.build + 'js/'));
 
   return merge(appJS, assetsJS, packagesJS);
@@ -107,16 +113,19 @@ gulp.task('prepare-css', ['clean-css'], function(){
   var appCSS = gulp
       .src(config.appCSS)
       .pipe(gulpConcat('app.css'))
+      .pipe(gulpMinifyCss())
       .pipe(gulp.dest(config.build + 'css/'));
 
   var assetsCSS = gulp
       .src(config.assetsCSS)
       .pipe(gulpConcat('assets.css'))
+      .pipe(gulpMinifyCss())
       .pipe(gulp.dest(config.build + 'css/'));
 
   var packagesCSS = gulp
       .src(config.packagesCSS)
       .pipe(gulpConcat('packages.css'))
+      .pipe(gulpMinifyCss())
       .pipe(gulp.dest(config.build + 'css/'));
 
   return merge(appCSS, assetsCSS, packagesCSS);
@@ -125,7 +134,7 @@ gulp.task('prepare-css', ['clean-css'], function(){
 
 
 
-gulp.task('prepare', ['prepare-js','prepare-fonts','prepare-images', 'prepare-css', 'prepare-html'],function(){
+gulp.task('prepare', ['clean','prepare-js','prepare-fonts','prepare-images', 'prepare-css', 'prepare-html'],function(){
   log('*** Preparing files for production ***');
 });
 

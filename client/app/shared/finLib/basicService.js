@@ -8,7 +8,7 @@
 
 (function() {
 
-  angular.module('app').factory('finlibBasic', function (mathlibMath) {
+  angular.module('app').factory('finlibBasic', ['mathlibMath', function (mathlibMath) {
 
     var fun = {};
 
@@ -318,7 +318,7 @@
 
 
     return fun;
-  });
+  }]);
 
 
 })();

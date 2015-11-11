@@ -4,7 +4,7 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('kaufpreisController', function($scope, $rootScope, chartConfig, $interval, marketdataService, hauskaufCalculator){
+  angular.module('app').controller('kaufpreisController', ['$scope', '$rootScope', 'chartConfig', '$interval', 'marketdataService', 'hauskaufCalculator', function($scope, $rootScope, chartConfig, $interval, marketdataService, hauskaufCalculator){
 
     var vm = this;
 
@@ -82,7 +82,7 @@
 
 
 
-  });
+  }]);
 
 
 

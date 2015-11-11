@@ -4,7 +4,7 @@
 (function(){
   'use strict';
 
-  angular.module('app').controller('deutschlandsbestearbeitsmaerkteController', function($scope, chartConfig, $http){
+  angular.module('app').controller('deutschlandsbestearbeitsmaerkteController', ['$scope', 'chartConfig', '$http', function($scope, chartConfig, $http){
 
     $http({
       method: 'GET',
@@ -68,7 +68,7 @@
 
 
 
-  });
+  }]);
 
 })();
 
