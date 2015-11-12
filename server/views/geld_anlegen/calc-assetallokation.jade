@@ -2,6 +2,12 @@
    Created by benjamintanz on 05.10.15.
 
 extends ../layout
+
+block meta
+  meta(name='keywords', content='Geldanlage, ETF, Aktien, Tagesgeld, Festgeld, Assetallokation')
+  meta(name='description', content='Finden Sie eine Ihrem Risikoprofil entsprechende Mischung aus Geldanlagen.')
+
+
 block content
   div#wrapper.clearfix
     include ../_includes/navheader
@@ -9,7 +15,7 @@ block content
     //- Page-title
     section#page-title
       include ../_mixins/page_title
-      mixin page_title('Wie verteile ich mein Geld am besten?', 'Finden Sie eine Ihrem Risikoprofil entsprechend Mischung aus Geldanlagen.', ['Home', '/'], ['Geld anlegen', '/geldanlage'], ['Assetallokation', '/geldanlage/assetallokation', 'true'])
+      mixin page_title('Wie verteile ich mein Geld am besten?', 'Finden Sie eine Ihrem Risikoprofil entsprechende Mischung aus Geldanlagen.', ['Home', '/'], ['Geld anlegen', '/geldanlage'], ['Assetallokation', '/geldanlage/assetallokation', 'true'])
 
     //-page-content
     section#content(ng-controller='assetallokationController as vm')
