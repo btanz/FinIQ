@@ -95,6 +95,7 @@ block content
           //- </div> ********** END page center - main content **********
           //- ********** sidebar right **********
           include ../_mixins/sidebar
-          //mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/hauskauf/deutschlands-attraktivste-arbeitsmaerkte', title: 'Deutschlands attraktivste Arbeitsmärkte', description: 'Der FinIQ-Attraktivitätsindex zeigt Ihnen, wie wirtschaftlich attraktiv die einzelnen Regionen Deutschlands sind.'}})
+
           //- </div> ********** END sidebar right **********
     include ../_includes/footer

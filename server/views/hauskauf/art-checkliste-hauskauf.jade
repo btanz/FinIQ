@@ -53,6 +53,7 @@ block content
           //- </div> ********** END page center - main content **********
           //- ********** sidebar right **********
           include ../_mixins/sidebar
-          //mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/hauskauf/checkliste-hauskauf', title: 'Die FinIQ-Checkliste zum Hauskauf', description: 'Bestens vorbereitet auf den Besichtigungstermin: Die Checkliste für die Besichtigung bei geplantem Hauskauf.'}})
+
           //- </div> ********** END sidebar right **********
     include ../_includes/footer

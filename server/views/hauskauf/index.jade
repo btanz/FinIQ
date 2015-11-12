@@ -75,7 +75,8 @@ block content
 
           //- sidebar
           include ../_mixins/sidebar
-          //mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/hauskauf', title: 'Der FinIQ-Guide zum Hauskauf', description: 'Mit den interaktiven Berechnungstools und Guides von FinIQ behalten Sie den Durchblick beim Hauskauf.'}})
+
 
 
     include ../_includes/footer

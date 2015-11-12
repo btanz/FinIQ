@@ -240,6 +240,7 @@ block content
 
           //- ********** sidebar right **********
           include ../_mixins/sidebar
-          //mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/hauskauf/mieten-oder-kaufen', title: 'Mieten oder Kaufen', description: 'Das Mieten-oder-Kaufen-Berechnungstool unterstützt Sie dabei, herauszufinden, ob Sie eine bestimmte Immobilie besser mieten oder kaufen sollten.'}})
+
           //- </div> ********** END sidebar right **********
     include ../_includes/footer
