@@ -53,7 +53,8 @@ module.exports = function(){
       './client/assets/js/highcharts/map.src.js',
       './client/assets/js/highcharts/mapdata/countries/de/de-all.js',
       './client/assets/js/highcharts/mapdata/countries/de/de-all-all.js',
-      './client/assets/js/highcharts/mapdata/custom/world.js'
+      './client/assets/js/highcharts/mapdata/custom/world.js',
+      './client/assets/js/googleAnalytics/ga.js'
     ],
 
     packagesJS: [
