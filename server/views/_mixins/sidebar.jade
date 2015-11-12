@@ -1,11 +1,13 @@
-//
-   Created by benjamintanz on 22.10.15.
+//-
+   Created by benjamintanz on 12.11.15.
 
-mixin sidebar(...items)
+
+mixin sidebar(obj)
+  include ../_mixins/social_share_item
   div.sidebar.nobottommargin.col_last.clearfix
     div.sidebar-widgets-wrap
-      each item in items
-        div.widget.clearfix
-          h4=item[0]
-          p=item[1]
+      if obj.social
+        mixin social_share_item(obj.socialcontent.link, obj.socialcontent.title, obj.socialcontent.description)
+
+
 

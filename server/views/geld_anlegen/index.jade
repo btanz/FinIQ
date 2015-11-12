@@ -48,7 +48,7 @@ block content
               div
                 include ../_mixins/article_preview_item
 
-                mixin article_preview_item('Wie lege ich Geld an?', 'Wir zeigen Ihnen, wie Sie ihr Geld für sich arbeiten lassen.', '/geldanlage/wie-lege-ich-geld-an')
+                mixin article_preview_item('Wie lege ich Geld an?', 'Wir zeigen Ihnen, wie Sie Ihr Geld für sich arbeiten lassen.', '/geldanlage/wie-lege-ich-geld-an')
 
                 mixin article_preview_item('Wie funktionieren Aktien?', 'Das Wichtigste zum Einstieg in die Welt der Aktien.', '/geldanlage/wie-funktionieren-aktien')
 
@@ -64,13 +64,13 @@ block content
 
                 mixin blog_preview_item('3 Tipps zur Geldanlage für Studenten', '02.11.2015', 'Mit guten Geldanlageentscheidungen schon zur Studienzeit können Sie die Grundlage legen für mehr Geld und einen besseren Lifestyle in der Zukunft.', '/geldanlage/geldanlage-fuer-studenten', 'assets/img/geld_anlegen/blog_geldanlagefuerstudenten_01.jpg', 'Tipps zur Geldanlage für Studenten')
 
-                mixin blog_preview_item('4 häufige Fehler bei der Geldanlage', '04.11.2015', 'Fehler sind auch bei der Geldanlage nicht zu vermeiden und wahrscheinlich hat fast jeder schon einmal eine finanzielle Entscheidung getroffen, welche er später bereut hat. Für eine erfolgreiche Anlagestrategie. sollten Sie wissen, was man tun und was man besser lassen sollte. Wir erläutern Ihnen 4 der häufigsten Fehler bei der Geldanlage.', '/geldanlage/fehler-bei-der-geldanlage', 'assets/img/geld_anlegen/blog_haeufigeFehlerGeldanlage_01.jpg', 'Häufige Fehler bei der Geldanlage')
+                mixin blog_preview_item('4 häufige Fehler bei der Geldanlage', '04.11.2015', 'Fehler sind auch bei der Geldanlage nicht zu vermeiden und wahrscheinlich hat fast jeder schon einmal eine finanzielle Entscheidung getroffen, welche er später bereut hat. Für eine erfolgreiche Anlagestrategie sollten Sie wissen, was man tun und was man besser lassen sollte. Wir erläutern Ihnen 4 der häufigsten Fehler bei der Geldanlage.', '/geldanlage/fehler-bei-der-geldanlage', 'assets/img/geld_anlegen/blog_haeufigeFehlerGeldanlage_01.jpg', 'Häufige Fehler bei der Geldanlage')
 
 
 
           //- sidebar
           include ../_mixins/sidebar
-          //mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/geldanlage', title: 'Einmaleins der privaten Geldanlage', description: 'Die FinIQ Tools und Visualisierungen helfen Ihnen, gute und unabhängige Finanzentscheidungen zu treffen.'}})
 
 
     include ../_includes/footer

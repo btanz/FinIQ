@@ -1,0 +1,24 @@
+//
+   Created by benjamintanz on 12.11.15.
+
+mixin social_share_item(href, title, description)
+  - var link = encodeURIComponent(href);
+  - var title = encodeURIComponent(title);
+  - var description = encodeURIComponent(description);
+  - var domain = encodeURIComponent('http://www.finiq.de');
+
+  div.widget.clearfix
+    h4(style='margin-bottom: 10px;') Teilen
+    div.col_full.clearfix
+      a(href='http://www.facebook.com/share.php?u=' + link + '&title=' + title).social-icon.si-colored.si-rounded.si-small.si-facebook
+        i.icon-facebook
+        i.icon-facebook
+      a(href='https://twitter.com/intent/tweet?text=' + description).social-icon.si-colored.si-rounded.si-small.si-twitter
+        i.icon-twitter
+        i.icon-twitter
+      a(href='https://www.xing.com/spi/shares/new?url=' + link).social-icon.si-colored.si-rounded.si-small.si-xing
+        i.icon-xing
+        i.icon-xing
+      a(href='http://www.linkedin.com/shareArticle?mini=true&url=' + link + '&title=' + title + '&source=' + domain).social-icon.si-colored.si-rounded.si-small.si-linkedin
+        i.icon-linkedin
+        i.icon-linkedin

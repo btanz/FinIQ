@@ -71,6 +71,7 @@ block content
           //- </div> ********** END page center - main content **********
           //- ********** sidebar right **********
           include ../_mixins/sidebar
-          //mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/geldanlage/wie-funktionieren-aktien', title: 'Wie funktionieren Aktien?', description: 'Das Wichtigste zum Einstieg in die Welt der Aktien.'}})
+
           //- </div> ********** END sidebar right **********
     include ../_includes/footer

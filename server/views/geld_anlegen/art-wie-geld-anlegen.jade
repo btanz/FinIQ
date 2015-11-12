@@ -80,6 +80,7 @@ block content
           //- </div> ********** END page center - main content **********
           //- ********** sidebar right **********
           include ../_mixins/sidebar
-          //mixin sidebar(['Mehr von FinIQ', 'links'],['Share'], ['Newsletter'])
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/geldanlage/wie-lege-ich-geld-an', title: 'Wie lege ich Geld an?', description: 'FinIQ zeigt Ihnen, wie Sie Geld für sich arbeiten lassen.'}})
+
           //- </div> ********** END sidebar right **********
     include ../_includes/footer

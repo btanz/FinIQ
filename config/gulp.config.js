@@ -50,11 +50,13 @@ module.exports = function(){
     assetsJS: [
       './client/assets/js/canvas/plugins.js',
       './client/assets/js/canvas/functions.js',
+      './client/assets/js/socialPlugins/socialPlugins.js',
+      './client/assets/js/googleAnalytics/ga.js',
       './client/assets/js/highcharts/map.src.js',
       './client/assets/js/highcharts/mapdata/countries/de/de-all.js',
       './client/assets/js/highcharts/mapdata/countries/de/de-all-all.js',
-      './client/assets/js/highcharts/mapdata/custom/world.js',
-      './client/assets/js/googleAnalytics/ga.js'
+      './client/assets/js/highcharts/mapdata/custom/world.js'
+
     ],
 
     packagesJS: [
