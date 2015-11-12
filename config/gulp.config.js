@@ -65,7 +65,7 @@ module.exports = function(){
       './client/packages/angularjs-slider/dist/rzslider.js',
       './client/packages/highcharts/highcharts.js',
       './client/packages/highcharts/highcharts-more.js',
-      './client/packages/highcharts/modules/exporting.js',
+      //'./client/packages/highcharts/modules/exporting.js',
       './client/packages/highcharts-ng/dist/highcharts-ng.js',
       './client/packages/underscore/underscore.js',
       './client/packages/angular-animate/angular-animate.js',

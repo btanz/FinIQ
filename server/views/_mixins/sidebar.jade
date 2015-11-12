@@ -3,11 +3,23 @@
 
 
 mixin sidebar(obj)
-  include ../_mixins/social_share_item
+  include ../_mixins/sidebar_social_share_item
   div.sidebar.nobottommargin.col_last.clearfix
     div.sidebar-widgets-wrap
+      //- social sharing buttons
       if obj.social
-        mixin social_share_item(obj.socialcontent.link, obj.socialcontent.title, obj.socialcontent.description)
+        mixin sidebar_social_share_item(obj.socialcontent.link, obj.socialcontent.title, obj.socialcontent.description)
+      //- mehr von FinIQ links
+      if obj.more
+        div.widget.clearfix.notopmargin.notoppadding(style= 'border-top: 0;')
+          h4 Mehr von FinIQ
+            ul.sf-links
+              each elem in obj.morecontent
+                li
+                  a(href=elem[0])=elem[1]
+
+
+
 
 
 
