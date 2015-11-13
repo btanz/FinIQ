@@ -10,7 +10,7 @@ var fileDir;
 if(process.env.ON_HEROKU === true){
   fileDir = appDir + '/server/other/hauskauf/data/'
 } else {
-  fileDir = appDir + '/other/hauskauf/data/'
+  fileDir = appDir + '/server/other/hauskauf/data/'
 }
 
 exports.besteArbeitsmarkte = {
