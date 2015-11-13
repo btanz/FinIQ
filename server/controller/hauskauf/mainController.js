@@ -9,7 +9,7 @@ exports.besteArbeitsmarkte = {
 
 
   serveJson:  function(req, res, next) {
-    var data = require('../../../other/hauskauf/data/besteArbeitsmaerkte.json');
+    var data = require('.././hauskauf/data/besteArbeitsmaerkte.json');
 
     var nullFilter = function(obj){
       return !(obj['hc-key'] === null || obj['value'] == null);
@@ -42,7 +42,7 @@ exports.grundstueckspreise = {
 
   serveJson:  function(req, res, next) {
 
-    var data = require(appDir + '/other/hauskauf/data/Grundstueckspreise.json');
+    var data = require(appDir + '/hauskauf/data/Grundstueckspreise.json');
 
 
     var nullFilter = function(obj){
