@@ -50,6 +50,7 @@ exports.grundstueckspreise = {
 
   serveJson:  function(req, res, next) {
 
+    console.log(process.env.ON_HEROKU);
 
     var data = require(fileDir + 'Grundstueckspreise.json');
 
