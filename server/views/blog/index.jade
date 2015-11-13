@@ -33,7 +33,9 @@ block content
               include ../blog/_mixins/blog_preview_item
 
               //- blog preview entries
-              mixin blog_preview_item('4 häufige Fehler bei der Geldanlage', '04.11.2015', 'Fehler sind auch bei der Geldanlage nicht zu vermeiden und wahrscheinlich hat fast jeder schon einmal eine finanzielle Entscheidung getroffen, welche er später bereut hat. Für eine erfolgreiche Anlagestrategie. sollten Sie wissen, was man tun und was man besser lassen sollte. Wir erläutern Ihnen 4 der häufigsten Fehler bei der Geldanlage.', '/geldanlage/fehler-bei-der-geldanlage', 'assets/img/geld_anlegen/blog_haeufigeFehlerGeldanlage_01.jpg', 'Häufige Fehler bei der Geldanlage')
+              mixin blog_preview_item('Das Baby ist da: Wie Sie das neue Familienmitglied in Ihrer Finanzplanung berücksichtigen', '12.11.2015', 'Nicht wenige Eltern sind in den ersten Jahren nach der Geburt überrascht, dass deutlich weniger Geld auf dem Konto übrigbleibt als zunächst erwartet: Kinder sind wunderbar, kosten aber auch einiges an Geld! Mit etwas Planung jedoch können Sie die ersten Jahre nach der Geburt gut meistern. Worauf es dabei ankommt, erläutern wir in diesem Artikel.', '/geldanlage/das-baby-ist-da', 'assets/img/geld_anlegen/blog_dasBabyIstDa_01.jpg', 'Das Baby ist da: Wie Sie das neue Familienmitglied in Ihrer Finanzplanung berücksichtigen')
+
+              mixin blog_preview_item('4 häufige Fehler bei der Geldanlage', '04.11.2015', 'Fehler sind auch bei der Geldanlage nicht zu vermeiden und wahrscheinlich hat fast jeder schon einmal eine finanzielle Entscheidung getroffen und später bereut. Für eine erfolgreiche Anlagestrategie sollten Sie wissen, was man tun und was man besser lassen sollte. Wir erläutern Ihnen 4 der häufigsten Fehler bei der Geldanlage.', '/geldanlage/fehler-bei-der-geldanlage', 'assets/img/geld_anlegen/blog_haeufigeFehlerGeldanlage_01.jpg', 'Häufige Fehler bei der Geldanlage')
 
               mixin blog_preview_item('3 Tipps zur Geldanlage für Studenten', '02.11.2015', 'Mit guten Geldanlageentscheidungen schon zur Studienzeit können Sie die Grundlage legen für mehr Geld und einen besseren Lifestyle in der Zukunft.', '/geldanlage/geldanlage-fuer-studenten', 'assets/img/geld_anlegen/blog_geldanlagefuerstudenten_01.jpg', 'Tipps zur Geldanlage für Studenten')
 
@@ -43,25 +45,9 @@ block content
 
               mixin blog_preview_item('Deutschlands attraktivste Arbeitsmärkte', '05.10.2015', 'Die Attraktivität des Arbeitsmarktes hat großen Einfluß auf die Lebensqualität in den Städten und Landkreisen sowie die heutige und zukünftige Bewertung von Immobilien. Der FinIQ-Attraktivitätsindex zeigt Ihnen, wie wirtschaftlich attraktiv die einzelnen Regionen Deutschlands sind.', '/hauskauf/deutschlands-attraktivste-arbeitsmaerkte', 'assets/img/hauskauf/img_arbeitsmaerkte.jpg', 'Deutschlands attraktivste Arbeitsmärkte')
 
-
-
           //- sidebar
-          div.sidebar.nobottommargin.col_last.clearfix
-            div.sidebar-widgets-wrap
-              div.widget.clearfix
-                h4 FinIQ-Tools
-                  ul.sf-links
-                    li
-                      a(href='/geldanlage/assetallokation') Wie verteile ich mein Geld am besten?
-                    li
-                      a(href='/geldanlage/assetallokation') Wie wächst mein Sparguthaben im Zeitverlauf?
-                    li
-                      a(href='/hauskauf/wie-hoch-darf-der-hauspreis-sein') Wieviel Haus kann ich mir leisten?
-                    li
-                      a(href='/hauskauf/mieten-oder-kaufen') Ist mieten besser als kaufen?
-              div.widget.clearfix.notopborder.notoppadding.notopmargin
-                h4 Teilen
-
+          include ../_mixins/sidebar
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/blog', title: 'Der FinIQ Blog', description: 'Nehmen Sie Ihre finanzielle Zukunft in die Hand.'}, more: true, morecontent: [['/hauskauf/wie-hoch-darf-der-hauspreis-sein', 'Wie viel Haus kann ich mir leisten?'], ['/geldanlage/assetallokation', 'Wie verteile ich mein Geld am besten?'], ['/geldanlage/sparrechner', 'Wie wächst mein Sparguthaben im Zeitverlauf?']]})
 
 
     include ../_includes/footer

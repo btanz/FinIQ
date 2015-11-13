@@ -37,7 +37,7 @@ h6 {
   content: attr(number);
   color: #009CDE;
   margin-right: 15px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   text-shadow: 2px 0px 0px #007db8;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -47,7 +47,13 @@ h6 {
 .sf-styled-h4{
   margin-top: 30px;
   font-weight: 900;
-  font-size: 24px;
+  font-size: 22px;
+}
+.sf-plain-h4{
+  margin-top: 30px;
+  font-weight: 900;
+  font-size: 22px;
+  color: #009CDE;
 }
 
 blockquote{

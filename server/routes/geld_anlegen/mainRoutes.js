@@ -64,6 +64,12 @@ router.get('/fehler-bei-der-Geldanlage', function(req, res, next) {
   res.render('geld_anlegen/blog-fehler-bei-der-geldanlage');
 });
 
+/** GET Das Baby ist da */
+router.get('/das-baby-ist-da', function(req, res, next) {
+  res.render('geld_anlegen/blog-das-baby-ist-da');
+});
+
+
 
 
 
