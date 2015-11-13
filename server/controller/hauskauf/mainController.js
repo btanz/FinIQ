@@ -1,7 +1,12 @@
 /**
  * Created by benjamintanz on 14.10.15.
  */
+
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
+
 exports.besteArbeitsmarkte = {
+
 
   serveJson:  function(req, res, next) {
     var data = require('../../../other/hauskauf/data/besteArbeitsmaerkte.json');
@@ -36,15 +41,8 @@ exports.besteArbeitsmarkte = {
 exports.grundstueckspreise = {
 
   serveJson:  function(req, res, next) {
-    //var data = require('../../../other/hauskauf/data/besteArbeitsmaerkte.json');
 
-    var data = require('../../../other/hauskauf/data/Grundstueckspreise.json');
-
-
-    //console.log(data);
-
-
-
+    var data = require(appDir + '/other/hauskauf/data/Grundstueckspreise.json');
 
 
     var nullFilter = function(obj){
