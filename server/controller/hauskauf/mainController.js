@@ -42,7 +42,7 @@ exports.grundstueckspreise = {
 
   serveJson:  function(req, res, next) {
 
-    var data = require(appDir + '/hauskauf/data/Grundstueckspreise.json');
+    var data = require(appDir + '/server/other/hauskauf/data/Grundstueckspreise.json');
 
 
     var nullFilter = function(obj){
