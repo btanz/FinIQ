@@ -4,20 +4,14 @@
 
 var path = require('path');
 var appDir = path.dirname(require.main.filename);
-var fileDir;
+var fileDir = appDir + '/other/hauskauf/data/';
 
-// check whether we are on heroku and assign file directory
-if(process.env.ON_HEROKU === true){
-  fileDir = appDir + '/other/hauskauf/data/'
-} else {
-  fileDir = appDir + '/other/hauskauf/data/'
-}
 
 exports.besteArbeitsmarkte = {
 
 
   serveJson:  function(req, res, next) {
-    var data = require('.././hauskauf/data/besteArbeitsmaerkte.json');
+    var data = require(fileDir + 'besteArbeitsmaerkte.json');
 
     var nullFilter = function(obj){
       return !(obj['hc-key'] === null || obj['value'] == null);
@@ -49,8 +43,6 @@ exports.besteArbeitsmarkte = {
 exports.grundstueckspreise = {
 
   serveJson:  function(req, res, next) {
-
-
 
     var data = require(fileDir + 'grundstueckspreise.json');
 
