@@ -8,7 +8,7 @@ var fileDir;
 
 // check whether we are on heroku and assign file directory
 if(process.env.ON_HEROKU === true){
-  fileDir = appDir + '/other/hauskauf/data/'
+  fileDir = appDir + '/server/other/hauskauf/data/'
 } else {
   fileDir = appDir + '/other/hauskauf/data/'
 }
@@ -52,7 +52,7 @@ exports.grundstueckspreise = {
 
 
 
-    var data = require(fileDir + 'Grundstueckspreise.json');
+    var data = require(fileDir + 'grundstueckspreise.json');
 
 
     var nullFilter = function(obj){
