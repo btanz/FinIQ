@@ -11,25 +11,28 @@ block content
     mixin navheader(true)
 
 
-    section#slider.slider-parallax(style='background: url(assets/img/landing/img_landing_03c.jpg) no-repeat; background-size: cover', data-height-lg='1000', data-height-md='750', data-height-sm='650', data-height-xs='500', data-height-xxs='250')
+    section#slider.slider-parallax(style='background: url(assets/img/landing/img_landing_03e.jpg) no-repeat; background-size: cover', data-height-lg='1000', data-height-md='750', data-height-sm='650', data-height-xs='500', data-height-xxs='350')
       div.container.clearfix
         div.dark.center(style="position: absolute; top: 22%; width: 100%; margin-top: -46px; opacity: 1.77778;")
 
-          div.heading-block.nobottommargin.center
+          div.heading-block.nobottommargin.center.nobottomborder
             h1
               span.text-rotater.nocolor(data-separator='*', data-rotate='flipInX', data-speed='3500')
                 span.t-rotate(style='color: #F38200;')
                   a(href='/') Wieviel kann ich für ein Haus ausgeben?*
-                  | Sollte ich ein Haus besser mieten oder kaufen?*Wie funktioniert eigentlich Bausparen?*Was muss man bei der Geldanlage beachten?*Sollte ich Geld in Aktien anlegen?
-            //a(href="/").button.button-3d.button-rounded.button-red.button-large Jetzt herausfinden
-            span.hidden-xs Personalisierte Tools und Rechner für unabhängige Finanzentscheidungen.
+                  | Sollte ich ein Haus besser mieten oder kaufen?*Was muss man bei der Geldanlage beachten?*Sollte ich Geld in Aktien anlegen?
+
+            span.hidden-xs.notopmargin Personalisierte Tools und Rechner für unabhängige Finanzentscheidungen.
+            a#link-to-content.button.button-3d.button-rounded.button-large.stopmargin(style= 'background-color: #F38200 !important;') Mehr erfahren
 
 
     section#content
+
       div.content-wrap(style='background-color: #DDE1E2;').nobottompadding.xxstoppadding
 
         //- short content overview
         div.container.clearfix
+
 
           div.col_one_third.mbottommargin.mtopmargin
             div.feature-box.fbox-effect.fbox-center.nobottomborder
@@ -65,7 +68,7 @@ block content
               p Text
           div.clear
 
-
+      a(name='content-overview')
       div.content-wrap.nobottommargin
         div.container.clearfix
           //- long content overview
