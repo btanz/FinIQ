@@ -4,6 +4,14 @@
 
 var path = require('path');
 var appDir = path.dirname(require.main.filename);
+var fileDir;
+
+// check whether we are on heroku and assign file directory
+if(process.env.ON_HEROKU === true){
+  fileDir = appDir + '/other/hauskauf/data/'
+} else {
+  fileDir = appDir + '/server/other/hauskauf/data/'
+}
 
 exports.besteArbeitsmarkte = {
 
@@ -42,7 +50,8 @@ exports.grundstueckspreise = {
 
   serveJson:  function(req, res, next) {
 
-    var data = require(appDir + '/server/other/hauskauf/data/Grundstueckspreise.json');
+
+    var data = require(fileDir + 'Grundstueckspreise.json');
 
 
     var nullFilter = function(obj){
