@@ -8,9 +8,9 @@ var fileDir;
 
 // check whether we are on heroku and assign file directory
 if(process.env.ON_HEROKU === true){
-  fileDir = appDir + '/server/other/hauskauf/data/'
+  fileDir = appDir + '/other/hauskauf/data/'
 } else {
-  fileDir = appDir + '/server/other/hauskauf/data/'
+  fileDir = appDir + '/other/hauskauf/data/'
 }
 
 exports.besteArbeitsmarkte = {
