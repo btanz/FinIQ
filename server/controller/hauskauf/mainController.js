@@ -10,7 +10,7 @@ var fileDir;
 if(process.env.ON_HEROKU === true){
   fileDir = appDir + '/other/hauskauf/data/'
 } else {
-  fileDir = appDir + '/server/other/hauskauf/data/'
+  fileDir = appDir + '/other/hauskauf/data/'
 }
 
 exports.besteArbeitsmarkte = {
@@ -50,7 +50,7 @@ exports.grundstueckspreise = {
 
   serveJson:  function(req, res, next) {
 
-    console.log(process.env.ON_HEROKU);
+
 
     var data = require(fileDir + 'Grundstueckspreise.json');
 
