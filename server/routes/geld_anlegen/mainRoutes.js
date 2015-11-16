@@ -69,6 +69,11 @@ router.get('/das-baby-ist-da', function(req, res, next) {
   res.render('geld_anlegen/blog-das-baby-ist-da');
 });
 
+/** GET Smart Beta: eine neue Sicht */
+router.get('/smart-beta', function(req, res, next) {
+  res.render('geld_anlegen/blog-smart-beta-explanation');
+});
+
 
 
 
