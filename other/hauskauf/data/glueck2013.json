@@ -1,0 +1,178 @@
+{
+  "1":{
+    "Name": "Schleswig-Holstein",
+    "WVS_happiness_2013": 7.36,
+    "HighchartsID": "de-sh",
+    "WVS_happy_veryHappy": 11,
+    "WVS_happy_ratherHappy": 48,
+    "WVS_happy_notVeryHappy": 9,
+    "WVS_happy_notAtAllHappy": 2,
+    "WVS_happy_noAnswer": 1,
+    "WVS_N": 71
+  },
+  "2":{
+    "Name": "Hamburg",
+    "WVS_happiness_2013": 6.95,
+    "HighchartsID": "de-hh",
+    "WVS_happy_veryHappy": 11,
+    "WVS_happy_ratherHappy": 29,
+    "WVS_happy_notVeryHappy": 4,
+    "WVS_happy_notAtAllHappy": 0,
+    "WVS_happy_noAnswer": 1,
+    "WVS_N": 45
+  },
+  "3":{
+    "Name": "Niedersachsen",
+    "WVS_happiness_2013": 7.70,
+    "HighchartsID": "de-ni",
+    "WVS_happy_veryHappy": 38,
+    "WVS_happy_ratherHappy": 137,
+    "WVS_happy_notVeryHappy": 16,
+    "WVS_happy_notAtAllHappy": 1,
+    "WVS_happy_noAnswer": 5,
+    "WVS_N": 197
+  },
+  "4":{
+    "Name": "Bremen",
+    "WVS_happiness_2013": 7.25,
+    "HighchartsID": "de-hb",
+    "WVS_happy_veryHappy": 6,
+    "WVS_happy_ratherHappy": 7,
+    "WVS_happy_notVeryHappy": 1,
+    "WVS_happy_notAtAllHappy": 3,
+    "WVS_happy_noAnswer": 0,
+    "WVS_N": 17
+  },
+  "5":{
+    "Name": "Nordrhein-Westfalen",
+    "WVS_happiness_2013": 7.18,
+    "HighchartsID": "de-nw",
+    "WVS_happy_veryHappy": 70,
+    "WVS_happy_ratherHappy": 297,
+    "WVS_happy_notVeryHappy": 64,
+    "WVS_happy_notAtAllHappy": 5,
+    "WVS_happy_noAnswer": 9,
+    "WVS_N": 445
+  },
+  "6":{
+    "Name": "Hessen",
+    "WVS_happiness_2013": 7.46,
+    "HighchartsID": "de-he",
+    "WVS_happy_veryHappy": 44,
+    "WVS_happy_ratherHappy": 74,
+    "WVS_happy_notVeryHappy": 31,
+    "WVS_happy_notAtAllHappy": 0,
+    "WVS_happy_noAnswer": 2,
+    "WVS_N": 151
+  },
+  "7":{
+    "Name": "Rheinland-Pfalz",
+    "WVS_happiness_2013": 7.39,
+    "HighchartsID": "de-rp",
+    "WVS_happy_veryHappy": 18,
+    "WVS_happy_ratherHappy": 68,
+    "WVS_happy_notVeryHappy": 14,
+    "WVS_happy_notAtAllHappy": 0,
+    "WVS_happy_noAnswer": 1,
+    "WVS_N": 101
+  },
+  "8":{
+    "Name": "Baden-WÃ¼rttemberg",
+    "WVS_happiness_2013": 7.08,
+    "HighchartsID": "de-bw",
+    "WVS_happy_veryHappy": 64,
+    "WVS_happy_ratherHappy": 155,
+    "WVS_happy_notVeryHappy": 39,
+    "WVS_happy_notAtAllHappy": 7,
+    "WVS_happy_noAnswer": 0,
+    "WVS_N": 265
+  },
+  "9":{
+    "Name": "Bayern",
+    "WVS_happiness_2013": 7.55,
+    "HighchartsID": "de-by",
+    "WVS_happy_veryHappy": 103,
+    "WVS_happy_ratherHappy": 162,
+    "WVS_happy_notVeryHappy": 38,
+    "WVS_happy_notAtAllHappy": 7,
+    "WVS_happy_noAnswer": 1,
+    "WVS_N": 311
+  },
+  "10":{
+    "Name": "Saarland",
+    "WVS_happiness_2013": 7.55,
+    "HighchartsID": "de-sl",
+    "WVS_happy_veryHappy": 6,
+    "WVS_happy_ratherHappy": 15,
+    "WVS_happy_notVeryHappy": 1,
+    "WVS_happy_notAtAllHappy": 1,
+    "WVS_happy_noAnswer": 2,
+    "WVS_N": 25
+  },
+  "11":{
+    "Name": "Berlin",
+    "WVS_happiness_2013": 7.99,
+    "HighchartsID": "de-be",
+    "WVS_happy_veryHappy": 23,
+    "WVS_happy_ratherHappy": 52,
+    "WVS_happy_notVeryHappy": 12,
+    "WVS_happy_notAtAllHappy": 1,
+    "WVS_happy_noAnswer": 0,
+    "WVS_N": 88
+  },
+  "12":{
+    "Name": "Brandenburg",
+    "WVS_happiness_2013": 6.59,
+    "HighchartsID": "de-bb",
+    "WVS_happy_veryHappy": 8,
+    "WVS_happy_ratherHappy": 39,
+    "WVS_happy_notVeryHappy": 15,
+    "WVS_happy_notAtAllHappy": 1,
+    "WVS_happy_noAnswer": 1,
+    "WVS_N": 64
+  },
+  "13":{
+    "Name": "Mecklenburg-Vorpommern",
+    "WVS_happiness_2013": 7.06,
+    "HighchartsID": "de-mv",
+    "WVS_happy_veryHappy": 11,
+    "WVS_happy_ratherHappy": 26,
+    "WVS_happy_notVeryHappy": 4,
+    "WVS_happy_notAtAllHappy": 1,
+    "WVS_happy_noAnswer": 0,
+    "WVS_N": 42
+  },
+  "14":{
+    "Name": "Sachsen",
+    "WVS_happiness_2013": 7.54,
+    "HighchartsID": "de-sn",
+    "WVS_happy_veryHappy": 31,
+    "WVS_happy_ratherHappy": 68,
+    "WVS_happy_notVeryHappy": 9,
+    "WVS_happy_notAtAllHappy": 0,
+    "WVS_happy_noAnswer": 0,
+    "WVS_N": 108
+  },
+  "15":{
+    "Name": "Sachsen-Anhalt",
+    "WVS_happiness_2013": 7.40,
+    "HighchartsID": "de-st",
+    "WVS_happy_veryHappy": 15,
+    "WVS_happy_ratherHappy": 35,
+    "WVS_happy_notVeryHappy": 7,
+    "WVS_happy_notAtAllHappy": 1,
+    "WVS_happy_noAnswer": 2,
+    "WVS_N": 60
+  },
+  "16":{
+    "Name": "ThÃ¼ringen",
+    "WVS_happiness_2013": 7.42,
+    "HighchartsID": "de-th",
+    "WVS_happy_veryHappy": 14,
+    "WVS_happy_ratherHappy": 35,
+    "WVS_happy_notVeryHappy": 8,
+    "WVS_happy_notAtAllHappy": 0,
+    "WVS_happy_noAnswer": 0,
+    "WVS_N": 57
+  }
+}
