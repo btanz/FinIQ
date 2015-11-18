@@ -67,7 +67,7 @@ router.get('/checkliste-hauskauf/download', function(req, res, next) {
 
 /** **************** II. DATA ROUTES **************** */
 
-router.get('/deutschlands-beste-arbeitsmaerkte/map_data', hauskaufCtrl.besteArbeitsmarkte.serveJson);
+router.get('/deutschlands-attraktivste-arbeitsmaerkte/map_data', hauskaufCtrl.besteArbeitsmarkte.serveJson);
 
 router.get('/uebersicht-der-grundstueckspreise/map_data', hauskaufCtrl.grundstueckspreise.serveJson);
 

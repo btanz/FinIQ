@@ -613,7 +613,7 @@
 
     $http({
       method: 'GET',
-      url: '/hauskauf/deutschlands-beste-arbeitsmaerkte/map_data'
+      url: '/hauskauf/deutschlands-attraktivste-arbeitsmaerkte/map_data'
     }).then(function successCallback(response) {
       $scope.chartConfig_1.series[0].data = response.data;
     }, function errorCallback(response) {
