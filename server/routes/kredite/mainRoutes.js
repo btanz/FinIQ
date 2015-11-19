@@ -11,7 +11,10 @@ var appDir = path.dirname(require.main.filename);
 var krediteCtrl = require('../../controller/kredite/mainController');
 
 /** **************** I. HTML ROUTES **************** */
-
+/** get the index page **/
+router.get('/', function(req, res, next) {
+  res.render('kredite/index');
+});
 
 
 
@@ -23,6 +26,11 @@ var krediteCtrl = require('../../controller/kredite/mainController');
 
 
 /** **************** IB. ARTICLE ROUTES **************** */
+router.get('/wie-werde-ich-schuldenfrei', function(req, res, next) {
+  res.render('kredite/art-wie-werde-ich-schuldenfrei');
+});
+
+
 
 
 
