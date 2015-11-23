@@ -74,6 +74,13 @@ router.get('/smart-beta', function(req, res, next) {
   res.render('geld_anlegen/blog-smart-beta-explanation');
 });
 
+/** GET Sechs häufige Fragen zu ETFs */
+router.get('/haeufige-fragen-zu-etfs', function(req, res, next) {
+  res.render('geld_anlegen/blog-antworten-auf-fragen-zu-etfs');
+});
+
+
+
 
 
 

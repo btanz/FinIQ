@@ -1,0 +1,102 @@
+//-
+   Created by benjamintanz on 13.10.15.
+
+extends ../layout
+
+block meta
+  meta(name='keywords', content='ETFs, Frage zu ETFs, börsengehandelte Fonds, Geldanlage, Aktien')
+  meta(name='description', content='Da ETFs trotz ihres starken Wachstums noch immer zu den vergleichsweise neuen Instrumenten der Geldanlage gehören, kursieren viele offene Fragen und Missverständnisse zu diesen Produkten. Wir haben daher versucht, sechs häufige Fragen zu ETFs so einfach und verständlich wie möglich zu beantworten.')
+
+
+
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    //-page-content
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Die Antworten auf sechs häufige Fragen zu Exchange-traded funds (ETF
+                    span(style='text-transform: lowercase; color: #434343') s
+                    | )
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/') Blog
+                  li.nobottommargin
+                    a(href='/geldanlage') Geldanlage
+                  li.nobottommargin
+                    a(href='/geldanlage/haeufige-fragen-zu-etfs') Die Antworten auf sechs häufige Fragen zu Exchange-traded funds (ETFs)
+
+                ul.entry-meta.clearfix
+                  li
+                    i.icon-calendar3
+                    | 23.11.2015 &nbsp
+                    i.icon-user
+                    | FinIQ &nbsp
+
+
+                div.entry-content.notopmargin
+                  div.entry-image.alignright
+                    img(src='/assets/img/geld_anlegen/blog_haeufigeFragenZuEtfs_01.jpg', alt='Haeufige Fragen zu ETFs')
+                    p.sf-image-source iStock.com / Melpomenem
+                  p ETFs werden als Anlageobjekte immer beliebter und eignen sich ausgezeichnet für den Einstieg in die langfristige Aktienanlage. Seit der Einführung des Handels mit ETFs in Deutschland durch die deutsche Börse im Jahr 2000 ist das Angebot an ETFs stetig gewachsen. Inzwischen sind mehr als 1.000 ETFs von 19 Anbietern über die Deutsche Börse handelbar - Tendenz steigend.
+                  p Da ETFs trotz ihres starken Wachstums noch immer zu den vergleichsweise neuen Instrumenten der Geldanlage gehören, kursieren viele offene Fragen und Missverständnisse zu diesen Produkten. Wir haben daher versucht, sechs häufige Fragen zu ETFs so einfach und verständlich wie möglich zu beantworten.
+
+
+                  h4.sf-styled-h4(number='1') Was ist der Unterschied zwischen ETFs und traditionellen Investmentfonds?
+                  p Wie auch bei Investmentfonds investiert man bei einer Anlage in ETFs in einen diversifizierten Korb verschiedener Wertpapiere. Dieser Korb ist meist ein Index wie der DAX, der Euro Stoxx 50 oder der MSCI World, welcher durch den Fonds abgebildet wird.
+                  p Im Unterschied zu Investmentfonds können ETFs wie eine Aktie jederzeit frei an der Börse gekauft und verkauft werden, während Investmentfonds in der Regel nur einmal täglich zum am Ende eines Handelstages veröffentlichten Preis gehandelt werden können. Weiterhin fällt bei Investmentfonds in der Regel ein Ausgabeaufschlag an, welcher bei ETFs entfällt.
+
+
+                  h4.sf-styled-h4(number='2') Gehe ich mit ETFs mehr Risiken ein als mit traditionellen Investmentfonds?
+                  p Neue und weniger vertraute Anlageinstrumente wie ETFs werden oft als risikoreicher angesehen als traditionelle Instrumente wie Investmentfonds. Allerdings wird das Risiko von ETFs und Investmentfonds praktisch komplett durch den Korb an Wertpapieren bestimmt, welche der Fonds abbildet. Kaufen Sie also einen ETF oder Investmentfonds auf den DAX, dann entsteht Ihr Risiko aus den Schwankungen der Aktien im DAX. Wenn der Korb an Wertpapieren bzw. der Index gleich ist, dann sind auch die Risiken praktisch gleich, egal ob Sie mit einem Investmentfonds oder einen ETF investieren. Traditionelle Investmentfonds bilden zwar einen Index wie den DAX nicht eins zu eins ab, allerdings sind die größten Schwankungen dieser Fonds dennoch meist auf die Schwankungen des Index zurückzuführen.
+
+                  h4.sf-styled-h4(number='3') Gibt es ETFs nur auf Aktienindizes wie den DAX?
+                  p Die Mehrzahl der ETFs, welche in Aktien investieren, bilden einen Aktienindex ab. Das Spektrum verfügbarer Indizes reicht vom großen MSCI World bis zu kleinen Nischenindizes wie den MSCI EMU Small Cap Index, welcher kleine Unternehmen in der Europäischen Wirtschafts- und Währungsunion abbildet. ETFs sind daher grundsätzlich an einen der zahlreichen Aktienindizes gebunden.
+                  p Die Bindung an einen Index macht ETFs zu einem passiven Investment. Das Management des ETFs kauft und verkauft nur dann Aktien, wenn der ETF den Index nicht mehr korrekt abbildet. Dies kann zum Beispiel der Fall sein, wenn sich die Gewichtung einzelner Aktien im Index verändert hat oder wenn Unternehmen aus dem Index ausgeschieden sind. Im Unterschied zu aktiven Investmentfonds, welche versuchen, mehr Rendite als der Vergleichsindex zu erzielen, ist diese mechanische Strategie der Indexabbildung deutlich kostengünstiger. Diese Kostenersparnisse schlagen sich am Ende in niedrigeren Management-Gebühren für Sie als Anleger nieder.
+                  p Neben diesen sehr verbreiteten ETFs gibt es auch börsengehandelte Fonds auf Anleihen-, Rohstoff- und Immobilienindizes sowie ETFs, welche systematisch in Unternehmen mit bestimmten Eigenschaften investieren. Mit solchen ETFs können fortgeschrittene Anleger ihr Portfolio weiter optimieren.
+
+                  h4.sf-styled-h4(number='4') Sind ETFs nur etwas für fortgeschrittene Anleger?
+                  p Die Antwort auf diese Frage ist ein klares "Nein". Sofern Sie sich entscheiden haben, nicht nur in absolute sichere aber renditearme Anlagen wie Tages- oder Festgeld zu investieren, sind ETFs der nächste logische Schritt für Sie. Schließlich können Sie mit ETFs eine kostengünstige und diversifizierte Aktienanlage realisieren. Achten Sie für den Einstieg aber darauf, nur in ETFs zu investieren, welche bekannte Aktienindizes der Industrieländer wie den DAX, den MSCI World oder den Euro Stoxx 50 abbilden.
+                  p Es gibt einige wenige exotische ETFs, welche nur für fortgeschrittene Anleger sinnvoll sind. Diese ETFs bilden nicht nur einen Index ab, sondern verfolgen darüber hinaus noch bestimmte Strategien. Sie erkennen diese ETFs an Zusätzen wie "long-short", "leverage", "spin-off" oder "inverse".
+
+                  h4.sf-styled-h4(number='5') Zahle ich für ETFs höhere Gebühren als für konventionelle Investmentfonds?
+                  p Nein, Sie zahlen für ETFs normalerweise sogar geringere Gebühren. Dafür gibt es zwei Gründe: Der erste Grund ist, dass ETFs nur ein kostengünstiges passives Management haben, welches zu niedrigen laufenden Kosten (Management fees) führt und damit den Geldbeutel schont. Außerdem sorgt die Tatsache, dass ETFs börsengehandelt sind, grundsätzlich für mehr Kostentransparenz beim Kauf und Verkauf. Darum zahlen Sie bei ETFs zum Beispiel keine Ausgabeaufschläge oder ähnliche Gebühren, sondern lediglich die Kosten, welche auch beim Kauf oder Verkauf einer Aktie entstehen würden.
+                  p Durchschnittlich belaufen sich die Anschaffungs- und Verkaufskosten bei ETFs auf jeweils einmalig etwa 0,2 % der Anlagesumme und die laufenden Kosten auf 0,2 - 0,5 % der Anlagesumme pro Jahr. Bei traditionellen Aktienfonds mit aktivem Management belaufen sich die Anschaffungskosten einmalig auf etwa 1 - 5 % der Anlagesumme (Ausgabeaufschlag) und die laufenden Kosten liegen zwischen 1,0 und 1,5 % pro Jahr.
+
+                  h4.sf-styled-h4(number='6') Verzichte ich auf Rendite, wenn ich in Fonds mit passivem statt aktivem Management investiere?
+                  p Wenn Sie einen Fonds mit einem Superstar-Manager erwischt haben, dann wird dieser sicherlich seine Managementgebühren für das aktive Management auch verdienen und Ihnen mit der gezielten Auswahl einzelner Aktien mehr Rendite schaffen, als der relevante Vergleichsindex, in welchen Sie stattdessen investieren würden.
+                  blockquote
+                    p Die Realität ist, dass Ihnen passives Management im langfristigen Durschnitt etwa genauso viel Rendite bringt wie aktives Management, aber zu deutlich günstigeren Kosten.
+                  p Die Realität ist leider, dass es sehr wenige solcher Superstar-Manager gibt. Fondsmanager, welche über einen Zeitraum besser waren als der Index, fallen meist früher oder später wieder zurück. Viele
+                    span(data-toggle='tooltip', title='Eine bekannte Studie ist das Papier von Eugene F. Fama und Kenneth R. French (2010): "Luck versus Skill in the Cross-Section of Mutual Fund Returns" (Journal of Finance).').text-tooltip  Studien
+                    |  haben gezeigt, dass aktives Management, selbst vor Abzug der Gebühren, auf Dauer kaum bessere Renditen erzielt als ein passives Investment in einen Index. Besonders düster für aktives Management sieht es aus, wenn man die Managementgebühren dann noch abzieht.
+                  p Selbst wenn es einige wirklich gute Fondsmanager gibt, ist es außerordentlich schwer, diese zu finden. Kein Manager wird behaupten, dass er nicht zu den Besten seines Fachs gehört. Und wer im letzten Jahr der Star war, kann im nächsten Jahren schon wieder weit zurückfallen.
+                  p Die Realität ist also, dass Ihnen passives Management im langfristigen Durschnitt etwa genauso viel Rendite bringt wie aktives Management, passives Management aber deutlich kostengünstiger ist.
+
+                  div.divider.notopmargin.mbottommargin
+                  p Falls Sie erst am Anfang stehen und erste Erfahrungen mit der Investition in ETFs sammeln wollen, empfehlen wir den Artikel
+                    a(href='/geldanlage/was-sind-etfs')  Was sind ETFs?
+
+                  p Sie finden mehr Artikel zur Geldanlage im FinIQ
+                    a(href='/geldanlage')  Einmaleins der privaten Geldanlage.
+                  div.divider.notopmargin.mbottommargin
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/geldanlage/haeufige-fragen-zu-etfs', title: 'Die Antworten auf sechs häufige Fragen zu ETFs.', description: 'Einfache Antworten auf häufige Fragen zu ETFs.'}, more: true, morecontent: [['/geldanlage/assetallokation', 'Wie verteile ich mein Geld am besten?'], ['/geldanlage/sparrechner', 'Wie entwickeln sich meine Ersparnisse über die Zeit?'], ['/geldanlage/was-sind-etfs', 'Was sind ETFs?']]})
+
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer
