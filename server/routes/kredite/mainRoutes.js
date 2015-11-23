@@ -20,7 +20,10 @@ router.get('/', function(req, res, next) {
 
 
 /** **************** IA. CALCULATOR ROUTES **************** */
-
+/** GET dispozinsrechner page. */
+router.get('/dispozinsrechner', function(req, res, next) {
+  res.render('kredite/calc-dispozinsrechner');
+});
 
 
 

@@ -1,0 +1,117 @@
+//-
+   Created by benjamintanz on 23.11.15.
+
+extends ../layout
+
+block meta
+  meta(name='keywords', content='Dispozinsrechner, Dispozinsen berechnen, Überziehungszinsen berechnen, Überziehungszinsrechner, Überziehungszinsen')
+  meta(name='description', content='Der Sparrechner zeigt Ihnen, wie das von Ihnen angelegte Kapital über die Zeit anwächst. Sie können die Ergebnisse auf Ihre Situation zuschneiden, indem Sie Parameter wie u. a. die Sparrate, den Sparzeitraum und den Zinssatz individuell einstellen.')
+  //- todo: modify description tag
+
+
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+    //- Page-title
+    section#page-title
+      include ../_mixins/page_title
+      mixin page_title('Dispozinsrechner', 'Berechnen Sie, wie viel Zinsen Sie auf Ihren Dispokredit bezahlen.', ['Home', '/'], ['Kredite', '/kredite'], ['Dispozinsrechner', '/kredite/dispozinsrechner', 'true'])
+
+    //-page-content
+    section#content(ng-controller='dispozinsrechnerController as vm')
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** sidebar left (INPUTS) ***********
+          div.sidebar.nobottommargin.clearfix
+            div.sidebar-widgets-wrap.sidebar-widgets-wrap-calc
+              div.widget.clearfix
+                h4
+                  i.icon-pencil
+                  | &nbsp; Eingaben
+
+                //- primary inputs
+                sf-slider(description='Höhe Kontoüberziehung',           value='vm.inputs.principal',     tip='Der Betrag, um den das Konto "im Minus" ist.', addon='€', id='principal',  options='{"floor": "0", "ceil": "12000", "precision": "1", "step": "100"}')
+                sf-slider(description='Zinssatz Dispo',                  value='vm.inputs.dispointerest', tip='Der nominale Jahreszinssatz, welchen die Bank für die Nutzung des Dispositionskredits berechnet.', addon='% p. a.', id='dispointerest', options='{"floor": "0", "ceil": "16", "precision": "2", "step": "0.1"}')
+                sf-slider(description='Dauer der Überziehung',           value='vm.inputs.dispodays',      tip='Die Dauer der Kontoüberziehung in Tagen. Die Zinsmethode zur Berechnung des Zeitfaktors kann bei Bedarf unter "Details" angepasst werden.', addon='Tage', id='dispodays', options='{"floor": "0", "ceil": "500", "precision": "1", "step": "1"}')
+
+
+                //- secondary inputs
+                div.panel-group.nobottommargin.accordion
+                  div.panel.panel-default
+                    div.panel-heading
+                      a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='false', class='collapsed')
+                        i.fa.fa-angle-right.fa-lg
+                        |  Details
+                    div#collapseOne.panel-collapse.collapse(aria-expanded='false', style="height: 0px;")
+                      div.panel-body
+
+                        sf-slider(description='Kreditlinie Dispo',               value='vm.inputs.dispolimit',    tip='Die Kreditlinie für den Dispo ist der Betrag, bis zu dem der Dispositionskredit in Anspruch genommen werden darf. Auf diesen Betrag kommt der Zinssatz für den Dispokredit zur Anwendung. Falls kein Dispositionskredit besteht tragen Sie hier bitte eine 0 ein. Der Überziehungsbetrag wird dann direkt mit dem Zinssatz für weitere Überziehungen verzinst.', addon='€', id='dispolimit',  options='{"floor": "0", "ceil": "12000", "precision": "1", "step": "100"}')
+                        sf-slider(description='Zinssatz weitere Überziehung',    value='vm.inputs.otherinterest', tip='Der nominale Jahreszinssatz, welchen die Bank für Überziehungen berechnet, die über die Kreditlinie des Dispositionskredits hinausgehen ("geduldete Überziehung").', addon='% p. a.', id='otherinterest', options='{"floor": "0", "ceil": "16", "precision": "2", "step": "0.1"}')
+                        sf-select(description='Zinsmethode',                     value='vm.inputs.daycount',      tip='Anzuwendendes Verfahren zur Berechnung der Zins- und Basistage.', id='daycount', options='option.name for option in [{id: 1, name: "30E / 360 ISDA, Deutsche Zinsmethode"}, {id: 2, name: "30 / 360, ISDA Anleihenbasis"}, {id: 3, name: "act / 360"}, {id: 4, name: "act / 365"}, {id: 5, name: "act / act, Taggenaue Methode"}] track by option.id')
+
+          //- </div> ********** END sidebar left (INPUTS) **********
+
+
+          //- ********** page center - main content **********
+          div.postcontent.bothsidebar.nobottommargin.clearfix
+            div.col_full
+              h3 Sie zahlen
+                span  {{vm.result.amount | currency:"€":2}}
+                |  für diesen Dispokredit.
+
+
+              highchart(id='chart01', config='chartConfig_1')
+
+              h4 Berechnungsdetails
+              div.tabs.tabs-tb.tabs-bordered.clearfix.ui-tabs.ui-widget.ui-widget-content.ui-corner-all#results-tabs
+                ul.tab-nav.clearfix.ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all(role='tablist')
+                  li.ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active(role='tab', tabindex='0', aria-controls='tabs-5', aria-labelledby='ui-id-5', aria-selected='true')
+                    a(href='#tabs-5', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-5')
+                      i.fa.fa-calculator
+                      | Ergebnisse
+                  li.ui-state-default.ui-corner-top(role='tab', tabindex='-1', aria-controls='tabs-6', aria-labelledby='ui-id-6', aria-selected='false')
+                    a(href='#tabs-6', class='ui-tabs-anchor', role='presentation', tabindex='-1', id='ui-id-6')
+                      i.fa.fa-cogs
+                      | Vorgehen
+                div.tab-container
+
+                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-5(aria-labelledby='ui-id-5', role='tabpanel', aria-expanded='true', aria-hidden='false', style="display: block;")
+                    table.table
+                      tbody
+                        tr
+                          td Anfallende Dispozinsen
+                          td.text-right {{vm.result.amount | currency:"€":2 | parentheses}}
+                        tr
+                          td Gewichteter Sollzinssatz
+                          td.text-right {{vm.result.interest | currency:"%":2 | parentheses}}
+                        tr
+                          td Kreditlinie Dispo überschritten?
+                          td.text-right(ng-if='vm.inputs.principal <= vm.inputs.dispolimit') NEIN
+                          td.text-right(ng-if='vm.inputs.principal > vm.inputs.dispolimit') JA
+
+
+
+                  div.tab-content.clearfix.ui-tabs-panel.ui-widget-content.ui-corner-bottom#tabs-6(aria-labelledby='ui-id-6', role='tabpanel', aria-expanded='false', aria-hidden='true', style="display: none;")
+                    p Mit dem Dispozinsrechner können Sie herausfinden, wie viel Dispo- bzw. Überziehungszinsen Sie für einen Dispokredit an die Bank zahlen müssen. Sie können den Rechner zum Beispiel nutzen, um zu überprüfen, ob eine Refinanzierung des Dispokredits sinnvoll ist.
+                    h5.xsbottommargin Wie Sie das Ergebnis weiter personalisieren können
+                    p.xsbottommargin Passen Sie im ersten Schritt die Höhe der Kontoüberziehung, den Zinssatz Ihres Dispositionskredits sowie die (erwartete) Dauer der Überziehung Ihrem konkreten Fall an. Das Tool gibt Ihnen dann bereits die erwarteten zu zahlenden Dispozinsen an.
+                    p.xsbottommargin Mit den Eingaben unter "Details" können Sie die Berechnung noch weiter auf Ihren Fall zuschneiden. Sie können zum Beispiel die Kreditlinie des Dispos explizit angeben und einen Zinssatz für über die Kreditlinie hinausgehende Überziehungen vorgeben. Solche Überziehungen, bei welchen die Höhe der Kontoüberziehung die Kreditlinie des Dispos übersteigt, werden meist als "geduldete Überziehungen" bezeichnet. Das Tool wendet bei der Berechnung den Zinssatz für weitere Überziehungen auf solche über den Dispo hinausgehende Beträge an. Weiterhin können Sie die anzuwendende Zinsmethode wählen. Wenn Sie sich nicht sicher sind, nutzen Sie die Voreinstellung "Deutsche Zinsmethode". Diese ist in den meisten Fällen die richtige Wahl.
+
+
+
+
+            //div.col_full
+              p Finden Sie im nächsten Schritt mit dem
+                a(href='/geldanlage/assetallokation')  FinIQ Tool zur Assetallokation
+                |  heraus, wie Sie Ihr Geld sinnvoll über Tagesgeld, Festgeld und Aktienfonds verteilen.
+          //- </div> ********** END page center - main content **********
+
+
+
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/kredite/dispozinsrechner', title: 'FinIQ-Dispozinsrechner', description: 'Berechnen Sie, wie viel Zinsen Sie auf Ihren Dispokredit bezahlen.'}, more: true, morecontent: [['/kredite/wie-werde-ich-schuldenfrei', 'Wie werde ich schuldenfrei?'], ['/kredite/gute-schulden-und-schlechte-schulden', 'Gute und schlechte Schulden'], ['/geldanlage/was-sind-etfs', 'Was sind ETFs?']]})
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer
