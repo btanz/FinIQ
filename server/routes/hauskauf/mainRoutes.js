@@ -17,6 +17,9 @@ router.get('/', function(req, res, next) {
   res.render('hauskauf/index');
 });
 
+
+/** **************** IA. CALCULATOR ROUTES **************** */
+
 /** GET mieten oder kaufen. */
 router.get('/mieten-oder-kaufen', function(req, res, next) {
   res.render('hauskauf/mietenoderkaufen');
@@ -28,6 +31,28 @@ router.get('/wie-hoch-darf-der-hauspreis-sein', function(req, res, next) {
 });
 
 
+/** **************** IB. ARTICLE ROUTES **************** */
+
+/** GET wie laeuft der hauskauf ab. */
+router.get('/wie-laeuft-der-hauskauf-ab', function(req, res, next) {
+  res.render('hauskauf/art-ablauf-hauskauf');
+});
+
+/** GET checkliste hauskauf */
+router.get('/checkliste-hauskauf', function(req, res, next) {
+  res.render('hauskauf/art-checkliste-hauskauf');
+});
+
+router.get('/checkliste-hauskauf/download', function(req, res, next) {
+  //console.log(appDir);
+  res.set('Content-Type', 'application/pdf');
+  res.sendfile(appDir + '/other/hauskauf/data/finIQ_checklist_hauskauf.pdf','finIQ_Hauskauf_Checkliste');
+  //res.render('hauskauf/art-checkliste-hauskauf');
+});
+
+
+
+/** **************** IC. BLOG ROUTES **************** */
 
 /** GET deutschlands attraktivste arbeitsmärkte. */
 router.get('/deutschlands-attraktivste-arbeitsmaerkte', function(req, res, next) {
@@ -44,21 +69,9 @@ router.get('/schnaeppchen-regionen-zum-bauen', function(req, res, next) {
   res.render('hauskauf/zehn-schnaeppchen-regionen');
 });
 
-/** GET wie laeuft der hauskauf ab. */
-router.get('/wie-laeuft-der-hauskauf-ab', function(req, res, next) {
-  res.render('hauskauf/art-ablauf-hauskauf');
-});
-
-/** GET checkliste hauskauf */
-router.get('/checkliste-hauskauf', function(req, res, next) {
-  res.render('hauskauf/art-checkliste-hauskauf');
-});
-
-router.get('/checkliste-hauskauf/download', function(req, res, next) {
-  console.log(appDir);
-  res.set('Content-Type', 'application/pdf');
-  res.sendfile(appDir + '/other/hauskauf/data/finIQ_checklist_hauskauf.pdf','finIQ_Hauskauf_Checkliste');
-  //res.render('hauskauf/art-checkliste-hauskauf');
+/** GET lebenshaltungskosten in München */
+router.get('/lebenshaltungskosten-muenchen', function(req, res, next) {
+  res.render('hauskauf/blog-lebenshaltungskosten-muenchen');
 });
 
 
