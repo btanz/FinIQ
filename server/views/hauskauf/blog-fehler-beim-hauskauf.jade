@@ -1,0 +1,95 @@
+//
+   Created by benjamintanz on 25.11.15.
+
+extends ../layout
+
+block meta
+  meta(name='keywords', content='Fehler Hauskauf, Fehler Immobilienkauf, Immobilie, Altersvorsorge, Hauskauf ')
+  meta(name='description', content='Gerade wenn Sie zum ersten mal eine Wohnung oder ein Haus kaufen, sollten Sie besonders genau und detailliert planen, damit Ihr aus Ihrem Traumhaus nicht nach wenigen Jahren ein finanzieller Albtraum wird. Achten Sie darauf, nicht die folgenden fünf Fehler zu begehen, welche gerade jungen Käufern immer wieder passieren.')
+
+
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    //-page-content
+    section#content(ng-controller='haeufigeFehlerHauskaufController as controller')
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Fünf häufige finanzielle Fehler beim Hauskauf
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/blog') Blog
+                  li.nobottommargin
+                    a(href='/hauskauf') Hauskauf
+                  li.nobottommargin
+                    a(href='/hauskauf/haeufige-finanzielle-fehler-hauskauf') Fünf häufige finanzielle Fehler beim Hauskauf
+
+                ul.entry-meta.clearfix
+                  li
+                    i.icon-calendar3
+                    | 25.11.2015 &nbsp
+                    i.icon-user
+                    | FinIQ &nbsp
+
+
+                div.entry-content.notopmargin
+                  div.entry-image.alignright
+                    img(src='/assets/img/hauskauf/blog_fuenfFinanzielleFehlerHauskauf.jpg', alt='Der Hauskauf ist eine der wichtigsten finanziellen Entscheidungen')
+                    p.sf-image-source iStock.com / Xavier Arnau
+
+                  p Die Entscheidung zum Wohnungs- oder Hauskauf ist einer der wichtigsten finanziellen Meilensteine für junge Erwachsene. Aber nicht immer läuft alles glatt beim Übergang vom Mieter zum Immobilienbesitzer. Gerade wenn Sie zum ersten mal eine Wohnung oder ein Haus kaufen, sollten Sie besonders genau und detailliert planen, damit Ihr aus Ihrem Traumhaus nicht nach wenigen Jahren ein finanzieller Albtraum wird. Achten Sie darauf, nicht die folgenden fünf Fehler zu begehen, welche gerade jungen Käufern immer wieder passieren.
+                  h4.sf-styled-h4(number='1') Unterschätze Baukosten bzw. unterschätzter Renovierungs- und Modernisierungsbedarf
+                  p Noch selten ist ein Bauprojekt innerhalb des geplanten Budgets geblieben. Vielmehr treten im Prozess meist Umstände auf, die das Bauvorhaben teurer werden lassen als zunächst geplant. Daher sollten Sie bei den Kosten großzügig planen und diese vorsichtshalber etwa 20 % höher ansetzen als normalerweise geplant. Tun Sie das nicht, dann laufen Sie Gefahr, mit Ihrer Bank eine Nachfinanzierung verhandeln zu müssen. Nicht nur wird diese von den Banken höchst selten gewährt, Sie würden sich dann auch in einer denkbar schlechten Verhandlungsposition befinden. Im schlimmsten Fall ist das Ergebnisse eine  Bauruine. Um diese Situation zu vermeiden, hat sich folgende Strategie bewährt: Versuchen Sie, nicht Ihre gesamten verfügbaren Mittel als Eigenkapital in die Finanzierung einzubringen, sondern behalten Sie einen kleinen Anteil davon als Rücklage. Falls der Bau teurer wird als erwartet, dann können Sie diese Rücklage zur Finanzierung der weiteren Kosten verwenden. Falls der Bau doch nicht teurer wird, können Sie die Rücklage als erste Sondertilgung für den Kredit verwenden.
+                  p Nicht nur bei Neubauten, sondern auch beim Kauf von Bestandsimmobilien werden die Kosten häufig unterschätzt. Insbesondere die Kosten für Renovierung oder Modernisierung älterer Häuser sind deutlich höher, als meist angenommen wird. Dazu kommt, dass undichte Rohrleitungen, feuchte Wände oder Schäden an Dächern und Dachrinnen sofort behoben werden sollten, um weiteren Schäden vorzubeugen. Das führt dazu, dass höhere Kosten in einer für Sie ohnehin schon finanziell angespannten Situation auf Sie zukommen. Sie sollten also auch beim Kauf von Bestandsimmobilien daran denken, einen Rücklage für unerwartete Kosten zu bilden.
+
+
+                  h4.sf-styled-h4(number='2') Entgegen der verbreiteten Meinung sind Immobilien meist KEINE gute Altersvorsorge
+                  p Die Meinung, dass die eigene Immobilie eine der besten Altersvorsorgen ist, ist in Deutschland sehr weit verbreitet. Insbesondere in Niedrigzinsenphasen bricht häufig ein wahres Immobilienfieber aus und neue Eigenheime sprießen quer durchs Land wie Pilze aus dem Boden. Und natürlich gibt es viele gute und mitunter auch sehr persönliche Gründe für ein eigenes Zuhause. Der nach den eigenen Vorstellungen geplante Neubau oder der liebevoll sanierte Altbau können zu sehr interessanten und erfüllenden - sicher auch manchmal anstrengenden - Projekten werden. Außerdem verbringt man natürlich viel Lebenszeit in den eigenen vier Wänden. Von der finanziellen Seite abgesehen gibt es also gute Gründe für die eigene Immobilie.
+                  p Ob sich eine Immobilie auch finanziell lohnt steht allerdings auf einem ganz anderen Blatt. Experten wie der kürzlich mit dem Nobelpreis ausgezeichnete Wirtschaftswissenschaftler Robert Shiller betrachten einen hohen Anteil an Immobilien als Bestandteil des persönlichen finanziellen Portfolios schon lange als eine nicht mit den Fakten vereinbare Modeerscheinung.
+                  blockquote
+                    p "Es ist bekannt, dass Immobilien traditionell keine gute Investition sind. Immobilien brauchen Wartung, sie verlieren über die Zeit an Wert, sie müssen nach einiger Zeit modernisiert werden und der technische Fortschritt sorgt für weiteren Wertverlust."
+                    p "Wenn Sie denken, es sei eine gute Idee, in Immobilien zu investieren, warum investieren Sie nicht in Autos? Kaufen Sie ein Auto, motten Sie es ein, und verkaufen Sie es nach 10 Jahren. Dies ist offensichtlich keine gute Idee, weil niemand das Auto mehr kaufen will. Das gleiche gilt für die meisten Häuser. Daher sind sie nicht wirklich ein Investitionsobjekt."
+                    p(style='font-size:12px;') Nobelpreisträger Robert Shiller (übersetzt aus dem Englischen)
+                  p Fakt ist, dass die langfristige Rendite von Immobilien, abgesehen von einigen Top-Lagen in den Großstädten, im Durchschnitt in Deutschland wie auch in anderen Ländern gerade die Inflation ausgleicht und in der Vergangenheit weit hinter der Rendite zum Beispiel des Aktienmarktes zurückblieb.
+                  p FinIQ hat die Zahlen analysiert und den DAX-Performanceindex über die letzten 20 Jahre mit einem entsprechenden Immobilienindex verglichen. Das Ergebnis ist, dass Sie mit einer Investition in den DAX etwa 8 % Rendite pro Jahr erzielt hätten, während Sie mit Immobilien magere 3 % pro Jahr verdient hätten. Dabei ist sogar schon berücksichtigt, dass eine Immobilien Ihnen Wohnausgaben sparen bzw., wenn Sie nicht selbst darin wohnen würden, Mieteinnahmen generieren würde. Die Entwicklung des Aktien- und Immobilienindexes sind in der folgenden Grafik dargestellt. Details zur Berechnung können Sie
+                    span(data-toggle='tooltip', title='Ihre Rendite setzt sich sowohl bei Aktien als auch bei Immobilien aus zwei Elementen zusammen: Ein Element ist die Wertentwicklung der Aktie oder Immobilie, welche dazu führt, dass Sie die Aktie oder Immobilie irgendwann einmal teurer verkaufen können. Das zweite Element ist das Einkommen, welches generiert wird. Bei Aktien spricht man von Dividende, bei der Immobilie wird Einkommen aus der Nettokaltmiete generiert (oder Sie sparen Ausgaben, indem Sie die Immobilie selbst bewohnen). Um nicht Äpfel mit Birnen zu vergleichen, muss man also jeweils beide Komponenten berücksichtigen. Daher haben wir für die Aktienrendite den von der Bundesbank berechneten DAX Performanceindex genutzt, welcher sowohl Dividenden als auch Wertsteigerungen enthält. Diesen haben wir dann für das Jahr 1995 auf den Wert 100 normalisiert. Für den Immobilienindex haben wir den von der Bundesbank publizierten Preisindex für Reihenhäuser und Eigentumswohnungen herangezogen (blaue Linie). Diesen haben wir dann mit der vom Deutschen Institut für Wirtschaftsforschung (DIW) publizierten Nettomietrendite von 2,5 % pro Jahr erweitert, wobei wir Zinseszinseffekte berücksichtigten. Das Ergebnis ist ein vollständiger Immobilienrenditeindex, welcher mit dem DAX-Performanceindex vergleichbar ist (rote Linie).').text-tooltip  hier
+                    |  erfahren.
+                  highchart(id='chart01', config='chartConfig_1')
+                  p Die Fakten legen also nahe, dass Immobilien aus finanzieller Sicht, entgegen der vorherrschenden Meinung, keine besonders lukrative Altersvorsorge sind. In der Vergangenheit konnte man mit einer diversifizierten Anlage in den DAX ein Vielfaches an Rendite erzielen. Diese Tatsachen sollten Sie berücksichtigen, wenn Sie vor der Entscheidung stehen, eine Immobilie zu kaufen oder zu mieten.
+
+
+                  h4.sf-styled-h4(number='3') Alleinige Fokussierung auf den Kaufpreis
+                  p Wer das erste Mal eine Immobilien kauft, der sieht häufig den Kaufpreis als den einzigen Kostenblock beim Hauskauf an. Allerdings sollten Sie alleine für die Anschaffung noch einmal etwa 10 % auf den Kaufpreis aufschlagen, da auch die Grunderwerbssteuer, der Notar und der Makler bezahlt werden wollen.
+                  p Auch nach dem Kauf fallen laufende Kosten an, die man nicht unterschätzen sollte. Beispielsweise muss die Grundsteuer gezahlt werden. Außerdem möchten Sie die Immobilie möglicherweise auch gegen das ein oder andere Risiko absichern, was weitere laufende Kosten verursacht. Seien Sie sich also bewusst, dass neben dem Kaufpreis selbst weitere signifikante Kosten auf Sie zukommen.
+
+
+                  h4.sf-styled-h4(number='4') Unrealistisch hoher Kaufpreis
+                  p Der realisierbare Kaufpreis wird von Erstkäufern häufig als zu hoch eingeschätzt, da die Kosten wie erwähnt häufig unterschätzt werden. Damit Sie diesen Fehler nicht begehen und nicht mit der Bank eine meist sehr teure Nachfinanzierung verhandeln müssen, haben wir den
+                    a(href='/hauskauf/wie-hoch-darf-der-hauspreis-sein')  FinIQ-Kaufpreisrechner
+                    |  entwickelt. Dieses Tool hilft Ihnen, einzuschätzen, wie hoch der Kaufpreis für Ihre Immobilie sein kann. Dabei werden alle bekannten Kosten des Immobilienerwerbs automatisch berücksichtigt.
+
+                  h4.sf-styled-h4(number='5') Annahme des erstbesten Kreditangebots
+                  p Obwohl sich Hauskäufer meist viele Häuser oder Wohnungen anschauen, bevor Sie eine Entscheidung treffen, sind sie bei der Auswahl der Finanzierung viel weniger selektiv. Wer jedoch auch für die Finanzierung verschiedene Angebote vergleicht und nicht beim erstbesten Kreditvertrag zuschlägt, der kann möglicherweise viel Geld sparen. Die Konditionen der Anbieter können sich mitunter deutlich unterscheiden. Vergleichen Sie daher mindestens drei Anbieter. Darunter kann zum Beispiel die Hausbank, eine Online-Bank und ein Online-Vermittler sein.
+
+                  p Artikel und Tools zum Haus- und Wohnungskauf finden Sie im FinIQ
+                    a(href='/hauskauf')  Guide zum Haus- und Wohnungskauf.
+                  div.divider.notopmargin.mbottommargin
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/hauskauf/haeufige-finanzielle-fehler-hauskauf', title: 'Fünf häufige finanzielle Fehler beim Hauskauf', description: 'FinIQ bewahrt Sie vor fünf häufigen Fehler beim Hauskauf.'}, more: true, morecontent: [['/geldanlage/assetallokation', 'Wie verteile ich mein Geld am besten?'], ['/hauskauf/wie-hoch-darf-der-hauspreis-sein', 'Wie viel Haus oder Wohnung kann ich mir leisten?'], ['/hauskauf/mieten-oder-kaufen', 'Ist mieten besser als kaufen?']]})
+
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer

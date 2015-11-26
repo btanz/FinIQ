@@ -74,6 +74,11 @@ router.get('/lebenshaltungskosten-muenchen', function(req, res, next) {
   res.render('hauskauf/blog-lebenshaltungskosten-muenchen');
 });
 
+/** GET häufige finanzielle Fehler beim Hauskauf */
+router.get('/haeufige-finanzielle-fehler-hauskauf', function(req, res, next) {
+  res.render('hauskauf/blog-fehler-beim-hauskauf');
+});
+
 
 
 
