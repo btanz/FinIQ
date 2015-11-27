@@ -22,6 +22,7 @@ var hauskaufRoutes   = require('./../server/routes/hauskauf/mainRoutes');
 var geldanlageRoutes = require('./../server/routes/geld_anlegen/mainRoutes');
 var baufinanzierungRoutes  = require('./../server/routes/baufinanzierung/mainRoutes');
 var krediteRoutes    = require('./../server/routes/kredite/mainRoutes');
+var studiumRoutes    = require('./../server/routes/studium/mainRoutes');
 
 
 /** D. Init */
@@ -92,6 +93,7 @@ app.use('/geldanlage', geldanlageRoutes);
 app.use('/baufinanzierung', baufinanzierungRoutes);
 app.use('/blog', blogRoutes);
 app.use('/kredite', krediteRoutes);
+app.use('/studium', studiumRoutes);
 
 
 /** robots txt route */
