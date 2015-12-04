@@ -79,6 +79,11 @@ router.get('/haeufige-fragen-zu-etfs', function(req, res, next) {
   res.render('geld_anlegen/blog-antworten-auf-fragen-zu-etfs');
 });
 
+/** GET Die besten Finanzbücher 2015 */
+router.get('/die-besten-finanzbuecher-2015', function(req, res, next) {
+  res.render('geld_anlegen/blog-beste-finanzbuecher-2015');
+});
+
 
 
 

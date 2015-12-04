@@ -1,0 +1,82 @@
+//-
+   Created by benjamintanz on 04.12.15.
+
+extends ../layout
+
+block meta
+  meta(name='keywords', content='Bücher Finanzen, Finanzbücher, Persönliche Finanzen, Geldanlage, ETFs, Karriereplanung, Design Thinking')
+  meta(name='description', content='Zum Ende des Jahres stellt FinIQ die besten Finanzbücher aus 2015 vor. Diese Bücher haben uns inspiriert und uns neue Perspektiven auf das Thema persönliche Finanzen gegeben.')
+
+
+block content
+  div#wrapper.clearfix
+    include ../_includes/navheader
+    mixin navheader(false)
+
+    //-page-content
+    section#content
+      div.content-wrap.content-wrap-topics
+        div.container.clearfix
+
+          //- ********** page center - main content **********
+          div.postcontent.nobottommargin.clearfix
+            div.single-post.nobottompadding
+              div.entry.clearfix
+                div.entry-title
+                  h2 Unsere Auswahl der besten Finanzbücher 2015
+
+                ul.entry-meta.clearfix(style='margin-bottom: 10px;')
+                  li.nobottommargin
+                    a(href='/blog') Blog
+                  li.nobottommargin
+                    a(href='/geldanlage') Geld anlegen
+                  li.nobottommargin
+                    a(href='/geldanlage/die-besten-finanzbuecher-2015') Unsere Auswahl der besten Finanzbücher 2015
+
+                ul.entry-meta.clearfix
+                  li
+                    i.icon-calendar3
+                    | 04.12.2015 &nbsp
+                    i.icon-user
+                    | FinIQ &nbsp
+
+
+                div.entry-content.notopmargin
+                  div.entry-image.alignright
+                    img(src='/assets/img/geld_anlegen/blog_besteBuecher2015_01.jpg', alt='Beste Finanzbücher 2015')
+                    p.sf-image-source iStock.com / Elena Alyukova-Sergeeva
+
+                  p Zum Ende des Jahres stellen wir unsere besten Finanzbücher aus 2015 vor. Diese Bücher haben uns inspiriert und uns neue Perspektiven auf das Thema persönliche Finanzen gegeben. Vielleicht finden auch Sie über Weihnachten oder zum Begin des neuen Jahres etwas Zeit zum lesen und sind interessiert an unterhaltsamen Büchern zum Thema Finanzen. Wir hoffen, Ihnen mit dieser Liste unserer besten Bücher die Auswahl zu erleichtern und wünschen viel Spaß beim lesen!
+                  h4.sf-plain-h4 Rich Dad Poor Dad: Was die Reichen ihren Kinden über Geld beibringen
+                  h5.notopmargin Robert T. Kiyosaki
+                  p Diesen Klassiker von Robert Kiyosaki haben wir in diesem Jahr wiederentdeckt. Kiyosaki erzählt die Geschichte eines Jungen, welcher in einer Akademikerfamilie aufwächst, die, was das Finanzielle betrifft, nie wirklich auf einen grünen Zweig kommt. Vom Einkommen der Familie bleibt am Ende des Monats, nachdem die Miete gezahlt und alle Kosten gedeckt sind, kaum etwas übrig. Der Junge fragt sich, ob es nicht auch anders geht, und bittet den Vater seines reichen Freundes um Tipps. Dieser kann mit schnellen Tipps auch nicht weiterhelfen, bietet dem wissbegierigen Jungen aber eine finanzielle "Ausbildung" an, indem der Junge für den Vater des Freundes arbeitet und von diesem Hinweise erhält. Damit beginnt der mehrjährige spannende Weg des jungen Erwachsenen in die finanzielle Unabhängigkeit, welcher durch viele wertvolle Einsichten gekennzeichnet ist.
+                  p Kiyosaki versteht es, auf sehr originelle Weise Geschichten mit wertvollen Erkenntnissen zu verbinden und damit ein spannendes Leseerlebnis zu schaffen. Er führt den Leser, ohne mit dem Finger zu zeigen, zu der Einsicht, dass einkommensgenerierendes Vermögen auf lange Sicht besser ist als die meisten traditionellen Jobs.
+                  a(href='http://www.amazon.de/gp/product/3898798828/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=556245207&pf_rd_s=lpo-top-stripe&pf_rd_t=201&pf_rd_i=1612680011&pf_rd_m=A3JWKAKR8XB7XF&pf_rd_r=01WZFFJC162BFJ8H1YJX', target='_blank')  Rich Dad Poor Dad bei amazon.de
+
+                  h4.sf-plain-h4 Design Your Life: Dein ganz persönlicher Workshop für Leben und Traumjob!
+                  h5.notopmargin Robert Kötter & Marius Kursawe
+                  p Eines vorab: Design Your Life ist kein Buch zur bequemen einmaligen Lektüre auf dem Sofa. Vielmehr ist es ein kompletter Workshop, der Sie bei Interesse über Wochen und Monate begleitet und Ihnen Wege für ein freies und selbstbestimmtes Arbeitsleben aufzeigen wird. Es ist das ideale Buch für diejenigen, welche die Möglichkeiten der modernen Arbeitswelt nutzen möchten, um sich persönlich und beruflich zu orientieren.  Aus unserer Sicht ist Design Your Life gerade deswegen wertvoll, weil wir gerade was Karriere- und Laufbahnplanung angeht oft in alten Denkmustern verhaftet sind. Alte Denkmuster können zu Verhaltensweisen und Karriereschritten führen, welche nicht immer das beste für unsere Zukunft sind. Selbst wenn Sie nach dem Workshop feststellen, dass Sie beruflich gerade auf dem richtigen Weg sind, ist das Buch eine Bereicherung. Der Grund dafür ist, das Design Your Life Ihnen neue Perspektiven auf Ihre Karriere- und Laufbahnplanung gibt und Sie in Ihren Entscheidungen sicherer machen kann.
+                  p Wegen des guten Designs macht es viel Spaß, mit dem Buch zu arbeiten. Außerdem sind die Inhalte auf Basis des Design Thinkings konzipiert, welches bei Unternehmen und Karriereberatern sehr beliebt ist. Dem FinIQ-Team hat Design Your Life sehr viel Spaß gemacht.
+                  a(href='http://www.amazon.de/Design-Your-Life-pers%C3%B6nlicher-Workshop/dp/3593504472/ref=sr_1_8?s=books&ie=UTF8&qid=1449220059&sr=1-8&keywords=pers%C3%B6nliche+finanzen', target='_blank')  Design Your Life bei amazon.de
+
+                  h4.sf-plain-h4 Souverän investieren mit Indexfonds und ETFs: Wie Privatanleger das Spiel gegen die Finanzbranche gewinnen
+                  h5.notopmargin Gerd Kommer
+                  p FinIQ stellt immer wieder die Vorzüge von passiven Anlagen in Aktien-ETFs für Sie als Privatanleger heraus. In diesem kürzlich erschienenen Buch erklärt Gerd Kommer die Funktion von Kapitalmärkten und zeigt, wie Anleger mit passiven Investments langfristig von Aktien profitieren können. Das Buch ist, obwohl wissenschaftlich fundiert, sehr leicht verständlich geschrieben und auch für Einsteiger geeignet. Es vermittelt wertvolle unabhänige Informationen für Sie als Anleger, die Sie von Banken oder Finanzdienstleistern nur selten freiwillig bekommen. Daher ist es Pflichtlektüre für alle, die noch besser verstehen wollen, warum ETFs wohl die beste Alternative für eine langfristige Geldanlage in Aktien sind.
+                  a(href='http://www.amazon.de/Souver%C3%A4n-investieren-Indexfonds-ETFs-Privatanleger/dp/3593504545/ref=pd_sim_14_8?ie=UTF8&dpID=51sDlORsfdL&dpSrc=sims&preST=_AC_UL160_SR100%2C160_&refRID=12AVZV3EW4FC2G0PCMQ5', target='_blank')  Souverän investieren bei amazon.de
+
+                  p.stopmargin
+                    strong Mehr zur Geldanlage finden Sie im FinIQ
+                      a(href='/geldanlage')  Einmaleins der privaten Geldanlage.
+
+
+                  div.divider.notopmargin.mbottommargin
+
+
+
+          //- </div> ********** END page center - main content **********
+          //- ********** sidebar right **********
+          include ../_mixins/sidebar
+          mixin sidebar({social: true, socialcontent: {link: 'http://www.finiq.de/geldanlage/die-besten-finanzbuecher-2015', title: 'Unsere Auswahl der besten Finanzbücher 2015', description: 'Zum Ende des Jahres stellen wir unsere besten Finanzbücher aus 2015 vor. Diese Bücher haben uns inspiriert und uns neue Perspektiven auf das Thema persönliche Finanzen gegeben.'}, more: true, morecontent: [['/geldanlage/assetallokation', 'Wie verteile ich mein Geld am besten?'], ['/geldanlage/sparrechner', 'Wie entwickeln sich meine Ersparnisse über die Zeit?']]})
+
+          //- </div> ********** END sidebar right **********
+    include ../_includes/footer
