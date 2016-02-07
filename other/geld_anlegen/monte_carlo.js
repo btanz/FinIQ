@@ -2,7 +2,7 @@
  * Created by benjamintanz on 28.10.15.
  * Run monte carlo simulation for portfolio values
  *
- * Indenpendently run this file using 'node (filename)'
+ * Independently run this file using 'node (filename)'
  *
  */
 
